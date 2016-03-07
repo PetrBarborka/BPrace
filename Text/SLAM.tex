@@ -1,0 +1,85 @@
+
+\chapter{Příznaky v digitalizovaném obraze a jejich využití}
+
+V následujících kapitolách budou představeny především metody pro detekci a popis bodových příznaků. Tyto algoritmy se snaží v obraze nalézt co nejvýraznější body a popsat je tak, aby je při jejich opětovném nalezení v jiném obraze bylo možné identifikovat bez ohledu na změny podmínek mezi těmito obrazy (natočení, posunutí, roztažení, změna nasvětlení, ... ). Rozšířením tohoto přístupu je metoda maximálně stabilních extremálních oblastí (dále MSER), která  namísto bodů hledá celé oblasti, které budou co nejméně podléhat vlivu obrazových transformací. 
+
+Práce s bodovými příznaky zahrnuje:
+
+\begin{description}
+	\item[detekci příznaků,] tedy nalezení nejvhodnějších příznakových bodů.
+	\item[deskripci příznaků,] tedy popis příznaků tak, aby tyto byly správně identifikovány při opětovném nalezení za minimalizace vlivů osvětlení, prostorových transformací atd.
+	\item[způsob porovnání deskriptorů,] tj. metodu, kterou budeme určovat, který deskriptor patří ke kterému, který bod z jednoho obrazu náleží kterému z druhého.
+\end{description} 
+
+Některé z prezentovaných metod práce s bodovými příznaky řeší všechny tři tyto problémy, jiné jenom některé z nich a pro jejich využití je tedy potřeba ty zbylé nějak doplnit.
+
+Pro doplnění jsou uvedeny dvě metody pro detekci objektů, tj Haarovská kaskáda a histogram orientovaných gradientů, což jsou učící algoritmy, které v obraze hledají obecně objekty určitého charakteru (typicky například obličeje nebo postavy).
+
+Nakonec jsou ještě uvedeny metody porovnání popisů bodů a odhadu prostorové transformace pomocí množiny bodů identifikovaných mezi dvěma obrazy
+
+Využitím příznaků nalezených v digitalizovaném obraze je obecně identifikace objektů v obraze, sledování pohybu objektů v prostředí (tzv. tracking), rekonstrukce prostředí (mapping) a lokalizace pozorovatele.
+
+
+%Simultánní lokalizace a mapování neboli SLAM je úloha vytvoření mapy prostředí a zároveň určení pozice pozorovatele v tomto prostředí. Přesto, že se sloučení těchto dvou úloh na první pohled zdá jako komplikace, ve skutečnosti se jedná o  klíčový aspekt nalezení jejich řešení. 
+%
+%Existuje mnoho různých algoritmů k řešení tohoto problému, které se primárně liší předpokládaným technickým vybavením a prostředím jejich nasazení, zejména senzory pro získávání informace o prostředí (od 3D scannerů až po  dotykové senzory), a také použitým statistickým aparátem, který zahrnuje Kalmanův filtr, částicový filtr a další.
+%
+%V dalším je uvažován SLAM algoritmus, který:
+%
+%\begin{enumerate}
+%	\item Pracuje v reálném čase (vzorkovací frekvence cca 30Hz)
+%	\item Jako vstup používá jednu standartní kameru (např. webkameru)
+%%	\item Jako statistický aparát používá Kalmanův filtr.
+%	\item K mapování využívá příznaky
+%	\item Je navržen pro fungování obecně v jakémkoli prostředí bez jeho apriorní znalosti.
+%\end{enumerate}
+%
+%ad 4) Ačkoli existují velmi slibné metody bezpříznakové rekonstrukce prostředí v reálném čase (zejmena LSD SLAM), jejich složitost (hlavně implementační) je mimo možnosti realizace v rámci BP. Tyto metody jsou navíc z logiky věci výpočetně náročnější než hledání několika málo příznakových bodů v každém obraze, což ponechává příznakovému SLAMu prostor v oblasti aplikací na méně výkonném hardwaru.
+%
+%\section{Matematické Definice SLAMu}
+%%\label{sec:orgheadline2}
+%
+%V definici SLAMu vystupují nasledující tři proměnné:
+%
+%\begin{description}
+%	\item[{poloha pozorovatele \(x_{k}\),}] kde index \(k\) značí diskrétní čas
+%	\item[{poloha orientačních bodů \(m_{k}\)}] a
+%	\item[{pozorování $o_{k}$}] kde některé z algoritmů používají v každém kroku celou jeho historii \(o_{0:k}\), zatímco jiné za účelem zjednodušení úlohy a snížení její výpočetní náročnosti využijí pouze aktuální údaje, nebo nějakou jejich aproximaci na základě aktuálních a doposud vypočtených.
+%\end{description}
+%
+%Cílem algoritmu je nalézt pravděpodobnostní rozložení
+%\begin{align}
+%P(m_{k},x_{k}|o_{k}),
+%\end{align}
+%
+%kde střední hodnoty odhadovaných veličin s časem konvergují k jejich skutečným polohám a jejich kovarianční matice k nule.
+%
+%Při znalosti (nebo dostupnosti odhadu) rozložení \(P(x_{k}|x_{k-1})\) lze s
+%pomocí Bayesova pravidla tento vztah rozložit na:
+%
+%\begin{align}
+%P(x_{k}|o_{k}, m{k}) = P(o_{k}| x_{k}, m_{k})P(x_{k}|x_{k-1})
+%P(x_{k-1}|m_{k},o_{k}) \frac{1}{Z} \\
+%P(m_{k},o_{k}, x_{k}) = P(m_{k}|x_{k},m_{k-1},o_{k})
+%P(m_{k-1},x_{k}|o_{k},m_{k-1}),
+%\end{align}
+%
+%Přičemž rozložení na pravé straně rovnic lze získat z Kalmanova filtru a celkovou mapu potom střídavým obnovováním levých stran pomocí maximalizace očekávání.
+%
+%\section{Úloha detekce příznaků}
+%
+%K získání pozorování použitelného v rovnicích v předchozím bodě je potřeba mít:
+%
+%\begin{description}
+%	\item[detektor příznaků], který vhodné příznaky v obrazu nalezne
+%	\item[deskriptor příznaků], který nalezené příznaky popíše pro jejich uchování a porovnávání a
+%	\item[způsob porovnání deskriptorů]
+%\end{description} 
+%
+%Některé z prezentovaných metod řeší všechny tři tyto problémy, jiné jenom některé z nich a pro jejich zapojení do systému je tedy potřeba ty zbylé nějak doplnit.
+
+%Také je potřeba model odhadu hloubky (respektive 3D polohy) pozorovaných příznaků, tj jejich převedení z pozorovaných příznaků na orientační body, které bude s dalšími pozorovánímí konvergovat k nule.
+%
+%Orientační body získané pozorováním příznaků je dále nutno umět nějakým způsobem uchovávat, a hlídat jejich množství, tj. mít metriku jejich kvality, špatné zahazovat a soustředit se na nalezení a opětovnou identifikaci těch kvalitních.
+%
+%Obvyklým problémem SLAMu je též tzv. loop closure, neboli uzavření smyčky. Algoritmus má totiž po čase tendenci nasčítáním malých chyb v polohách orientačních bodů vytvořit velký prostorový posun mezi vzdálenými příznaky. Při znovunavštívení již viděného místa jinou cestou (což je právě to uzavření smyčky v trajektorii pozorovatele) je potřeba místo jako celek rozpoznat a vzniklý posun v mapě opravit.

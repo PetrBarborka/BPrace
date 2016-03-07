@@ -1,0 +1,86 @@
+
+\chapter{Simultánní lokalizace a maping}
+
+R.C. Smith, P. Cheeseman 1986
+
+SLAM je obecné označení skupiny algoritmů, které řeší orientaci v prostoru
+a polohu pozorovatele v prostoru zároveň jako jednu úlohu. Přesto, že se
+to na první pohled zdá jako komplikace, spojení těchto dvou úloh je ve
+skutečnosti klíčovým aspektem nalezení jejich řešení. Existuje mnoho různých
+implementačních variant tohoto problému, které se primárně liší 
+předpokládaným technickým vybavením a prostředím jejich nasazení, zejména
+senzory pro získávání informace o prostředí (od 3D scannerů až po 
+dotykové senzory), a také použitým statistickým aparátem, který zahrnuje
+Kalmanův filtr, částicový filtr a další.
+
+V dalším se budeme zabývat SLAM algoritmem který:
+
+1. Pracuje v reálném čase (vzorkovací frekvence cca 30Hz)
+2. Jako vstup používá jednu standartní kameru (např. webkameru)
+3. Jako statistický aparát používá Kalmanův filtr.
+4. K mapování využívá příznaky
+5. Je navržen pro fungování obecně v jakémkoli prostředí bez
+jeho apriorní znalosti.
+
+ad 4) Ačkoli existují velmi slibné metody bezpříznakové rekonstrukce 
+prostředí v reálném čase (zejmena LSD SLAM), jejich složitost (hlavně
+implementační) je mimo možnosti realizace v rámci BP. Tyto metody jsou
+navíc z logiky věci výpočetně náročnější než hledání několika málo
+příznakových bodů v každém obraze, což ponechává příznakovému SLAMU
+prostor v oblasti aplikací na méně výkonném hardwaru.
+
+* Definice
+
+V definici SLAMu vystupují nasledující tři proměnné:
+
++ poloha pozorovatele $x_{k}$, :: kde index $k$ značí diskrétní čas
++ poloha orientačních bodů $m_{k}$ :: a
++ pozorování o_{k}, :: kde některé z algoritmů používají v každém kroku 
+celou jeho historii $o_{0:k}$, zatímco jiné za účelem zjednodušení úlohy
+a snížení její výpočetní náročnosti využijí pouze aktuální údaje, nebo
+nějakou jejich aproximaci na základě aktuálních a doposud vypočtených.
+
+Cílem algoritmu je nalézt pravděpodobnostní rozložení
+\begin{align}
+P(m_{k},x{k}|o_{k}),
+\end{align}
+
+kde střední hodnoty odhadovaných veličin s časem konvergují k jejich 
+skutečným polohám a jejich kovarianční matice k nule.
+
+Při znalosti (nebo dostupnosti odhadu) rozložení $P(x_{k}|x_{k-1})$ lze s
+pomocí Bayesova pravidla tento vztah rozložit na:
+
+\begin{align}
+P(x_{k}|o_{k}, m{k}) = P(o_{k}| x_{k}, m_{k})P(x_{k}|x_{k-1})
+P(x_{k-1}|m_{k},o_{k}) \frac{1}{Z} \\
+P(m_{k},o_{k}, x_{k}) = P(m_{k}|x_{k},m_{k-1},o_{k})
+P(m_{k-1},x_{k}|o_{k},m_{k-1}),
+\end{align}
+Přičemž rozložení na pravé straně rovnic lze získat z Kalmanova filtru a 
+celkovou mapu potom střídavým obnovováním levých stran pomocí maximalizace
+očekávání.
+
+* Implementace
+
+K získání pozorování použitelného v rovnicích z předchozím bodě využijeme
+nějaký detektor obrazových příznaků spolu s metrikou pro jejich porovnávání
+(k fungování algoritmu je klíčové umět příznaky kvalitně zpětně rozpoznávat
+- asociovat). Tato funkcionalita je v některých algoritmech extrakce příznaků
+přímo zakomponována(SIFT, SURF, ...)
+
+Také je potřeba model odhadu hloubky (respektive 3D polohy) pozorovaných
+příznaků, tj jejich převedení z pozorovaných příznaků na orientační body,
+které bude s dalšími pozorovánímí konvergovat k nule.
+
+Orientační body získané pozorováním příznaků je dále nutno umět nějakým 
+způsobem uchovávat, a hlídat jejich množství, tj. mít metriku jejich kvality,
+špatné zahazovat a soustředit se na nalezení a opětovnou identifikaci těch
+kvalitních.
+
+Obvyklým problémem SLAMu je též tzv. loop closure, neboli uzavření smyčky.
+Algoritmus má totiž po čase tendenci nasčítáním malých chyb v polohách
+orientačních bodů vytvořit velký prostorový posun mezi vzdálenými příznaky.
+Při znovunavštívení již viděného místa jinou cestou (což je právě to uzavření
+smyčky v trajektorii pozorovatele) je potřeba místo jako celek rozpoznat a
+vzniklý posun v mapě opravit.
