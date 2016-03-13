@@ -5,6 +5,7 @@
 ### Code:
 
 #### Detekce:
+
     +   Harris -OK
     +   GFTT   -OK
     +   FAST   -OK
@@ -16,13 +17,12 @@
     +   ORB detector -OK   
 
 #### Deskripce:
-    +   Harris 
-    +   GFTT   
+
     +   BRIEF
     +   SIFT 
     +   SURF 
     +   MSER
     +   Haar
     +   HoG
-    +   ORB deskriptor
+    +   ORB descriptor
 
