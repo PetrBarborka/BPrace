@@ -32,6 +32,11 @@ int main(int argc, char *argv[])
 //        std::cout << "\narg " << i << ": " << argv[i] << "\n";
 //    }
 
+    if (argc < 2){
+      std::cout << "usage: BP pathtopicture";
+      return 1;
+    }
+  
     cv::Mat src, src_color;
 
     src_color = cv::imread(argv[1], 1);
