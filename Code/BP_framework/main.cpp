@@ -28,9 +28,9 @@ bool compareKeypointsByResponse(const cv::KeyPoint &k1, const cv::KeyPoint &k2);
 //MAIN ========================================================================
 int main(int argc, char *argv[])
 {
-//    for(int i = 0; i < argc; ++i ){
-//        std::cout << "\narg " << i << ": " << argv[i] << "\n";
-//    }
+    for(int i = 0; i < argc; ++i ){
+        std::cout << "\narg " << i << ": " << argv[i] << "\n";
+    }
 
     if (argc < 2){
       std::cout << "usage: BP pathtopicture";
@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
 
     src_color = cv::imread(argv[1], 1);
     cv::cvtColor(src_color, src, cv::COLOR_BGR2GRAY);
+
 
 //    std::cout << "src.data: " << src.data;
 
