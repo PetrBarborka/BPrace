@@ -49,6 +49,11 @@ set ( contrib_LIBS  -L/usr/local/lib
         -lopencv_xfeatures2d
         -lopencv_calib3d )
 
+
+set ( SOURCES src/utility.cpp)
+
+include_directories( ${PROJECT_SOURCE_DIR}/include )
+
 include_directories(${OpenCV_INCLUDE_DIRS})
-add_executable (BP main.cpp)
+add_executable ( BP main.cpp ${SOURCES} )
 target_link_libraries( BP ${OpenCV_LIBS} ${contrib_LIBS} Qt5::Core)

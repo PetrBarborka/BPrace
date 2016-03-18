@@ -1,16 +1,15 @@
 #include <QCoreApplication>
 
-#include <opencv2/imgproc.hpp>
-#include <opencv2/core.hpp>
-#include <opencv2/features2d.hpp>
-#include <opencv2/xfeatures2d.hpp>
-#include <opencv2/highgui.hpp>
+#include "opencv2/imgproc.hpp"
+#include "opencv2/features2d.hpp"
+#include "opencv2/xfeatures2d.hpp"
+#include "opencv2/highgui.hpp"
 
-#include <stdio.h>
 #include <iostream>
 
-//using namespace cv;
-//using namespace cv::xfeatures2d;
+#include "utility.hpp"
+
+using namespace BP;
 
 // ------- constants ----------
 int METHOD_HARRIS = 1, METHOD_GFTT = 2, METHOD_SIFT = 3, METHOD_SURF = 4, METHOD_FAST = 5, METHOD_MSER = 6, METHOD_ORB = 7;
@@ -18,12 +17,7 @@ int METHOD_HARRIS = 1, METHOD_GFTT = 2, METHOD_SIFT = 3, METHOD_SURF = 4, METHOD
 // ------- fcn declarations -------------
 void detect(cv::InputArray src, std::vector<cv::KeyPoint> &pts,
             int maxPts, int method);
-void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec);
-void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount);
-void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname);
-void PrintKeyPoint(const cv::KeyPoint &kp);
-void PrintKPVector(const std::vector<cv::KeyPoint> &kpv);
-bool compareKeypointsByResponse(const cv::KeyPoint &k1, const cv::KeyPoint &k2);
+
 
 //MAIN ========================================================================
 int main(int argc, char *argv[])
@@ -36,17 +30,15 @@ int main(int argc, char *argv[])
       std::cout << "usage: BP pathtopicture";
       return 1;
     }
-  
+
     cv::Mat src, src_color;
 
-    src_color = cv::imread(argv[1], 1);
+    src_color = cv::imread(argv[1], cv::IMREAD_COLOR);
     cv::cvtColor(src_color, src, cv::COLOR_BGR2GRAY);
 
-
-//    std::cout << "src.data: " << src.data;
-
     if (!src.data){
-        std::cout << "Failed to load image " << std::string(argv[0]) + "/" + std::string(argv[1]);
+        std::cout << "Working directory == " << std::string(argv[0]) << "\n";
+        std::cout << "Failed to load image " << std::string(argv[1]);
         return 1;
     }
 
@@ -207,52 +199,7 @@ void detect(cv::InputArray &src, std::vector<cv::KeyPoint> &pts,
 }
 
 
-//VISUAL - DRAWING ============================================================
-void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname){
-    cv::Mat out_mat;
-    in_mat.copyTo(out_mat);
-    cv::drawKeypoints(in_mat, kpts, out_mat, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_OVER_OUTIMG );
-    cv::imshow(winname, out_mat);
-}
 
-//MISC - UTILITIES ============================================================
-void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec){
-    std::vector<cv::Point2f>::const_iterator itb = in_vec.begin();
-    std::vector<cv::Point2f>::const_iterator ite = in_vec.end();
-    for (; itb < ite; itb++) {
-        std::cout << "pTK() is pushing " << *itb << std::endl;
-        out_vec.push_back(cv::KeyPoint(*itb, 30., 180., 1000., 0, -1));
-    }
-    std::cout << "points to keypoints:\n";
-    PrintKPVector(out_vec);
-}
-void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount){
- int remove = pts.size() - ammount;
- for (; remove > 0; remove --){
-    pts.pop_back();
- }
-}
-void PrintKeyPoint(const cv::KeyPoint &kp){
-      std::cout << "--\nKeypoint: " << kp.pt <<
-            " size: " << kp.size <<
-            " angle: " << kp.angle <<
-            " response: " << kp.response <<
-            " octave: " << kp.octave <<
-            " class_id: " << kp.class_id << std::endl;}
-void PrintKPVector(const std::vector<cv::KeyPoint> &kpv){
-
-    if (kpv.empty()){
-        std::cout << "PrintKPV error: input vector empty!\n";
-    }
-    std::vector<cv::KeyPoint>::const_iterator it = kpv.begin();
-    std::vector<cv::KeyPoint>::const_iterator ite = kpv.end();
-    for(; it < ite; it++){
-        PrintKeyPoint(*it);
-    }
-}
-bool compareKeypointsByResponse (const cv::KeyPoint &k1, const cv::KeyPoint &k2){
-    return k1.response > k2.response;
-}
 
 
 
