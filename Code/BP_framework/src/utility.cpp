@@ -7,6 +7,8 @@
 #include "opencv2/imgproc.hpp"
 #include "opencv2/features2d.hpp"
 
+#include "utility.hpp"
+
 namespace BP {
 
 //VISUAL - DRAWING ============================================================
@@ -22,7 +24,7 @@ void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::K
     std::vector<cv::Point2f>::const_iterator itb = in_vec.begin();
     std::vector<cv::Point2f>::const_iterator ite = in_vec.end();
     for (; itb < ite; itb++) {
-        std::cout << "pTK() is pushing " << *itb << std::endl;
+//        std::cout << "pTK() is pushing " << *itb << std::endl;
         out_vec.push_back(cv::KeyPoint(*itb, 30., 180., 1000., 0, -1));
     }
 }
