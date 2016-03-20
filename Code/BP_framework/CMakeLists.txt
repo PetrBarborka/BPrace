@@ -50,7 +50,7 @@ set ( contrib_LIBS  -L/usr/local/lib
         -lopencv_calib3d )
 
 
-set ( SOURCES src/utility.cpp src/detection.cpp src/description.cpp )
+set ( SOURCES src/utility.cpp src/detection.cpp src/description.cpp src/homography.cpp)
 
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 

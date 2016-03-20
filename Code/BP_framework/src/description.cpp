@@ -22,7 +22,7 @@ namespace BP {
 
         cv::Mat desc;
 
-        std::cout << "\ndetect() method runs\n";
+        std::cout << "\ndescribe() method runs\n";
         if (getMethod() == DESCRIPTION_BRIEF){
 
             //  BRIEF parameters

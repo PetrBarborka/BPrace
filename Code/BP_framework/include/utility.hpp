@@ -12,8 +12,9 @@ namespace BP {
     void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname);
     void PrintKeyPoint(const cv::KeyPoint &kp);
     void PrintKPVector(const std::vector<cv::KeyPoint> &kpv);
-    bool compareKeypointsByResponse(const cv::KeyPoint &k1, const cv::KeyPoint &k2);
 
+    bool compareKeypointsByResponse(const cv::KeyPoint &k1, const cv::KeyPoint &k2);
+    bool compareMatchesByDistance(const cv::DMatch &m1, const cv::DMatch &m2);
 }
 
 #endif //BP_UTILITY_H

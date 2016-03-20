@@ -11,16 +11,16 @@
 
 namespace BP {
 
-//VISUAL - DRAWING ============================================================
-void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname){
+    //VISUAL - DRAWING ============================================================
+    void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname){
     cv::Mat out_mat;
     in_mat.copyTo(out_mat);
     cv::drawKeypoints(in_mat, kpts, out_mat, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_OVER_OUTIMG );
     cv::imshow(winname, out_mat);
 }
 
-//MISC - UTILITIES ============================================================
-void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec){
+    //MISC - UTILITIES ============================================================
+    void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec){
     std::vector<cv::Point2f>::const_iterator itb = in_vec.begin();
     std::vector<cv::Point2f>::const_iterator ite = in_vec.end();
     for (; itb < ite; itb++) {
@@ -28,13 +28,13 @@ void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::K
         out_vec.push_back(cv::KeyPoint(*itb, 30., 180., 1000., 0, -1));
     }
 }
-void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount){
+    void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount){
  int remove = pts.size() - ammount;
  for (; remove > 0; remove --){
     pts.pop_back();
  }
 }
-void PrintKeyPoint(const cv::KeyPoint &kp){
+    void PrintKeyPoint(const cv::KeyPoint &kp){
       std::cout << "--\nKeypoint: " << kp.pt <<
             " size: " << kp.size <<
             " angle: " << kp.angle <<
@@ -42,7 +42,7 @@ void PrintKeyPoint(const cv::KeyPoint &kp){
             " octave: " << kp.octave <<
             " class_id: " << kp.class_id << std::endl;
 }
-void PrintKPVector(const std::vector<cv::KeyPoint> &kpv){
+    void PrintKPVector(const std::vector<cv::KeyPoint> &kpv){
 
     if (kpv.empty()){
         std::cout << "PrintKPV error: input vector empty!\n";
@@ -53,8 +53,11 @@ void PrintKPVector(const std::vector<cv::KeyPoint> &kpv){
         PrintKeyPoint(*it);
     }
 }
-bool compareKeypointsByResponse (const cv::KeyPoint &k1, const cv::KeyPoint &k2){
-    return k1.response > k2.response;
-}
 
+    bool compareKeypointsByResponse (const cv::KeyPoint &k1, const cv::KeyPoint &k2){
+        return k1.response > k2.response;
+    }
+    bool compareMatchesByDistance(const cv::DMatch &m1, const cv::DMatch &m2){
+        return m1.distance > m2.distance;
+    }
 }
