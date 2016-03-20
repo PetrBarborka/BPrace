@@ -18,11 +18,10 @@
 
 #### Deskripce:
 
-    +   BRIEF
-    +   SIFT 
-    +   SURF 
-    +   MSER
-    +   Haar
-    +   HoG
-    +   ORB descriptor
+    +   BRIEF   -OK
+    +   SIFT    -OK
+    +   SURF    -OK
+    +   Haar    
+    +   HoG     
+    +   ORB descriptor  -OK
 
