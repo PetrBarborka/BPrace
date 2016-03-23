@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  19 FEB 2016 14:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  23 MAR 2016 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -462,18 +462,18 @@ File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 (./bakalarka.aux)
 \openout1 = `bakalarka.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -545,25 +545,25 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 (/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ))
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 27.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 28.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 27.
+(Font)              size <17.28> substituted on input line 28.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 27.
+(Font)              size <17.28> substituted on input line 28.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 27.
+(Font)              size <17.28> substituted on input line 28.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 27.
+LaTeX Font Info:    Try loading font information for U+msa on input line 28.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 27.
+LaTeX Font Info:    Try loading font information for U+msb on input line 28.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -595,12 +595,14 @@ Kapitola 1.
 
 ]
 Kapitola 2.
-
-Overfull \hbox (2.91821pt too wide) in paragraph at lines 11--12
-[]\T1/aer/m/n/12 tj. me-todu, kte-rou bu-deme ur-£o-vat, který
- []
-
-) (./prehled_metod.tex [2
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 9.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ae/omsaer.fd
+File: omsaer.fd 1999/12/27
+)
+LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 9.
+)
+(./prehled_metod.tex [2
 
 ]
 Kapitola 3.
@@ -614,26 +616,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 82.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/ae/omsaer.fd
-File: omsaer.fd 1999/12/27
-)
-LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
-
-<Harris_eigen.pdf, id=43, 614.295pt x 794.97pt>
-File: Harris_eigen.pdf Graphic file (type pdf)
- <use Harris_eigen.pdf>
-Package pdftex.def Info: Harris_eigen.pdf used on input line 93.
-(pdftex.def)             Requested size: 184.28992pt x 238.49284pt.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5]
+[5] <Harris_eigen.pdf, id=48, 614.295pt x 794.97pt>
+File: Harris_eigen.pdf Graphic file (type pdf)
+ <use Harris_eigen.pdf>
+Package pdftex.def Info: Harris_eigen.pdf used on input line 106.
+(pdftex.def)             Requested size: 184.28992pt x 238.49284pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -655,17 +649,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
-Overfull \hbox (6.81201pt too wide) in paragraph at lines 162--164
-\T1/aer/m/n/12 na-tivu roz-díl· mezi jed-not-li-vými úrov-n¥mi to-hoto po-stup-
-ného rozost°ení.
- []
-
-
-Overfull \hbox (14.40953pt too wide) in paragraph at lines 162--164
-\T1/aer/m/n/12 Tento po-stup za-ji²-´uje, ºe najdeme-li n¥-kde v t¥chto "roz-dí
--lech"p°íznakový
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -708,7 +691,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14]
-Overfull \hbox (6.4521pt too wide) in paragraph at lines 304--305
+Overfull \hbox (6.4521pt too wide) in paragraph at lines 296--297
 []\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
 nosti deskrip-
  []
@@ -776,7 +759,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [23]
-Overfull \hbox (33.45358pt too wide) in paragraph at lines 494--496
+Overfull \hbox (33.45358pt too wide) in paragraph at lines 486--488
 \T1/aer/m/n/12 [Shape In-de-xing Using Ap-pro-xi-mate Nearest-Neighbour Search 
 in High-Dimensional
  []
@@ -818,13 +801,13 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 4951 strings out of 493054
- 64354 string characters out of 6134759
- 142157 words of memory out of 5000000
- 8294 multiletter control sequences out of 15000+600000
- 50938 words of font info for 107 fonts, out of 8000000 for 9000
+ 4953 strings out of 493054
+ 64368 string characters out of 6134759
+ 142050 words of memory out of 5000000
+ 8290 multiletter control sequences out of 15000+600000
+ 52804 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,16n,43p,1760b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,43p,1760b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -840,7 +823,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (35 pages, 690968 bytes).
+Output written on bakalarka.pdf (35 pages, 691200 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams

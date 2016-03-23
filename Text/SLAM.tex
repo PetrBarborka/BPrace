@@ -1,21 +1,21 @@
 
 \chapter{Příznaky v digitalizovaném obraze a jejich využití}
 
-V následujících kapitolách budou představeny především metody pro detekci a popis bodových příznaků. Tyto algoritmy se snaží v obraze nalézt co nejvýraznější body a popsat je tak, aby je při jejich opětovném nalezení v jiném obraze bylo možné identifikovat bez ohledu na změny podmínek mezi těmito obrazy (natočení, posunutí, roztažení, změna nasvětlení, ... ). Rozšířením tohoto přístupu je metoda maximálně stabilních extremálních oblastí (dále MSER), která  namísto bodů hledá celé oblasti, které budou co nejméně podléhat vlivu obrazových transformací. 
+V následujících kapitolách budou představeny především metody pro detekci a popis bodových příznaků. Tyto algoritmy se snaží v obraze nalézt body výrazné vzhledem k jejích okolí a popsat je tak, aby je při jejich opětovném nalezení v jiném obraze bylo možné identifikovat bez ohledu na transformaci mezi těmito obrazy (natočení, posunutí, roztažení, změna nasvětlení, ... ). Rozšířením tohoto přístupu jsou metody SIFT, SURF a metoda maximálně stabilních extremálních oblastí (dále MSER), které namísto bodů hledají celé oblasti, které budou co nejméně podléhat vlivu obrazových transformací.
 
-Práce s bodovými příznaky zahrnuje:
+\noindent{Práce s bodovými příznaky zahrnuje:}
 
-\begin{description}
-	\item[detekci příznaků,] tedy nalezení nejvhodnějších příznakových bodů.
-	\item[deskripci příznaků,] tedy popis příznaků tak, aby tyto byly správně identifikovány při opětovném nalezení za minimalizace vlivů osvětlení, prostorových transformací atd.
-	\item[způsob porovnání deskriptorů,] tj. metodu, kterou budeme určovat, který deskriptor patří ke kterému, který bod z jednoho obrazu náleží kterému z druhého.
-\end{description} 
+\begin{itemize}
+	\item{detekci příznaků} - Nalezení nejvhodnějších příznakových bodů.
+	\item{deskripci příznaků} - Popis příznaků tak, aby tyto byly správně identifikovány při opětovném nalezení za minimalizace vlivů osvětlení, prostorových transformací atd.
+	\item{způsob porovnání deskriptorů} - Metodu, kterou budeme určovat, které dva deskriptory z různých obrazů popisují stejný bod nebo stejnou oblast.
+\end{itemize} 
 
-Některé z prezentovaných metod práce s bodovými příznaky řeší všechny tři tyto problémy, jiné jenom některé z nich a pro jejich využití je tedy potřeba ty zbylé nějak doplnit.
+Některé z prezentovaných metod práce s bodovými příznaky řeší všechny tři tyto problémy, jiné jenom některé z nich a pro jejich využití je tedy potřeba ty zbylé doplnit.
 
-Pro doplnění jsou uvedeny dvě metody pro detekci objektů, tj Haarovská kaskáda a histogram orientovaných gradientů, což jsou učící algoritmy, které v obraze hledají obecně objekty určitého charakteru (typicky například obličeje nebo postavy).
+Navíc jsou uvedeny dvě metody pro detekci objektů, tj Haarovská kaskáda a histogram orientovaných gradientů, což jsou učící se algoritmy, které v obraze hledají obecně objekty určitého charakteru (typicky například obličeje nebo postavy).
 
-Nakonec jsou ještě uvedeny metody porovnání popisů bodů a odhadu prostorové transformace pomocí množiny bodů identifikovaných mezi dvěma obrazy
+Nakonec jsou ještě uvedeny metody porovnání popisů bodů a odhadu prostorové transformace pomocí množiny bodů identifikovaných mezi dvěma obrazy.
 
 Využitím příznaků nalezených v digitalizovaném obraze je obecně identifikace objektů v obraze, sledování pohybu objektů v prostředí (tzv. tracking), rekonstrukce prostředí (mapping) a lokalizace pozorovatele.
 

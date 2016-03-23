@@ -7,34 +7,34 @@ V této kapitole jsou popsány konkrétní metody detekce, popisu a asociace obr
 
 \section{Moravec}
 
-Jedná se o nejstarší a nejjednodušší uvedený operátor pro nalezení bodových příznaků \cite{moravec1980obstacle}. Je uveden proto, že představuje primitivní ideový základ pro další uvedené operátory. Jeho principem je představa, hledaný příznakový bod by měl vynikat ve všech směrech kolem sebe, tj že by na všechny strany od něj měla být výrazná změna v jasu. Moravcův operátor je pouze detektor, deskriptor ani doporučení stran porovnávání bodů nejsou součástí algoritmu.
+Jedná se o nejstarší a nejjednodušší uvedený operátor pro nalezení bodových příznaků \cite{moravec1980obstacle}. Je uveden proto, že představuje primitivní ideový základ pro další uvedené operátory. Jeho principem je představa že, hledaný příznakový bod by měl vynikat ve všech směrech kolem sebe, tj. že by na všechny strany od něj měla být výrazná změna v jasu. Algoritmus Moravec je pouze detektor, deskriptor ani doporučení stran porovnávání bodů nejsou jeho součástí.
 
 \subsection{Algoritmus}
 
-Moravec definuje funkci průměrné změny jasu v okolí bodu ve směru posunu (x,y):
+Průměrná změna jasu v okolí bodu ve směru posunu (x,y) je definována jako:
 \begin{align}	
 E_{x,y} = \sum_{u,v} w_{u,v} \lvert I_{u+x, v+y} - I_{u,v} \rvert^2 , (x,y) \in \{(1,0), (1,1), (0,1), (-1,1)\},
 \end{align}
 	
-kde  $I$ je obraz ve formě jasových bodů, $w$ je váhové okénko (Moravcův operátor používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je posun se kterým zrovna pracujeme. Znamená to že provedeme posun všech obrazových bodů danými směry, a odečteme od sebe původní a posunutou variantu. Tím získáme informaci o změně jasu při posunutí pod úhly $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté každé testované místo (každý pixel) překryjeme čtvercovým okénkem, hodnoty pod ním sečteme a výsledek umocníme na druhou. Pro každé testované místo tedy budeme mít 4 hodnoty čtverce změny v jednotlivých směrech.
-Ve zbytku algoritmu se pouze z pro každé místo vybere $min\{E_{x,y}\}$, ve vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky.
+kde  $I$ je obraz ve formě jasových bodů, $w$ je váhové okénko (algoritmus používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je aktuální posun. Provede se tedy posun všech obrazových bodů danými směry, a  původní varianta se vždy odečte od posunuté. Tím je získána informace o změně jasu při posunutí ve směrech  $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté je každé testované místo (každý pixel) překryto čtvercovým okénkem, hodnoty pod ním sečteny a výsledek umocněn na druhou. Pro každé testované místo tedy vzniknout 4 hodnoty čtverce změny v jednotlivých směrech.
+Ve zbytku algoritmu je pro každé místo vybráno $min\{E_{x,y}\}$, v takto vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky.
 
 Jedná se tedy o nalezení bodů, které mají diskrétní diferenci v daných směrech nejméně takovou, jaká je odmocnina
 hodnoty prahu.
 
 \subsection{Využití}
-Tento operátor má řadu problémů, zejména:
-\begin{enumerate}
+Tento operátor má řadu nedostatků, zejména:
+\begin{itemize}
 	\item Je anizotropní: uvažuje pouze změny v diskrétních úhlech, které jsou násobky 45 stupňů. Změnám v ostatních úhlech bude logicky přiřazen nižší význam
 	\item Binární čtevrcové okénko výsledek výpočtu zašumuje
 	\item Příliš citlivý: protože reaguje pouze na nejmenší změnu intenzity.
-\end{enumerate}
+\end{itemize}
 
-Dnes se již prakticky nevyužívá, ale stal se základem řady dalších algoritmů.
+Dnes se již prakticky nevyužívá, ale stal se základem dalších algoritmů.
 
 \section{Harris}
 		
-Harrisův operátor \cite{harris1988combined} vznikl snahou odstranit nedostatky Moravcova operátoru - pracuje se stejnou představou, ale efektivněji.
+Algoritmus Harris \cite{harris1988combined} vznikl snahou odstranit nedostatky operátoru Moravec - pracuje se stejnou představou, ale efektivněji.
 
 \subsection{Algoritmus}	
 
@@ -43,16 +43,16 @@ Anizotropní vlastnosti lze odstranit pomocí Taylorova rozvoje:
 E_{x,y} = \sum_{u,v} w_{u,v} \lvert I_{x+u, y+v} - I_{u,v} \rvert^2
 \approx \sum_{u,v} w_{u,v} \lvert I_{u, v} + xX + yY  - I_{u,v} \rvert^2
 \end{align}
+\begin{align}
+E_{x,y} = \sum_{u,v} w_{u,v} \lvert xX + yY \rvert^2
+\end{align}
+
 kde $(x,y)$ je vektor podle kterého se derivuje a $X$ a $Y$ jsou aproximované parciální derivace obrazu ve směrech osy x a osy y:
 \begin{align}
 X = I \otimes (-1, 0, 1) \approx \frac{\delta I}{\delta x}
 \end{align}
 \begin{align}
 Y = I \otimes (-1, 0, 1)^T \approx \frac{\delta I}{\delta y}
-\end{align}
-takže:
-\begin{align}
-E_{x,y} = \sum_{u,v} w_{u,v} \lvert xX + yY \rvert^2
 \end{align}
 \begin{align}
 E_{x,y} = \sum_{u,v} w_{u,v} [x^2X^2 + 2xyXY + y^2Y^2]
@@ -65,16 +65,16 @@ X^2  \  XY \\
 XY    \ Y^2 \\
 \end{bmatrix}
 \end{align}
-potom dostaneme výsledný vztah:
+výsledný vztah:
 \begin{align}
 E_{x,y} = [x, y] M \begin{bmatrix} x \\ y \end{bmatrix}
 \end{align}
-Tento vztah vyjadřuje velikost gradientu obrazu ve směru (libovolného) vektoru $(x,y)$. Matici $M$ se někdy říká Harrisova matice.
-Pokud místo čtvercového okna nyní zvolíme Gaussovské:
+Tento vztah vyjadřuje velikost gradientu obrazu ve směru (libovolného) vektoru $(x,y)$. Matice $M$ je někdy nazývána Harrisova matice.
+Pokud je čtvercového okna nyní zvoleno Gaussovské:
 \begin{align}
 w_{u,v} = e^{-(u^2 + v^2)/2\sigma^2},
 \end{align}
-zbavíme se prvního problému Moravcova operátoru: zanášení šumu do výpočtu nevhodným ("ostrým") okénkem. Směr a velikost derivací je nyní popsán elipsou ve formě matice M, která respektuje všechny možné úhly natočení a pokud bychom zdrojový obraz rotovali, velikost os této elipsy se nezmění. 
+je odstraněn první problém operátoru Moravec: zanášení šumu do výpočtu nevhodným ("ostrým") okénkem. Směr a velikost derivací je nyní popsán elipsou ve formě matice M, která respektuje celý kruhový prostor kolem bodu a velikost os této elipsy není závislá na rotaci obrazu. 
 
 Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj. pro:
 
@@ -85,13 +85,6 @@ Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj
 \end{itemize}
 
 %\includepdf{[scale=0.3]Harris_eigen.pdf}
-
-\begin{figure}[htp] 
-	\label{Harris_eigen}
-	\caption{Vliv tvaru okolí bodu na rozložení vlastních čísel matice M:}
-	\centering{
-	\includegraphics[scale=0.3]{Harris_eigen.pdf}}
-\end{figure}
 
 Protože výpočet vlastních čísel matice je relativně náročná operace, zatímco determinant a stopu matice $2\times2$ lze získat prostým odčítáním a násobením, původně Harris navrhuje tento výpočet aproximovat jako:
 
@@ -107,136 +100,134 @@ kde det$(M)$ je determinant matice $M$, stopa$(M)$ je součet prvků na hlavní 
 
 Body se tedy označí porovnáním $R$ se zvoleným prahem.
 
+\begin{figure}[htp] 
+	\label{Harris_eigen}
+	\centering{
+		\includegraphics[scale=0.3]{Harris_eigen.pdf}}
+	\caption{Vliv tvaru okolí bodu na rozložení vlastních čísel matice M:}
+\end{figure}
+
+
 \subsection{Využití}
-Tento algoritmus odstraňuje hlavní nedostatky Moravcova. Zašumování výsledků nahrazením čtvercového okna gaussovským a anizotropické vlastnosti a přílišnou citlivost na nejnižší derivaci reprezentací derivací v bodě jako 2D elipsy jejíž osy jsou určeny vlastními čísly matice M (a aproximovány výše uvedeným vztahem pro $R$). Jeho velkou výhodou je nenáročnost na výkon hardwaru.
+V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašumování výsledků nahrazením čtvercového okna gaussovským a anizotropické vlastnosti a přílišnou citlivost na nejnižší derivaci reprezentací derivací v bodě jako 2D elipsy jejíž osy jsou určeny vlastními čísly matice M (a aproximovány výše uvedeným vztahem pro $R$). Jeho velkou výhodou oproti dalším metodám je nenáročnost na výkon hardwaru.
 
 \section{Shi-Tomasi}
 
-Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu $R$ přímo z vlastních čísel (vysvětlení viz výše). 
-
-\begin{align}
-R = min(\lambda_1, \lambda_2)
-\end{align}
-
-Body se opět označí porovnáním $R$ se zvoleným prahem.
-
-Výhodou tohoto řešení je zlepšení vlastností příznaků pro sledování za cenu mírného zvýšení výkonové náročnosti.
+	Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu $R$ přímo z vlastních čísel (vysvětlení viz výše). 
+	
+	\begin{align}
+	R = min(\lambda_1, \lambda_2)
+	\end{align}
+	
+	Body se opět označí porovnáním $R$ se zvoleným prahem. Výhodou tohoto řešení je zlepšení vlastností příznaků pro sledování za cenu mírného zvýšení výkonové náročnosti. Tento algoritmus bývá také nazýván Good Features to Track, zkráceně GFTT, podle názvu článku ve kterém byl původně popsán.
 
 \section{FAST}
 
-	Jak název algoritmu napovídá, jedná se o rychlou (a protože jednoduchou) metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (viz dále) a dokonce větší, než Harris. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. FAST \cite{rosten2010faster} je ale součástí kompletního systému ORB, který je popsán dále v této kapitole.
+	Jak název algoritmu napovídá, jedná se o rychlou a jednoduchou metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (viz dále) a dokonce větší, než Harris. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. FAST \cite{rosten2010faster} je ale součástí kompletního systému ORB, který je popsán dále v této kapitole.
 	
 	\subsection{Algoritmus}
 	
 		\begin{enumerate}
 			\item Okolo testovaného bodu $t$ se zkonstruuje kružnice sestávající z 16 bodů $t_{1-16}$. 
 			\item Je-li v kružnici $n$ (doporučuje se $n=12$) nebo více spojených bodů takových, že $\lvert I(p) - I(t_i) \rvert > T$, bod je označen za příznak. $I(.)$ je intenzita daného bodu, $T$ je definovaný práh rozdílu intenzit.
-			\item Protože algoritmus má tendenci označit jako příznaky mnoho sousedících bodů, je vhodné po nalezení všech příznaků algoritmus potlačení nemaximálních hodnot (ang. Non-maximum supression). Ten zajistí, že se z každé spojené oblasti příznakových bodů vybere jen ten, který má největší nebo nejmenší intenzitu a ostatní se zahodí.
+			\item Protože algoritmus má tendenci označit jako příznaky mnoho sousedících bodů, je vhodné po nalezení všech příznaků provést potlačení nemaximálních hodnot (ang. Non-maximum supression). To zajistí, že se z každé spojené oblasti příznakových bodů vybere jen ten, který má největší nebo nejmenší intenzitu a ostatní se zahodí.
 		\end{enumerate}
 		
 		Autoři dále navrhují vylepšení popsaného algoritmu testováním nejprve 2 nebo 4 pixelů v bodu 2 a pokračování pouze pokud tyto body splňují definovanou podmínku. Otázka, které body na pro tento test zvolit, je řešena nasazením neuronové sítě, která se na určitých datech natrénuje tak, aby tento test byl pro detekci příznaků co nejinformativnější.
 		
 	\subsection{Využití}
 	
-		Všude tam, kde je při detekci příznaků potřeba především rychlost.
-		
+		FAST příznaky našly využití například ve SLAM systému PTAM (parallel tracking and mapping) a často jsou nasazovány v aplikacích na mobilních telefonech, jejichž výkon je oproti desktopům stále limitován.	
 	 
 
 \section{SIFT}
-SIFT je technologie zajišťující vyhledání příznakových bodů v obraze, spolu s výrobou deskriptorů pro jejich zpětnou identifikaci (při dalším nalezení). 
-
-Navazuje tím na předchozí algoritmy typu Harris, ale navíc oproti nim klade důraz na vytvoření invariantních deskriptorů se snadnou rozlišitelností.
-
-Její výhodou je robustnost vzhledem k zašumění obrazu, změnám osvětlení, afinním transformacím příznakových bodů a jejich pohybu v prostoru. Deskriptory se vyznačují velkou rozpoznatelností, tzn. různé body nebudou mít podobný deskriptor.
-
-Ikdyž je pomalejší než např. SURF, je použitelná pro zpracování obrazu v reálném čase.
-
-Lze ji využít nejen k identifikaci bodů pro prostorovou lokalizaci, ale též k robustnímu hledání definovaných objektů v obrazu (objekty jsou reprezentovány množinou charakteristických bodů).
-
-Algoritmus extrakce deskriptorů je uspořádán do kaskádovité struktury  za účelem urychlení výpočtu: Složitější operace jsou umístěny co  nejdále v algoritmu tak, aby běžely až po filtraci, tj na co nejmenším množství dat.
-
-\subsection{Algoritmus}
-
-\begin{enumerate}
-	\item Hledání jasových extrémů v celém obrazu nezávisle na zvětšení, neboli měřítku: Provede se pomocí rozdílů gaussianů (Difference-of-Gaussians, DoG).
+	SIFT \cite{lowe2004distinctive} je metoda vyhledání příznakových bodů v obraze spolu s výrobou deskriptorů pro jejich zpětnou identifikaci při dalším nalezení. Navazuje na předchozí algoritmy typu Harris, její výhodou je však větší robustnost vzhledem k zašumění obrazu, změnám osvětlení, afinním transformacím příznakových bodů a jejich pohybu v prostoru. Deskriptory se vyznačují velkou rozpoznatelností, tzn. různé body nebudou mít podobný deskriptor.
 	
-		Pracuje se s matematickou konstrukcí Laplaciánu Gaussiánů, což vpodstatě znamená rozdělení obrazu na pyramidu postupně více a více rozostřených verzí (rozostření se provede pomocí Gaussovského jádra - masky se vzrůstajícím rozptylem $\sigma{}$). Laplacián poskytne spojitou alternativu rozdílů mezi jednotlivými úrovněmi tohoto postupného rozostření. Tento postup zajišťuje, že najdeme-li někde v těchto "rozdílech" příznakový bod, nalezneme ho stejně i v jiném obrazu, kde se ten samý příznakový bod bude nacházet větší, nebo menší - prostě v jiném měřítku. V takovém obraze se bude příznak nacházet
-		jinde v tomto prostoru rozostření, ale bude vypadat stejně, což umožňuje cílené porovnání nezávisle na měřítku.
-		
-		Protože výše popsaný postup platí pro spojitý prostor, při práci s diskrétním obrazem se aproximuje vytvořením pyramidy postupně více a více rozostřených vrstev, kdy tuto pyramidu ještě rozdělíme do "oktáv" (octaves), které nemají nic společného s číslem 8, ale označení pravdepodobně vychází z hudebního názvosloví, kdy nejvyšší tón oktávy má oproti nejnižšímu dvojnásobnou frekvenci v Hertzích. Nejvyšší rozostření oktávy v SIFTu by mělo mít oproti nejnižšímu dvojnásobný rozptyl $\sigma$. V další oktávě
-		se též oproti předchozí pracuje s dvojnásobně redukovaným rozlišením obrazu (každý druhý řádek, každý druhý sloupec), protože se předpokládá, že dojde jenom k minimální ztrátě informace za cenu citelného snížení výkonových nároků.
-		
-		Tuto "pyramidu gaussiánů" doporučuje článek konstruovat tak, že se skládá ze
-		4 oktáv po 5 rozostřeních (měřítkách, ang. scales), první rozostření se doporučuje $\sigma_0 = 1.6$ a rozdíly jednotlivých rozostření jsou $k=\sqrt{2}: \sigma_2 = k \sigma_1 = k^2 \sigma_0$ atd. Tato pravidla stran konstrukce pyramidy si implementace vykládají zpravidla velmi volně. Jediné, co je zřejmě potřeba dodržet je konstantní $k$ mezi vrstvami.
-		
-		Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		 
-		
-		
-	\item Lokalizace klíčových oblastí: Na každé "kandidátské" lokaci se provede rozhodnutí o umístění a relativní velikosti oblasti. Klíčové oblasti jsou vybrány na základě měřítek jejich stability
+	Lze ji využít nejen k identifikaci bodů pro prostorovou lokalizaci, ale též k robustnímu hledání definovaných objektů v obrazu, kdy objekty jsou reprezentovány množinou charakteristických bodů.
 	
-		Každý bod výsledné pyramidy z předchozího bodu se porovná s celkem 26 body
-		ve svém okolí: 8 bezpřostředně příléhajícími ve své vrstvě a oknem 3x3, tedy 9 bodů na stejné lokaci ve vrstvě nad a pod. Za kandidáta se bod označí v případě, že má ze všech těchto bodů největší nebo nejmenší intenzitu.
-		(v krajních vrstvách oktáv se nehledá, neboť jim chybí sousední vrstva nad nebo pod).
-		
-		Kolem takového kandidátského bodu lze za účelem dosažení subpixelové přesnosti zkonstruovat trojrozměrnou plochu pomocí Taylorova rozvoje a za skutečné umístění příznaku označit její extrém:
-		
-		\begin{align}
-		D(\mathbf{x}) = D(\mathbf{x_0}) + \frac{\delta D(\mathbf{x_0})}{\delta \mathbf{x}} \mathbf{x} + \frac{1}{2} \mathbf{x^T}\frac{\delta{}^2 D(\mathbf{x_0})}{\delta{}\mathbf{x^2}}\mathbf{x} \\
-		\mathbf{x} = [x, y, \sigma{}]
-		\end{align}
-
-		extrém  se bude nacházet v bodě, kde bude derivace této funkce nulová, tzn:
-		
-		\begin{align}
-		\mathbf{\hat{x}} = - \frac{\delta{}^2 D(\mathbf{x_0})^{-1}}{\delta{}\mathbf{x^2}}
-		\frac{\delta D(\mathbf{x_0})}{\delta \mathbf{x}}
-		\end{align}
-		
-		Pro další zpřesnění lze do funkce $D(\mathbf{x})$ dosadit vypočtený bod $\hat{\mathbf{x}}$. Pokud má funkce v tomto bodě v kterémkoli směru větší hodnotu než 0.5, znamená to, že by se jako střed příznaku měl zvolit spíše
-		bod, který se nachází tímto směrem.
-		
-		Poslední operací tohoto kroku je vyřazení bodů, které se nacházejí na hranách, neboť ty nelze považovat za spolehlivé příznaky. Pomocí Hessovy matice vypočteme zakřivení plochy $D{\mathbf{x}}$ v okolí bodu a porovnáme
-		ho s níže uvedeným výrazem. Jde o podobný princip jako je eliminace hran v Harrisově nebo Shi-Tomasi algoritmu.
-		
-		\begin{align}
-		H = \begin{bmatrix}
-		D_{xx} && D{xy} \\
-		D_{xy} && D{yy}
-		\end{bmatrix}\\
-		\frac{Tr(H)^2}{Det(H)} < \frac{(r+1))}{r},
-		\end{align}
-		hodnotu $r$ autři doporučují 10.
-							
-	\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru a na těchto  vlastnostech
+	Algoritmus extrakce deskriptorů je uspořádán do kaskádovité struktury  za účelem urychlení výpočtu: Složitější operace jsou umístěny co  nejdále v algoritmu tak, aby byly aplikovány až po filtraci, tj na co nejmenší množství dat.
 	
-		Pomocí lokálních diferencí se určí velikost a směr gradientů zvoleného počtu bodů okolo nalezeného příznaku podle os $x$ a $y$. Tyto gradienty se nakvantizují do 36 kategorií po 10 stupních. Pak se stanoví maximum tohoto histogramu a pokud druhá nejvyšší hodnota histogramu dosahuje alespoň 80\% hodnoty té nejvyšší, stanoví se pro tento příznak dvě orientace. Přesné úhly orientací se nakonec stanoví pomocí proložení kvadratické křivky maximem histogramu a jeho dvěma sousedy a maximalizací této křivky.	
-				
-	\item Výroba deskriptoru oblasti: Na každé dané oblasti jsou vypočteny lokální gradienty. Ty jsou převedeny do tvaru invariantního k deformaci tvaru a změnám osvětlení.
+	\subsection{Algoritmus}
 	
-		V tomto bodě se vypočtou gradienty čtvercového okolí 16x16 pixelů okolo zvoleného bodu. Jejich velikosti se přenásobí Gaussovým oknem pro zvýraznění těch, které jsou blízko středu. Tato oblast se poté rozdělí na 16 oblastí se 4x4 pixely. V každé této oblasti se vypočte histogram gradientů a nakvantizuje se do 8 kategorií podobně jako v předchozím kroku.
+	\begin{enumerate}
+		\item Hledání jasových extrémů v celém obrazu nezávisle na zvětšení, neboli měřítku: Provede se pomocí rozdílů gaussianů (Difference-of-Gaussians, DoG).
 		
-		Výsledkem je SIFT deskriptor: 16 gradientů po 8 orientačních kategoriích (binech), tedy 128 rozměrný vektor. Jako poslední krok se tento vektor normalizuje na jednotkovou délku aby se potlačily vlivy osvětlení. 
+			Pracuje se s matematickou konstrukcí laplaciánu gaussiánů, což znamená rozdělení obrazu na pyramidu postupně více rozostřených verzí (rozostření se provede pomocí gaussovského jádra - masky se vzrůstajícím rozptylem $\sigma{}$). Laplacián poskytne spojitou alternativu rozdílů mezi jednotlivými úrovněmi tohoto postupného rozostření. Tento postup zajišťuje, že najdeme-li někde v těchto "rozdílech" příznakový bod, nalezneme ho stejně i v jiném obrazu, kde se bude nacházet v jiném měřítku. V takovém obraze se bude příznak nacházet jinde v tomto prostoru rozostření, ale bude vypadat stejně, což umožňuje porovnání nezávisle na měřítku.
+			
+			Protože výše popsaný postup platí pro spojitý prostor, při práci s diskrétním obrazem se aproximuje vytvořením pyramidy postupně více a více rozostřených vrstev, kdy tuto pyramidu ještě rozdělíme do oktáv (anglicky octaves). Nejvyšší rozostření oktávy v SIFTu by mělo mít oproti nejnižšímu dvojnásobný rozptyl $\sigma$. Jedná se o analogii hudebního názvosloví, kdy nejvyšší tón oktávy má oproti nejnižšímu dvojnásobnou frekvenci v Hertzích. V další oktávě se též oproti předchozí pracuje s dvojnásobně redukovaným rozlišením obrazu (každý druhý řádek, každý druhý sloupec), protože se předpokládá, že dojde jenom k malé ztrátě informace za cenu velkého snížení výkonových nároků.
+			
+			Tuto pyramidu gaussiánů doporučují autoři článku \cite{lowe2004distinctive} konstruovat tak, že se skládá ze 4 oktáv po 5 rozostřeních (měřítkách, ang. scales), první rozostření se doporučuje $\sigma_0 = 1.6$ a rozdíly jednotlivých rozostření jsou $k=\sqrt{2}: \sigma_2 = k \sigma_1 = k^2 \sigma_0$ atd. Podstatné je dodržet konstantní $k$ mezi vrstvami.
+			
+			Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		 
+			
+			\huge{TODO: Obrázek LoG a DoG} \normalsize
+			
+		\item Lokalizace klíčových oblastí: Na každé kandidátské lokaci se provede rozhodnutí o umístění a relativní velikosti oblasti. Klíčové oblasti jsou vybrány na základě měřítek jejich stability
 		
+			Každý bod výsledné pyramidy z předchozího bodu se porovná s celkem 26 body v jeho okolí: 8 bezpřostředně příléhajícími ve své vrstvě a oknem 3x3, tedy 9 bodů na stejné lokaci ve vrstvě nad a pod. Za kandidáta se bod označí v případě, že má ze všech těchto bodů největší nebo nejmenší intenzitu.
+			(v krajních vrstvách oktáv se nehledá, neboť jim chybí sousední vrstva nad nebo pod).
+			
+			Kolem takového kandidátského bodu lze za účelem dosažení subpixelové přesnosti zkonstruovat trojrozměrnou plochu pomocí Taylorova rozvoje a za skutečné umístění příznaku označit její extrém:
+			
+			\begin{equation}
+			\label{rozvoj}
+			D(\mathbf{x}) = D(\mathbf{x_0}) + \frac{\delta D(\mathbf{x_0})}{\delta \mathbf{x}} \mathbf{x} + \frac{1}{2} \mathbf{x^T}\frac{\delta{}^2 D(\mathbf{x_0})}{\delta{}\mathbf{x^2}}\mathbf{x} 
+			\end{equation}
+			
+			\begin{equation} \mathbf{x} = [x, y, \sigma{}] \end{equation}
+	
+			extrém  se bude nacházet v bodě, kde bude derivace této funkce nulová, tzn:
+			
+			\begin{align}
+			\mathbf{\hat{x}} = - \frac{\delta{}^2 D(\mathbf{x_0})^{-1}}{\delta{}\mathbf{x^2}}
+			\frac{\delta D(\mathbf{x_0})}{\delta \mathbf{x}}
+			\end{align}
+			
+			Pro další zpřesnění lze do rovnice \ref{rozvoj} dosadit vypočtený bod $\hat{\mathbf{x}}$. Pokud má funkce v tomto bodě v kterémkoli směru větší hodnotu než 0.5, znamená to, že by se jako střed příznaku měl zvolit spíše
+			bod, který se nachází tímto směrem.
+			
+			Poslední operací tohoto kroku je vyřazení bodů, které se nacházejí na hranách, neboť ty nelze považovat za spolehlivé příznaky. Pomocí Hessovy matice vypočteme zakřivení plochy $D{\mathbf{x}}$ v okolí bodu a porovnáme
+			ho s níže uvedeným výrazem. Jde o podobný princip jako je eliminace hran v Harrisově nebo Shi-Tomasi algoritmu.
+			
+			\begin{align}
+			H = \begin{bmatrix}
+			D_{xx} && D{xy} \\
+			D_{xy} && D{yy}
+			\end{bmatrix}\\
+			\frac{Tr(H)^2}{Det(H)} < \frac{(r+1))}{r},
+			\end{align}
+			hodnotu $r$ autři doporučují 10.
+								
+		\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru a na těchto  vlastnostech
 		
-\end{enumerate}
-
-Algoritmus vytváří velké množství příznaků, které hustě pokrývají celou plochu
-obrazu (cca 2000 příznaků na obraz 500x500px).
-
-Tyto příznaky je potřeba uchovávat v nějaké databázi a implementovat algoritmus
-pro její správu.
-
-Výsledný deskriptor je trojrozměrná matice 4x4x8, příznaky se porovnávají pomocí algoritmu nalezení nejbližšího souseda, resp. jeho aproximace.
-
-\subsection{Porovnávání příznaků}
-
-Pro porovnávání příznaků autoři doporučují algoritmus nejbližšího souseda a pro větší databáze jeho aproximaci - BBF neboli Best Bin First. Tento algoritmus dělí prostor příznaků na diskrétní disjunktní oblasti (kvantizuje ho), odhaduje, ve kterém se hledaný prvek pravděpodobně nachází a hledá ho nejprve tam. Autoři uvádějí, že oproti standartnímu nejbližšímu sousedovi tento algoritmus zrychluje výpočet o dva řády za cenu pouze 5\% ztráty přesnosti.
-
-\subsection{Využití}
-
-SIFT je stále jedním z nejspolehlivějších algoritmů hledání a identifikace příznaků, což dokazuje i jeho široká využívanost v aplikacích identifikace objektů podle známých příznaků i v mapovacích algoritmech (Monoslam). Ikdyž ho lze využít pro mapování v reálném čase, je v porovnání s ostatními metodami velmi výkonově náročný.
-
-Je vhodné zmínit, že podléhá licenci pro komerční využití.
+			Pomocí lokálních diferencí se určí velikost a směr gradientů zvoleného počtu bodů okolo nalezeného příznaku podle os $x$ a $y$. Tyto gradienty se nakvantizují do 36 kategorií po 10 stupních. Pak se stanoví maximum tohoto histogramu a pokud druhá nejvyšší hodnota histogramu dosahuje alespoň 80\% hodnoty té nejvyšší, stanoví se pro tento příznak dvě orientace. Přesné úhly orientací se nakonec stanoví pomocí proložení kvadratické křivky maximem histogramu a jeho dvěma sousedy a maximalizací této křivky.	
+					
+		\item Výroba deskriptoru oblasti: Na každé dané oblasti jsou vypočteny lokální gradienty. Ty jsou převedeny do tvaru invariantního k deformaci tvaru a změnám osvětlení.
+		
+			V tomto bodě se vypočtou gradienty čtvercového okolí 16x16 pixelů okolo zvoleného bodu. Jejich velikosti se přenásobí Gaussovým oknem pro zvýraznění těch, které jsou blízko středu. Tato oblast se poté rozdělí na 16 oblastí se 4x4 pixely. V každé této oblasti se vypočte histogram gradientů a nakvantizuje se do 8 kategorií podobně jako v předchozím kroku.
+			
+			Výsledkem je SIFT deskriptor: 16 gradientů po 8 orientačních kategoriích (binech), tedy 128 rozměrný vektor. Jako poslední krok se tento vektor normalizuje na jednotkovou délku aby se potlačily vlivy osvětlení. 
+			
+			
+	\end{enumerate}
+	
+	Algoritmus vytváří velké množství příznaků, které hustě pokrývají celou plochu
+	obrazu (cca 2000 příznaků na obraz 500x500px).
+	
+	Tyto příznaky je potřeba uchovávat v nějaké databázi a implementovat algoritmus
+	pro její správu.
+	
+	Výsledný deskriptor je trojrozměrná matice 4x4x8, příznaky se porovnávají pomocí algoritmu nalezení nejbližšího souseda, resp. jeho aproximace.
+	
+	\subsection{Porovnávání příznaků}
+	
+	Pro porovnávání příznaků autoři doporučují algoritmus nejbližšího souseda a pro větší databáze jeho aproximaci - BBF neboli Best Bin First. Tento algoritmus dělí prostor příznaků na diskrétní disjunktní oblasti (kvantizuje ho), odhaduje, ve kterém se hledaný prvek pravděpodobně nachází a hledá ho nejprve tam. Autoři uvádějí, že oproti standartnímu nejbližšímu sousedovi tento algoritmus zrychluje výpočet o dva řády za cenu pouze 5\% ztráty přesnosti.
+	
+	\subsection{Využití}
+	
+	SIFT je stále jedním z nejspolehlivějších algoritmů hledání a identifikace příznaků, což dokazuje i jeho široká využívanost v aplikacích identifikace objektů podle známých příznaků i v mapovacích algoritmech (Monoslam). Ikdyž ho lze využít pro mapování v reálném čase, je v porovnání s ostatními metodami velmi výkonově náročný.
+	
+	Je vhodné zmínit, že podléhá licenci pro komerční využití.
 
 \section{SURF}
 
