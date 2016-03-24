@@ -3,44 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: bakalarka.aux
 The style file: abbrv.bst
 Database file #1: bakalarka.bib
-You've used 5 entries,
+Warning--I didn't find a database entry for "matas2004robust"
+Warning--I didn't find a database entry for "neumann2012real"
+Warning--I didn't find a database entry for "viola2001rapid"
+Warning--I didn't find a database entry for "dalal2005histograms"
+Warning--I didn't find a database entry for "beis1997shape"
+You've used 10 entries,
             2118 wiz_defined-function locations,
-            531 strings with 4504 characters,
-and the built_in function-call counts, 1692 in all, are:
-= -- 177
-> -- 58
-< -- 3
-+ -- 24
-- -- 18
-* -- 106
-:= -- 276
-add.period$ -- 17
-call.type$ -- 5
-change.case$ -- 25
+            565 strings with 5362 characters,
+and the built_in function-call counts, 3937 in all, are:
+= -- 408
+> -- 163
+< -- 6
++ -- 65
+- -- 54
+* -- 258
+:= -- 620
+add.period$ -- 34
+call.type$ -- 10
+change.case$ -- 57
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 72
-empty$ -- 141
-format.name$ -- 18
-if$ -- 367
+cite$ -- 10
+duplicate$ -- 164
+empty$ -- 309
+format.name$ -- 54
+if$ -- 861
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 28
-num.names$ -- 10
-pop$ -- 25
+int.to.str$ -- 10
+missing$ -- 10
+newline$ -- 53
+num.names$ -- 20
+pop$ -- 66
 preamble$ -- 1
-purify$ -- 19
+purify$ -- 47
 quote$ -- 0
-skip$ -- 51
+skip$ -- 121
 stack$ -- 0
-substring$ -- 109
-swap$ -- 21
-text.length$ -- 3
+substring$ -- 269
+swap$ -- 56
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 20
+type$ -- 38
 warning$ -- 0
-while$ -- 18
-width$ -- 6
-write$ -- 60
+while$ -- 39
+width$ -- 12
+write$ -- 116
+(There were 5 warnings)

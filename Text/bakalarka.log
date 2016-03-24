@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  23 MAR 2016 23:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  24 MAR 2016 20:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -677,6 +677,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12]
+Overfull \hbox (0.39227pt too wide) in paragraph at lines 267--268
+\T1/aer/m/n/12 Binary Ro-bust In-de-pen-dent Ele-men-tary Fe-a-tu-res ne-boli B
+RIEF [[]] je deskrip-
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -684,6 +689,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
+Overfull \hbox (0.30922pt too wide) in paragraph at lines 271--272
+\T1/aer/m/n/12 Principem fun-go-vání al-go-ritmu je po-rov-ná-vání in-ten-zit p
+ár· ob-ra-zo-vých bod·
+ []
+
+
+Overfull \hbox (6.4521pt too wide) in paragraph at lines 289--290
+[]\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
+nosti deskrip-
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -691,10 +707,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14]
-Overfull \hbox (6.4521pt too wide) in paragraph at lines 296--297
-[]\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
-nosti deskrip-
- []
+
+LaTeX Warning: Citation `matas2004robust' on page 15 undefined on input line 29
+8.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -711,6 +726,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [16]
 
+LaTeX Warning: Citation `neumann2012real' on page 17 undefined on input line 33
+5.
+
+
+LaTeX Warning: Citation `viola2001rapid' on page 17 undefined on input line 341
+.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -725,12 +748,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18]
 
+LaTeX Warning: Citation `viola2001rapid' on page 19 undefined on input line 407
+.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [19]
+
+LaTeX Warning: Citation `dalal2005histograms' on page 20 undefined on input lin
+e 411.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -753,17 +784,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22]
 
+LaTeX Warning: Citation `beis1997shape' on page 23 undefined on input line 482.
+
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [23]
-Overfull \hbox (33.45358pt too wide) in paragraph at lines 486--488
-\T1/aer/m/n/12 [Shape In-de-xing Using Ap-pro-xi-mate Nearest-Neighbour Search 
-in High-Dimensional
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -772,42 +802,50 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [24]
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+LaTeX Warning: Citation `fischler1981random' on page 25 undefined on input line
+ 508.
 
-[25]) (./imp_test.tex
+) (./imp_test.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26]
+[25]
 Kapitola 4.
-) (./zaver.tex [27
+) (./zaver.tex [26
 
 ]
 Kapitola 5.
-) (./bakalarka.bbl [28
+) (./bakalarka.bbl [27
 
-]) [29
+]) [28
 
-] (./bakalarka.aux)
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29] (./bakalarka.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 4953 strings out of 493054
- 64368 string characters out of 6134759
- 142050 words of memory out of 5000000
- 8290 multiletter control sequences out of 15000+600000
+ 4962 strings out of 493054
+ 64532 string characters out of 6134759
+ 142108 words of memory out of 5000000
+ 8299 multiletter control sequences out of 15000+600000
  52804 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,16n,43p,1760b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,43p,867b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -823,7 +861,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (35 pages, 691200 bytes).
+Output written on bakalarka.pdf (35 pages, 693593 bytes).
 PDF statistics:
  192 PDF objects out of 1000 (max. 8388607)
  134 compressed objects within 2 object streams
