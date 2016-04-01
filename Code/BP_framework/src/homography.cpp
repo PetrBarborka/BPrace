@@ -33,9 +33,11 @@ namespace BP {
         cv::FlannBasedMatcher matcher;
         matcher.match(desc1, desc2, matches);
 
-        std::cout << "got matches";
+//        std::cout << "got matches of size " << matches.size() << "\n";
+//        std::cout << "matches: ";
+//        PrintMatchVector(matches);
 
-        int min_dist = 0, max_dist = 0;
+        int min_dist = matches[0].distance, max_dist = 0;
 
         for( int i = 0; i < matches.size(); i++ )
         {
@@ -45,9 +47,12 @@ namespace BP {
         }
 
         std::cout << "min and max distance between matched descriptors: "
-                  << min_dist << " &  " << max_dist;
+                  << min_dist << " &  " << max_dist << "\n";
 
         std::sort(matches.begin(), matches.end(), compareMatchesByDistance);
+
+//        std::cout << "matches sorted by distance: ";
+//        PrintMatchVector(matches);
 
         for( int i = 0; i < matches.size(); i++ )
         {
@@ -61,12 +66,21 @@ namespace BP {
         std::vector<cv::Point2f> pts1, pts2;
 
         for (int i = 0; i < good_matches.size(); i++){
-            pts1.push_back(kpts1[ good_matches[i].queryIdx ].pt );
-            pts2.push_back(kpts2[ good_matches[i].trainIdx ].pt );
+            cv::Point2f pt1_to_push = kpts1[ good_matches[i].queryIdx ].pt;
+            cv::Point2f pt2_to_push = kpts2[ good_matches[i].queryIdx ].pt;
+//            std::cout << "pushing Point2f pt1_to_push: " << pt1_to_push << "\n";
+//            std::cout << "pushing Point2f pt2_to_push: " << pt2_to_push << "\n";
+            pts1.push_back( pt1_to_push );
+            pts2.push_back( pt2_to_push );
         }
 
         int homography_method = CV_RANSAC; //(alt: 0 for basic least squares, CV_LMEDS for least medians)
-        hmgr = cv::findHomography(pts1, pts2, homography_method);
+        double ransacReprojThreshold=3;
+        cv::OutputArray mask=cv::noArray();
+//        std::cout << "running \"findhomography()\"\n" ;
+//        std::cout << "\npts1: \n" << pts1;
+//        std::cout << "\npts2: \n" << pts2;
+        hmgr = cv::findHomography(pts1, pts2, homography_method, ransacReprojThreshold, mask);
 
     }
 

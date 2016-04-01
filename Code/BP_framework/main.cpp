@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
     detection_method det_method = DETECTION_SIFT;
     description_method desc_method = DESCRIPTION_SIFT;
-    int maxPts = 100;
+    int maxPts = 10000;
 
     Detection det1(src1, det_method, maxPts);
     Detection det2(src2, det_method, maxPts);
@@ -66,11 +66,23 @@ int main(int argc, char *argv[])
     descriptors1 = desc1.getDescriptors();
     descriptors2 = desc2.getDescriptors();
 
+//    cv::Mat img_keypoints_1; cv::Mat img_keypoints_2;
+//
+//    drawKeypoints( src1, kpoints1, img_keypoints_1, cv::Scalar::all(-1), cv::DrawMatchesFlags::DEFAULT );
+//    drawKeypoints( src2, kpoints2, img_keypoints_2, cv::Scalar::all(-1), cv::DrawMatchesFlags::DEFAULT );
+//
+//    //-- Show detected (drawn) keypoints
+//    imshow("Keypoints 1", img_keypoints_1 );
+//    imshow("Keypoints 2", img_keypoints_2 );
+
     Homography hmg(descriptors1, descriptors2,
                     kpoints1, kpoints2, matchingThreshold);
 
     cv::Mat hmgr = hmg.getHomography();
+    matches = hmg.getMatches();
     good_matches = hmg.getGoodMatches();
+
+    std::cout << "\nGot " << matches.size() << " matches, " << good_matches.size() << " good ones.\n";
 
     cv::Mat img_matches;
 

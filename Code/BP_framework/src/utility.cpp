@@ -34,8 +34,9 @@ namespace BP {
     pts.pop_back();
  }
 }
+
     void PrintKeyPoint(const cv::KeyPoint &kp){
-      std::cout << "--\nKeypoint: " << kp.pt <<
+        std::cout << "--\nKeypoint: " << kp.pt <<
             " size: " << kp.size <<
             " angle: " << kp.angle <<
             " response: " << kp.response <<
@@ -53,11 +54,28 @@ namespace BP {
         PrintKeyPoint(*it);
     }
 }
+    void PrintMatch(const cv::DMatch &match){
+        std::cout << "--\nDMatch: " <<
+                " distance: " << match.distance <<
+                " imgIdx: " << match.imgIdx <<
+                " queryIdx: " << match.queryIdx <<
+                " trainIdx: " << match.trainIdx << "\n";
+    }
+    void PrintMatchVector(const std::vector<cv::DMatch> &mv){
+        if (mv.empty()){
+            std::cout << "PrintMatchVector error: input vector empty!\n";
+        }
+        std::vector<cv::DMatch>::const_iterator it = mv.begin();
+        std::vector<cv::DMatch>::const_iterator ite = mv.end();
+        for(; it < ite; it++){
+            PrintMatch(*it);
+        }
+    }
 
     bool compareKeypointsByResponse (const cv::KeyPoint &k1, const cv::KeyPoint &k2){
         return k1.response > k2.response;
     }
     bool compareMatchesByDistance(const cv::DMatch &m1, const cv::DMatch &m2){
-        return m1.distance > m2.distance;
+        return m1.distance < m2.distance;
     }
 }
