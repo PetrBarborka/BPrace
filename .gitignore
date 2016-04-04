@@ -4,4 +4,4 @@ bakalarka.pdf
 #build
 ./Code/build-BP_framework-Desktop_Qt_5_5_1_clang_64bit-Debug
 
-./Code/W_dir/out
+/Code/W_dir/out/

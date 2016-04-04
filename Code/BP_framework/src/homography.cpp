@@ -30,8 +30,8 @@ namespace BP {
 
         std::cout << "\nHomography::compute() method runs\n";
 
-//        cv::BFMatcher matcher(cv::NORM_L2, 1);
-        cv::FlannBasedMatcher matcher;
+        cv::BFMatcher matcher(cv::NORM_L2, 1);
+//        cv::FlannBasedMatcher matcher;
 
 //      Flann compatibility conversion
         if(desc1.type()!=CV_32F) {
@@ -40,16 +40,11 @@ namespace BP {
         }
         matcher.match(desc1, desc2, matches);
 
-//        std::cout << "got " << matches.size() << " matches\n";
-//        std::cout << "matches: ";
-//        PrintMatchVector(matches);
-
         double min_dist = matches[0].distance, max_dist = 0;
 
         for( int i = 0; i < matches.size(); i++ )
         {
             double dist = matches[i].distance;
-//            std::cout << "Match distance: " << matches[i].distance << "\n";
             if( dist < min_dist ) min_dist = dist;
             if( dist > max_dist ) max_dist = dist;
         }
@@ -72,19 +67,12 @@ namespace BP {
         }
         int homography_method = CV_RANSAC; //(alt: 0 for basic least squares, CV_LMEDS for least medians)
         double ransacReprojThreshold=3;
-//        cv::OutputArray mask=cv::cvMat;
-//        std::cout << "running \"findhomography()\"\n" ;
-//        std::cout << "\npts1: \n" << pts1;
-//        std::cout << "\npts2: \n" << pts2;
         hmgr = cv::findHomography(pts1, pts2, homography_method, ransacReprojThreshold, mask);
-//        std::cout << "Inliers/outliers mask: \n" << mask << "\n";
         std::vector<cv::DMatch>::iterator mitr = matches.begin();
         cv::MatIterator_<uchar> mask_itr = mask.begin<uchar>();
         std::vector<cv::DMatch>::const_iterator end_mitr = matches.cend();
         for (; mitr<end_mitr; mitr++, mask_itr++)
         {
-//            std::cout << "iterating through matches: [" << static_cast<bool>(*(mask_itr)) << "]: " ;
-//            PrintMatch(*mitr);
             if (static_cast<bool>(*(mask_itr)))
             {
                 good_matches.push_back(*mitr);
