@@ -15,7 +15,7 @@ namespace BP {
             cv::Mat desc2;
             std::vector<cv::DMatch> matches, good_matches;
             std::vector<cv::KeyPoint> kpts1, kpts2;
-            cv::Mat hmgr;
+            cv::Mat hmgr, mask;
             void compute();
         public:
             Homography( cv::Mat desc1_in,
@@ -32,7 +32,7 @@ namespace BP {
             std::vector<cv::KeyPoint> getKpts1();
             std::vector<cv::KeyPoint> getKpts2();
             cv::Mat getHomography();
-
+            cv::Mat getMask();
     };
 
 }

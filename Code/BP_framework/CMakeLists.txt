@@ -26,6 +26,11 @@ set(CMAKE_AUTOMOC ON)
 find_package( OpenCV REQUIRED )
 find_package( Qt5 REQUIRED Core Gui Widgets )
 
+#find_package( json REQUIRED )
+
+FIND_PACKAGE( Boost COMPONENTS program_options REQUIRED )
+INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
+
 if (Qt5_FOUND)
     message("Found Qt5")
     message("Includes: " ${Qt5_INCLUDE_DIRS})
@@ -54,6 +59,10 @@ set ( SOURCES src/utility.cpp src/detection.cpp src/description.cpp src/homograp
 
 include_directories( ${PROJECT_SOURCE_DIR}/include )
 
+INCLUDE_DIRECTORIES(  ${PROJECT_SOURCE_DIR}/lib/json/src )
+
 include_directories(${OpenCV_INCLUDE_DIRS})
 add_executable ( BP main.cpp ${SOURCES} )
-target_link_libraries( BP ${OpenCV_LIBS} ${contrib_LIBS} Qt5::Core)
+target_link_libraries( BP ${Boost_LIBRARIES} ${OpenCV_LIBS} ${contrib_LIBS} Qt5::Core)
+
+add_definitions(-std=c++11)

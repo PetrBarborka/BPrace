@@ -22,13 +22,14 @@ namespace BP {
 
         cv::Mat desc;
 
-        std::cout << "\ndescribe() method runs\n";
+        std::cout << "describe() method runs. Describing with ";
         if (getMethod() == DESCRIPTION_BRIEF){
 
             //  BRIEF parameters
+            std::cout << "BRIEF\n";
 
             int bytes = 32;
-            bool use_orientation = false;
+            bool use_orientation = true;
 
             cv::Ptr<cv::xfeatures2d::BriefDescriptorExtractor> extractor =
                     cv::xfeatures2d::BriefDescriptorExtractor::create(bytes, use_orientation);
@@ -39,6 +40,7 @@ namespace BP {
         }else if (getMethod() == DESCRIPTION_SIFT){
 
             //SIFT parameters
+            std::cout << "SIFT\n";
             int nfeatures = 0;
             int nOctaveLayers = 3;
             double contrastThreshold = 0.04;
@@ -55,10 +57,11 @@ namespace BP {
         } else if (getMethod() == DESCRIPTION_SURF){
 
             //  SURF parameters
+            std::cout << "SURF\n";
             double hessianThreshold = 100;
             int nOctaves = 4;
             int nOctaveLayers = 3;
-            bool extended = false;
+            bool extended = true;
             bool upright = false;
 
             cv::Ptr<cv::xfeatures2d::SURF> extractor = cv::xfeatures2d::SURF::create(hessianThreshold,
@@ -73,7 +76,9 @@ namespace BP {
         } else if (getMethod() == DESCRIPTION_ORB){
 
             //ORB parameters
-            int nfeatures=500;
+            std::cout << "ORB\n";
+//            int nfeatures=10000;
+            int nfeatures = getKeypoints().size();
             float scaleFactor=1.2f;
             int nlevels=8;
             int edgeThreshold=31;

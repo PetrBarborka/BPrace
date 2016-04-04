@@ -73,9 +73,9 @@
           <root url="file:///System/Library/Frameworks/vmnet.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreMedia.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Foundation.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/SystemConfiguration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/PrivateHeaders" />
+          <root url="file:///System/Library/Frameworks/SystemConfiguration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Cocoa.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenCL.framework/Headers" />
@@ -202,6 +202,7 @@
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/RelWithDebInfo" />
           <root url="file://$MODULE_DIR$/include" />
+          <root url="file://$MODULE_DIR$/lib/json/src" />
           <root url="file://$USER_HOME$/Qt5.5.1/5.5/clang_64/lib/QtDesignerComponents.framework/Headers" />
           <root url="file://$USER_HOME$/Qt5.5.1/5.5/clang_64/lib/QtQuickParticles.framework/Headers" />
           <root url="file://$USER_HOME$/Qt5.5.1/5.5/clang_64/lib/Qt3DCore.framework/Headers" />
@@ -314,9 +315,9 @@
           <root url="file:///System/Library/Frameworks/vmnet.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreMedia.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Foundation.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/SystemConfiguration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/PrivateHeaders" />
+          <root url="file:///System/Library/Frameworks/SystemConfiguration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Cocoa.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenCL.framework/Headers" />
@@ -443,6 +444,7 @@
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/RelWithDebInfo" />
           <root url="file://$MODULE_DIR$/include" />
+          <root url="file://$MODULE_DIR$/lib/json/src" />
           <root url="file://$USER_HOME$/Qt5.5.1/5.5/clang_64/lib/QtDesignerComponents.framework/Headers" />
           <root url="file://$USER_HOME$/Qt5.5.1/5.5/clang_64/lib/QtQuickParticles.framework/Headers" />
           <root url="file://$USER_HOME$/Qt5.5.1/5.5/clang_64/lib/Qt3DCore.framework/Headers" />

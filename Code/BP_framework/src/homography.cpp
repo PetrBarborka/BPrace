@@ -30,18 +30,26 @@ namespace BP {
 
         std::cout << "\nHomography::compute() method runs\n";
 
+//        cv::BFMatcher matcher(cv::NORM_L2, 1);
         cv::FlannBasedMatcher matcher;
+
+//      Flann compatibility conversion
+        if(desc1.type()!=CV_32F) {
+            desc1.convertTo(desc1, CV_32F);
+            desc2.convertTo(desc2, CV_32F);
+        }
         matcher.match(desc1, desc2, matches);
 
-//        std::cout << "got matches of size " << matches.size() << "\n";
+//        std::cout << "got " << matches.size() << " matches\n";
 //        std::cout << "matches: ";
 //        PrintMatchVector(matches);
 
-        int min_dist = matches[0].distance, max_dist = 0;
+        double min_dist = matches[0].distance, max_dist = 0;
 
         for( int i = 0; i < matches.size(); i++ )
         {
             double dist = matches[i].distance;
+//            std::cout << "Match distance: " << matches[i].distance << "\n";
             if( dist < min_dist ) min_dist = dist;
             if( dist > max_dist ) max_dist = dist;
         }
@@ -49,38 +57,40 @@ namespace BP {
         std::cout << "min and max distance between matched descriptors: "
                   << min_dist << " &  " << max_dist << "\n";
 
-        std::sort(matches.begin(), matches.end(), compareMatchesByDistance);
-
-//        std::cout << "matches sorted by distance: ";
-//        PrintMatchVector(matches);
-
-        for( int i = 0; i < matches.size(); i++ )
-        {
-            if( matches[i].distance > threshold*min_dist )
-            {
-                break;
-            }
-            good_matches.push_back( matches[i] );
-        }
-
         std::vector<cv::Point2f> pts1, pts2;
 
-        for (int i = 0; i < good_matches.size(); i++){
-            cv::Point2f pt1_to_push = kpts1[ good_matches[i].queryIdx ].pt;
-            cv::Point2f pt2_to_push = kpts2[ good_matches[i].queryIdx ].pt;
-//            std::cout << "pushing Point2f pt1_to_push: " << pt1_to_push << "\n";
-//            std::cout << "pushing Point2f pt2_to_push: " << pt2_to_push << "\n";
-            pts1.push_back( pt1_to_push );
-            pts2.push_back( pt2_to_push );
-        }
+        pts1.resize(matches.size());
+        pts2.resize(matches.size());
 
+        for (int i = 0; i < matches.size(); i++){
+            int queryIdx = matches[i].queryIdx;
+            int trainIdx = matches[i].trainIdx;
+            cv::Point2f pt1_to_push = kpts1[ queryIdx ].pt;
+            cv::Point2f pt2_to_push = kpts2[ trainIdx ].pt;
+            pts1[i] = pt1_to_push;
+            pts2[i] = pt2_to_push;
+        }
         int homography_method = CV_RANSAC; //(alt: 0 for basic least squares, CV_LMEDS for least medians)
         double ransacReprojThreshold=3;
-        cv::OutputArray mask=cv::noArray();
+//        cv::OutputArray mask=cv::cvMat;
 //        std::cout << "running \"findhomography()\"\n" ;
 //        std::cout << "\npts1: \n" << pts1;
 //        std::cout << "\npts2: \n" << pts2;
         hmgr = cv::findHomography(pts1, pts2, homography_method, ransacReprojThreshold, mask);
+//        std::cout << "Inliers/outliers mask: \n" << mask << "\n";
+        std::vector<cv::DMatch>::iterator mitr = matches.begin();
+        cv::MatIterator_<uchar> mask_itr = mask.begin<uchar>();
+        std::vector<cv::DMatch>::const_iterator end_mitr = matches.cend();
+        for (; mitr<end_mitr; mitr++, mask_itr++)
+        {
+//            std::cout << "iterating through matches: [" << static_cast<bool>(*(mask_itr)) << "]: " ;
+//            PrintMatch(*mitr);
+            if (static_cast<bool>(*(mask_itr)))
+            {
+                good_matches.push_back(*mitr);
+            }
+        }
+        std::cout << "Matches = " << good_matches.size() << " inliers out of " << matches.size() << "\n";
 
     }
 
@@ -107,6 +117,9 @@ namespace BP {
     }
     cv::Mat Homography::getHomography(){
         return this->hmgr;
+    }
+    cv::Mat Homography::getMask(){
+        return this->mask;
     }
 
 

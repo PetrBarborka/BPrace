@@ -29,9 +29,11 @@ namespace BP {
 
         std::vector<cv::KeyPoint> kpts;
 
-        std::cout << "\ndetect() method runs\n";
+
+
+        std::cout << "detect() method runs. Detecting with ";
         if (getMethod() == DETECTION_HARRIS){
-            std::cout << "\ngoing for Harris\n";
+            std::cout << "Harris\n";
 
             /// Parameters for Harris algorithm
             std::vector<cv::Point2f> corners;
@@ -54,7 +56,7 @@ namespace BP {
             pointsToKeypoints(corners, kpts);
 
         } else if (getMethod() == DETECTION_GFTT){
-            std::cout << "\ngoing for GFTT\n";
+            std::cout << "GFTT\n";
             /// Parameters for GFTT algorithm
             std::vector<cv::Point2f> corners;
             double qualityLevel = 0.01;
@@ -76,7 +78,7 @@ namespace BP {
             pointsToKeypoints(corners, kpts);
 
         } else if (getMethod() == DETECTION_SIFT) {
-            std::cout << "going for SIFT";
+            std::cout << "SIFT\n";
 
             int nfeatures = 0;
             int nOctaveLayers = 3;
@@ -88,8 +90,16 @@ namespace BP {
                                                                                     edgeThreshold, sigma);
             detector->detect(getSrc(), kpts);
 
+//            patchSIFTOctaves(kpts);
+
+//            std::vector<cv::KeyPoint>::iterator it = kpts.begin();
+//            std::vector<cv::KeyPoint>::const_iterator ite = kpts.end();
+//            for(; it < ite; it++){
+//                (*it).octave = (*it).octave & 255;
+//            }
+
         } else if (getMethod() == DETECTION_SURF) {
-            std::cout << "going for SURF";
+            std::cout << "SURF\n";
 
 //      //  SURF parameters
             double hessianThreshold = 100;
@@ -102,7 +112,7 @@ namespace BP {
             detector->detect(getSrc(), kpts );
 
         } else if (getMethod() == DETECTION_FAST) {
-            std::cout << "going for FAST";
+            std::cout << "FAST\n";
 
 //      //  FAST
             int threshold = 50;
@@ -112,7 +122,7 @@ namespace BP {
             cv::FAST(getSrc(), kpts, threshold, nonmaxSupression, neighbourhood);
 
         } else if (getMethod() == DETECTION_MSER) {
-            std::cout << "going for MSER";
+            std::cout << "MSER\n";
 
 //      //  MSER
             int _delta = 5;
@@ -133,7 +143,7 @@ namespace BP {
             detector->detect(getSrc(), kpts, cv::noArray());
 
         } else if (getMethod() == DETECTION_ORB) {
-            std::cout << "going for ORB";
+            std::cout << "ORB\n";
 
 //      //  ORB
             int nfeatures= maxPts;
@@ -153,7 +163,7 @@ namespace BP {
             detector->detect(getSrc(), kpts, cv::noArray());
 
         } else {
-            std::cout << "error: unknown detection method";
+            std::cout << "Detection error: unknown detection method";
         }
         std::sort(kpts.begin(), kpts.end(), compareKeypointsByResponse);
         topKeypoints(kpts, getMaxPts());

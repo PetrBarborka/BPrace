@@ -7,10 +7,10 @@
 
 namespace BP {
 
-    enum description_method { DESCRIPTION_BRIEF = 1,
-                              DESCRIPTION_SIFT = 2,
-                              DESCRIPTION_SURF = 3,
-                              DESCRIPTION_ORB = 4};
+    enum description_method { DESCRIPTION_BRIEF = 0,
+                              DESCRIPTION_SIFT = 1,
+                              DESCRIPTION_SURF = 2,
+                              DESCRIPTION_ORB = 3};
 
     class Description {
 

@@ -1,0 +1,5 @@
+{	"matchingThreshold": "5",
+	"maxPts": "10000",
+	"detection_methods": ["3"] ,
+	"description_methods": ["2"] ,
+	"show": "1" }

@@ -7,13 +7,13 @@
 
 namespace BP {
 
-    enum detection_method { DETECTION_HARRIS = 1,
-        DETECTION_GFTT = 2,
-        DETECTION_SIFT = 3,
-        DETECTION_SURF = 4,
-        DETECTION_FAST = 5,
-        DETECTION_MSER = 6,
-        DETECTION_ORB = 7  };
+    enum detection_method { DETECTION_HARRIS = 0,
+        DETECTION_GFTT = 1,
+        DETECTION_SIFT = 2,
+        DETECTION_SURF = 3,
+        DETECTION_FAST = 4,
+        DETECTION_MSER = 5,
+        DETECTION_ORB = 6  };
 
     class Detection {
 
