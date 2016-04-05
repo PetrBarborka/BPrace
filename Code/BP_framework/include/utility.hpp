@@ -5,7 +5,20 @@
 #ifndef BP_UTILITY_H
 #define BP_UTILITY_H
 
+//Including in header file because
+//headers use types
+#include "json.hpp"
+#include "homography.hpp"
+
+using json = nlohmann::json;
+
 namespace BP {
+
+    struct jsons_t {
+        json pictures, config, output;
+    };
+
+    jsons_t parseArgs(int argc, char *argv[]);
 
     void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec);
     void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount);
@@ -23,6 +36,9 @@ namespace BP {
     bool compareMatchesByDistance(const cv::DMatch &m1, const cv::DMatch &m2);
 
     cv::Mat readMatFromTextFile(const std::string & path);
+
+    void parseConfig(const json & config, homography_t &hg);
+    double getHomographyDistance(const cv::Mat & hmg1, const cv::Mat & hmg2);
 }
 
 #endif //BP_UTILITY_H

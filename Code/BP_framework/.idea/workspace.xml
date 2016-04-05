@@ -16,10 +16,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2699d1d-7c74-40f8-9207-8264813321d4" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to10" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to10prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to1prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to2prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to3prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to4" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to4prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to5prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to6prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to7prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to8prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to9" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/H0to9prec" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img0.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img1.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img10.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img2.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img3.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img4.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img5.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img6.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img7.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img8.pgm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../W_dir/ENSIMAG/img9.pgm" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json" afterPath="$PROJECT_DIR$/lib/json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/detection.hpp" afterPath="$PROJECT_DIR$/include/detection.hpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/homography.hpp" afterPath="$PROJECT_DIR$/include/homography.hpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/utility.hpp" afterPath="$PROJECT_DIR$/include/utility.hpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.cpp" afterPath="$PROJECT_DIR$/main.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/description.cpp" afterPath="$PROJECT_DIR$/src/description.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/detection.cpp" afterPath="$PROJECT_DIR$/src/detection.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/homography.cpp" afterPath="$PROJECT_DIR$/src/homography.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utility.cpp" afterPath="$PROJECT_DIR$/src/utility.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../W_dir/outconf.json" afterPath="$PROJECT_DIR$/../W_dir/outconf.json" />
     </list>
     <ignored path="BP_framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,14 +88,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.1754618">
-              <caret line="240" column="80" selection-start-line="240" selection-start-column="80" selection-end-line="240" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
-                <element signature="e#1867#3548#0" expanded="false" />
+                <element signature="e#243#259#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utility.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/utility.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#144#163#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utility.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utility.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+              <folding>
+                <element signature="e#47#77#0" expanded="true" />
+                <element signature="e#581#4090#0" expanded="false" />
+                <element signature="e#4096#4479#0" expanded="false" />
+                <element signature="e#4981#5137#0" expanded="false" />
+                <element signature="e#5142#5441#0" expanded="false" />
+                <element signature="e#5446#5818#0" expanded="false" />
+                <element signature="e#5824#6141#0" expanded="false" />
+                <element signature="e#6146#6681#0" expanded="false" />
+                <element signature="e#6686#6983#0" expanded="false" />
+                <element signature="e#6988#7490#0" expanded="false" />
+                <element signature="e#7495#7629#0" expanded="false" />
+                <element signature="e#7634#7761#0" expanded="false" />
+                <element signature="e#7767#9561#0" expanded="false" />
+                <element signature="e#9567#11328#0" expanded="false" />
+                <element signature="e#11334#11871#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,25 +143,55 @@
         <entry file="file://$PROJECT_DIR$/include/homography.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="29" />
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding>
+                <element signature="e#274#1174#1" expanded="false" />
+                <element signature="e#1352#2678#1" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="homography.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/homography.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.1253299">
+              <caret line="135" column="75" selection-start-line="135" selection-start-column="75" selection-end-line="135" selection-end-column="75" />
+              <folding>
+                <element signature="e#46#70#0" expanded="true" />
+                <element signature="e#182#202#0" expanded="true" />
+                <element signature="e#474#2604#0" expanded="false" />
+                <element signature="e#10893#15000#0" expanded="false" />
+                <element signature="e#15006#15077#0" expanded="false" />
+                <element signature="e#15082#15165#0" expanded="false" />
+                <element signature="e#15170#15253#0" expanded="false" />
+                <element signature="e#15258#15343#0" expanded="false" />
+                <element signature="e#15348#15442#0" expanded="false" />
+                <element signature="e#15447#15530#0" expanded="false" />
+                <element signature="e#15535#15618#0" expanded="false" />
+                <element signature="e#15623#15692#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="description.hpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/description.hpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homography.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/homography.cpp">
+      <file leaf-file-name="description.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/description.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.11111">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
               <folding>
-                <element signature="e#2743#2814#0" expanded="false" />
-                <element signature="e#2819#2902#0" expanded="false" />
-                <element signature="e#2907#2990#0" expanded="false" />
-                <element signature="e#2995#3080#0" expanded="false" />
-                <element signature="e#3085#3179#0" expanded="false" />
-                <element signature="e#3184#3267#0" expanded="false" />
-                <element signature="e#3272#3355#0" expanded="false" />
+                <element signature="e#46#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,60 +201,10 @@
         <entry file="file://$PROJECT_DIR$/include/detection.hpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="15" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="description.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/description.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="12" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utility.hpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/utility.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utility.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utility.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="27" selection-start-line="157" selection-start-column="27" selection-end-line="157" selection-end-column="27" />
+              <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
               <folding>
-                <element signature="e#46#65#0" expanded="true" />
-                <element signature="e#285#668#0" expanded="false" />
-                <element signature="e#674#1165#0" expanded="false" />
-                <element signature="e#1170#1326#0" expanded="false" />
-                <element signature="e#1331#1630#0" expanded="false" />
-                <element signature="e#2013#2330#0" expanded="false" />
-                <element signature="e#2335#2870#0" expanded="false" />
-                <element signature="e#2875#3172#0" expanded="false" />
-                <element signature="e#3177#3679#0" expanded="false" />
-                <element signature="e#3684#3818#0" expanded="false" />
-                <element signature="e#3823#3950#0" expanded="false" />
+                <element signature="e#93#112#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="description.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/description.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -157,11 +213,12 @@
         <entry file="file://$PROJECT_DIR$/src/detection.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="37" />
+              <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
               <folding>
                 <element signature="e#46#65#0" expanded="true" />
-                <element signature="e#6160#6220#0" expanded="false" />
-                <element signature="e#6305#6367#0" expanded="false" />
+                <element signature="e#520#6037#0" expanded="false" />
+                <element signature="e#6176#6236#0" expanded="false" />
+                <element signature="e#6321#6383#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -180,13 +237,13 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/description.hpp" />
         <option value="$PROJECT_DIR$/include/detection.hpp" />
-        <option value="$PROJECT_DIR$/src/detection.cpp" />
         <option value="$PROJECT_DIR$/include/utility.hpp" />
         <option value="$PROJECT_DIR$/src/utility.cpp" />
         <option value="$PROJECT_DIR$/include/homography.hpp" />
-        <option value="$PROJECT_DIR$/src/description.cpp" />
-        <option value="$PROJECT_DIR$/src/homography.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/src/description.cpp" />
+        <option value="$PROJECT_DIR$/src/detection.cpp" />
+        <option value="$PROJECT_DIR$/src/homography.cpp" />
       </list>
     </option>
   </component>
@@ -195,6 +252,7 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="width" value="1920" />
     <option name="height" value="1080" />
@@ -376,7 +434,7 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--pjsn &quot;pics_ensimag.json&quot; --cjsn &quot;config.json&quot; --out &quot;outconf.json&quot;" WORKING_DIR="file://$PROJECT_DIR$/../W_dir" PASS_PARENT_ENVS="FALSE" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BP" RUN_TARGET_NAME="BP" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--pjsn &quot;configs/pics_belledonne.json&quot; --cjsn &quot;config_surf.json&quot; --out &quot;configs/outconf_belledonne.json&quot;" WORKING_DIR="file://$PROJECT_DIR$/../W_dir" PASS_PARENT_ENVS="FALSE" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BP" RUN_TARGET_NAME="BP" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
       <method />
     </configuration>
@@ -427,7 +485,7 @@
     <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13541667" sideWeight="0.47953215" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13541667" sideWeight="0.47953215" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31558567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32720232" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -446,6 +504,26 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31558567" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32720232" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2391094" sideWeight="0.50208336" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2391094" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13541667" sideWeight="0.47953215" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35234374" sideWeight="0.5204678" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -460,7 +538,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -487,7 +565,7 @@
           <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <element signature="e#1867#3548#0" expanded="false" />
+            <element signature="e#243#259#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -505,17 +583,16 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
           <folding>
-            <element signature="e#46#65#0" expanded="true" />
-            <element signature="e#285#668#0" expanded="false" />
-            <element signature="e#674#1165#0" expanded="false" />
-            <element signature="e#1170#1326#0" expanded="false" />
-            <element signature="e#1331#1630#0" expanded="false" />
-            <element signature="e#2013#2330#0" expanded="false" />
-            <element signature="e#2335#2870#0" expanded="false" />
-            <element signature="e#2875#3172#0" expanded="false" />
-            <element signature="e#3177#3679#0" expanded="false" />
-            <element signature="e#3684#3818#0" expanded="false" />
-            <element signature="e#3823#3950#0" expanded="false" />
+            <element signature="e#4096#4479#0" expanded="false" />
+            <element signature="e#4485#4976#0" expanded="false" />
+            <element signature="e#4981#5137#0" expanded="false" />
+            <element signature="e#5142#5441#0" expanded="false" />
+            <element signature="e#5824#6141#0" expanded="false" />
+            <element signature="e#6146#6681#0" expanded="false" />
+            <element signature="e#6686#6983#0" expanded="false" />
+            <element signature="e#6988#7490#0" expanded="false" />
+            <element signature="e#7495#7629#0" expanded="false" />
+            <element signature="e#7634#7761#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -526,8 +603,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#46#65#0" expanded="true" />
-            <element signature="e#6160#6220#0" expanded="false" />
-            <element signature="e#6305#6367#0" expanded="false" />
+            <element signature="e#520#6037#0" expanded="false" />
+            <element signature="e#6176#6236#0" expanded="false" />
+            <element signature="e#6321#6383#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -602,18 +680,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/json/src/json.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33186814">
-          <caret line="4212" column="19" selection-start-line="4212" selection-start-column="19" selection-end-line="4212" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="206" column="0" selection-start-line="206" selection-start-column="0" selection-end-line="206" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/opencv2/flann/miniflann.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33245382">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/json/src/json.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8671" column="0" selection-start-line="8671" selection-start-column="0" selection-end-line="8671" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -626,58 +712,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/utility.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utility.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="27" selection-start-line="157" selection-start-column="27" selection-end-line="157" selection-end-column="27" />
-          <folding>
-            <element signature="e#46#65#0" expanded="true" />
-            <element signature="e#285#668#0" expanded="false" />
-            <element signature="e#674#1165#0" expanded="false" />
-            <element signature="e#1170#1326#0" expanded="false" />
-            <element signature="e#1331#1630#0" expanded="false" />
-            <element signature="e#2013#2330#0" expanded="false" />
-            <element signature="e#2335#2870#0" expanded="false" />
-            <element signature="e#2875#3172#0" expanded="false" />
-            <element signature="e#3177#3679#0" expanded="false" />
-            <element signature="e#3684#3818#0" expanded="false" />
-            <element signature="e#3823#3950#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/detection.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="15" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/detection.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="14" selection-start-line="92" selection-start-column="14" selection-end-line="92" selection-end-column="37" />
-          <folding>
-            <element signature="e#46#65#0" expanded="true" />
-            <element signature="e#6160#6220#0" expanded="false" />
-            <element signature="e#6305#6367#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/description.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="12" selection-end-column="46" />
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -685,42 +723,109 @@
     <entry file="file://$PROJECT_DIR$/src/description.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="41" selection-start-line="60" selection-start-column="41" selection-end-line="60" selection-end-column="41" />
-          <folding />
+          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+          <folding>
+            <element signature="e#46#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/homography.hpp">
+    <entry file="file://$PROJECT_DIR$/include/detection.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="29" />
-          <folding />
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+          <folding>
+            <element signature="e#93#112#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/homography.cpp">
+    <entry file="file://$PROJECT_DIR$/src/detection.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.11111">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
-            <element signature="e#2743#2814#0" expanded="false" />
-            <element signature="e#2819#2902#0" expanded="false" />
-            <element signature="e#2907#2990#0" expanded="false" />
-            <element signature="e#2995#3080#0" expanded="false" />
-            <element signature="e#3085#3179#0" expanded="false" />
-            <element signature="e#3184#3267#0" expanded="false" />
-            <element signature="e#3272#3355#0" expanded="false" />
+            <element signature="e#46#65#0" expanded="true" />
+            <element signature="e#520#6037#0" expanded="false" />
+            <element signature="e#6176#6236#0" expanded="false" />
+            <element signature="e#6321#6383#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1754618">
-          <caret line="240" column="80" selection-start-line="240" selection-start-column="80" selection-end-line="240" selection-end-column="80" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="32" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
-            <element signature="e#1867#3548#0" expanded="false" />
+            <element signature="e#243#259#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utility.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding>
+            <element signature="e#47#77#0" expanded="true" />
+            <element signature="e#581#4090#0" expanded="false" />
+            <element signature="e#4096#4479#0" expanded="false" />
+            <element signature="e#4981#5137#0" expanded="false" />
+            <element signature="e#5142#5441#0" expanded="false" />
+            <element signature="e#5446#5818#0" expanded="false" />
+            <element signature="e#5824#6141#0" expanded="false" />
+            <element signature="e#6146#6681#0" expanded="false" />
+            <element signature="e#6686#6983#0" expanded="false" />
+            <element signature="e#6988#7490#0" expanded="false" />
+            <element signature="e#7495#7629#0" expanded="false" />
+            <element signature="e#7634#7761#0" expanded="false" />
+            <element signature="e#7767#9561#0" expanded="false" />
+            <element signature="e#9567#11328#0" expanded="false" />
+            <element signature="e#11334#11871#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/homography.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#274#1174#1" expanded="false" />
+            <element signature="e#1352#2678#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/utility.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#144#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/homography.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1253299">
+          <caret line="135" column="75" selection-start-line="135" selection-start-column="75" selection-end-line="135" selection-end-column="75" />
+          <folding>
+            <element signature="e#46#70#0" expanded="true" />
+            <element signature="e#182#202#0" expanded="true" />
+            <element signature="e#474#2604#0" expanded="false" />
+            <element signature="e#10893#15000#0" expanded="false" />
+            <element signature="e#15006#15077#0" expanded="false" />
+            <element signature="e#15082#15165#0" expanded="false" />
+            <element signature="e#15170#15253#0" expanded="false" />
+            <element signature="e#15258#15343#0" expanded="false" />
+            <element signature="e#15348#15442#0" expanded="false" />
+            <element signature="e#15447#15530#0" expanded="false" />
+            <element signature="e#15535#15618#0" expanded="false" />
+            <element signature="e#15623#15692#0" expanded="false" />
           </folding>
         </state>
       </provider>

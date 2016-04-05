@@ -22,11 +22,11 @@ namespace BP {
 
         cv::Mat desc;
 
-        std::cout << "describe() method runs. Describing with ";
+//        std::cout << "describe() method runs. Describing with ";
         if (getMethod() == DESCRIPTION_BRIEF){
 
             //  BRIEF parameters
-            std::cout << "BRIEF\n";
+//            std::cout << "BRIEF\n";
 
             int bytes = 32;
             bool use_orientation = true;
@@ -40,7 +40,7 @@ namespace BP {
         }else if (getMethod() == DESCRIPTION_SIFT){
 
             //SIFT parameters
-            std::cout << "SIFT\n";
+//            std::cout << "SIFT\n";
             int nfeatures = 0;
             int nOctaveLayers = 3;
             double contrastThreshold = 0.04;
@@ -57,7 +57,7 @@ namespace BP {
         } else if (getMethod() == DESCRIPTION_SURF){
 
             //  SURF parameters
-            std::cout << "SURF\n";
+//            std::cout << "SURF\n";
             double hessianThreshold = 100;
             int nOctaves = 4;
             int nOctaveLayers = 3;
@@ -76,7 +76,7 @@ namespace BP {
         } else if (getMethod() == DESCRIPTION_ORB){
 
             //ORB parameters
-            std::cout << "ORB\n";
+//            std::cout << "ORB\n";
 //            int nfeatures=10000;
             int nfeatures = getKeypoints().size();
             float scaleFactor=1.2f;

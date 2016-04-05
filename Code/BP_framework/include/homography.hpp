@@ -5,7 +5,46 @@
 #ifndef BP_HOMOGRAPHY_H
 #define BP_HOMOGRAPHY_H
 
+//Including in header file because
+//headers use types
+#include "detection.hpp"
+#include "description.hpp"
+
+#include "json.hpp"
+
+using json = nlohmann::json;
+
 namespace BP {
+
+    struct homography_t {
+        //  source images
+        cv::Mat src1, src2;
+        //  image key points
+        std::vector<cv::KeyPoint> kpoints1, kpoints2;
+        //  descriptors of keypoints
+        cv::Mat descriptors1, descriptors2;
+        //  keypoint matches between images
+        std::vector<cv::DMatch> matches, good_matches;
+        //  Homography matrix
+        cv::Mat homography, homography_gt;
+        //  Multiple of minimal descriptor distance still
+        //  considered a good match
+        float matchingThreshold;
+        //  Maximum number of keypoints returned
+        int maxPts;
+        std::vector<detection_method> det_methods;
+        std::vector<description_method> desc_methods;
+        // draw results?
+        bool show;
+        // inlier matches indicator
+        cv::Mat mask;
+        // execution times
+        double time_desc, time_det, time_homography;
+    };
+
+    void computeHg(homography_t &hg, int detIdx = 0, int descIdx = 0);
+    void computeAllHGs( std::vector<homography_t>& hgs, json pictures, json config, json output);
+
 
     class Homography {
         private:
@@ -16,13 +55,17 @@ namespace BP {
             std::vector<cv::DMatch> matches, good_matches;
             std::vector<cv::KeyPoint> kpts1, kpts2;
             cv::Mat hmgr, mask;
+            bool flann;
+            int descType;
             void compute();
         public:
             Homography( cv::Mat desc1_in,
                         cv::Mat desc2_in,
                         std::vector<cv::KeyPoint> kpts1_in,
                         std::vector<cv::KeyPoint> kpts2_in,
-                        float threshold_in);
+                        float threshold_in,
+                        bool flann_in=1,  // bruteforce matcher = 0, flann matcher = 1
+                        int descType_in=0 );  // 0 = BRIEF, 1 = SIFT, 2 = SURF, 3 = ORB;
 
             float getThreshold();
             std::vector<cv::KeyPoint> getDesc1();
@@ -33,6 +76,8 @@ namespace BP {
             std::vector<cv::KeyPoint> getKpts2();
             cv::Mat getHomography();
             cv::Mat getMask();
+            bool getFlann();
+            int getDescType();
     };
 
 }

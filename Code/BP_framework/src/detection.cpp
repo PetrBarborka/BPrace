@@ -31,9 +31,9 @@ namespace BP {
 
 
 
-        std::cout << "detect() method runs. Detecting with ";
+//        std::cout << "detect() method runs. Detecting with ";
         if (getMethod() == DETECTION_HARRIS){
-            std::cout << "Harris\n";
+//            std::cout << "Harris\n";
 
             /// Parameters for Harris algorithm
             std::vector<cv::Point2f> corners;
@@ -56,7 +56,7 @@ namespace BP {
             pointsToKeypoints(corners, kpts);
 
         } else if (getMethod() == DETECTION_GFTT){
-            std::cout << "GFTT\n";
+//            std::cout << "GFTT\n";
             /// Parameters for GFTT algorithm
             std::vector<cv::Point2f> corners;
             double qualityLevel = 0.01;
@@ -78,7 +78,7 @@ namespace BP {
             pointsToKeypoints(corners, kpts);
 
         } else if (getMethod() == DETECTION_SIFT) {
-            std::cout << "SIFT\n";
+//            std::cout << "SIFT\n";
 
             int nfeatures = 0;
             int nOctaveLayers = 3;
@@ -99,7 +99,7 @@ namespace BP {
 //            }
 
         } else if (getMethod() == DETECTION_SURF) {
-            std::cout << "SURF\n";
+//            std::cout << "SURF\n";
 
 //      //  SURF parameters
             double hessianThreshold = 100;
@@ -112,7 +112,7 @@ namespace BP {
             detector->detect(getSrc(), kpts );
 
         } else if (getMethod() == DETECTION_FAST) {
-            std::cout << "FAST\n";
+//            std::cout << "FAST\n";
 
 //      //  FAST
             int threshold = 50;
@@ -122,7 +122,7 @@ namespace BP {
             cv::FAST(getSrc(), kpts, threshold, nonmaxSupression, neighbourhood);
 
         } else if (getMethod() == DETECTION_MSER) {
-            std::cout << "MSER\n";
+//            std::cout << "MSER\n";
 
 //      //  MSER
             int _delta = 5;
@@ -143,7 +143,7 @@ namespace BP {
             detector->detect(getSrc(), kpts, cv::noArray());
 
         } else if (getMethod() == DETECTION_ORB) {
-            std::cout << "ORB\n";
+//            std::cout << "ORB\n";
 
 //      //  ORB
             int nfeatures= maxPts;

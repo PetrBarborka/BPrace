@@ -5,6 +5,10 @@
 #ifndef BP_DETECTION_H
 #define BP_DETECTION_H
 
+#include <iostream>
+
+#include "opencv2/core.hpp"
+
 namespace BP {
 
     enum detection_method { DETECTION_HARRIS = 0,
