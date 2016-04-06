@@ -11,7 +11,7 @@ Generate their respective outconf.json and pics.json
 """
 
 def sortStingListByNumber(inlist, n):
-	"""sort list of strings containing numbers by the nth number"""
+    """sort list of strings containing numbers by the nth number"""
     indices = []
     outlist = []
     nums = []
@@ -44,8 +44,11 @@ def sortStingListByNumber(inlist, n):
 
     return outlist, nums
 
+descstr = " Crawl datapath for .pgm, .ppm, and .png files and \
+their corresponding homography ground truth matrices. \
+Generate their respective outconf.json and pics.json "
 
-parser = argparse.ArgumentParser(description='Create pics json and outconf json for given data')
+parser = argparse.ArgumentParser(description='Short: Create pics json and outconf json for given data. \nLong: ' + descstr)
 parser.add_argument('datapath', type=str,
                    help='path containing folders with datasets')
 parser.add_argument('outpath', type=str,
@@ -116,8 +119,6 @@ for root, dirs, files in os.walk(args.datapath):
 
     if pics:
 
-    	outconf_dict = {"picspath" : args.outpath + root + "/", "csvpath" : args.outpath + root + "/data.csv"}
-
         pics, picsIdc = sortStingListByNumber(pics, 0)
         Hs, HsIdc = sortStingListByNumber(Hs, 1)
         maxn = max(numbers)
@@ -137,6 +138,8 @@ for root, dirs, files in os.walk(args.datapath):
         folder_re = re.compile(ur"[\w\d ]+$")
         folder = folder_re.search(root).group(0)
 
+        outconf_dict = {"picspath" : args.outpath + folder + "/", "csvpath" : args.outpath + folder + "/data.csv"}
+
         if pics_dict:
         	filename_pics = "pics_" + folder.lower() + ".json"
         	filename_outconf = "outconf_" + folder.lower() + ".json"
@@ -148,7 +151,7 @@ for root, dirs, files in os.walk(args.datapath):
         	with open("configs/" + filename_outconf, "w") as f:
         		json.dump(outconf_dict, f)
 
-
+sys.exit()
 
 
 

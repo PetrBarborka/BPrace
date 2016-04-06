@@ -14,12 +14,13 @@
       <sourceFolder url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/BP_automoc.cpp" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/utility.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/homography.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/detection.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/description.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/bin" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

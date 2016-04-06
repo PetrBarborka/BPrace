@@ -28,7 +28,7 @@ find_package( Qt5 REQUIRED Core Gui Widgets )
 
 #find_package( json REQUIRED )
 
-FIND_PACKAGE( Boost COMPONENTS program_options REQUIRED )
+FIND_PACKAGE( Boost COMPONENTS program_options system filesystem REQUIRED )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
 
 if (Qt5_FOUND)
@@ -63,6 +63,6 @@ INCLUDE_DIRECTORIES(  ${PROJECT_SOURCE_DIR}/lib/json/src )
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 add_executable ( BP main.cpp ${SOURCES} )
-target_link_libraries( BP ${Boost_LIBRARIES} ${OpenCV_LIBS} ${contrib_LIBS} Qt5::Core)
+target_link_libraries( BP ${Boost_LIBRARIES} ${Boost_FILESYSTEM_LIBRARY} ${Boost_SYSTEM_LIBRARY}  ${OpenCV_LIBS} ${contrib_LIBS} Qt5::Core)
 
 add_definitions(-std=c++11)

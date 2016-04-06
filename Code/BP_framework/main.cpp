@@ -36,7 +36,8 @@ int main(int argc, char *argv[])
 {
     jsons_t conf_files = parseArgs(argc, argv);
 
-    if (conf_files.pictures.size() == 0){
+    if (conf_files.pictures.begin()++ == conf_files.pictures.end()){
+        std::cout << "No pictures to test. --help for usage.\n";
         return 0;
     }
 
@@ -44,7 +45,9 @@ int main(int argc, char *argv[])
 
     computeAllHGs(hgs, conf_files.pictures, conf_files.config, conf_files.output);
 
-    cv::waitKey(0);
+    if (hgs[0].show){
+        cv::waitKey(0);
+    }
     return 0;
 }
 

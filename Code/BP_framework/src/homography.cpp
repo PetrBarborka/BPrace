@@ -77,7 +77,7 @@ namespace BP {
         hg.good_matches = hmg.getGoodMatches();
         hg.mask = hmg.getMask();
 
-        std::cout << "Got " << hg.matches.size() << " matches, " << hg.good_matches.size() << " good ones.\n";
+//        std::cout << "Got " << hg.matches.size() << " matches, " << hg.good_matches.size() << " good ones.\n";
 
     }
     void computeAllHGs( std::vector<homography_t> & hgs, json pictures, json config, json output )
@@ -103,8 +103,8 @@ namespace BP {
 
         for(json::iterator it = pictures.begin(); it != pictures.end(); it++)
         {
-            std::cout << "=========================\n";
-            std::cout << it.key() << ": picture1: " << it.value()[0] << " picture2: " << it.value()[1] << "\n";
+//            std::cout << "=========================\n";
+//            std::cout << it.key() << ": picture1: " << it.value()[0] << " picture2: " << it.value()[1] << "\n";
 
             // load ground truth
             if (it.value().size() > 2) {

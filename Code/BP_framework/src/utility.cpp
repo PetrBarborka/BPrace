@@ -17,26 +17,36 @@
 #include "homography.hpp"
 #include "utility.hpp"
 
-#include <boost/program_options/options_description.hpp>
-#include <boost/program_options/option.hpp>
-#include <boost/program_options/variables_map.hpp>
+#include "boost/program_options/options_description.hpp"
+#include "boost/program_options/option.hpp"
+#include "boost/program_options/variables_map.hpp"
 #include "boost/program_options/parsers.hpp"
+#include "boost/filesystem.hpp"
+
 
 using json = nlohmann::json;
 
 namespace po = boost::program_options;
 
+namespace fs = boost::filesystem;
+
 namespace BP
 {
     jsons_t parseArgs(int argc, char *argv[])
     {
+        fs::path pwd = fs::system_complete(fs::current_path());
+
         // Declare the supported options.
         po::options_description desc("Allowed options");
         desc.add_options()
                 ("help", "produce help message")
-                ("pjsn", po::value< std::string > (), "load picture list from json")
-                ("cjsn", po::value< std::string > (), "load config json")
-                ("out", po::value< std::string > (), "parse .json output config for saving and displaying")
+                ("pjsn", po::value< std::string > (), "load picture list from json: \n {label: [pic1path, pic2path [optional - homography matrix path]], label2: ... , ...}")
+                ("cjsn", po::value< std::string > (), "load config json: \n {\t\"matchingThreshold\": \"5\",\n"
+                        "\t\"maxPts\": \"10000\",\n"
+                        "\t\"detection_methods\": [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\"] ,\n"
+                        "\t\"description_methods\": [\"0\", \"1\", \"2\", \"3\"] ,\n"
+                        "\t\"show\": \"0\" }")
+                ("out", po::value< std::string > (), "parse .json output config for saving and displaying: \n {\"picspath\" : \"out/ensimag_complete_flann/\", \"csvpath\": \"out/ensimag_complete_flann/data.csv\" }")
                 ;
 
         po::variables_map vm;
@@ -49,37 +59,46 @@ namespace BP
         if ( vm.count("help")  )
         {
             std::cout << "Basic Command Line Parameter App" << std::endl
-            << desc << std::endl;
+            << desc << "\n see the enclosed config generator and config examples"
+            << std::endl;
             return out;
         }
 
 //    --picture pairs in json
         if ( vm.count("pjsn")  )
         {
+            std::string pjsn_path;
             try
             {
-                std::string pjsn_path = vm["pjsn"].as<std::string>();
+                pjsn_path = pwd.string() + "/" + vm["pjsn"].as<std::string>();
                 std::ifstream f(pjsn_path);
+                if (!f)
+                {
+                    std::cout << "pjsn file doesn't exist!\n";
+                    throw std::invalid_argument("file does not exist");
+                }
                 std::string str((std::istreambuf_iterator<char>(f)),
                                 std::istreambuf_iterator<char>());
                 out.pictures = json::parse(str);
             }
             catch (std::exception e)
             {
-                std::cout << "picture json loading failed with exception: " <<  e.what() << "\n";
+                std::cout << "picture " << pjsn_path << " loading failed with exception: " <<  e.what() << "\n"
+                          << "in folder" << pwd << "\n";
             }
         }
         else
         {
-            out.pictures = {{"graf1.png", "graf3.png"}};
+//            out.pictures = {{"graf1.png", "graf3.png"}};
         }
 
 //    --config in json
         if ( vm.count("cjsn")  )
         {
+            std::string  config_path;
             try
             {
-                std::string  config_path = vm["cjsn"].as<std::string>();
+                config_path = pwd.string() + "/" + vm["cjsn"].as<std::string>();
                 std::ifstream f(config_path);
                 if (!f)
                 {
@@ -92,7 +111,8 @@ namespace BP
             }
             catch (std::exception e)
             {
-                std::cout << "config json loading failed with exception: " << e.what() << "\n";
+                std::cout   << "config " << config_path << " loading failed with exception: " << e.what() << "\n"
+                            << "in folder" << pwd << "\n";
             }
         }
         else
@@ -107,10 +127,11 @@ namespace BP
 //    --out in json
         if ( vm.count("out")  )
         {
+            std::string  output_path;
             try
             {
-                std::string  config_path = vm["out"].as<std::string>();
-                std::ifstream f(config_path);
+                output_path = pwd.string() + "/" + vm["out"].as<std::string>();
+                std::ifstream f(output_path);
                 if (!f)
                 {
                     std::cout << "out file doesn't exist!\n";
@@ -122,7 +143,8 @@ namespace BP
             }
             catch (std::exception e)
             {
-                std::cout << "output json loading failed with exception: " << e.what() << "\n";
+                std::cout   << "output " << output_path << " loading failed with exception: " << e.what() << "\n"
+                            << "in folder" << pwd << "\n";
             }
         }
         else
