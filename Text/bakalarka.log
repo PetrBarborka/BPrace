@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  24 MAR 2016 21:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  7 APR 2016 21:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,35 +459,60 @@ File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count106
 \AM@templatesizebox=\box29
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count107
+\lst@gtempboxa=\box30
+\lst@token=\toks23
+\lst@length=\count108
+\lst@currlwidth=\dimen119
+\lst@column=\count109
+\lst@pos=\count110
+\lst@lostspace=\dimen120
+\lst@width=\dimen121
+\lst@newlines=\count111
+\lst@lineno=\count112
+\lst@maxwidth=\dimen122
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count113
+\lst@skipnumbers=\count114
+\lst@framebox=\box31
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
 (./bakalarka.aux)
 \openout1 = `bakalarka.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen119
-\scratchbox=\box30
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen120
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count115
+\scratchdimen=\dimen123
+\scratchbox=\box32
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen124
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -532,7 +557,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box31
+\AtBeginShipoutBox=\box33
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
@@ -545,25 +570,26 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 (/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ))
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 28.
+\c@lstlisting=\count121
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 29.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 28.
+(Font)              size <17.28> substituted on input line 29.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 28.
+(Font)              size <17.28> substituted on input line 29.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 28.
+(Font)              size <17.28> substituted on input line 29.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 28.
+LaTeX Font Info:    Try loading font information for U+msa on input line 29.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 28.
+LaTeX Font Info:    Try loading font information for U+msb on input line 29.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -814,13 +840,223 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [25]
 Kapitola 4.
-) (./zaver.tex [26
+
+Overfull \hbox (0.19048pt too wide) detected at line 34
+\OML/cmm/m/it/12 pi[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 H[] \OMS/cmsy/m/n/12 ^
+^C \OML/cmm/m/it/12 eig\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 )[]
+ \OML/cmm/m/it/12 pi[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 H[] \OMS/cmsy/m/n/12 
+^^C \OML/cmm/m/it/12 eig\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 )[
+] \OML/cmm/m/it/12 dif \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 pi[] \OMS/cmsy/m/n/12
+ ^^@ \OML/cmm/m/it/12 pi[][] \OT1/cmr/m/n/12 100 \OMS/cmsy/m/n/12 ^^C \OT1/cmr/
+m/n/12 ([] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 atan\OT1/cmr/m/n/12 (\OML/cmm/
+m/it/12 dif \OMS/cmsy/m/n/12 ^^B []\OT1/cmr/m/n/12 10[]4))
+ []
+
+[26
 
 ]
-Kapitola 5.
-) (./bakalarka.bbl [27
+LaTeX Font Info:    Try loading font information for T1+aett on input line 51.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+Overfull \hbox (26.97018pt too wide) in paragraph at lines 51--52
+[]\T1/aer/m/n/12 Data o sou-bo-rech v da-ta-setu jsou vy-t¥-ºena po-mocí skript
+u []\T1/aett/m/n/12 create_configs.py
+ []
 
-]) [28
+<text_img/ex_ASTERIX_MSER_SIFT.pdf, id=134, 794.17503pt x 272.67471pt>
+File: text_img/ex_ASTERIX_MSER_SIFT.pdf Graphic file (type pdf)
+
+<use text_img/ex_ASTERIX_MSER_SIFT.pdf>
+Package pdftex.def Info: text_img/ex_ASTERIX_MSER_SIFT.pdf used on input line 6
+0.
+(pdftex.def)             Requested size: 397.08655pt x 136.33702pt.
+
+Overfull \hbox (7.08655pt too wide) in paragraph at lines 60--62
+ [][] 
+ []
+
+<text_img/ex_BELLEDONNE_FAST_ORB.pdf, id=135, 794.97pt x 293.34392pt>
+File: text_img/ex_BELLEDONNE_FAST_ORB.pdf Graphic file (type pdf)
+
+<use text_img/ex_BELLEDONNE_FAST_ORB.pdf>
+Package pdftex.def Info: text_img/ex_BELLEDONNE_FAST_ORB.pdf used on input line
+ 68.
+(pdftex.def)             Requested size: 397.48402pt x 146.67159pt.
+
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 68--70
+ [][] 
+ []
+
+<text_img/ex_ENSIMAG_SIFT_SIFT.pdf, id=136, 794.97pt x 321.16786pt>
+File: text_img/ex_ENSIMAG_SIFT_SIFT.pdf Graphic file (type pdf)
+
+<use text_img/ex_ENSIMAG_SIFT_SIFT.pdf>
+Package pdftex.def Info: text_img/ex_ENSIMAG_SIFT_SIFT.pdf used on input line 7
+6.
+(pdftex.def)             Requested size: 397.48402pt x 160.58353pt.
+
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 76--78
+ [][] 
+ []
+
+File: text_img/ex_ENSIMAG_SIFT_SIFT.pdf Graphic file (type pdf)
+<use text_img/ex_ENSIMAG_SIFT_SIFT.pdf>
+Package pdftex.def Info: text_img/ex_ENSIMAG_SIFT_SIFT.pdf used on input line 8
+4.
+(pdftex.def)             Requested size: 397.48402pt x 160.58353pt.
+
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 84--86
+ [][] 
+ []
+
+<text_img/Detector_performance.pdf, id=137, 452.69928pt x 100.59984pt>
+File: text_img/Detector_performance.pdf Graphic file (type pdf)
+
+<use text_img/Detector_performance.pdf>
+Package pdftex.def Info: text_img/Detector_performance.pdf used on input line 9
+6.
+(pdftex.def)             Requested size: 362.15991pt x 80.47997pt.
+
+<text_img/Descriptor_performance.pdf, id=138, 452.12112pt x 64.75392pt>
+File: text_img/Descriptor_performance.pdf Graphic file (type pdf)
+
+<use text_img/Descriptor_performance.pdf>
+Package pdftex.def Info: text_img/Descriptor_performance.pdf used on input line
+ 103.
+(pdftex.def)             Requested size: 361.69739pt x 51.80319pt.
+
+<text_img/Det_desc_perf.pdf, id=139, 453.27745pt x 353.83391pt>
+File: text_img/Det_desc_perf.pdf Graphic file (type pdf)
+
+<use text_img/Det_desc_perf.pdf>
+Package pdftex.def Info: text_img/Det_desc_perf.pdf used on input line 110.
+(pdftex.def)             Requested size: 453.27635pt x 353.83304pt.
+
+Overfull \hbox (63.27635pt too wide) in paragraph at lines 110--111
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<text_img/Detection_times.pdf, id=140, 452.69928pt x 101.75616pt>
+File: text_img/Detection_times.pdf Graphic file (type pdf)
+
+<use text_img/Detection_times.pdf>
+Package pdftex.def Info: text_img/Detection_times.pdf used on input line 119.
+(pdftex.def)             Requested size: 362.15991pt x 81.40503pt.
+
+<text_img/Description_times.pdf, id=141, 452.69928pt x 64.75392pt>
+File: text_img/Description_times.pdf Graphic file (type pdf)
+
+<use text_img/Description_times.pdf>
+Package pdftex.def Info: text_img/Description_times.pdf used on input line 126.
+
+(pdftex.def)             Requested size: 362.15991pt x 51.80319pt.
+
+<text_img/Match_count.pdf, id=142, 452.69928pt x 353.83391pt>
+File: text_img/Match_count.pdf Graphic file (type pdf)
+
+<use text_img/Match_count.pdf>
+Package pdftex.def Info: text_img/Match_count.pdf used on input line 135.
+(pdftex.def)             Requested size: 362.15991pt x 283.0675pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27 <./text_img/ex_ASTERIX_MSER_SIFT.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28 <./text_img/ex_BELLEDONNE_FAST_ORB.pdf> <./text_img/ex_ENSIMAG_SIFT_SIFT.pd
+f
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/ex_ENSIMAG_SIFT_S
+IFT.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29 <./text_img/Detector_performance.pdf> <./text_img/Descriptor_performance.pd
+f
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Descriptor_perfor
+mance.pdf): PDF inclusion: multiple pdfs with page group included in a single p
+age
+>] <text_img/graph_monet.pdf, id=187, 494.32681pt x 395.46146pt>
+File: text_img/graph_monet.pdf Graphic file (type pdf)
+
+<use text_img/graph_monet.pdf>
+Package pdftex.def Info: text_img/graph_monet.pdf used on input line 147.
+(pdftex.def)             Requested size: 395.46198pt x 316.36958pt.
+
+Overfull \hbox (5.46198pt too wide) in paragraph at lines 147--148
+ [][] 
+ []
+
+<text_img/graph_asterix.pdf, id=188, 502.42105pt x 375.804pt>
+File: text_img/graph_asterix.pdf Graphic file (type pdf)
+
+<use text_img/graph_asterix.pdf>
+Package pdftex.def Info: text_img/graph_asterix.pdf used on input line 154.
+(pdftex.def)             Requested size: 401.93738pt x 300.6436pt.
+
+Overfull \hbox (11.93738pt too wide) in paragraph at lines 154--155
+ [][] 
+ []
+
+) (./zaver.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30 <./text_img/Det_desc_perf.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31 <./text_img/Detection_times.pdf> <./text_img/Description_times.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Description_times
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./text_img/Match_count.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Match_count.pdf):
+ PDF inclusion: multiple pdfs with page group included in a single page
+>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32 <./text_img/graph_monet.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33 <./text_img/graph_asterix.pdf>]
+Kapitola 5.
+) (./bakalarka.bbl [34
+
+]) [35
 
 ]
 
@@ -829,7 +1065,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29] (./bakalarka.aux)
+[36] (./bakalarka.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -839,13 +1075,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4962 strings out of 493054
- 64532 string characters out of 6134759
- 142108 words of memory out of 5000000
- 8299 multiletter control sequences out of 15000+600000
- 52804 words of font info for 113 fonts, out of 8000000 for 9000
+ 6389 strings out of 493054
+ 85814 string characters out of 6134759
+ 162137 words of memory out of 5000000
+ 9697 multiletter control sequences out of 15000+600000
+ 53294 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,16n,43p,867b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,43p,1150b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -860,11 +1096,12 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (35 pages, 693593 bytes).
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on bakalarka.pdf (42 pages, 96965751 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 134 compressed objects within 2 object streams
+ 305 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

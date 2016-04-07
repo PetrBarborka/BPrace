@@ -1,7 +1,7 @@
 
 
-"""Crawl given root for data.csv files from BP app.
-	Make graphs, tables etc."""
+"""Create tables & graphs from datasets generated with
+	get_data.py"""
 
 import argparse
 import os, sys
@@ -12,23 +12,140 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-descstr = "Crawl given root for data.csv files from BP app. \
-			Make graphs, tables etc."
+# -------------------------------------------------------------------------------------------------------------
+# args parsing:
 
-parser = argparse.ArgumentParser(description='Short: Crawl given folder for given name of data csv file\n\nLong: ' + descstr)
-parser.add_argument('folder', type=str,
-					help='root folder of a tree to scan for dataname')
-parser.add_argument('dataname', type=str,
-					help='name of dataset files (.csv) i.e. data.csv')
+params = {	'legend.fontsize': 6,
+			'legend.handlelength': 2}
+plt.rcParams.update(params)
 
+descstr = "Create tables & graphs from datasets generated with \
+			get_data.py"
+
+parser = argparse.ArgumentParser(description=descstr)
+parser.add_argument('--detperf', help='show detector performance table', action="store_true")
+parser.add_argument('--descperf', help='show descriptor performance table', action="store_true")
+parser.add_argument('--comboperf', help='show descriptor/descriptor average time table', action="store_true")
+parser.add_argument('--dettimes', help='show descriptor average time table', action="store_true")
+parser.add_argument('--desctimes', help='show descriptor average time table', action="store_true")
+parser.add_argument('--matchcount', help='avg count of matches/inliers/score', action="store_true")
+parser.add_argument('--graphzoom', help='graph performance on zoom dataset', action="store_true")
+parser.add_argument('--graphrot', help='graph performance on rot dataset', action="store_true")
+
+parser.add_argument('--save', help='save all drawn plots', action="store_true")
+
+# --detperf --descperf --comboperf --dettimes --desctimes --matchcount --graphzoom --graphrot
+
+fignames = []
+figs = []
 args = parser.parse_args()
 
-# df = pd.DataFrame()
-# dflist = []
+# -------------------------------------------------------------------------------------------------------------
+# functions:
 
+def plotTable(df, title, header=None):
+
+	fig = plt.figure()
+	fig.suptitle(title, fontsize="x-large")
+
+	figs.append(fig)
+	fignames.append(title)
+
+	if not header:
+		tab = plt.table(cellText=df.values,
+					# colWidths=[0.08] * len(df.columns),
+					loc="center",
+					cellLoc='center')
+	else:
+		tab = plt.table(cellText=df.values,
+					# colWidths=[0.08] * len(df.columns),
+					loc="center",
+					cellLoc='center',
+					colLabels=header)
+
+	plt.axis("off")
+	# tab.set_fontsize(50)
+	# plt.show()
+
+def createMeanTable(datasets, cat, cat_vals, columns, title, header=None):
+	# datasets = [df, df_zoom, df_blur, df_rot, df_angle, df_light, df_res]
+	# det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+
+	tmplst = []
+	# cat = "det"
+	for dm in cat_vals:
+		tmplst.append([dm])
+		for ds in datasets:
+			for c in columns:
+				tmplst[-1].append(ds[ds[cat] == dm].mean()[c])
+
+	# det_header = ["det method", "total score", "zoom score", "blur score", "rot score", "angle score", "light score", "res score"]
+	df_performance = pd.DataFrame(tmplst)
+	plotTable(df_performance, title, header)
+
+def createComboTable(datasets, cat1, cat2, cat1_vals, cat2_vals, columns, title, header=None):
+	# datasets = [df, df_zoom, df_blur, df_rot, df_angle, df_light, df_res]
+	# det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+
+	tmplst = []
+	# cat = "det"
+	for dm1 in cat1_vals:
+		for dm2 in cat2_vals:
+			tmplst.append([dm1 + " ->" + dm2])
+			for ds in datasets:
+				for c in columns:
+					# tmplst[-1].append(ds[ds[cat1] == dm1 and ds[cat2] == dm2].mean()[c])
+					ds_cat1 = ds[ds[cat1] == dm1]
+					ds_cat2 = ds_cat1[ds_cat1[cat2] == dm2]
+					tmplst[-1].append(ds_cat2.mean()[c])
+
+	# det_header = ["det method", "total score", "zoom score", "blur score", "rot score", "angle score", "light score", "res score"]
+	df_performance = pd.DataFrame(tmplst)
+	plotTable(df_performance, title, header)
+
+def graphDataset(df_tst, title):
+
+	df_tst["methods"] = df_tst["det"] + " ->" + df_tst["desc"]
+	df_tst["pics"] = df_tst["pic1"] + " ->" + df_tst["pic2"]
+	df_tst = df_tst.loc[:,["pics", "methods", "score"]]
+
+	pics = df_tst["pics"].values
+	# print pics
+	out = []
+	num = re.compile(ur"\d+")
+	for p in pics:
+		out.append( int(re.findall(num, p)[1]) )
+	df_tst["pics"] = out
+
+	# print pics
+	# df_tst["pics"] = df_tst["pics"][-4:]
+	df_tst = df_tst.pivot(index="pics", columns="methods", values="score")
+
+	# df_tst["pics"] = df_tst["pics"].split()
+
+	# print df_tst.head(100)
+
+	# plotTable(df_tst)
+	# fig = plt.figure()
+	dfplt = df_tst.plot()
+	dfplt.set_title(title, fontsize="x-large")
+
+	fig = dfplt.figure
+
+	figs.append(fig)
+	fignames.append(title)
+
+	# plt.plot(df_tst.values)
+
+	# plt.show()
+
+
+# header
 cols = ["folder", "pic1", "pic2", "det", "desc", "matches", "inliers", "score", "det time",
 		"desc time", "hmg time", "saved as", "blank"]
 
+# -------------------------------------------------------------------------------------------------------------
+# dataset loading - see get_data.py:
 df = pd.read_csv("data_all.csv")
 df_zoom = pd.read_csv("data_zoom.csv")
 df_blur = pd.read_csv("data_blur.csv")
@@ -37,185 +154,80 @@ df_angle = pd.read_csv("data_angle.csv")
 df_light = pd.read_csv("data_light.csv")
 df_res = pd.read_csv("data_res.csv")
 
-print "df_mean: ", df[df["det"] == " Harris"].mean()["score"]
+df_1zoom = df_zoom[df_zoom["folder"] == "out/ASTERIX/"]
+df_1rot = df_rot[df_rot["folder"] == "out/MONET/"]
 
-# TAB: descriptor performance ============================================================
 datasets = [df, df_zoom, df_blur, df_rot, df_angle, df_light, df_res]
-det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+# TABS: ============================================================
+if args.detperf:
+	det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+	det_header = [	"det method", "total score [%]", "zoom score [%]", "blur score [%]", "rot score [%]",
+				  	"angle score [%]", "light score [%]", "res score [%]"]
+	cat = "det"
 
-tmplst = []
-cat = "det"
-for dm in det_methods:
-	tmplst.append([dm])
-	for ds in datasets:
-		tmplst[-1].append(ds[ds[cat] == dm].mean()["score"])
+	createMeanTable(datasets, cat, det_methods, ["score"], "Detector performance across datasets", det_header)
 
-det_header = ["det method", "total score", "zoom score", "blur score", "rot score", "angle score", "light score", "res score"]
-df_performance_desc = pd.DataFrame(tmplst, columns=det_header)
-# df_performance_desc = pd.DataFrame(df_performance_desc, index="total score")
+if args.descperf:
+	det_methods = [" BRIEF", " SIFT", " SURF", " ORB"]
+	desc_header = ["desc method", "total score [%]", "zoom score [%]", "blur score [%]", "rot score [%]",
+				  	"angle score [%]", "light score [%]", "res score [%]"]
+	cat = "desc"
 
-to_plot = df_performance_desc.values
+	createMeanTable(datasets, cat, det_methods, ["score"], "Descriptor performance across datasets", desc_header)
 
-print to_plot
-tab = plt.table(cellText=to_plot,
-				# colWidths=[0.08] * len(df.columns),
-				loc="center",
-				cellLoc='center',
-				colLabels=det_header)
-tab.set_fontsize(50)
-plt.show()
+if args.comboperf:
+	det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+	desc_methods = [" BRIEF", " SIFT", " SURF", " ORB"]
+	desc_header = [	"methods", "total score [%]", "zoom score [%]", "blur score [%]", "rot score [%]",
+				  	"angle score [%]", "light score [%]", "res score [%]"]
 
-# for root, dirs, files in os.walk(args.folder):
-# 	if args.dataname in files:
-# 		print root + "/" + args.dataname
-# 		t_df = pd.read_csv(root + "/" + args.dataname)
-# 		t_df = pd.DataFrame(t_df.values, columns=cols)
-# 		dflist.append(t_df)
-# 		print "number of t_df rows: ", len(t_df)
-# 		print "t_df: \n", t_df.head(3)
+	createComboTable(datasets, "det", "desc", det_methods, desc_methods, ["score"],
+					 "Detector+descriptor performance across datasets", desc_header)
 
-# df = pd.concat(dflist, axis=0)
+if args.dettimes:
+	det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+	det_header = ["Detection method", "avg det time [s]"]
 
-# # df.to_csv("data_all.csv")
-# df = pd.read_csv("data_all.csv")
+	cat = "det"
 
-# # df["score"] = 100.*((np.pi/2.)-np.arctan(df["score"]*0.0001))
+	columns = ["det time"]
 
-# # score percent conversion
-# df["score"] = 100*(1 - np.arctan(np.array(df["score"])*0.0001)/(np.pi/2.))
+	createMeanTable([df], cat, det_methods, columns, "Detection times across datasets", det_header)
 
-# # kill the blank column
-# df = pd.DataFrame(df.loc[:, ["folder", "pic1", "pic2", "det", "desc", "matches", "inliers", "score", "det time",
-# 		"desc time", "hmg time", "saved as"]])
+if args.desctimes:
+	det_methods = [" BRIEF", " SIFT", " SURF", " ORB"]
+	desc_header = ["Description method", "avg desc time [s]"]
+	# tmplst = []
+	cat = "desc"
 
-# df.to_csv("data_all.csv")
+	columns = ["desc time"]
 
-# print "df: \n", df.head(3)
-# print "number of df columns: ", len(df.columns)
-# print "number of df rows: ", len(df)
+	createMeanTable([df], cat, det_methods, columns, "Description times across datasets", desc_header)
 
+if args.matchcount:
+	det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
+	desc_methods = [" BRIEF", " SIFT", " SURF", " ORB"]
+	header = ["methods", "avg matches", "avg inliers", "avg score [%]"]
 
-# # subset Harris: ----------------------------------------------
-# Harris = df[df["det"] == " Harris"]
+	createComboTable([df], "det", "desc", det_methods, desc_methods, ["matches", "inliers", "score"],
+						"Match count across datasets", header)
 
-# print "Harris: \n", Harris.head(10)
-# print "number of df columns: ", len(Harris.columns)
-# print "number of df rows: ", len(Harris)
-# # -------------------------------------------------------------
+# GRAPHS ======================================================================
 
-# subset ZOOM: ------------------------------------------------
-# folders = ["out/ASTERIX/", "out/BELLEDONNE/", "out/BIP/", "out/CROLLE/"]
-# inlst = []
-# for f in folders:
-# 	inlst.append(df[df["folder"] == f])
-# df_zoom = pd.concat(inlst)
+if args.graphzoom:
 
-# df_zoom.to_csv("data_zoom.csv")
-# df_zoom = pd.read_csv("data_zoom.csv")
+	graphDataset(df_1zoom, "Method combination performance across Asterix dataset (zoom)")
 
-# print "df_zoom: \n", df_zoom.head(10)
-# print "number of df_zoom columns: ", len(df_zoom.columns)
-# print "number of df_zoom rows: ", len(df_zoom)
-# -------------------------------------------------------------
+if args.graphrot:
 
-# subset BLUR: ------------------------------------------------
-# folders = ["out/bikes/"]
-# inlst = []
-# for f in folders:
-# 	inlst.append(df[df["folder"] == f])
-# df_blur = pd.concat(inlst)
+	graphDataset(df_1rot, "Method combination performance across Monet dataset (rotation)")
 
-# df_blur.to_csv("data_blur.csv")
-# df_blur = pd.read_csv("data_blur.csv")
+if args.save:
+	for i in range(len(figs)):
+		finame = fignames[i] + ".pdf"
+		with open(finame, "w") as fileToWrite:
+			figs[i].savefig(fileToWrite, format='pdf')
+		# f.savefig(f.title(), format='pdf')
+else:
+	plt.show()
 
-# print "df_blur: \n", df_blur.head(10)
-# print "number of df_blur columns: ", len(df_blur.columns)
-# print "number of df_blur rows: ", len(df_blur)
-# -------------------------------------------------------------
-
-# subset ROT: ------------------------------------------------
-# folders = ["out/boat/", "out/EAST_PARK/", "out/MARS/", "out/MONET/", "out/NewYork/"]
-# inlst = []
-# for f in folders:
-# 	inlst.append(df[df["folder"] == f])
-# df_rot = pd.concat(inlst)
-
-# df_rot.to_csv("data_rot.csv")
-# df_rot = pd.rot_csv("data_rot.csv")
-
-# print "df_rot: \n", df_rot.head(10)
-# print "number of df_rot columns: ", len(df_rot.columns)
-# print "number of df_rot rows: ", len(df_rot)
-# -------------------------------------------------------------
-
-# subset ANGLE: ------------------------------------------------
-# folders = ["out/graff/", "out/Graffiti6/"]
-# inlst = []
-# for f in folders:
-# 	inlst.append(df[df["folder"] == f])
-# df_angle = pd.concat(inlst)
-
-# df_angle.to_csv("data_angle.csv")
-# df_angle = pd.read_csv("data_angle.csv")
-
-# print "df_angle: \n", df_angle.head(10)
-# print "number of df_angle columns: ", len(df_angle.columns)
-# print "number of df_angle rows: ", len(df_angle)
-# -------------------------------------------------------------
-
-# subset LIGHT: ------------------------------------------------
-# folders = ["out/light/"]
-# inlst = []
-# for f in folders:
-# 	inlst.append(df[df["folder"] == f])
-# df_light = pd.concat(inlst)
-
-# df_light.to_csv("data_light.csv")
-# df_light = pd.read_csv("data_light.csv")
-
-# print "df_light: \n", df_light.head(10)
-# print "number of df_light columns: ", len(df_light.columns)
-# print "number of df_light rows: ", len(df_light)
-# -------------------------------------------------------------
-
-# subset RES: ------------------------------------------------
-# folders = ["out/ubc/"]
-# inlst = []
-# for f in folders:
-# 	inlst.append(df[df["folder"] == f])
-# df_res = pd.concat(inlst)
-
-# df_res.to_csv("data_res.csv")
-# df_res = pd.read_csv("data_res.csv")
-
-# print "df_res: \n", df_res.head(10)
-# print "number of df_res columns: ", len(df_res.columns)
-# print "number of df_res rows: ", len(df_res)
-# -------------------------------------------------------------
-
-# TAB: descriptor performance ============================================================
-# df_performance_desc = pd.DataFrame(["Harris", df
-# 	])
-
-# print df_zoom['score'].describe()
-
-# # df = pd.DataFrame(df, columns=cols)
-# df = pd.DataFrame(df.values, columns=cols)
-
-# ttp = pd.DataFrame(df.loc[:10, ['pic1', 'pic2', "det", "desc", "matches",
-# 								"inliers", "score", "det time",
-# 								"desc time", "hmg time"]])
-
-# print "table to plot: \n", ttp
-
-# tab = plt.table(cellText=ttp.values,
-# 				# colWidths=[0.08] * len(df.columns),
-# 				loc="center",
-# 				cellLoc='center')
-# tab.set_fontsize(50)
-# tab.scale(2, 2)
-
-# plt.axis("off")
-# plt.show()
-
-# sys.exit(0)
