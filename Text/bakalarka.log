@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  7 APR 2016 21:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  8 APR 2016 00:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -632,6 +632,17 @@ LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <12> not available
 
 ]
 Kapitola 3.
+<text_img/moravec_posun.pdf, id=32, 614.295pt x 794.97pt>
+File: text_img/moravec_posun.pdf Graphic file (type pdf)
+
+<use text_img/moravec_posun.pdf>
+Package pdftex.def Info: text_img/moravec_posun.pdf used on input line 21.
+(pdftex.def)             Requested size: 430.00356pt x 556.4752pt.
+
+Overfull \hbox (40.00356pt too wide) in paragraph at lines 21--22
+ [][] 
+ []
+
 [3
 
 ]
@@ -641,17 +652,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]
+[4 <./text_img/moravec_posun.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5] <Harris_eigen.pdf, id=48, 614.295pt x 794.97pt>
+[5]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6] <Harris_eigen.pdf, id=64, 614.295pt x 794.97pt>
 File: Harris_eigen.pdf Graphic file (type pdf)
  <use Harris_eigen.pdf>
-Package pdftex.def Info: Harris_eigen.pdf used on input line 106.
+Package pdftex.def Info: Harris_eigen.pdf used on input line 112.
 (pdftex.def)             Requested size: 184.28992pt x 238.49284pt.
 
 
@@ -660,21 +678,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6 <./Harris_eigen.pdf>]
+[7 <./Harris_eigen.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7]
+[8] <text_img/fast_corner.pdf, id=86, 614.295pt x 794.97pt>
+File: text_img/fast_corner.pdf Graphic file (type pdf)
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+<use text_img/fast_corner.pdf>
+Package pdftex.def Info: text_img/fast_corner.pdf used on input line 146.
+(pdftex.def)             Requested size: 430.00356pt x 556.4752pt.
 
-[8]
+Overfull \hbox (40.00356pt too wide) in paragraph at lines 146--147
+ [][] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -688,7 +709,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
+[10 <./text_img/fast_corner.pdf>]
+<text_img/sift_dog.pdf, id=105, 794.97pt x 614.295pt>
+File: text_img/sift_dog.pdf Graphic file (type pdf)
+
+<use text_img/sift_dog.pdf>
+Package pdftex.def Info: text_img/sift_dog.pdf used on input line 177.
+(pdftex.def)             Requested size: 476.98569pt x 368.57983pt.
+
+Overfull \hbox (86.98569pt too wide) in paragraph at lines 177--178
+ [][] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -702,11 +734,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
-Overfull \hbox (0.39227pt too wide) in paragraph at lines 267--268
-\T1/aer/m/n/12 Binary Ro-bust In-de-pen-dent Ele-men-tary Fe-a-tu-res ne-boli B
-RIEF [[]] je deskrip-
+[12 <./text_img/sift_dog.pdf, page is rotated 90 degrees>]
+<text_img/sift_kp.pdf, id=122, 614.295pt x 794.97pt>
+File: text_img/sift_kp.pdf Graphic file (type pdf)
+
+<use text_img/sift_kp.pdf>
+Package pdftex.def Info: text_img/sift_kp.pdf used on input line 217.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+
+Overfull \hbox (101.43666pt too wide) in paragraph at lines 217--218
+ [][] 
  []
+
+
+LaTeX Warning: Float too large for page by 70.80473pt on input line 219.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -715,28 +756,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-Overfull \hbox (0.30922pt too wide) in paragraph at lines 271--272
-\T1/aer/m/n/12 Principem fun-go-vání al-go-ritmu je po-rov-ná-vání in-ten-zit p
-ár· ob-ra-zo-vých bod·
- []
-
-
-Overfull \hbox (6.4521pt too wide) in paragraph at lines 289--290
-[]\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
-nosti deskrip-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[14]
-
-LaTeX Warning: Citation `matas2004robust' on page 15 undefined on input line 29
-8.
-
+[14 <./text_img/sift_kp.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -751,13 +777,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-
-LaTeX Warning: Citation `neumann2012real' on page 17 undefined on input line 33
-5.
-
-
-LaTeX Warning: Citation `viola2001rapid' on page 17 undefined on input line 341
-.
+Overfull \hbox (0.39227pt too wide) in paragraph at lines 289--290
+\T1/aer/m/n/12 Binary Ro-bust In-de-pen-dent Ele-men-tary Fe-a-tu-res ne-boli B
+RIEF [[]] je deskrip-
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -766,6 +789,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
+Overfull \hbox (0.30922pt too wide) in paragraph at lines 293--294
+\T1/aer/m/n/12 Principem fun-go-vání al-go-ritmu je po-rov-ná-vání in-ten-zit p
+ár· ob-ra-zo-vých bod·
+ []
+
+
+Overfull \hbox (6.4521pt too wide) in paragraph at lines 311--312
+[]\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
+nosti deskrip-
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -774,8 +808,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [18]
 
-LaTeX Warning: Citation `viola2001rapid' on page 19 undefined on input line 407
-.
+LaTeX Warning: Citation `matas2004robust' on page 19 undefined on input line 32
+0.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -785,16 +819,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [19]
 
-LaTeX Warning: Citation `dalal2005histograms' on page 20 undefined on input lin
-e 411.
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [20]
+
+LaTeX Warning: Citation `neumann2012real' on page 21 undefined on input line 35
+7.
+
+
+LaTeX Warning: Citation `viola2001rapid' on page 21 undefined on input line 363
+.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -810,8 +848,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22]
 
-LaTeX Warning: Citation `beis1997shape' on page 23 undefined on input line 482.
-
+LaTeX Warning: Citation `viola2001rapid' on page 23 undefined on input line 429
+.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -821,6 +859,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [23]
 
+LaTeX Warning: Citation `dalal2005histograms' on page 24 undefined on input lin
+e 433.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -828,8 +870,36 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [24]
 
-LaTeX Warning: Citation `fischler1981random' on page 25 undefined on input line
- 508.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28]
+
+LaTeX Warning: Citation `fischler1981random' on page 29 undefined on input line
+ 530.
 
 ) (./imp_test.tex
 
@@ -838,21 +908,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25]
+[29]
 Kapitola 4.
-
-Overfull \hbox (0.19048pt too wide) detected at line 34
-\OML/cmm/m/it/12 pi[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 H[] \OMS/cmsy/m/n/12 ^
-^C \OML/cmm/m/it/12 eig\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 )[]
- \OML/cmm/m/it/12 pi[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 H[] \OMS/cmsy/m/n/12 
-^^C \OML/cmm/m/it/12 eig\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 )[
-] \OML/cmm/m/it/12 dif \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 pi[] \OMS/cmsy/m/n/12
- ^^@ \OML/cmm/m/it/12 pi[][] \OT1/cmr/m/n/12 100 \OMS/cmsy/m/n/12 ^^C \OT1/cmr/
-m/n/12 ([] \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 atan\OT1/cmr/m/n/12 (\OML/cmm/
-m/it/12 dif \OMS/cmsy/m/n/12 ^^B []\OT1/cmr/m/n/12 10[]4))
- []
-
-[26
+[30
 
 ]
 LaTeX Font Info:    Try loading font information for T1+aett on input line 51.
@@ -864,118 +922,93 @@ Overfull \hbox (26.97018pt too wide) in paragraph at lines 51--52
 u []\T1/aett/m/n/12 create_configs.py
  []
 
-<text_img/ex_ASTERIX_MSER_SIFT.pdf, id=134, 794.17503pt x 272.67471pt>
+<text_img/ex_ASTERIX_MSER_SIFT.pdf, id=197, 794.17503pt x 272.67471pt>
 File: text_img/ex_ASTERIX_MSER_SIFT.pdf Graphic file (type pdf)
 
 <use text_img/ex_ASTERIX_MSER_SIFT.pdf>
-Package pdftex.def Info: text_img/ex_ASTERIX_MSER_SIFT.pdf used on input line 6
-0.
+Package pdftex.def Info: text_img/ex_ASTERIX_MSER_SIFT.pdf used on input line 5
+6.
 (pdftex.def)             Requested size: 397.08655pt x 136.33702pt.
 
-Overfull \hbox (7.08655pt too wide) in paragraph at lines 60--62
+Overfull \hbox (7.08655pt too wide) in paragraph at lines 56--58
  [][] 
  []
 
-<text_img/ex_BELLEDONNE_FAST_ORB.pdf, id=135, 794.97pt x 293.34392pt>
+<text_img/ex_BELLEDONNE_FAST_ORB.pdf, id=198, 794.97pt x 293.34392pt>
 File: text_img/ex_BELLEDONNE_FAST_ORB.pdf Graphic file (type pdf)
 
 <use text_img/ex_BELLEDONNE_FAST_ORB.pdf>
 Package pdftex.def Info: text_img/ex_BELLEDONNE_FAST_ORB.pdf used on input line
- 68.
+ 63.
 (pdftex.def)             Requested size: 397.48402pt x 146.67159pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 68--70
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 63--65
  [][] 
  []
 
-<text_img/ex_ENSIMAG_SIFT_SIFT.pdf, id=136, 794.97pt x 321.16786pt>
+<text_img/ex_ENSIMAG_SIFT_SIFT.pdf, id=199, 794.97pt x 321.16786pt>
 File: text_img/ex_ENSIMAG_SIFT_SIFT.pdf Graphic file (type pdf)
 
 <use text_img/ex_ENSIMAG_SIFT_SIFT.pdf>
 Package pdftex.def Info: text_img/ex_ENSIMAG_SIFT_SIFT.pdf used on input line 7
-6.
+0.
 (pdftex.def)             Requested size: 397.48402pt x 160.58353pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 76--78
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 70--72
  [][] 
  []
 
 File: text_img/ex_ENSIMAG_SIFT_SIFT.pdf Graphic file (type pdf)
 <use text_img/ex_ENSIMAG_SIFT_SIFT.pdf>
-Package pdftex.def Info: text_img/ex_ENSIMAG_SIFT_SIFT.pdf used on input line 8
-4.
+Package pdftex.def Info: text_img/ex_ENSIMAG_SIFT_SIFT.pdf used on input line 7
+7.
 (pdftex.def)             Requested size: 397.48402pt x 160.58353pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 84--86
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 77--79
  [][] 
  []
 
-<text_img/Detector_performance.pdf, id=137, 452.69928pt x 100.59984pt>
+<text_img/Detector_performance.pdf, id=200, 452.69928pt x 100.59984pt>
 File: text_img/Detector_performance.pdf Graphic file (type pdf)
 
 <use text_img/Detector_performance.pdf>
-Package pdftex.def Info: text_img/Detector_performance.pdf used on input line 9
-6.
+Package pdftex.def Info: text_img/Detector_performance.pdf used on input line 8
+4.
 (pdftex.def)             Requested size: 362.15991pt x 80.47997pt.
 
-<text_img/Descriptor_performance.pdf, id=138, 452.12112pt x 64.75392pt>
+<text_img/Descriptor_performance.pdf, id=201, 452.12112pt x 64.75392pt>
 File: text_img/Descriptor_performance.pdf Graphic file (type pdf)
 
 <use text_img/Descriptor_performance.pdf>
 Package pdftex.def Info: text_img/Descriptor_performance.pdf used on input line
- 103.
+ 90.
 (pdftex.def)             Requested size: 361.69739pt x 51.80319pt.
 
-<text_img/Det_desc_perf.pdf, id=139, 453.27745pt x 353.83391pt>
+<text_img/Det_desc_perf.pdf, id=202, 453.27745pt x 353.83391pt>
 File: text_img/Det_desc_perf.pdf Graphic file (type pdf)
 
 <use text_img/Det_desc_perf.pdf>
-Package pdftex.def Info: text_img/Det_desc_perf.pdf used on input line 110.
+Package pdftex.def Info: text_img/Det_desc_perf.pdf used on input line 96.
 (pdftex.def)             Requested size: 453.27635pt x 353.83304pt.
 
-Overfull \hbox (63.27635pt too wide) in paragraph at lines 110--111
+Overfull \hbox (63.27635pt too wide) in paragraph at lines 96--97
  [][] 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-<text_img/Detection_times.pdf, id=140, 452.69928pt x 101.75616pt>
-File: text_img/Detection_times.pdf Graphic file (type pdf)
-
-<use text_img/Detection_times.pdf>
-Package pdftex.def Info: text_img/Detection_times.pdf used on input line 119.
-(pdftex.def)             Requested size: 362.15991pt x 81.40503pt.
-
-<text_img/Description_times.pdf, id=141, 452.69928pt x 64.75392pt>
-File: text_img/Description_times.pdf Graphic file (type pdf)
-
-<use text_img/Description_times.pdf>
-Package pdftex.def Info: text_img/Description_times.pdf used on input line 126.
-
-(pdftex.def)             Requested size: 362.15991pt x 51.80319pt.
-
-<text_img/Match_count.pdf, id=142, 452.69928pt x 353.83391pt>
-File: text_img/Match_count.pdf Graphic file (type pdf)
-
-<use text_img/Match_count.pdf>
-Package pdftex.def Info: text_img/Match_count.pdf used on input line 135.
-(pdftex.def)             Requested size: 362.15991pt x 283.0675pt.
-
+[31 <./text_img/ex_ASTERIX_MSER_SIFT.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27 <./text_img/ex_ASTERIX_MSER_SIFT.pdf>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28 <./text_img/ex_BELLEDONNE_FAST_ORB.pdf> <./text_img/ex_ENSIMAG_SIFT_SIFT.pd
+[32 <./text_img/ex_BELLEDONNE_FAST_ORB.pdf> <./text_img/ex_ENSIMAG_SIFT_SIFT.pd
 f
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/ex_ENSIMAG_SIFT_S
@@ -988,31 +1021,61 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29 <./text_img/Detector_performance.pdf> <./text_img/Descriptor_performance.pd
+[33 <./text_img/Detector_performance.pdf> <./text_img/Descriptor_performance.pd
 f
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Descriptor_perfor
 mance.pdf): PDF inclusion: multiple pdfs with page group included in a single p
 age
->] <text_img/graph_monet.pdf, id=187, 494.32681pt x 395.46146pt>
+>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34 <./text_img/Det_desc_perf.pdf>]
+<text_img/Detection_times.pdf, id=257, 452.69928pt x 101.75616pt>
+File: text_img/Detection_times.pdf Graphic file (type pdf)
+
+<use text_img/Detection_times.pdf>
+Package pdftex.def Info: text_img/Detection_times.pdf used on input line 131.
+(pdftex.def)             Requested size: 362.15991pt x 81.40503pt.
+
+<text_img/Description_times.pdf, id=258, 452.69928pt x 64.75392pt>
+File: text_img/Description_times.pdf Graphic file (type pdf)
+
+<use text_img/Description_times.pdf>
+Package pdftex.def Info: text_img/Description_times.pdf used on input line 137.
+
+(pdftex.def)             Requested size: 362.15991pt x 51.80319pt.
+
+<text_img/Match_count.pdf, id=259, 452.69928pt x 353.83391pt>
+File: text_img/Match_count.pdf Graphic file (type pdf)
+
+<use text_img/Match_count.pdf>
+Package pdftex.def Info: text_img/Match_count.pdf used on input line 143.
+(pdftex.def)             Requested size: 362.15991pt x 283.0675pt.
+
+<text_img/graph_monet.pdf, id=260, 494.32681pt x 395.46146pt>
 File: text_img/graph_monet.pdf Graphic file (type pdf)
 
 <use text_img/graph_monet.pdf>
-Package pdftex.def Info: text_img/graph_monet.pdf used on input line 147.
+Package pdftex.def Info: text_img/graph_monet.pdf used on input line 150.
 (pdftex.def)             Requested size: 395.46198pt x 316.36958pt.
 
-Overfull \hbox (5.46198pt too wide) in paragraph at lines 147--148
+Overfull \hbox (5.46198pt too wide) in paragraph at lines 150--151
  [][] 
  []
 
-<text_img/graph_asterix.pdf, id=188, 502.42105pt x 375.804pt>
+<text_img/graph_asterix.pdf, id=261, 502.42105pt x 375.804pt>
 File: text_img/graph_asterix.pdf Graphic file (type pdf)
 
 <use text_img/graph_asterix.pdf>
-Package pdftex.def Info: text_img/graph_asterix.pdf used on input line 154.
+Package pdftex.def Info: text_img/graph_asterix.pdf used on input line 156.
 (pdftex.def)             Requested size: 401.93738pt x 300.6436pt.
 
-Overfull \hbox (11.93738pt too wide) in paragraph at lines 154--155
+Overfull \hbox (11.93738pt too wide) in paragraph at lines 156--157
  [][] 
  []
 
@@ -1023,14 +1086,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30 <./text_img/Det_desc_perf.pdf>]
+[35]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31 <./text_img/Detection_times.pdf> <./text_img/Description_times.pdf
+[36 <./text_img/Detection_times.pdf> <./text_img/Description_times.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Description_times
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1045,27 +1108,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32 <./text_img/graph_monet.pdf>]
+[37 <./text_img/graph_monet.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33 <./text_img/graph_asterix.pdf>]
+[38 <./text_img/graph_asterix.pdf>]
 Kapitola 5.
-) (./bakalarka.bbl [34
+) (./bakalarka.bbl [39
 
-]) [35
+] [40
 
-]
+])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36] (./bakalarka.aux)
+[41] (./bakalarka.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1075,13 +1138,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6389 strings out of 493054
- 85814 string characters out of 6134759
- 162137 words of memory out of 5000000
- 9697 multiletter control sequences out of 15000+600000
- 53294 words of font info for 115 fonts, out of 8000000 for 9000
+ 6407 strings out of 493054
+ 86323 string characters out of 6134759
+ 162212 words of memory out of 5000000
+ 9717 multiletter control sequences out of 15000+600000
+ 51428 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,16n,43p,1150b,403s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,43p,1151b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1098,10 +1161,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (42 pages, 96965751 bytes).
+Output written on bakalarka.pdf (47 pages, 97251701 bytes).
 PDF statistics:
- 305 PDF objects out of 1000 (max. 8388607)
- 205 compressed objects within 3 object streams
+ 371 PDF objects out of 1000 (max. 8388607)
+ 254 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

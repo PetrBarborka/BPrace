@@ -5,6 +5,13 @@ H.~Bay, T.~Tuytelaars, and L.~Van~Gool.
 \newblock Surf: Speeded up robust features.
 \newblock In {\em Computer vision--ECCV 2006}, pages 404--417. Springer, 2006.
 
+\bibitem{beis1997shape}
+J.~S. Beis and D.~G. Lowe.
+\newblock Shape indexing using approximate nearest-neighbour search in
+  high-dimensional spaces.
+\newblock In {\em Computer Vision and Pattern Recognition, 1997. Proceedings.,
+  1997 IEEE Computer Society Conference on}, pages 1000--1006. IEEE, 1997.
+
 \bibitem{calonder2010brief}
 M.~Calonder, V.~Lepetit, C.~Strecha, and P.~Fua.
 \newblock Brief: Binary robust independent elementary features.

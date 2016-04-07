@@ -15,6 +15,12 @@ Průměrná změna jasu v okolí bodu ve směru posunu (x,y) je definována jako
 \begin{align}	
 E_{x,y} = \sum_{u,v} w_{u,v} \lvert I_{u+x, v+y} - I_{u,v} \rvert^2 , (x,y) \in \{(1,0), (1,1), (0,1), (-1,1)\},
 \end{align}
+
+\begin{figure}[htp] 
+	\centering{
+		\includegraphics[scale=0.7]{text_img/moravec_posun.pdf}}
+	\caption{Vizualizace posunů v jenodlivých směrech} 	\label{Moravec_posun}
+\end{figure}
 	
 kde  $I$ je obraz ve formě jasových bodů, $w$ je váhové okénko (algoritmus používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je aktuální posun. Provede se tedy posun všech obrazových bodů danými směry, a  původní varianta se vždy odečte od posunuté. Tím je získána informace o změně jasu při posunutí ve směrech  $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté je každé testované místo (každý pixel) překryto čtvercovým okénkem, hodnoty pod ním sečteny a výsledek umocněn na druhou. Pro každé testované místo tedy vzniknout 4 hodnoty čtverce změny v jednotlivých směrech.
 Ve zbytku algoritmu je pro každé místo vybráno $min\{E_{x,y}\}$, v takto vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky.
@@ -135,6 +141,12 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 		
 		Autoři dále navrhují vylepšení popsaného algoritmu testováním nejprve 2 nebo 4 pixelů v bodu 2 a pokračování pouze pokud tyto body splňují definovanou podmínku. Otázka, které body na pro tento test zvolit, je řešena nasazením neuronové sítě, která se na určitých datech natrénuje tak, aby tento test byl pro detekci příznaků co nejinformativnější.
 		
+		\begin{figure}[htp] 
+			\centering{
+				\includegraphics[scale=0.7]{text_img/fast_corner.pdf}}
+			\caption{Extrakce FAST příznaku} 	\label{fast_corner}
+		\end{figure}
+		
 	\subsection{Využití}
 	
 		FAST příznaky našly využití například ve SLAM systému PTAM (parallel tracking and mapping) a často jsou nasazovány v aplikacích na mobilních telefonech, jejichž výkon je oproti desktopům stále limitován.	
@@ -160,7 +172,11 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 			
 			Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		 
 			
-			\huge{TODO: Obrázek LoG a DoG} \normalsize
+			\begin{figure}[htp] 
+				\centering{
+					\includegraphics[scale=0.6]{text_img/sift_dog.pdf}}
+				\caption{Tvorba DoG pyramidy} 	\label{sift_dog}
+			\end{figure}
 			
 		\item Lokalizace klíčových oblastí: Na každé kandidátské lokaci se provede rozhodnutí o umístění a relativní velikosti oblasti. Klíčové oblasti jsou vybrány na základě měřítek jejich stability
 		
@@ -195,6 +211,12 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 			\frac{Tr(H)^2}{Det(H)} < \frac{(r+1))}{r},
 			\end{align}
 			$r$ je volitelná prahová konstanta. Její hodnotu  autoři \cite{lowe2004distinctive} doporučují 10.
+			
+			\begin{figure}[htp] 
+				\centering{
+					\includegraphics[scale=0.8]{text_img/sift_kp.pdf}}
+				\caption{Extrakce SIFT příznaku} 	\label{sift_kp}
+			\end{figure}
 								
 		\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru a na těchto  vlastnostech
 		

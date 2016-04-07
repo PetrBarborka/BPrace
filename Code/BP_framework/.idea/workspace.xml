@@ -17,7 +17,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b2699d1d-7c74-40f8-9207-8264813321d4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/json" afterPath="$PROJECT_DIR$/lib/json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Text/bakalarka.synctex.gz" afterPath="$PROJECT_DIR$/../../Text/bakalarka.synctex.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Text/bakalarka.aux" afterPath="$PROJECT_DIR$/../../Text/bakalarka.aux" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Text/bakalarka.log" afterPath="$PROJECT_DIR$/../../Text/bakalarka.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Text/bakalarka.toc" afterPath="$PROJECT_DIR$/../../Text/bakalarka.toc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../Text/imp_test.tex" afterPath="$PROJECT_DIR$/../../Text/imp_test.tex" />
     </list>
     <ignored path="BP_framework.iws" />
     <ignored path=".idea/workspace.xml" />
