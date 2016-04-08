@@ -1,27 +1,4 @@
-# Bakalářská Práce - IK
+# Bachelor thesis - dept. of Cybernetics, University of West Bohemia.
 
-## TODO:
-  
-### Code:
-
-#### Detekce:
-
-    +   Harris -OK
-    +   GFTT   -OK
-    +   FAST   -OK
-    +   SIFT   -OK
-    +   SURF   -OK
-    +   MSER   -OK
-    +   Haar
-    +   HoG
-    +   ORB detector -OK   
-
-#### Deskripce:
-
-    +   BRIEF   -OK
-    +   SIFT    -OK
-    +   SURF    -OK
-    +   Haar    
-    +   HoG     
-    +   ORB descriptor  -OK
-
+Abstract:
+This thesis contains a theoretical overview and a practical comparison of the main methods of detection and description of point features in a digi- talised image measured by ammount of used features, execution times and homography matrix estimation quality.
