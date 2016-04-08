@@ -43,6 +43,7 @@ Dnes se již prakticky nevyužívá, ale stal se základem dalších algoritmů.
 Algoritmus Harris \cite{harris1988combined} vznikl snahou odstranit nedostatky operátoru Moravec - pracuje se stejnou představou, ale efektivněji.
 
 \subsection{Algoritmus}	
+\label{harris_alg}
 
 Anizotropní vlastnosti lze odstranit pomocí Taylorova rozvoje:
 \begin{align}	
@@ -76,7 +77,7 @@ výsledný vztah:
 E_{x,y} = [x, y] M \begin{bmatrix} x \\ y \end{bmatrix}
 \end{align}
 Tento vztah vyjadřuje velikost gradientu obrazu ve směru (libovolného) vektoru $(x,y)$. Matice $M$ je někdy nazývána Harrisova matice.
-Pokud je čtvercového okna nyní zvoleno Gaussovské:
+Pokud je místo čtvercového okna nyní zvoleno gaussovské:
 \begin{align}
 w_{u,v} = e^{-(u^2 + v^2)/2\sigma^2},
 \end{align}
@@ -99,7 +100,7 @@ R = \text{det}(M) - k * \text{stopa}(M)^2,
 \end{align}
 kde det$(M)$ je determinant matice $M$, stopa$(M)$ je součet prvků na hlavní diagonále čtvercové matice a $k$ je nastavitelná konstanta, která určuje citlivost algoritmu na hrany. $R$ bude nabývat hodnot:
 \begin{itemize}
-	\item malých pro "plochou" oblast bez velkých změn
+	\item malých pro "plochou"\ oblast bez velkých změn
 	\item kladných pro roh nebo jiný bodový orientační bod
 	\item záporných pro hranu
 \end{itemize} 
@@ -119,7 +120,7 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 
 \section{Shi-Tomasi}
 
-	Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu $R$ přímo z vlastních čísel (vysvětlení viz výše). 
+	Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu $R$ přímo z vlastních čísel (vysvětlení viz \ref{harris_alg}). 
 	
 	\begin{align}
 	R = min(\lambda_1, \lambda_2)
@@ -129,23 +130,23 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 
 \section{FAST}
 
-	Jak název algoritmu napovídá, jedná se o rychlou a jednoduchou metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (viz dále) a dokonce větší, než Harris. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. FAST \cite{rosten2010faster} je ale součástí kompletního systému ORB, který je popsán dále v této kapitole.
+	Jak název algoritmu napovídá, jedná se o rychlou a jednoduchou metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (sekce \ref{sec:sift}) a dokonce větší, než Harris. Obě tato tvrzení byla potvrzena v kapitole \ref{chap:impl}. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. Z FAST \cite{rosten2010faster} ale vychází detektor systému ORB popsaný v sekci \ref{sec:orb}.
+	
+	\begin{figure}[htp] 
+		\centering{
+			\includegraphics[scale=0.7]{text_img/fast_corner.pdf}}
+		\caption{Extrakce FAST příznaku} 	\label{fast_corner}
+	\end{figure}
 	
 	\subsection{Algoritmus}
 	
 		\begin{enumerate}
 			\item Okolo testovaného bodu $t$ se zkonstruuje kružnice sestávající z 16 bodů $t_{1-16}$. 
 			\item Je-li v kružnici $n$ (doporučuje se $n=12$) nebo více spojených bodů takových, že $\lvert I(p) - I(t_i) \rvert > T$, bod je označen za příznak. $I(.)$ je intenzita daného bodu, $T$ je definovaný práh rozdílu intenzit.
-			\item Protože algoritmus má tendenci označit jako příznaky mnoho sousedících bodů, je vhodné po nalezení všech příznaků provést potlačení nemaximálních hodnot (ang. Non-maximum supression). To zajistí, že se z každé spojené oblasti příznakových bodů vybere jen ten, který má největší nebo nejmenší intenzitu a ostatní se zahodí.
+			\item Protože algoritmus má tendenci označit jako příznaky mnoho sousedících bodů, je vhodné po nalezení všech příznaků provést potlačení nemaximálních hodnot (ang. Non-maximum supression). To zajistí, že se z každé spojené oblasti sousedících příznakových bodů vybere jen ten, který má největší nebo nejmenší intenzitu a ostatní se zahodí.
 		\end{enumerate}
 		
 		Autoři dále navrhují vylepšení popsaného algoritmu testováním nejprve 2 nebo 4 pixelů v bodu 2 a pokračování pouze pokud tyto body splňují definovanou podmínku. Otázka, které body na pro tento test zvolit, je řešena nasazením neuronové sítě, která se na určitých datech natrénuje tak, aby tento test byl pro detekci příznaků co nejinformativnější.
-		
-		\begin{figure}[htp] 
-			\centering{
-				\includegraphics[scale=0.7]{text_img/fast_corner.pdf}}
-			\caption{Extrakce FAST příznaku} 	\label{fast_corner}
-		\end{figure}
 		
 	\subsection{Využití}
 	
@@ -153,30 +154,37 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	 
 
 \section{SIFT}
+\label{sec:sift}
 	SIFT \cite{lowe2004distinctive} je metoda vyhledání příznakových bodů v obraze spolu s výrobou deskriptorů pro jejich zpětnou identifikaci při dalším nalezení. Navazuje na předchozí algoritmy typu Harris, její výhodou je však větší robustnost vzhledem k zašumění obrazu, změnám osvětlení, afinním transformacím příznakových bodů a jejich pohybu v prostoru. Deskriptory se vyznačují velkou rozpoznatelností, tzn. různé body nebudou mít podobný deskriptor.
 	
 	Lze ji využít nejen k identifikaci bodů pro prostorovou lokalizaci, ale též k robustnímu hledání definovaných objektů v obrazu, kdy objekty jsou reprezentovány množinou charakteristických bodů.
 	
 	Algoritmus extrakce deskriptorů je uspořádán do kaskádovité struktury  za účelem urychlení výpočtu: Složitější operace jsou umístěny co  nejdále v algoritmu tak, aby byly aplikovány až po filtraci, tj na co nejmenší množství dat.
 	
+	\begin{figure}[htp] 
+		\centering{
+			\includegraphics[scale=0.8]{text_img/sift_kp.pdf}}
+		\caption{Extrakce SIFT deskriptoru} 	\label{sift_kp}
+	\end{figure}
+	
 	\subsection{Algoritmus detekce příznaků}
 	
 	\begin{enumerate}
 		\item Hledání jasových extrémů v celém obrazu nezávisle na zvětšení, neboli měřítku: Provede se pomocí rozdílů gaussianů (Difference-of-Gaussians, DoG).
-		
-			Pracuje se s matematickou konstrukcí laplaciánu gaussiánů, což znamená rozdělení obrazu na pyramidu postupně více rozostřených verzí (rozostření se provede pomocí gaussovského jádra - masky se vzrůstajícím rozptylem $\sigma{}$). Laplacián poskytne spojitou alternativu rozdílů mezi jednotlivými úrovněmi tohoto postupného rozostření. Tento postup zajišťuje, že najdeme-li někde v těchto "rozdílech" příznakový bod, nalezneme ho stejně i v jiném obrazu, kde se bude nacházet v jiném měřítku. V takovém obraze se bude příznak nacházet jinde v tomto prostoru rozostření, ale bude vypadat stejně, což umožňuje porovnání nezávisle na měřítku.
 			
-			Protože výše popsaný postup platí pro spojitý prostor, při práci s diskrétním obrazem se aproximuje vytvořením pyramidy postupně více a více rozostřených vrstev, kdy tuto pyramidu ještě rozdělíme do oktáv (anglicky octaves). Nejvyšší rozostření oktávy v SIFTu by mělo mít oproti nejnižšímu dvojnásobný rozptyl $\sigma$. Jedná se o analogii hudebního názvosloví, kdy nejvyšší tón oktávy má oproti nejnižšímu dvojnásobnou frekvenci v Hertzích. V další oktávě se též oproti předchozí pracuje s dvojnásobně redukovaným rozlišením obrazu (každý druhý řádek, každý druhý sloupec), protože se předpokládá, že dojde jenom k malé ztrátě informace za cenu velkého snížení výkonových nároků.
+			Pracuje se s matematickou konstrukcí laplaciánu gaussiánů, což znamená rozdělení obrazu na pyramidu postupně více rozostřených verzí (rozostření se provede pomocí gaussovského jádra - masky se vzrůstajícím rozptylem $\sigma{}$). Laplacián poskytne spojitou alternativu rozdílů mezi jednotlivými úrovněmi tohoto postupného rozostření. Tento postup zajišťuje, že najdeme-li někde v těchto "rozdílech"\ příznakový bod, nalezneme ho stejně i v jiném obrazu, kde se bude nacházet v jiném měřítku. V takovém obraze se bude příznak nacházet jinde v tomto prostoru rozostření, ale bude vypadat stejně, což umožňuje porovnání nezávisle na měřítku.
+			
+			Protože výše popsaný postup platí pro spojitý prostor, při práci s diskrétním obrazem se aproximuje vytvořením pyramidy postupně více a více rozostřených vrstev, kdy tuto pyramidu ještě rozdělíme do oktáv (anglicky octaves). Nejvyšší rozostření oktávy v SIFTu by mělo mít oproti nejnižšímu dvojnásobný rozptyl $\sigma$. Jedná se o analogii hudebního názvosloví, kdy nejvyšší tón oktávy má oproti nejnižšímu dvojnásobnou frekvenci v hertzích. V další oktávě se též oproti předchozí pracuje s dvojnásobně redukovaným rozlišením obrazu (každý druhý řádek, každý druhý sloupec), protože se předpokládá, že dojde jenom k malé ztrátě informace při značném snížení výkonových nároků.
 			
 			Tuto pyramidu gaussiánů doporučují autoři článku \cite{lowe2004distinctive} konstruovat tak, že se skládá ze 4 oktáv po 5 rozostřeních (měřítkách, ang. scales), první rozostření se doporučuje $\sigma_0 = 1.6$ a rozdíly jednotlivých rozostření jsou $k=\sqrt{2}: \sigma_2 = k \sigma_1 = k^2 \sigma_0$ atd. Podstatné je dodržet konstantní $k$ mezi vrstvami.
 			
-			Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		 
+			Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		
 			
-			\begin{figure}[htp] 
-				\centering{
-					\includegraphics[scale=0.6]{text_img/sift_dog.pdf}}
-				\caption{Tvorba DoG pyramidy} 	\label{sift_dog}
-			\end{figure}
+		\begin{figure}[htp] 
+			\centering{
+				\includegraphics[scale=0.6]{text_img/sift_dog.pdf}}
+			\caption{Tvorba DoG pyramidy} 	\label{sift_dog}
+		\end{figure} 
 			
 		\item Lokalizace klíčových oblastí: Na každé kandidátské lokaci se provede rozhodnutí o umístění a relativní velikosti oblasti. Klíčové oblasti jsou vybrány na základě měřítek jejich stability
 		
@@ -212,11 +220,6 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 			\end{align}
 			$r$ je volitelná prahová konstanta. Její hodnotu  autoři \cite{lowe2004distinctive} doporučují 10.
 			
-			\begin{figure}[htp] 
-				\centering{
-					\includegraphics[scale=0.8]{text_img/sift_kp.pdf}}
-				\caption{Extrakce SIFT příznaku} 	\label{sift_kp}
-			\end{figure}
 								
 		\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru a na těchto  vlastnostech
 		
@@ -237,11 +240,11 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	
 	\subsection{Porovnávání příznaků}
 	
-	Pro porovnávání příznaků autoři doporučují algoritmus nejbližšího souseda a pro větší databáze jeho aproximaci - BBF neboli Best Bin First. Tento algoritmus dělí prostor příznaků na diskrétní disjunktní oblasti, odhaduje, ve kterém se hledaný prvek pravděpodobně nachází a hledá ho nejprve tam. Autoři uvádějí, že oproti standartnímu nejbližšímu sousedovi tento algoritmus zrychluje výpočet o dva řády za cenu pouze 5\% ztráty přesnosti.
+	Pro porovnávání příznaků autoři doporučují algoritmus nejbližšího souseda a pro větší databáze jeho aproximaci Best Bin First (sekce \ref{sec:bbf}). Tento algoritmus dělí prostor příznaků na diskrétní disjunktní oblasti, odhaduje, ve kterém se hledaný prvek pravděpodobně nachází a hledá ho nejprve tam. Autoři uvádějí, že oproti standartnímu nejbližšímu sousedovi tento algoritmus zrychluje výpočet o dva řády za cenu pouze 5\% ztráty přesnosti.
 	
 	\subsection{Využití}
 	
-	SIFT je stále jedním z nejspolehlivějších algoritmů hledání a identifikace příznaků, což dokazuje i jeho široká využívanost v aplikacích identifikace objektů podle známých příznaků i v mapovacích algoritmech (Monoslam, \cite{slam_monoslam} ). Ikdyž ho lze využít pro mapování v reálném čase, je v porovnání s ostatními metodami velmi výkonově náročný.
+	SIFT je stále jedním z nejspolehlivějších algoritmů hledání a identifikace příznaků, což dokazuje i jeho široká využívanost v aplikacích identifikace objektů podle známých příznaků i v mapovacích algoritmech (Monoslam, \cite{slam_monoslam} ). Ikdyž ho lze využít pro mapování v reálném čase, je v porovnání s ostatními metodami velmi výkonově náročný. Jeho převaha nad ostatními uvedenými metodami s výjimkou SURF se zřetelně projevila při testech v kapitole \ref{chap:impl}
 
 
 \section{SURF}
@@ -281,11 +284,11 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	\end{enumerate}
 	
 	\subsection{Využití}
-	
-		SURF se hodí jako aproximace SIFTu tam, kde vadí jeho vysoká náročnost na výkon hardwaru a lze obětovat část jeho robustnosti.
+		
+		Přestože je SURF původně navržen jako rychlá aproximace SIFT, v hodnocení detektorů v kapitole \ref{chap:impl} měl vyšší průměrný čas detekce než SIFT, zato ale vykazoval čtyřikrát kratší celkový čas deskripce a dokonce překonal SIFT v celkovém hodnocení zejmena díky lepším výsledkům na datasetech s rotací. 
 
 \section{BRIEF}
-
+\label{sec:brief}
 	Binary Robust Independent Elementary Features neboli BRIEF \cite{calonder2010brief} je deskriptorový algoritmus, zabývá se tedy pouze popisem příznaků, nikoli jejic nalezením. Jeho principem je popis příznaků pomocí řetězce binárních hodnot. To je výhodné, protože takové řetězce lze porovnávat pomocí Hammingovy vzdálenosti (počet permutací, které je potřeba provést k přechodu z jednoho na druhý), což je zvláště na moderních procesorech velice rychlá operace. Oproti algoritmům jako je SIFT nebo SURF vyniká zejména jednoduchostí principu (a tím i implementace) a hlavně řádově vyšší rychlostí. Přitom při testech ale vykazuje podobné nebo větší množství správně identifikovaných příznaků jako SURF.
 	
 	\subsection{Algoritmus}
@@ -313,7 +316,44 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	
 	\subsection{Využití}
 	
-			Podle autorů se jedná o rychlejší a stejně efektivní alternativu k SURF deskriptoru. Výhodou je, že tento algoritmus narozdíl od něj není licencován pro komerční využití. Jedná se o čistě deskriptorový algoritmus, ale je vhodné zmínit, že BRIEF je společně s FAST příznaky součástí kompletního algoritmu ORB.
+			Podle autorů se jedná o rychlejší a stejně efektivní alternativu k SURF deskriptoru. Výhodou je, že tento algoritmus narozdíl od něj není licencován pro komerční využití. Jedná se o čistě deskriptorový algoritmus, ale je vhodné zmínit, že z BRIEF vychází deskriptor systému ORB. Při testování se potvrdilo, že skutečně vykazuje výrazně nižší časy detekce, ale platí za to řádově nižší výkonností (celková výkonnost okolo 13\% naznačuje, že pro aproximaci prostorové transformace je v tomto nastavení na zkoumaném datasetu prakticky nepoužitelný).
+	
+\section{ORB}
+\label{sec:orb}
+Oriented Fast and Rotated Brief neboli ORB je algoritmus, který kombinuje FAST detektor příznaků a BRIEF deskriptor \cite{rublee2011orb}. Zároveň do obou algoritmů přináší některá vylepšení, která mají za cíl především zajistit invarianci vůdči rotaci a maximálně zefektivnit mapu testování v BRIEF (sekce \ref{sec:brief}). Vznikl snahou tvůrců knihovny openCV poskytnout alternativu k SIFT a SURF, která by byla stejně efektivní, rychlejší a nepodléhala licenci pro komerční využití.
+
+\subsection{Algoritmus detekce příznaků}
+
+Oproti výchozímu algoritmu FAST je přidáno hodnocení kvality příznaků pomocí Harrisovského měřítka hranovosti a výpočet orientace příznaku.
+
+\begin{enumerate}
+	\item Pro podpoření invariance k velikosti příznakové oblasti je zkonstruována scale space pyramida metodou popsanou v sekci o algoritmu SURF (diference gausialnů).
+	\item V této pyramidě jsou nalezeny FAST příznaky podle algoritmu popsaného v příslušné sekci této kapitoly. Z nich se vybere $N$ nejlepších podle měřítka $R$ Harrisova algoritmu.
+	\item Pro každý příznak jsou na kruhové oblasti kolem něj s poloměrem $r$ vypočteny momenty jako $m_{p,q} = \sum_{u,v} u^p v^q I(u,v)$, kde $I(x,y)$ je intenzita obrazu v bodě $(u,v)$. Z momentů je vypočten centroid oblasti $C = (\frac{m_{1,0}}{m_{0,0}} \frac{m_{0,1}}{m_{0,0}})$. Orientace příznaku je určena směrem vektoru $\vec{OC}$ ze středu příznaku $O$ do jeho centroidu. Jeho směr je vypočten jako $\theta = atan2(m_{0,1}, m_{1,0})$
+\end{enumerate}
+
+\subsection{Algoritmus popisu příznaků}
+
+Příznaky jsou popsány pomocí BRIEF deskriptoru, který navíc využívá informaci o orientaci příznaku získanou při detekci. Pro výrobu optimální mapy porovnávaných bodů je stanoven algoritmus strojového učení: Z trénovacích příznaků se vybírají takové páry bodů, které mají střední hodnotu porovnání co nejbližší $0,5$, co největší rozptyl a jsou co nejméně korelovány s ostatními vybranými páry.
+
+\begin{enumerate}
+	\item Před samotným porovnáváním se obraz upraví nějakou vyhlazovací operací. Autoři doporučují integrál na okně $5$x$5$. 
+	\item matice testů
+	\begin{align}
+	S =
+	\begin{Bmatrix}
+	x_1 & ... & x_n \\
+	y_1 & ... & y_n
+	\end{Bmatrix}
+	\end{align}
+	se přenásobí vhodnou maticí rotace s úhlem $\theta$ vypočteným při detekci tak, že $S_{\theta} = R_{\theta}S$. Vznikne tak mapa porovnání invariantní k rotaci. Tento bod se implementuje pomocí kvantizace úhlů po 12 stupních a konstrukce lookup tabulky s předvypočtenými rotovanými mapami.
+	\item S touto mapou se na vyhlazeném příznaku provede výpočet 256 bitového deskriptoru BRIEF jak je popsáno v sekci, která je mu věnována.
+\end{enumerate}
+
+\subsection{Využití}
+
+Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efektivitě podstatně rychlejší a nepodléhá licenci pro komerční využití. Při testování (kapitola \ref{chap:impl}) se jeho detektorová část umístila v celkovém hodnocení jako nejlepší, deskriptor ovšem vykazoval velmi slabé výsledky. Jako jedna z nejvýkonnějších testovaných kombinací se ukázala kombinace detektor ORB, deskriptor SURF.
+
 		
 \section{MSER}
 
@@ -354,7 +394,7 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	\end{enumerate}
 	
 	\subsection{Využití}
-		Algoritmus MSER vyniká velkou robustností příznaků umožňující znovunalezení příznaků ve velmi odlišných zdrojových obrazech (například ze značně rozdílných úhlů), ovšem platí za to značným výpočetním výkonem. V současné době je například využíván v systému rozpoznávání textu v obecném prostředí vyvíjeném na ČVUT \cite{neumann2012real} .
+		Algoritmus MSER vyniká velkou robustností příznaků umožňující znovunalezení příznaků ve velmi odlišných zdrojových obrazech (například ze značně rozdílných úhlů), ovšem platí za to značným výpočetním výkonem. V současné době je například využíván v systému rozpoznávání textu v obecném prostředí vyvíjeném na ČVUT \cite{neumann2012real}. Při testování (kapitola \ref{chap:impl}) se ukázal jako výkonnostně i časově podobný SIFTu.
 	
 
 \section{Haar}
@@ -455,41 +495,6 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	
 	HoG je modernější alternativou k Haar algoritmu, která je též schopna fungování v reálném čase. Stejně jako Haar má také problémy s mnohonásobnou detekcí jednoho objektu, ale narozdíl od něj není citlivý na nastavení parametrů a tím pádem bez nutnosti zdlouhavého experimentáování dosahuje menšího množství falešných detekcí a nedetekovaných objektů.
 
-\section{ORB}
-
-	Oriented Fast and Rotated Brief neboli ORB je algoritmus, který kombinuje FAST detektor příznaků a BRIEF deskriptor \cite{rublee2011orb}. Zároveň do obou algoritmů přináší některá vylepšení, která mají za cíl především zajistit invarianci vůdči rotaci a maximálně zefektivnit mapu testování v BRIEF. Vznikl snahou tvůrců knihovny openCV poskytnout alternativu k SIFT a SURF, která by byla stejně efektivní, rychlejší a nepodléhala licenci pro komerční využití.
-	
-	\subsection{Algoritmus detekce příznaků}
-	
-	Oproti výchozímu algoritmu FAST je přidáno hodnocení kvality příznaků pomocí Harrisovského měřítka hranovosti a výpočet orientace příznaku.
-	
-	\begin{enumerate}
-		\item Pro podpoření invariance k velikosti příznakové oblasti je zkonstruována scale space pyramida metodou popsanou v sekci o algoritmu SURF (diference gausialnů).
-		\item V této pyramidě jsou nalezeny FAST příznaky podle algoritmu popsaného v příslušné sekci této kapitoly. Z nich se vybere $N$ nejlepších podle měřítka $R$ Harrisova algoritmu.
-		\item Pro každý příznak jsou na kruhové oblasti kolem něj s poloměrem $r$ vypočteny momenty jako $m_{p,q} = \sum_{u,v} u^p v^q I(u,v)$, kde $I(x,y)$ je intenzita obrazu v bodě $(u,v)$. Z momentů je vypočten centroid oblasti $C = (\frac{m_{1,0}}{m_{0,0}} \frac{m_{0,1}}{m_{0,0}})$. Orientace příznaku je určena směrem vektoru $\vec{OC}$ ze středu příznaku $O$ do jeho centroidu. Jeho směr je vypočten jako $\theta = atan2(m_{0,1}, m_{1,0})$
-	\end{enumerate}
-	
-	\subsection{Algoritmus popisu příznaků}
-	
-	Příznaky jsou popsány pomocí BRIEF deskriptoru, který navíc využívá informaci o orientaci příznaku získanou při detekci. Pro výrobu optimální mapy porovnávaných bodů je stanoven algoritmus strojového učení: Z trénovacích příznaků se vybírají takové páry bodů, které mají střední hodnotu porovnání co nejbližší $0,5$, co největší rozptyl a jsou co nejméně korelovány s ostatními vybranými páry.
-	
-	\begin{enumerate}
-		\item Před samotným porovnáváním se obraz upraví nějakou vyhlazovací operací. Autoři doporučují integrál na okně $5$x$5$. 
-		\item matice testů
-		\begin{align}
-		S =
-		\begin{Bmatrix}
-		x_1 & ... & x_n \\
-		y_1 & ... & y_n
-		\end{Bmatrix}
-		\end{align}
-		se přenásobí vhodnou maticí rotace s úhlem $\theta$ vypočteným při detekci tak, že $S_{\theta} = R_{\theta}S$. Vznikne tak mapa porovnání invariantní k rotaci. Tento bod se implementuje pomocí kvantizace úhlů po 12 stupních a konstrukce lookup tabulky s předvypočtenými rotovanými mapami.
-		\item S touto mapou se na vyhlazeném příznaku provede výpočet 256 bitového deskriptoru BRIEF jak je popsáno v sekci, která je mu věnována.
-	\end{enumerate}
-
-	\subsection{Využití}
-	
-		Algoritmus ORB je velmi vhodnou alternativou k SIFT nebo SURF, která je při srovnatelné efektivitě podstatně rychlejší a nepodléhá licenci pro komerční využití.
 
 \section{K-Nearest Neighbours}
 
@@ -500,7 +505,7 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	Nevýhodami jsou náročnost na výpočet i na paměť (je potřeba si při klasifikaci pamatovat potenciálně velmi rozsáhlou trénovací množinu).
 	
 \section{Best Bin First}
-
+\label{sec:bbf}
 	Best bin first, dále BBF \cite{beis1997shape}, je algoritmus aproximující hledání $k$ nejbližších sousedů. Jak je zmíněno v příslušné kapitole, náročnost klasifikace s použitím základního algoritmu kNN je z důvodu nutnosti vyhodnocení celé trénovací množiny pro každý zkoumaný vektor značná a přirozeně roste s rostoucí dimenzí prostoru příznaků (vektorů) a jejich množstvím. Oproti původnímu algoritmu kNN je BBF přesunutím části výpočetní náročnosti z fáze klasifikaci do fáze učení.
 	
 	Při trénování modelu jsou vzorová naklasifikovaná data rozdělena do stromu. Na každé úrovni stromu se vždy rodičovský uzel rozdělí na dvě poloviny podle mediánu rozměru, na kterém mají data největší rozptyl, čímž vzniknou dva nové uzly (biny s vektory) se stejným počtem vektorů v každém z nich. Kořenem tohoto stromu je pochopitelně celá oblast $\mathbb{R}^n$, jeho listy jsou biny, které obsahují po jednom vektoru.
@@ -532,5 +537,5 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 		Výhodou algoritmu oproti standartní metodě nejmenších čtverců je fakt, že data, která jsou označena jako nevěrohodná nebo zatížená chybou (produkují nesouhlasící modely) nejsou pro konstrukci výsledného modelu vůbec použita.
 		
 	\subsection{Využití}
-		V diskutované oblasti se algoritmus RANSAC využívá především k odhadu fundamentální matice zobrazení a homografie mezi dvěma obrazy pomocí poloh znovunalezených příznaků. Mimo to má velmi široké využití kdekoli, kde je potřeba regresně odhadnout parametry modelu a je důvod se domnívat, že chyby, které na data působí nemají nulovou střední hodnotu a jiné ideální statistické vlastnosti.
+		V diskutované oblasti se algoritmus RANSAC využívá především k odhadu fundamentální matice zobrazení nebo v tomto případě matice homografie mezi dvěma obrazy pomocí poloh párů přiřazených příznaků. Mimo to má velmi široké využití kdekoli, kde je potřeba regresně odhadnout parametry modelu a je důvod se domnívat, že chyby, které na data působí nemají nulovou střední hodnotu a jiné ideální statistické vlastnosti.
 	

@@ -1,5 +1,6 @@
 
 \chapter{Implementace a testování metod}
+\label{chap:impl}
 
 Praktická část práce se zabývá porovnáním výkonnosti jednotlivých
 metod nalezení a popisu bodových příznaků na datasetu (JAK CITOVAT DATASET?)
@@ -54,28 +55,28 @@ Data o souborech v datasetu jsou vytěžena pomocí skriptu \verb|create_configs
 \begin{figure}[htp] 
 	\centering{
 		\includegraphics[scale=0.5]{text_img/ex_ASTERIX_MSER_SIFT.pdf}}
-	\caption{Transformace zoom ze subsetu asterix, detektor MSER,
+	\caption{Transformace zoom ze subsetu Asterix, detektor MSER,
 		deskriptor SIFT} \label{ex_asterix}
 \end{figure}
 
 \begin{figure}[htp] 
 	\centering{
 		\includegraphics[scale=0.5]{text_img/ex_BELLEDONNE_FAST_ORB.pdf}}
-	\caption{Ukázka transformace zoom ze subsetu belledonne, detektor FAST,
+	\caption{Ukázka transformace zoom ze subsetu Belledonne, detektor FAST,
 		deskriptor ORB}	\label{ex_belledonne}
 \end{figure}
 
 \begin{figure}[htp] 
 	\centering{
 		\includegraphics[scale=0.5]{text_img/ex_ENSIMAG_SIFT_SIFT.pdf}}
-	\caption{Ukázka transformace zoom ze subsetu ensimag, detektor i 
+	\caption{Ukázka transformace zoom ze subsetu Ensimag, detektor i 
 		deskriptor SIFT} \label{ex_ensimag}
 \end{figure}
 
 \begin{figure}[htp] 
 	\centering{
-		\includegraphics[scale=0.5]{text_img/ex_ENSIMAG_SIFT_SIFT.pdf}}
-	\caption{Ukázka transformace rotace ze subsetu monet, detektor GFTT, 
+		\includegraphics[scale=0.5]{text_img/ex_MONET_GFTT_SIFT.pdf}}
+	\caption{Ukázka transformace rotace ze subsetu Monet, detektor GFTT, 
 		deskriptor SIFT} \label{ex_MONET}
 \end{figure}
 
@@ -112,8 +113,9 @@ Detektor SURF ve všech disciplínách překonal SIFT, přestože vznikl jako je
 Ve srovnání deskriptorů (tabulka \ref{desc_perf} ) naopak ORB, založený na algoritmu BRIEF zaostává nad svou samostatnou implementací.
 Jako deskriptor má SIFT nad SURF převahu ve statických scénářích (subsety blur, light, res).
 
-Ze srovnání kombinací (tabulka \ref{det_desc_perf}) je zřejmé, že všechny detektory mají nejlepší výsledky v kombinaci s deskriptory
-SIFT a SURF.
+Ze srovnání kombinací (tabulka \ref{det_desc_perf}) je zřejmé, že všechny detektory mají nejlepší výsledky v kombinaci s deskriptory SIFT a SURF.
+
+Při aplikaci v reálném čase na frekvenci 20Hz je na jeden celý cyklus uvažovaného systému k dispozici 0.05 vteřiny. Uvažujeme-li, že systém musí v každém cyklu provádět i jiné operace než detekci a popis příznaků, můžeme počítat s 0.025 vteřiny pro obě operace dohromady. Časy v tabulkách \ref{det_times} a \ref{desc_times} představují dobu potřebnou pro nalezení příznaků v obou obrazech z testovaného páru, náročnost na jednom obraze bude tedy zhruba poloviční. Do této periody by se podle získaných dat žádná z kombinací zkoumaných metod nevešla. To je pravděpodobně způsobeno nedokonalým nastavením parametrů jednotlivých metod, vysokým rozlišením zpracovávaných obrazů a vysokým množstvím detekovaných příznaků (nebylo nijak omezeno), protože všechny porovnávané metody již byly nějakým způsobem v systémech pracujících v reálném čase nasazeny.
 
 Z porovnání časů potřebných k detekci a popisu příznaků v tabulkách \ref{det_times} a \ref{desc_times} lze vidět, že SIFT a SURF platí za svoji
 výkonnost o řád delším časem detekce před ostatními s výjimkou MSER a dokonce o dva řády delším časem výpočtu deskriptorů.
@@ -122,7 +124,7 @@ Dle tabulky \ref{match_count} produkuje při daném nastavení největší množ
 detekovaných příznaků nemá přímou souvislost s kvalitou aproximace matice homografie.
 
 Grafy \ref{graph_monet} a \ref{graph_asterix} zachycují vývoj kvality aproximace homografie při postupném zpracovávání subsetů Monet a Asterix.
-Výsledky odpovídají situaci, kdy dataset monet sestává z postupné rotace obrazu o 360 stupňů - nejhorší výsledky vykazují metody uprostřed, tedy
+Výsledky odpovídají situaci, kdy dataset Monet sestává z postupné rotace obrazu o 360 stupňů - nejhorší výsledky vykazují metody uprostřed, tedy
 v natočení blížícím se 180 stupňům. Dataset Asterix naopak sestává z postupného vzdálení se od zdrojového obrázku, tedy zkoumané páry jsou postupně
 náročnější.
 
@@ -148,11 +150,11 @@ náročnější.
 \begin{figure}[htp] 
 	\centering{
 		\includegraphics[scale=0.8]{text_img/graph_monet.pdf}}
-	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu monet (rotace)}	\label{graph_monet}
+	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Monet (rotace)}	\label{graph_monet}
 \end{figure}
 
 \begin{figure}[htp] 
 	\centering{
 		\includegraphics[scale=0.8]{text_img/graph_asterix.pdf}}
-	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu asterix (zoom)}	\label{graph_asterix}
+	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Asterix (zoom)}	\label{graph_asterix}
 \end{figure}

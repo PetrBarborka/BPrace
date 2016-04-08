@@ -17,11 +17,23 @@ M.~Calonder, V.~Lepetit, C.~Strecha, and P.~Fua.
 \newblock Brief: Binary robust independent elementary features.
 \newblock {\em Computer Vision--ECCV 2010}, pages 778--792, 2010.
 
+\bibitem{dalal2005histograms}
+N.~Dalal and B.~Triggs.
+\newblock Histograms of oriented gradients for human detection.
+\newblock In {\em Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+  IEEE Computer Society Conference on}, volume~1, pages 886--893. IEEE, 2005.
+
 \bibitem{slam_monoslam}
 A.~J. Davison, I.~D. Reid, N.~D. Molton, and O.~Stasse.
 \newblock Monoslam: Real-time single camera slam.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 29(6):1052--1067, 2007.
+
+\bibitem{fischler1981random}
+M.~A. Fischler and R.~C. Bolles.
+\newblock Random sample consensus: a paradigm for model fitting with
+  applications to image analysis and automated cartography.
+\newblock {\em Communications of the ACM}, 24(6):381--395, 1981.
 
 \bibitem{harris1988combined}
 C.~Harris and M.~Stephens.
@@ -33,11 +45,22 @@ D.~G. Lowe.
 \newblock Distinctive image features from scale-invariant keypoints.
 \newblock {\em International journal of computer vision}, 60(2):91--110, 2004.
 
+\bibitem{matas2004robust}
+J.~Matas, O.~Chum, M.~Urban, and T.~Pajdla.
+\newblock Robust wide-baseline stereo from maximally stable extremal regions.
+\newblock {\em Image and vision computing}, 22(10):761--767, 2004.
+
 \bibitem{moravec1980obstacle}
 H.~P. Moravec.
 \newblock Obstacle avoidance and navigation in the real world by a seeing robot
   rover.
 \newblock Technical report, DTIC Document, 1980.
+
+\bibitem{neumann2012real}
+L.~Neumann and J.~Matas.
+\newblock Real-time scene text localization and recognition.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2012 IEEE
+  Conference on}, pages 3538--3545. IEEE, 2012.
 
 \bibitem{rosten2010faster}
 E.~Rosten, R.~Porter, and T.~Drummond.
@@ -62,5 +85,12 @@ J.~Shi and C.~Tomasi.
 M.~Sonka, V.~Hlavac, and R.~Boyle.
 \newblock {\em Image Processing, Analysis, and Machine Vision}.
 \newblock Cengage Learning, 2014.
+
+\bibitem{viola2001rapid}
+P.~Viola and M.~Jones.
+\newblock Rapid object detection using a boosted cascade of simple features.
+\newblock In {\em Computer Vision and Pattern Recognition, 2001. CVPR 2001.
+  Proceedings of the 2001 IEEE Computer Society Conference on}, volume~1, pages
+  I--511. IEEE, 2001.
 
 \end{thebibliography}

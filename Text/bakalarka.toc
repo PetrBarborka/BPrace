@@ -11,39 +11,39 @@
 \contentsline {section}{\numberline {3.3}Shi-Tomasi}{8}
 \contentsline {section}{\numberline {3.4}FAST}{8}
 \contentsline {subsection}{\numberline {3.4.1}Algoritmus}{8}
-\contentsline {subsection}{\numberline {3.4.2}Vyu\IeC {\v z}it\IeC {\'\i }}{9}
-\contentsline {section}{\numberline {3.5}SIFT}{9}
-\contentsline {subsection}{\numberline {3.5.1}Algoritmus detekce p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{11}
+\contentsline {subsection}{\numberline {3.4.2}Vyu\IeC {\v z}it\IeC {\'\i }}{10}
+\contentsline {section}{\numberline {3.5}SIFT}{10}
+\contentsline {subsection}{\numberline {3.5.1}Algoritmus detekce p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{12}
 \contentsline {subsection}{\numberline {3.5.2}Porovn\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{15}
 \contentsline {subsection}{\numberline {3.5.3}Vyu\IeC {\v z}it\IeC {\'\i }}{16}
 \contentsline {section}{\numberline {3.6}SURF}{16}
 \contentsline {subsection}{\numberline {3.6.1}Algoritmus}{16}
 \contentsline {subsection}{\numberline {3.6.2}Vyu\IeC {\v z}it\IeC {\'\i }}{17}
-\contentsline {section}{\numberline {3.7}BRIEF}{17}
+\contentsline {section}{\numberline {3.7}BRIEF}{18}
 \contentsline {subsection}{\numberline {3.7.1}Algoritmus}{18}
 \contentsline {subsection}{\numberline {3.7.2}Vyu\IeC {\v z}it\IeC {\'\i }}{19}
-\contentsline {section}{\numberline {3.8}MSER}{19}
-\contentsline {subsection}{\numberline {3.8.1}Algoritmus}{20}
-\contentsline {subsubsection}{Popis p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u} vektor\IeC {\r u}}{20}
-\contentsline {subsubsection}{Porovn\IeC {\'a}n\IeC {\'\i } a identifikace p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{20}
-\contentsline {subsection}{\numberline {3.8.2}Vyu\IeC {\v z}it\IeC {\'\i }}{21}
-\contentsline {section}{\numberline {3.9}Haar}{21}
-\contentsline {subsection}{\numberline {3.9.1}Integr\IeC {\'a}ln\IeC {\'\i } obraz}{22}
-\contentsline {subsection}{\numberline {3.9.2}AdaBoost}{22}
-\contentsline {subsection}{\numberline {3.9.3}Algoritmus tr\IeC {\'e}nov\IeC {\'a}n\IeC {\'\i } kask\IeC {\'a}dy a detekce objekt\IeC {\r u}}{23}
-\contentsline {subsection}{\numberline {3.9.4}Vyu\IeC {\v z}it\IeC {\'\i }}{24}
-\contentsline {section}{\numberline {3.10}Histogram orientovan\IeC {\'y}ch gradient\IeC {\r u}}{24}
-\contentsline {subsection}{\numberline {3.10.1}SVM}{24}
-\contentsline {subsection}{\numberline {3.10.2}Algoritmus v\IeC {\'y}po\IeC {\v c}tu deskriptoru}{25}
-\contentsline {subsection}{\numberline {3.10.3}Vyu\IeC {\v z}it\IeC {\'\i }}{25}
-\contentsline {section}{\numberline {3.11}ORB}{25}
-\contentsline {subsection}{\numberline {3.11.1}Algoritmus detekce p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{26}
-\contentsline {subsection}{\numberline {3.11.2}Algoritmus popisu p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{26}
+\contentsline {section}{\numberline {3.8}ORB}{19}
+\contentsline {subsection}{\numberline {3.8.1}Algoritmus detekce p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{19}
+\contentsline {subsection}{\numberline {3.8.2}Algoritmus popisu p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{20}
+\contentsline {subsection}{\numberline {3.8.3}Vyu\IeC {\v z}it\IeC {\'\i }}{20}
+\contentsline {section}{\numberline {3.9}MSER}{21}
+\contentsline {subsection}{\numberline {3.9.1}Algoritmus}{21}
+\contentsline {subsubsection}{Popis p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u} vektor\IeC {\r u}}{21}
+\contentsline {subsubsection}{Porovn\IeC {\'a}n\IeC {\'\i } a identifikace p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{22}
+\contentsline {subsection}{\numberline {3.9.2}Vyu\IeC {\v z}it\IeC {\'\i }}{22}
+\contentsline {section}{\numberline {3.10}Haar}{23}
+\contentsline {subsection}{\numberline {3.10.1}Integr\IeC {\'a}ln\IeC {\'\i } obraz}{23}
+\contentsline {subsection}{\numberline {3.10.2}AdaBoost}{24}
+\contentsline {subsection}{\numberline {3.10.3}Algoritmus tr\IeC {\'e}nov\IeC {\'a}n\IeC {\'\i } kask\IeC {\'a}dy a detekce objekt\IeC {\r u}}{25}
+\contentsline {subsection}{\numberline {3.10.4}Vyu\IeC {\v z}it\IeC {\'\i }}{25}
+\contentsline {section}{\numberline {3.11}Histogram orientovan\IeC {\'y}ch gradient\IeC {\r u}}{26}
+\contentsline {subsection}{\numberline {3.11.1}SVM}{26}
+\contentsline {subsection}{\numberline {3.11.2}Algoritmus v\IeC {\'y}po\IeC {\v c}tu deskriptoru}{26}
 \contentsline {subsection}{\numberline {3.11.3}Vyu\IeC {\v z}it\IeC {\'\i }}{27}
 \contentsline {section}{\numberline {3.12}K-Nearest Neighbours}{27}
-\contentsline {section}{\numberline {3.13}Best Bin First}{27}
+\contentsline {section}{\numberline {3.13}Best Bin First}{28}
 \contentsline {section}{\numberline {3.14}RANSAC}{28}
 \contentsline {subsection}{\numberline {3.14.1}Algoritmus}{29}
 \contentsline {subsection}{\numberline {3.14.2}Vyu\IeC {\v z}it\IeC {\'\i }}{29}
-\contentsline {chapter}{\numberline {4}Implementace a testov\IeC {\'a}n\IeC {\'\i } metod}{30}
-\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{39}
+\contentsline {chapter}{\numberline {4}Implementace a testov\IeC {\'a}n\IeC {\'\i } metod}{31}
+\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{41}
