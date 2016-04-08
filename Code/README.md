@@ -1,4 +1,5 @@
-# Implementace v C++ s využitím OpenCV3
+# Implementation
 
-Builduje buď pomocí JetBrains CLion nebo pomocí CMake ve
-složce BP_framework.
+Implemented using openCV3 in C++ and Pandas statistic package in Python
+
+C++ builds using CMake in BP_framework/. CLion project file included.
