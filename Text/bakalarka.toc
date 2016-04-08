@@ -13,8 +13,8 @@
 \contentsline {subsection}{\numberline {3.4.1}Algoritmus}{8}
 \contentsline {subsection}{\numberline {3.4.2}Vyu\IeC {\v z}it\IeC {\'\i }}{10}
 \contentsline {section}{\numberline {3.5}SIFT}{10}
-\contentsline {subsection}{\numberline {3.5.1}Algoritmus detekce p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{12}
-\contentsline {subsection}{\numberline {3.5.2}Porovn\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{15}
+\contentsline {subsection}{\numberline {3.5.1}Algoritmus detekce p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{11}
+\contentsline {subsection}{\numberline {3.5.2}Porovn\IeC {\'a}v\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znak\IeC {\r u}}{14}
 \contentsline {subsection}{\numberline {3.5.3}Vyu\IeC {\v z}it\IeC {\'\i }}{16}
 \contentsline {section}{\numberline {3.6}SURF}{16}
 \contentsline {subsection}{\numberline {3.6.1}Algoritmus}{16}

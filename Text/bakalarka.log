@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  8 APR 2016 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  8 APR 2016 17:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -704,42 +704,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9 <./text_img/fast_corner.pdf>]
-<text_img/sift_kp.pdf, id=102, 614.295pt x 794.97pt>
-File: text_img/sift_kp.pdf Graphic file (type pdf)
-
-<use text_img/sift_kp.pdf>
-Package pdftex.def Info: text_img/sift_kp.pdf used on input line 166.
-(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
-
-Overfull \hbox (101.43666pt too wide) in paragraph at lines 166--167
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 70.80473pt on input line 168.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11 <./text_img/sift_kp.pdf>]
-<text_img/sift_dog.pdf, id=121, 794.97pt x 614.295pt>
+[10] <text_img/sift_dog.pdf, id=105, 794.97pt x 614.295pt>
 File: text_img/sift_dog.pdf Graphic file (type pdf)
 
 <use text_img/sift_dog.pdf>
-Package pdftex.def Info: text_img/sift_dog.pdf used on input line 185.
+Package pdftex.def Info: text_img/sift_dog.pdf used on input line 179.
 (pdftex.def)             Requested size: 476.98569pt x 368.57983pt.
 
-Overfull \hbox (86.98569pt too wide) in paragraph at lines 185--186
+Overfull \hbox (86.98569pt too wide) in paragraph at lines 179--180
  [][] 
  []
 
@@ -749,14 +727,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
+[11]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./text_img/sift_dog.pdf, page is rotated 90 degrees>]
+[12 <./text_img/sift_dog.pdf, page is rotated 90 degrees>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13] <text_img/sift_kp.pdf, id=127, 614.295pt x 794.97pt>
+File: text_img/sift_kp.pdf Graphic file (type pdf)
+
+<use text_img/sift_kp.pdf>
+Package pdftex.def Info: text_img/sift_kp.pdf used on input line 230.
+(pdftex.def)             Requested size: 491.43666pt x 635.97687pt.
+
+Overfull \hbox (101.43666pt too wide) in paragraph at lines 230--231
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 70.80473pt on input line 232.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -770,7 +768,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
+[15 <./text_img/sift_kp.pdf>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -778,7 +776,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-Overfull \hbox (0.39227pt too wide) in paragraph at lines 292--293
+Overfull \hbox (0.39227pt too wide) in paragraph at lines 291--292
 \T1/aer/m/n/12 Binary Ro-bust In-de-pen-dent Ele-men-tary Fe-a-tu-res ne-boli B
 RIEF [[]] je deskrip-
  []
@@ -790,13 +788,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
-Overfull \hbox (0.30922pt too wide) in paragraph at lines 296--297
+Overfull \hbox (0.30922pt too wide) in paragraph at lines 295--296
 \T1/aer/m/n/12 Principem fun-go-vání al-go-ritmu je po-rov-ná-vání in-ten-zit p
 ár· ob-ra-zo-vých bod·
  []
 
 
-Overfull \hbox (6.4521pt too wide) in paragraph at lines 314--315
+Overfull \hbox (6.4521pt too wide) in paragraph at lines 313--314
 []\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
 nosti deskrip-
  []
@@ -850,7 +848,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [24]
-Overfull \hbox (1.68985pt too wide) in paragraph at lines 461--461
+Overfull \hbox (1.68985pt too wide) in paragraph at lines 460--460
 []\T1/aer/bx/n/14.4 Algoritmus tré-no-vání kaskády a de-tekce ob-jekt· 
  []
 
@@ -1153,7 +1151,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (49 pages, 152678340 bytes).
+Output written on bakalarka.pdf (49 pages, 152678343 bytes).
 PDF statistics:
  386 PDF objects out of 1000 (max. 8388607)
  264 compressed objects within 3 object streams

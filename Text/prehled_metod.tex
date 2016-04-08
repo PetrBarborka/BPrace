@@ -161,12 +161,6 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 	
 	Algoritmus extrakce deskriptorů je uspořádán do kaskádovité struktury  za účelem urychlení výpočtu: Složitější operace jsou umístěny co  nejdále v algoritmu tak, aby byly aplikovány až po filtraci, tj na co nejmenší množství dat.
 	
-	\begin{figure}[htp] 
-		\centering{
-			\includegraphics[scale=0.8]{text_img/sift_kp.pdf}}
-		\caption{Extrakce SIFT deskriptoru} 	\label{sift_kp}
-	\end{figure}
-	
 	\subsection{Algoritmus detekce příznaků}
 	
 	\begin{enumerate}
@@ -231,6 +225,11 @@ V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašum
 			
 			Výsledkem je SIFT deskriptor: 16 histogramů gradientů po 8 orientačních kategoriích (binech), tedy matice 4x4x8. Jako poslední krok se tento vektor normalizuje na jednotkovou délku aby se potlačily vlivy osvětlení. 
 			
+			\begin{figure}[htp] 
+				\centering{
+					\includegraphics[scale=0.8]{text_img/sift_kp.pdf}}
+				\caption{Extrakce SIFT deskriptoru} 	\label{sift_kp}
+			\end{figure}
 			
 	\end{enumerate}
 	
