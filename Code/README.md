@@ -1,4 +1,5 @@
-# Implementace v C++ s využitím OpenCV3
+# Implementation
 
-Builduje buď pomocí qmake (nebo QtCreatoru - soubor .pro) nebo pomocí CMake ve
-složce BP_framework/CMake.
+Implemented using openCV3 in C++ and Pandas statistic package in Python
+
+C++ builds using CMake in BP_framework/. CLion project file included.
