@@ -1,3 +1,6 @@
+
+![Travis build status](https://travis-ci.org/PetrBarborka/BPrace.svg?branch=master "Build status")
+
 # Bachelor thesis - dept. of Cybernetics, University of West Bohemia
 
 #####Abstract:
