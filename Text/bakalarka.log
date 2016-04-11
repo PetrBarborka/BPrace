@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  8 APR 2016 17:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  11 APR 2016 14:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,78 +907,85 @@ Overfull \hbox (26.97018pt too wide) in paragraph at lines 52--53
 u []\T1/aett/m/n/12 create_configs.py
  []
 
+(./tab_matchcount.tex)
 <text_img/ex_ASTERIX_MSER_SIFT.pdf, id=201, 794.17503pt x 272.67471pt>
 File: text_img/ex_ASTERIX_MSER_SIFT.pdf Graphic file (type pdf)
 
 <use text_img/ex_ASTERIX_MSER_SIFT.pdf>
 Package pdftex.def Info: text_img/ex_ASTERIX_MSER_SIFT.pdf used on input line 5
-7.
+8.
 (pdftex.def)             Requested size: 397.08655pt x 136.33702pt.
 
-Overfull \hbox (7.08655pt too wide) in paragraph at lines 57--59
+Overfull \hbox (7.08655pt too wide) in paragraph at lines 58--60
  [][] 
  []
 
-<text_img/ex_BELLEDONNE_FAST_ORB.pdf, id=202, 794.97pt x 293.34392pt>
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32] <text_img/ex_BELLEDONNE_FAST_ORB.pdf, id=206, 794.97pt x 293.34392pt>
 File: text_img/ex_BELLEDONNE_FAST_ORB.pdf Graphic file (type pdf)
 
 <use text_img/ex_BELLEDONNE_FAST_ORB.pdf>
 Package pdftex.def Info: text_img/ex_BELLEDONNE_FAST_ORB.pdf used on input line
- 64.
+ 65.
 (pdftex.def)             Requested size: 397.48402pt x 146.67159pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 64--66
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 65--67
  [][] 
  []
 
-<text_img/ex_ENSIMAG_SIFT_SIFT.pdf, id=203, 794.97pt x 321.16786pt>
+<text_img/ex_ENSIMAG_SIFT_SIFT.pdf, id=207, 794.97pt x 321.16786pt>
 File: text_img/ex_ENSIMAG_SIFT_SIFT.pdf Graphic file (type pdf)
 
 <use text_img/ex_ENSIMAG_SIFT_SIFT.pdf>
 Package pdftex.def Info: text_img/ex_ENSIMAG_SIFT_SIFT.pdf used on input line 7
-1.
+2.
 (pdftex.def)             Requested size: 397.48402pt x 160.58353pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 71--73
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 72--74
  [][] 
  []
 
-<text_img/ex_MONET_GFTT_SIFT.pdf, id=204, 794.97pt x 401.45984pt>
+<text_img/ex_MONET_GFTT_SIFT.pdf, id=208, 794.97pt x 401.45984pt>
 File: text_img/ex_MONET_GFTT_SIFT.pdf Graphic file (type pdf)
 
 <use text_img/ex_MONET_GFTT_SIFT.pdf>
-Package pdftex.def Info: text_img/ex_MONET_GFTT_SIFT.pdf used on input line 78.
+Package pdftex.def Info: text_img/ex_MONET_GFTT_SIFT.pdf used on input line 79.
 
 (pdftex.def)             Requested size: 397.48402pt x 200.72942pt.
 
-Overfull \hbox (7.48402pt too wide) in paragraph at lines 78--80
+Overfull \hbox (7.48402pt too wide) in paragraph at lines 79--81
  [][] 
  []
 
-<text_img/Detector_performance.pdf, id=205, 452.69928pt x 100.59984pt>
+<text_img/Detector_performance.pdf, id=209, 452.69928pt x 100.59984pt>
 File: text_img/Detector_performance.pdf Graphic file (type pdf)
 
 <use text_img/Detector_performance.pdf>
 Package pdftex.def Info: text_img/Detector_performance.pdf used on input line 8
-5.
+6.
 (pdftex.def)             Requested size: 362.15991pt x 80.47997pt.
 
-<text_img/Descriptor_performance.pdf, id=206, 452.12112pt x 64.75392pt>
+<text_img/Descriptor_performance.pdf, id=210, 452.12112pt x 64.75392pt>
 File: text_img/Descriptor_performance.pdf Graphic file (type pdf)
 
 <use text_img/Descriptor_performance.pdf>
 Package pdftex.def Info: text_img/Descriptor_performance.pdf used on input line
- 91.
+ 92.
 (pdftex.def)             Requested size: 361.69739pt x 51.80319pt.
 
-<text_img/Det_desc_perf.pdf, id=207, 453.27745pt x 353.83391pt>
+<text_img/Det_desc_perf.pdf, id=211, 453.27745pt x 353.83391pt>
 File: text_img/Det_desc_perf.pdf Graphic file (type pdf)
 
 <use text_img/Det_desc_perf.pdf>
-Package pdftex.def Info: text_img/Det_desc_perf.pdf used on input line 97.
+Package pdftex.def Info: text_img/Det_desc_perf.pdf used on input line 98.
 (pdftex.def)             Requested size: 453.27635pt x 353.83304pt.
 
-Overfull \hbox (63.27635pt too wide) in paragraph at lines 97--98
+Overfull \hbox (63.27635pt too wide) in paragraph at lines 98--99
  [][] 
  []
 
@@ -988,15 +995,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32 <./text_img/ex_ASTERIX_MSER_SIFT.pdf>]
+[33]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33 <./text_img/ex_BELLEDONNE_FAST_ORB.pdf> <./text_img/ex_ENSIMAG_SIFT_SIFT.pd
+[34 <./text_img/ex_ASTERIX_MSER_SIFT.pdf> <./text_img/ex_BELLEDONNE_FAST_ORB.pd
 f
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/ex_BELLEDONNE_FAS
+T_ORB.pdf): PDF inclusion: multiple pdfs with page group included in a single p
+age
+> <./text_img/ex_ENSIMAG_SIFT_SIFT.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/ex_ENSIMAG_SIFT_S
 IFT.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
@@ -1008,7 +1020,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[34 <./text_img/ex_MONET_GFTT_SIFT.pdf> <./text_img/Detector_performance.pdf
+[35 <./text_img/ex_MONET_GFTT_SIFT.pdf> <./text_img/Detector_performance.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Detector_performa
 nce.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
@@ -1025,54 +1037,48 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35 <./text_img/Det_desc_perf.pdf>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[36] <text_img/Detection_times.pdf, id=270, 452.69928pt x 101.75616pt>
+[36 <./text_img/Det_desc_perf.pdf>]
+<text_img/Detection_times.pdf, id=269, 452.69928pt x 101.75616pt>
 File: text_img/Detection_times.pdf Graphic file (type pdf)
 
 <use text_img/Detection_times.pdf>
-Package pdftex.def Info: text_img/Detection_times.pdf used on input line 133.
+Package pdftex.def Info: text_img/Detection_times.pdf used on input line 134.
 (pdftex.def)             Requested size: 362.15991pt x 81.40503pt.
 
-<text_img/Description_times.pdf, id=271, 452.69928pt x 64.75392pt>
+<text_img/Description_times.pdf, id=270, 452.69928pt x 64.75392pt>
 File: text_img/Description_times.pdf Graphic file (type pdf)
 
 <use text_img/Description_times.pdf>
-Package pdftex.def Info: text_img/Description_times.pdf used on input line 139.
+Package pdftex.def Info: text_img/Description_times.pdf used on input line 140.
 
 (pdftex.def)             Requested size: 362.15991pt x 51.80319pt.
 
-<text_img/Match_count.pdf, id=272, 452.69928pt x 353.83391pt>
+<text_img/Match_count.pdf, id=271, 452.69928pt x 353.83391pt>
 File: text_img/Match_count.pdf Graphic file (type pdf)
 
 <use text_img/Match_count.pdf>
-Package pdftex.def Info: text_img/Match_count.pdf used on input line 145.
+Package pdftex.def Info: text_img/Match_count.pdf used on input line 146.
 (pdftex.def)             Requested size: 362.15991pt x 283.0675pt.
 
-<text_img/graph_monet.pdf, id=273, 494.32681pt x 395.46146pt>
+<text_img/graph_monet.pdf, id=272, 494.32681pt x 395.46146pt>
 File: text_img/graph_monet.pdf Graphic file (type pdf)
 
 <use text_img/graph_monet.pdf>
-Package pdftex.def Info: text_img/graph_monet.pdf used on input line 152.
+Package pdftex.def Info: text_img/graph_monet.pdf used on input line 153.
 (pdftex.def)             Requested size: 395.46198pt x 316.36958pt.
 
-Overfull \hbox (5.46198pt too wide) in paragraph at lines 152--153
+Overfull \hbox (5.46198pt too wide) in paragraph at lines 153--154
  [][] 
  []
 
-<text_img/graph_asterix.pdf, id=274, 502.42105pt x 375.804pt>
+<text_img/graph_asterix.pdf, id=273, 502.42105pt x 375.804pt>
 File: text_img/graph_asterix.pdf Graphic file (type pdf)
 
 <use text_img/graph_asterix.pdf>
-Package pdftex.def Info: text_img/graph_asterix.pdf used on input line 158.
+Package pdftex.def Info: text_img/graph_asterix.pdf used on input line 159.
 (pdftex.def)             Requested size: 401.93738pt x 300.6436pt.
 
-Overfull \hbox (11.93738pt too wide) in paragraph at lines 158--159
+Overfull \hbox (11.93738pt too wide) in paragraph at lines 159--160
  [][] 
  []
 
@@ -1083,18 +1089,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37 <./text_img/Detection_times.pdf> <./text_img/Description_times.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Description_times
-.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
+[37]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38 <./text_img/Match_count.pdf>]
+[38 <./text_img/Detection_times.pdf> <./text_img/Description_times.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Description_times
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <./text_img/Match_count.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./text_img/Match_count.pdf):
+ PDF inclusion: multiple pdfs with page group included in a single page
+>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1128,9 +1138,9 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 6419 strings out of 493054
- 86564 string characters out of 6134759
- 161303 words of memory out of 5000000
+ 6422 strings out of 493054
+ 86616 string characters out of 6134759
+ 165303 words of memory out of 5000000
  9728 multiletter control sequences out of 15000+600000
  51428 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1151,10 +1161,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/
 15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (49 pages, 152678343 bytes).
+Output written on bakalarka.pdf (49 pages, 152679823 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
+ 384 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

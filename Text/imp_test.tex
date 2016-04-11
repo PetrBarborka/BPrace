@@ -51,6 +51,7 @@ implementováno v jazyku Python s využitím knihovny Pandas.
 
 Data o souborech v datasetu jsou vytěžena pomocí skriptu \verb|create_configs.py| v Pythonu a zkompilována do konfiguračních souborů pro hlavní program BP. Skript \verb|run_batch.py| poté tyto konfigurační soubory načte a postupně s nimi spustí hlavní program. Ten pro každou vybranou složku datasetu vytvoří výstupní složku s obrázky, které zobrazují nalezené a spojené body mezi jedním a druhým obrázkem z vyhodnocovaného páru a soubor \verb|data.csv|, který obsahuje informace o jednotlivých párech, rychlostech vyhodnocení a kvalitě odhadu homografie. Skript \verb|get_data.py| ze souborů \verb|data.csv| vytvoří jeden globální soubor a několik souborů se subsety podle transformace, kterou reprezentují: Úhel (ve smyslu změna polohy pozorovatele směrem do stran), rotace (okolo osy procházející středem fotoaparátu), zoom, nasvětlení, rozostření a změna rozlišení. Tyto soubory jsou potom zpracovány skriptem \verb|pandas_stats.py| do obrázků a tabulek v této kapitole.
 
+\input{tab_matchcount.tex}
 
 \begin{figure}[htp] 
 	\centering{
