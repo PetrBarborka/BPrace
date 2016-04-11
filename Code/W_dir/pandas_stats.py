@@ -136,11 +136,7 @@ def graphDataset(df_tst, title):
 
 	# plt.show()
 
-def createTexTable(values, form=None, header=None, r_header=None):
-
-	# TODO: Treatment of tex symbols (%)
-	# TODO: label argument (filename)
-	# TODO: float formatting
+def createTexTable(values, form=None, header=None, r_header=None, label=None):
 
 	width = len(values[0])
 
@@ -159,16 +155,27 @@ def createTexTable(values, form=None, header=None, r_header=None):
 		for f in form: fstr += f + " "
 		outstr = "\\begin{tabular}{ " + fstr + "}\n"
 
+	if label is not None:
+		outstr += "\\label{" + label + "}\n"
+
 	if header is not None:
 		assert len(header) == len(values[0]), "header has to be same length as number of columns in values: len(values[0]) == " \
 											+ str(len(values[0])) + " len(header) == " + str(len(header))
 		outstr += "\t"
+
+		for hr in range(len(header)):
+			if type(header[hr]) == str:
+				for o in range(len(header[hr])):
+					if header[hr][o] == "%":
+						header[hr] = header[hr][:o] + "\\%" + header[hr][o+1:]
+						break
+
 		if r_header is not None:
 			outstr += " & "
 		for h in header:
 			outstr += str(h) + " & "
 		outstr = outstr[:-2]
-		outstr += "\\\\\n"
+		outstr += "\\\\\n\t\hline\n"
 
 	r_h_idx = 0
 
@@ -178,7 +185,18 @@ def createTexTable(values, form=None, header=None, r_header=None):
 			outstr += str(r_header[r_h_idx]) + " & "
 			r_h_idx += 1
 		for c in r:
-			outstr += str(c) + " & "
+			val = ""
+			if type(c) == float:
+				val = "{:1.2f}".format(c)
+			elif type(c) == str:
+				val = c
+				for o in range(len(c)):
+					if c[o] == "%":
+						print "values: putting \\"
+						val = c[:o] + "\\" + c[o:]
+			else:
+				val = str(c)
+			outstr += val + " & "
 		outstr = outstr[:-2]
 		outstr += "\\\\\n"
 	outstr = outstr[:-4]
@@ -215,10 +233,11 @@ if args.detperf:
 
 	tab = createMeanTable(datasets, cat, det_methods, ["score"])
 
-	filenames.append("tab_detperf")
+	filename = "tab_detperf"
+	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=det_header))
+		texs.append(createTexTable(tab.values, header=det_header, label=filename, form=["l|", "r", "r", "r", "r", "r", "r", "r"]))
 	else:
 		plotTable(tab, title, det_header)
 
@@ -232,26 +251,30 @@ if args.descperf:
 
 	tab = createMeanTable(datasets, cat, det_methods, ["score"])
 
-	filenames.append("tab_descperf")
+	filename = "tab_descperf"
+	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=desr_header))
+		texs.append(createTexTable(tab.values, header=desr_header, label=filename, form=["l|", "r", "r", "r", "r", "r", "r", "r"]))
 	else:
 		plotTable(tab, title, desr_header)
 
 if args.comboperf:
 	det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
 	desc_methods = [" BRIEF", " SIFT", " SURF", " ORB"]
-	desr_header = [	"methods", "total score [%]", "zoom score [%]", "blur score [%]", "rot score [%]",
-				  	"angle score [%]", "light score [%]", "res score [%]"]
+	# desr_header = [	"methods", "total score [%]", "zoom score [%]", "blur score [%]", "rot score [%]",
+				  	# "angle score [%]", "light score [%]", "res score [%]"]
+	desr_header = [	"methods", "total[%]", "zoom[%]", "blur[%]", "rot[%]",
+				  	"angle[%]", "light[%]", "res[%]"]
 	title = "Detector+descriptor performance across datasets"
 
 	tab = createComboTable(datasets, "det", "desc", det_methods, desc_methods, ["score"])
 
-	filenames.append("tab_comboperf")
+	filename = "tab_comboperf"
+	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=desr_header))
+		texs.append(createTexTable(tab.values, header=desr_header, label=filename, form=["l|", "r", "r", "r", "r", "r", "r", "r"]))
 	else:
 		plotTable(tab, title, desr_header)
 
@@ -266,10 +289,11 @@ if args.dettimes:
 
 	tab = createMeanTable([df], cat, det_methods, columns)
 
-	filenames.append("tab_dettimes")
+	filename = "tab_dettimes"
+	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=det_header))
+		texs.append(createTexTable(tab.values, header=det_header, label=filename, form=["l|", "r"]))
 	else:
 		plotTable(tab, title, det_header)
 
@@ -284,10 +308,11 @@ if args.desctimes:
 
 	tab = createMeanTable([df], cat, det_methods, columns)
 
-	filenames.append("tab_desctimes")
+	filename = "tab_desctimes"
+	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=desr_header))
+		texs.append(createTexTable(tab.values, header=desr_header, label=filename, form=["l|", "r"]))
 	else:
 		plotTable(tab, title, desr_header)
 
@@ -299,10 +324,11 @@ if args.matchcount:
 
 	tab = createComboTable([df], "det", "desc", det_methods, desc_methods, ["matches", "inliers", "score"])
 
-	filenames.append("tab_matchcount")
+	filename = "tab_matchcount"
+	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=header))
+		texs.append(createTexTable(tab.values, header=header, label=filename, form=["l|", "r", "r", "r"]))
 	else:
 		plotTable(tab, title, header)
 
