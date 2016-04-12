@@ -46,4 +46,4 @@
 \contentsline {subsection}{\numberline {3.14.1}Algoritmus}{29}
 \contentsline {subsection}{\numberline {3.14.2}Vyu\IeC {\v z}it\IeC {\'\i }}{29}
 \contentsline {chapter}{\numberline {4}Implementace a testov\IeC {\'a}n\IeC {\'\i } metod}{31}
-\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{42}
+\contentsline {chapter}{\numberline {5}Z\IeC {\'a}v\IeC {\v e}r}{39}

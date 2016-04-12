@@ -1,0 +1,267 @@
+% Preamble: \pgfplotsset{width=7cm,compat=1.13}\usepgfplotslibrary{statistics}
+\begin{figure} 
+ \begin{tikzpicture} 
+ \footnotesize
+ 	\begin{axis}[ 
+		boxplot/draw direction=y, 
+		xticklabel style = {xshift=-0.3cm, rotate=75},
+		ylabel = výkonnost \%,
+		xtick={0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27},
+		xticklabels={Harris -> BRIEF, Harris -> SIFT, Harris -> SURF, Harris -> ORB, GFTT -> BRIEF, GFTT -> SIFT, GFTT -> SURF, GFTT -> ORB, SIFT -> BRIEF, SIFT -> SIFT, SIFT -> SURF, SIFT -> ORB, SURF -> BRIEF, SURF -> SIFT, SURF -> SURF, SURF -> ORB, FAST -> BRIEF, FAST -> SIFT, FAST -> SURF, FAST -> ORB, MSER -> BRIEF, MSER -> SIFT, MSER -> SURF, MSER -> ORB, ORB -> BRIEF, ORB -> SIFT, ORB -> SURF, ORB -> ORB}
+	]
+	\addplot+[
+		boxplot prepared={
+		draw position=0,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.30197924872,
+		upper quartile=30.4851932908,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=1,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=8.45475562479,
+		upper quartile=31.9522456244,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=2,
+		lower whisker=0,
+		lower quartile=6.5145984778,
+		median=52.8584214644,
+		upper quartile=99.2022444509,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=3,
+		lower whisker=0,
+		lower quartile=58.5169214011,
+		median=81.8156870566,
+		upper quartile=100.0,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=4,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.56987532833,
+		upper quartile=30.7261755394,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=5,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.57122644854,
+		upper quartile=30.7234841837,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=6,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=29.9838278206,
+		upper quartile=70.8628825845,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=7,
+		lower whisker=0,
+		lower quartile=76.2680528906,
+		median=87.0847604527,
+		upper quartile=97.9014680148,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=8,
+		lower whisker=0,
+		lower quartile=1.28178570617,
+		median=2.13539259729,
+		upper quartile=2.98899948842,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=9,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=8.04549372753,
+		upper quartile=31.1501262521,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=10,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=46.400156459,
+		upper quartile=93.143234528,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=11,
+		lower whisker=0,
+		lower quartile=84.2843460559,
+		median=91.0189881413,
+		upper quartile=97.7536302267,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=12,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=8.33382365937,
+		upper quartile=32.1602751487,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=13,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.83919015083,
+		upper quartile=31.7217915601,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=14,
+		lower whisker=0,
+		lower quartile=9.02061465613,
+		median=52.8561321831,
+		upper quartile=96.6916497101,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=15,
+		lower whisker=0,
+		lower quartile=46.9603428936,
+		median=75.0224334207,
+		upper quartile=100.0,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=16,
+		lower whisker=0,
+		lower quartile=85.0932873956,
+		median=92.212916477,
+		upper quartile=99.3325455583,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=17,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=8.34356893202,
+		upper quartile=32.0354554341,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=18,
+		lower whisker=0,
+		lower quartile=83.4522691124,
+		median=91.6843241236,
+		upper quartile=99.9163791348,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=19,
+		lower whisker=0,
+		lower quartile=85.4777056718,
+		median=92.2573165715,
+		upper quartile=99.0369274712,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=20,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.39851660072,
+		upper quartile=30.5707929271,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=21,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=9.17848251235,
+		upper quartile=32.6496799221,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=22,
+		lower whisker=0,
+		lower quartile=83.7826934658,
+		median=91.4771644253,
+		upper quartile=99.1716353847,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=23,
+		lower whisker=0,
+		lower quartile=84.3957796241,
+		median=91.6967074444,
+		upper quartile=98.9976352647,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=24,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.39598717941,
+		upper quartile=30.5674836935,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=25,
+		lower whisker=0,
+		lower quartile=0.0,
+		median=7.90996026164,
+		upper quartile=31.0155294182,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=26,
+		lower whisker=0,
+		lower quartile=82.7513482051,
+		median=90.9391312797,
+		upper quartile=99.1269143542,
+		upper whisker=100}]
+		coordinates {};
+	\addplot+[
+		boxplot prepared={
+		draw position=27,
+		lower whisker=0,
+		lower quartile=83.1519324355,
+		median=91.1066060427,
+		upper quartile=99.0612796499,
+		upper whisker=100}]
+		coordinates {};
+	\end{axis} 
+  \end{tikzpicture}
+	\caption[Short Heading]{\protect Střední hodnota a standartní odchylka výkonnosti kombinací metod na datasetu Monet (rotace)}\label{graph_rot}
+\end{figure}

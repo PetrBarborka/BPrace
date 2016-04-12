@@ -51,58 +51,42 @@ implementováno v jazyku Python s využitím knihovny Pandas.
 
 Data o souborech v datasetu jsou vytěžena pomocí skriptu \verb|create_configs.py| v Pythonu a zkompilována do konfiguračních souborů pro hlavní program BP. Skript \verb|run_batch.py| poté tyto konfigurační soubory načte a postupně s nimi spustí hlavní program. Ten pro každou vybranou složku datasetu vytvoří výstupní složku s obrázky, které zobrazují nalezené a spojené body mezi jedním a druhým obrázkem z vyhodnocovaného páru a soubor \verb|data.csv|, který obsahuje informace o jednotlivých párech, rychlostech vyhodnocení a kvalitě odhadu homografie. Skript \verb|get_data.py| ze souborů \verb|data.csv| vytvoří jeden globální soubor a několik souborů se subsety podle transformace, kterou reprezentují: Úhel (ve smyslu změna polohy pozorovatele směrem do stran), rotace (okolo osy procházející středem fotoaparátu), zoom, nasvětlení, rozostření a změna rozlišení. Tyto soubory jsou potom zpracovány skriptem \verb|pandas_stats.py| do obrázků a tabulek v této kapitole.
 
-\input{tab_matchcount.tex}
-%\caption{Průměrný počet nalezených a následně použitých bodů}
+%TODO: figury v eps, ktery nemaj giga
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.5]{text_img/ex_ASTERIX_MSER_SIFT.pdf}}
+%	\caption{Transformace zoom ze subsetu Asterix, detektor MSER,
+%		deskriptor SIFT} \label{ex_asterix}
+%\end{figure}
+%
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.5]{text_img/ex_BELLEDONNE_FAST_ORB.pdf}}
+%	\caption{Ukázka transformace zoom ze subsetu Belledonne, detektor FAST,
+%		deskriptor ORB}	\label{ex_belledonne}
+%\end{figure}
+%
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.5]{text_img/ex_ENSIMAG_SIFT_SIFT.pdf}}
+%	\caption{Ukázka transformace zoom ze subsetu Ensimag, detektor i 
+%		deskriptor SIFT} \label{ex_ensimag}
+%\end{figure}
+%
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.5]{text_img/ex_MONET_GFTT_SIFT.pdf}}
+%	\caption{Ukázka transformace rotace ze subsetu Monet, detektor GFTT, 
+%		deskriptor SIFT} \label{ex_MONET}
+%\end{figure}
 
-\input{tab_comboperf.tex}
+\input{tab_detperf}
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.5]{text_img/ex_ASTERIX_MSER_SIFT.pdf}}
-	\caption{Transformace zoom ze subsetu Asterix, detektor MSER,
-		deskriptor SIFT} \label{ex_asterix}
-\end{figure}
+\input{tab_descperf}
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.5]{text_img/ex_BELLEDONNE_FAST_ORB.pdf}}
-	\caption{Ukázka transformace zoom ze subsetu Belledonne, detektor FAST,
-		deskriptor ORB}	\label{ex_belledonne}
-\end{figure}
+\include{tab_comboperf}
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.5]{text_img/ex_ENSIMAG_SIFT_SIFT.pdf}}
-	\caption{Ukázka transformace zoom ze subsetu Ensimag, detektor i 
-		deskriptor SIFT} \label{ex_ensimag}
-\end{figure}
-
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.5]{text_img/ex_MONET_GFTT_SIFT.pdf}}
-	\caption{Ukázka transformace rotace ze subsetu Monet, detektor GFTT, 
-		deskriptor SIFT} \label{ex_MONET}
-\end{figure}
-
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/Detector_performance.pdf}}
-	\caption{Přehled výkonnosti detektorů na jednotlivých datasetech} \label{det_perf}
-\end{figure}
-
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/Descriptor_performance.pdf}}
-	\caption{Přehled výkonnosti deskriptorů na jednotlivých datasetech}	\label{desc_perf}
-\end{figure}
-
-\begin{figure}[htp] 
-	\centering{}
-		\includegraphics[scale=1]{text_img/Det_desc_perf.pdf}
-	\caption{Přehled výkonnosti kobinací detektor->deskriptor na jednotlivých datasetech} \label{det_desc_perf}
-\end{figure}
-
-V tabulkách \ref{det_perf} a \ref{desc_perf} je uveden přehled celkových průměrných výkonností jednotlivých deskriptorů
+V tabulkách \ref{tab_detperf} a \ref{tab_descperf} je uveden přehled celkových průměrných výkonností jednotlivých deskriptorů
 a detektorů. Tento přehled je získán vždy testováním uvedeného subsetu uvedenou metodou a všemi
 metodami z druhé kategorie. Tedy například skóre deskriptoru SURF je průměrem kombinace
 deskriptoru SURF a všech testovaných detektorů na daném datasetu.
@@ -132,33 +116,39 @@ Výsledky odpovídají situaci, kdy dataset Monet sestává z postupné rotace o
 v natočení blížícím se 180 stupňům. Dataset Asterix naopak sestává z postupného vzdálení se od zdrojového obrázku, tedy zkoumané páry jsou postupně
 náročnější.
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/Detection_times.pdf}}
-	\caption{Přehled průměrné rychlosti detekce jednotlivými metodami ve vteřinách} \label{det_times}
-\end{figure}
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.8]{text_img/Detection_times.pdf}}
+%	\caption{Přehled průměrné rychlosti detekce jednotlivými metodami ve vteřinách} \label{det_times}
+%\end{figure}
+\input{tab_dettimes}
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/Description_times.pdf}}
-	\caption{Přehled průměrné rychlosti deskripce jednotlivými metodami ve vteřinách} \label{desc_times}
-\end{figure}
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.8]{text_img/Description_times.pdf}}
+%	\caption{Přehled průměrné rychlosti deskripce jednotlivými metodami ve vteřinách} \label{desc_times}
+%\end{figure}
+\input{tab_desctimes}
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/Match_count.pdf}}
-	\caption{Průměrné počty detekovaných a přiřazených příznaků jednotlivými kombinacemi metod}	\label{match_count}
-\end{figure}
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.8]{text_img/Match_count.pdf}}
+%	\caption{Průměrné počty detekovaných a přiřazených příznaků jednotlivými kombinacemi metod}	\label{match_count}
+%\end{figure}
+\input{tab_matchcount}
 
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/graph_monet.pdf}}
-	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Monet (rotace)}	\label{graph_monet}
-\end{figure}
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.8]{text_img/graph_monet.pdf}}
+%	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Monet (rotace)}	\label{graph_monet}
+%\end{figure}
+%
+%\begin{figure}[htp] 
+%	\centering{
+%		\includegraphics[scale=0.8]{text_img/graph_asterix.pdf}}
+%	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Asterix (zoom)}	\label{graph_asterix}
+%\end{figure}
 
-\begin{figure}[htp] 
-	\centering{
-		\includegraphics[scale=0.8]{text_img/graph_asterix.pdf}}
-	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Asterix (zoom)}	\label{graph_asterix}
-\end{figure}
+\include{graph_zoom}
+\include{graph_rot}
