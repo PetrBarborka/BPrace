@@ -1,7 +1,8 @@
 
 \chapter{Příznaky v digitalizovaném obraze a jejich využití}
+\label{chap:slam}
 
-V následujících kapitolách budou představeny především metody pro detekci a popis bodových příznaků. Tyto algoritmy se snaží v obraze nalézt body výrazné vzhledem k jejích okolí a popsat je tak, aby je při jejich opětovném nalezení v jiném obraze bylo možné identifikovat bez ohledu na transformaci mezi těmito obrazy (natočení, posunutí, roztažení, změna nasvětlení, ... ). Rozšířením tohoto přístupu jsou metody SIFT, SURF a metoda maximálně stabilních extremálních oblastí (dále MSER), které namísto bodů hledají celé oblasti, které budou co nejméně podléhat vlivu obrazových transformací.
+V následujících kapitolách budou představeny především metody pro detekci a popis bodových příznaků. Tyto algoritmy se snaží v obraze nalézt body výrazné vzhledem k jejích okolí a popsat je tak, aby je při jejich opětovném nalezení v jiném obraze bylo možné identifikovat bez ohledu na transformaci mezi těmito obrazy (natočení, posunutí, roztažení, změna nasvětlení, ... ). %Rozšířením tohoto přístupu jsou metody SIFT, SURF a metoda maximálně stabilních extremálních oblastí (dále MSER), které namísto bodů hledají celé oblasti, které budou co nejméně podléhat vlivu obrazových transformací.
 
 \noindent{Práce s bodovými příznaky zahrnuje:}
 
@@ -11,16 +12,12 @@ V následujících kapitolách budou představeny především metody pro detekc
 	\item{způsob porovnání deskriptorů} - Metodu, kterou budeme určovat, které dva deskriptory z různých obrazů popisují stejný bod nebo stejnou oblast.
 \end{itemize} 
 
-Některé z prezentovaných metod práce s bodovými příznaky řeší všechny tři tyto problémy, jiné jenom některé z nich a pro jejich využití je tedy potřeba ty zbylé doplnit.
+Některé z prezentovaných metod práce s bodovými příznaky řeší všechny tři tyto problémy, jiné jenom některé z nich a pro jejich využití je tedy potřeba zbylé doplnit. Dále jsou uvedeny dvě metody pro detekci objektů, tj. Haarovská kaskáda a histogram orientovaných gradientů, což jsou učící se algoritmy, které v obraze hledají obecně objekty určitého charakteru (typicky například obličeje nebo postavy). Nakonec jsou ještě uvedeny metody porovnání popisů bodů a odhadu prostorové transformace pomocí množiny bodů identifikovaných mezi dvěma obrazy. 
 
-Navíc jsou uvedeny dvě metody pro detekci objektů, tj Haarovská kaskáda a histogram orientovaných gradientů, což jsou učící se algoritmy, které v obraze hledají obecně objekty určitého charakteru (typicky například obličeje nebo postavy).
+Jednou z možností využití bodových příznaků v digitalizovaném obraze je identifikace objektů v něm, která může být nasazena v bezpečnostních aplikacích, v případech, kdy je potřeba aby ovládací rozhraní systému identifikovalo uživatele, nebo například pro vyhledávání v databázi neoznačených fotografií a jejich přiřazování k sobě. Další možností je aplikace ve sledování objektů v obraze za účelem extrakce jejich pohybu, jejich počítání atd., rekonstrukce tvaru a charakteru prostředí, například za účelem pohybu a orientace v něm a lokalizace pozorovatele za tímž účelem. 
 
-Nakonec jsou ještě uvedeny metody porovnání popisů bodů a odhadu prostorové transformace pomocí množiny bodů identifikovaných mezi dvěma obrazy.
+V této práci jsou metody extrakce příznaků uvažovány zejmena v kontextu využití v algoritmu simultánní lokalizace a mapování (SLAM). Jedná se úlohu vytvoření mapy prostředí a zároveň určení pozice pozorovatele v tomto prostředí, přičemž sloučení těchto úloh do jedné je klíčem k jejich řešení. Metody extrakce příznaků jsou posuzovány v kontextu technické realizace tohoto algoritmu za využití jedné nebo více kamer snímajících prostředí a systému pracujícího v reálném čase. V tomto systému jsou v každém kroku algoritmu porovnány body nalezené v aktuálním obrazu s body nalezenými dříve a odhadnuta prostorová transformace (změna polohy pozorovatele), ke které muselo dojít mezi předchozím a aktuálním obrazem.
 
-Využitím příznaků nalezených v digitalizovaném obraze je obecně identifikace objektů v obraze, sledování pohybu objektů v prostředí (tzv. tracking), rekonstrukce prostředí (mapping) a lokalizace pozorovatele.
-
-
-%Simultánní lokalizace a mapování neboli SLAM je úloha vytvoření mapy prostředí a zároveň určení pozice pozorovatele v tomto prostředí. Přesto, že se sloučení těchto dvou úloh na první pohled zdá jako komplikace, ve skutečnosti se jedná o  klíčový aspekt nalezení jejich řešení. 
 %
 %Existuje mnoho různých algoritmů k řešení tohoto problému, které se primárně liší předpokládaným technickým vybavením a prostředím jejich nasazení, zejména senzory pro získávání informace o prostředí (od 3D scannerů až po  dotykové senzory), a také použitým statistickým aparátem, který zahrnuje Kalmanův filtr, částicový filtr a další.
 %

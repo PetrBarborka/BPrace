@@ -2,18 +2,19 @@
 
 
 \chapter{Přehled použitých metod}
+\label{chap:prehled}
 
-V této kapitole jsou popsány konkrétní metody detekce, popisu a asociace obrazových příznaků.
+V této kapitole jsou popsány konkrétní metody detekce, popisu a asociace obrazových příznaků. U každé z nich je nastíněn kontext vzniku, popsán algoritmus fungování, vyzdvihnuty hlavní klady a upozorněno na nedostatky. Dále jsou uvedeny informace o využitelnosti a případná tvrzení autorů o výkonnosti metody doplněna o komentář zahrnující výsledky testů v kapitole \ref{chap:impl}.
 
-\section{Moravec}
+\section{Moravcův operátor}
 
-Jedná se o nejstarší a nejjednodušší uvedený operátor pro nalezení bodových příznaků \cite{moravec1980obstacle}. Je uveden proto, že představuje primitivní ideový základ pro další uvedené operátory. Jeho principem je představa že, hledaný příznakový bod by měl vynikat ve všech směrech kolem sebe, tj. že by na všechny strany od něj měla být výrazná změna v jasu. Algoritmus Moravec je pouze detektor, deskriptor ani doporučení stran porovnávání bodů nejsou jeho součástí.
+Jedná se o nejstarší a nejjednodušší uvedený operátor pro nalezení bodových příznaků \cite{moravec1980obstacle}. Je uveden proto, že představuje ideový základ pro další uvedené operátory. Jeho principem je představa, že hledaný příznakový bod by měl vynikat ve všech směrech kolem sebe, tj. že by na všechny strany od něj měla být výrazná změna v jasu. Moravcův operátor je pouze detektor, deskriptor ani porovnávání bodů nejsou jeho součástí.
 
 \subsection{Algoritmus}
 
 Průměrná změna jasu v okolí bodu ve směru posunu (x,y) je definována jako:
 \begin{align}	
-E_{x,y} = \sum_{u,v} w_{u,v} \lvert I_{u+x, v+y} - I_{u,v} \rvert^2 , (x,y) \in \{(1,0), (1,1), (0,1), (-1,1)\},
+\mathbb{E}_{x,y} = \sum_{u,v} w_{u,v} \lvert \mathbb{I}_{u+x, v+y} - \mathbb{I}_{u,v} \rvert^2 , (x,y) \in \{(1,0), (1,1), (0,1), (-1,1)\},
 \end{align}
 
 \begin{figure}[htp] 
@@ -22,68 +23,64 @@ E_{x,y} = \sum_{u,v} w_{u,v} \lvert I_{u+x, v+y} - I_{u,v} \rvert^2 , (x,y) \in 
 	\caption{Vizualizace posunů v jenodlivých směrech} 	\label{Moravec_posun}
 \end{figure}
 	
-kde  $I$ je obraz ve formě jasových bodů, $w$ je váhové okénko (algoritmus používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je aktuální posun. Provede se tedy posun všech obrazových bodů danými směry, a  původní varianta se vždy odečte od posunuté. Tím je získána informace o změně jasu při posunutí ve směrech  $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté je každé testované místo (každý pixel) překryto čtvercovým okénkem, hodnoty pod ním sečteny a výsledek umocněn na druhou. Pro každé testované místo tedy vzniknout 4 hodnoty čtverce změny v jednotlivých směrech.
-Ve zbytku algoritmu je pro každé místo vybráno $min\{E_{x,y}\}$, v takto vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky.
-
-Jedná se tedy o nalezení bodů, které mají diskrétní diferenci v daných směrech nejméně takovou, jaká je odmocnina
+\noindent kde  $\mathbb{I}$ je obraz ve formě jasových bodů, $w$ je váhové okénko (algoritmus používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je aktuální posun. Provede se tedy posun všech obrazových bodů danými směry, a  původní varianta se vždy odečte od posunuté. Tím je získána informace o změně jasu při posunutí ve směrech  $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté je každé testované místo (každý pixel) překryto čtvercovým okénkem, hodnoty pod ním sečteny a výsledek umocněn na druhou. Pro každé testované místo tedy vzniknout 4 hodnoty čtverce změny v jednotlivých směrech. Ve zbytku algoritmu je pro každé místo vybráno $min\{\mathbb{E}_{x,y}\}$, v takto vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky. Jedná se tedy o nalezení bodů, které mají diskrétní diferenci v daných směrech nejméně takovou, jaká je odmocnina
 hodnoty prahu.
 
 \subsection{Využití}
-Tento operátor má řadu nedostatků, zejména:
+
+Moravcův operátor se stal základem dalších algoritmů. Přímo z něj vychází dále uvedené metody Harrisův operátor, Shi-Tomasi a se stejnou základní myšlenkou (bod odlišný od okolí nalezený pomocí numerické diference) pracují určitým způsobem všechny uvedené metody. Dnes se již prakticky nevyužívá, neboť má řadu nedostatků, zejména:
+
 \begin{itemize}
 	\item Je anizotropní: uvažuje pouze změny v diskrétních úhlech, které jsou násobky 45 stupňů. Změnám v ostatních úhlech bude logicky přiřazen nižší význam
 	\item Binární čtevrcové okénko výsledek výpočtu zašumuje
 	\item Příliš citlivý: protože reaguje pouze na nejmenší změnu intenzity.
 \end{itemize}
 
-Dnes se již prakticky nevyužívá, ale stal se základem dalších algoritmů.
-
-\section{Harris}
+\section{Harrisův operátor}
 		
-Algoritmus Harris \cite{harris1988combined} vznikl snahou odstranit nedostatky operátoru Moravec - pracuje se stejnou představou, ale efektivněji.
+Algoritmus Harris \cite{harris1988combined} vznikl snahou odstranit nedostatky Moravcova operátoru - pracuje se stejnou představou, ale efektivněji.
 
 \subsection{Algoritmus}	
 \label{harris_alg}
 
 Anizotropní vlastnosti lze odstranit pomocí Taylorova rozvoje:
 \begin{align}	
-E_{x,y} = \sum_{u,v} w_{u,v} \lvert I_{x+u, y+v} - I_{u,v} \rvert^2
-\approx \sum_{u,v} w_{u,v} \lvert I_{u, v} + xX + yY  - I_{u,v} \rvert^2
+\mathbb{E}_{x,y} = \sum_{u,v} \mathbf{w}_{u,v} \lvert \mathbb{I}_{x+u, y+v} - \mathbb{I}_{u,v} \rvert^2
+\approx \sum_{u,v} \mathbf{w}_{u,v} \lvert \mathbb{I}_{u, v} + x\mathbb{X} + y\mathbb{Y}  - \mathbb{I}_{u,v} \rvert^2,
 \end{align}
 \begin{align}
-E_{x,y} = \sum_{u,v} w_{u,v} \lvert xX + yY \rvert^2
+\label{eq:Harris_rozvoj_2}
+\mathbb{E}_{x,y} = \sum_{u,v} \mathbf{w}_{u,v} \lvert x\mathbb{X} + y\mathbb{Y} \rvert^2,
 \end{align}
-
-kde $(x,y)$ je vektor podle kterého se derivuje a $X$ a $Y$ jsou aproximované parciální derivace obrazu ve směrech osy x a osy y:
+\noindent kde $(x,y)$ je vektor podle kterého se derivuje a $\mathbb{X}$ a $\mathbb{Y}$ jsou aproximované parciální derivace obrazu ve směrech osy x a osy y:
 \begin{align}
-X = I \otimes (-1, 0, 1) \approx \frac{\delta I}{\delta x}
-\end{align}
-\begin{align}
-Y = I \otimes (-1, 0, 1)^T \approx \frac{\delta I}{\delta y}
+\mathbb{X} = \mathbb{I} \otimes (-1, 0, 1) \approx \frac{\delta \mathbb{I}}{\delta x},
 \end{align}
 \begin{align}
-E_{x,y} = \sum_{u,v} w_{u,v} [x^2X^2 + 2xyXY + y^2Y^2]
+\mathbb{Y} = \mathbb{I} \otimes (-1, 0, 1)^T \approx \frac{\delta \mathbb{I}}{\delta y},
+\end{align}
+\noindent Po roznásobení rovnice \ref{eq:Harris_rozvoj_2} dostaneme:
+\begin{align}
+\mathbb{E}_{x,y} = \sum_{u,v} \mathbf{w}_{u,v} [x^2\mathbb{X}^2 + 2xy\mathbb{X}\mathbb{Y} + y^2\mathbb{Y}^2],
 \end{align}
 označme:
 \begin{align}
-M = \sum_{u,v} w_{u,v} 
+\mathbb{M} = \sum_{u,v} \mathbf{w}_{u,v} 
 \begin{bmatrix}
-X^2  \  XY \\
-XY    \ Y^2 \\
-\end{bmatrix}
+\mathbb{X}^2  \  \mathbb{XY} \\
+\mathbb{XY}    \ \mathbb{Y}^2 \\
+\end{bmatrix},
 \end{align}
 výsledný vztah:
 \begin{align}
-E_{x,y} = [x, y] M \begin{bmatrix} x \\ y \end{bmatrix}
+\mathbb{E}_{x,y} = [x, y] \mathbb{M} \begin{bmatrix} x \\ y \end{bmatrix}.
 \end{align}
-Tento vztah vyjadřuje velikost gradientu obrazu ve směru (libovolného) vektoru $(x,y)$. Matice $M$ je někdy nazývána Harrisova matice.
+Tento vztah vyjadřuje velikost gradientu obrazu ve směru (libovolného) vektoru $(x,y)$. Matice $\mathbb{M}$ je někdy nazývána Harrisova matice.
 Pokud je místo čtvercového okna nyní zvoleno gaussovské:
 \begin{align}
-w_{u,v} = e^{-(u^2 + v^2)/2\sigma^2},
+\mathbf{w}_{u,v} = e^{-(u^2 + v^2)/2\sigma^2},
 \end{align}
-je odstraněn první problém operátoru Moravec: zanášení šumu do výpočtu nevhodným ("ostrým") okénkem. Směr a velikost derivací je nyní popsán elipsou ve formě matice M, která respektuje celý kruhový prostor kolem bodu a velikost os této elipsy není závislá na rotaci obrazu. 
-
-Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj. pro:
+je odstraněn první problém operátoru Moravec: zanášení šumu do výpočtu nevhodným ("ostrým") okénkem. Směr a velikost derivací je nyní popsán elipsou ve formě matice M, která respektuje celý kruhový prostor kolem bodu a velikost os této elipsy není závislá na rotaci obrazu. Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj. pro:
 
 \begin{itemize}
 	\item ${\lambda_1 \approx 0 \wedge \lambda_2 \approx 0}$ - se v tomto bodě příznak nenachází, pro
@@ -91,21 +88,19 @@ Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj
 	\item ${\lambda_1 \gg 0 \wedge \lambda_2 \gg 0}$  - se v tomto bodě nachází roh.
 \end{itemize}
 
-%\includepdf{[scale=0.3]Harris_eigen.pdf}
-
-Protože výpočet vlastních čísel matice je relativně náročná operace, zatímco determinant a stopu matice $2\times2$ lze získat prostým odčítáním a násobením, původně Harris navrhuje tento výpočet aproximovat jako:
+Protože výpočet vlastních čísel matice je relativně náročná operace, zatímco determinant a stopu matice $2\times2$ lze získat prostým odčítáním a násobením, původně Harris navrhuje tento výpočet aproximovat jako kritérium $\mathbb{R}$:
 
 \begin{align}
-R = \text{det}(M) - k * \text{stopa}(M)^2,
+\mathbb{R} = \text{det}(\mathbb{M}) - k * \text{stopa}(\mathbb{M})^2,
 \end{align}
-kde det$(M)$ je determinant matice $M$, stopa$(M)$ je součet prvků na hlavní diagonále čtvercové matice a $k$ je nastavitelná konstanta, která určuje citlivost algoritmu na hrany. $R$ bude nabývat hodnot:
+kde det$(\mathbb{M})$ je determinant matice $\mathbb{M}$, stopa$(\mathbb{M})$ je součet prvků na hlavní diagonále čtvercové matice a $k$ je nastavitelná konstanta, která určuje citlivost algoritmu na hrany. Kritérium $\mathbb{R}$ bude nabývat hodnot:
 \begin{itemize}
 	\item malých pro "plochou"\ oblast bez velkých změn
 	\item kladných pro roh nebo jiný bodový orientační bod
 	\item záporných pro hranu
 \end{itemize} 
 
-Body se tedy označí porovnáním $R$ se zvoleným prahem.
+Body se tedy označí porovnáním kritéria $\mathbb{R}$ se zvoleným prahem.
 
 \begin{figure}[htp] 
 	\label{Harris_eigen}
@@ -116,17 +111,17 @@ Body se tedy označí porovnáním $R$ se zvoleným prahem.
 
 
 \subsection{Využití}
-V algoritmu Harris jsou odstraněny hlavní nedostatky algoritmu Moravec. Zašumování výsledků nahrazením čtvercového okna gaussovským a anizotropické vlastnosti a přílišnou citlivost na nejnižší derivaci reprezentací derivací v bodě jako 2D elipsy jejíž osy jsou určeny vlastními čísly matice M (a aproximovány výše uvedeným vztahem pro $R$). Jeho velkou výhodou oproti dalším metodám je nenáročnost na výkon hardwaru.
+V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova. Zašumování výsledků nahrazením čtvercového okna gaussovským a anizotropické vlastnosti a přílišnou citlivost na nejnižší derivaci reprezentací derivací v bodě jako 2D elipsy jejíž osy jsou určeny vlastními čísly matice $\mathbb{M}$ (a aproximovány výše uvedeným vztahem pro kritérium $\mathbb{R}$). Jeho výhodou oproti dalším metodám je nenáročnost na výkon hardwaru.
 
 \section{Shi-Tomasi}
 
-	Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu $R$ přímo z vlastních čísel (vysvětlení viz \ref{harris_alg}). 
+	Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu kritéria $\mathbb{R}$ přímo z vlastních čísel (vysvětlení viz \ref{harris_alg}). 
 	
 	\begin{align}
-	R = min(\lambda_1, \lambda_2)
+	\mathbb{R} = min(\lambda_1, \lambda_2)
 	\end{align}
 	
-	Body se opět označí porovnáním $R$ se zvoleným prahem. Výhodou tohoto řešení je zlepšení vlastností příznaků pro sledování za cenu mírného zvýšení výkonové náročnosti. Tento algoritmus bývá také nazýván Good Features to Track, zkráceně GFTT, podle názvu článku ve kterém byl původně popsán.
+	Body se opět označí porovnáním kritéria $\mathbb{R}$ se zvoleným prahem. Výhodou tohoto řešení je zlepšení vlastností příznaků pro sledování za cenu mírného zvýšení výkonové náročnosti. Tento algoritmus bývá také nazýván Good Features to Track, zkráceně GFTT, podle názvu článku ve kterém byl původně popsán.
 
 \section{FAST}
 

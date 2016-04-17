@@ -40,12 +40,12 @@ V Plzni dne \today
 
 \chapter*{Abstract}
 \thispagestyle{empty}
-This thesis contains a theoretical overview and a practical comparison of the main methods of detection and description of point features in a digitalised image measured by ammount of used features, execution times and homography matrix estimation quality.
+This thesis contains a theoretical overview and a practical comparison of the main methods of detection and description of features in a digitalized image. It thoroughly describes principles of operation of point feature detection methods Moravec operator, Harris operator, Shi-Tomasi, SIFT, SURF, FAST, ORB a MSER and their corresponding descriptor algorithms along with BRIEF algorithm. Object detection methods Haar and Histogram of Oriented Gradients are also described. Descriptor comparison methods k-nearest neighbors and its approximation Best bin first are also noticed. Theoretical part concludes with description of the RANSAC method used here to approximate space transformation between to pictures from detected, described and matched points. The last part contains a comparison of detection and description methods and their combinations on the basis of distance between approximated homography method and its ground truth given as a part of the dataset used. The comparison is implemented in C++ using the openCV framework.
 
 \chapter*{Abstrakt}
 \thispagestyle{empty}
-Tato práce obsahuje teoretický přehled a praktické srovnání hlavních metod detekce bodových příznaků
-v digitalizovaném obraze z hlediska kvality detekce a popisu a výkonové náročnosti.
+Tato práce se zabývá popisem a srovnáním metod detekce a popisu příznaků v digitalizovaném obraze. Jsou v ní podrobně vysvětleny principy fungování metod detekce bodových příznaků Moravcův operátor, Harrisův operátor, Shi-Tomasi, SIFT, SURF, FAST, ORB a MSER a jejich příslušné deskriptorové algoritmy spolu s algoritmem BRIEF. Dále jsou popsány metody detekce objeků Haar a Histogram orientovaných gradientů. Zmíněny jsou i metody pro porovnávání deskriptorů pomocí algoritmu nejbližšího souseda a jeho aproximace Best bin first. Nakonec je uvedena metoda RANSAC sloužící zde k odhadu prostorové transformace mezi dvěma obrazy s nalezenými, popsanými a přiřazenými body. V poslední části jsou porovnány metody nalezení a popisu bodových obrazových příznaků na základě srovnání zadané matice homografie a její získané aproximace. Porovnání je implementováno v C++ s využitím frameworku openCV.
+
 
 \tableofcontents
 \pagestyle{fancy}
