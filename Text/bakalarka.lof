@@ -1,0 +1,14 @@
+\select@language {czech}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Vizualizace posun\IeC {\r u} v jenotliv\IeC {\'y}ch sm\IeC {\v e}rech. Zdroj: \cite {moravec1980obstacle}}}{5}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Vliv tvaru okol\IeC {\'\i } bodu na rozlo\IeC {\v z}en\IeC {\'\i } vlastn\IeC {\'\i }ch \IeC {\v c}\IeC {\'\i }sel matice $\mathbb {M}$. Vlastn\IeC {\'\i } \IeC {\v c}\IeC {\'\i }sla $\lambda _1$ a $\lambda _2$ jsou tu ozna\IeC {\v c}ena $\alpha $ a $\beta $. Zdroj: \cite {harris1988combined}}}{8}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Vliv velikosti vlastn\IeC {\'\i }ch \IeC {\v c}\IeC {\'\i }sel na nalezen\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znakov\IeC {\'e}ho bodu v metod\IeC {\v e} Shi-Tomasi}}{9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Extrakce FAST p\IeC {\v r}\IeC {\'\i }znaku}}{11}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Tvorba DoG pyramidy}}{13}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Extrakce SIFT deskriptoru}}{16}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Short Heading}}{38}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Short Heading}}{39}
+\addvspace {10\p@ }

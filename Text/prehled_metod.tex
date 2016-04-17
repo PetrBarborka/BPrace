@@ -17,13 +17,13 @@ Průměrná změna jasu v okolí bodu ve směru posunu (x,y) je definována jako
 \mathbb{E}_{x,y} = \sum_{u,v} w_{u,v} \lvert \mathbb{I}_{u+x, v+y} - \mathbb{I}_{u,v} \rvert^2 , (x,y) \in \{(1,0), (1,1), (0,1), (-1,1)\},
 \end{align}
 
-\begin{figure}[htp] 
+\begin{figure}[!ht] 
 	\centering{
-		\includegraphics[scale=0.7]{text_img/moravec_posun.pdf}}
-	\caption{Vizualizace posunů v jenodlivých směrech} 	\label{Moravec_posun}
+		\includegraphics[width=5in]{img/moravec_posun.png}
+	\caption{Vizualizace posunů v jenotlivých směrech. Zdroj: \cite{moravec1980obstacle}}} 	\label{Moravec_posun}
 \end{figure}
 	
-\noindent kde  $\mathbb{I}$ je obraz ve formě jasových bodů, $w$ je váhové okénko (algoritmus používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je aktuální posun. Provede se tedy posun všech obrazových bodů danými směry, a  původní varianta se vždy odečte od posunuté. Tím je získána informace o změně jasu při posunutí ve směrech  $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté je každé testované místo (každý pixel) překryto čtvercovým okénkem, hodnoty pod ním sečteny a výsledek umocněn na druhou. Pro každé testované místo tedy vzniknout 4 hodnoty čtverce změny v jednotlivých směrech. Ve zbytku algoritmu je pro každé místo vybráno $min\{\mathbb{E}_{x,y}\}$, v takto vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky. Jedná se tedy o nalezení bodů, které mají diskrétní diferenci v daných směrech nejméně takovou, jaká je odmocnina
+\noindent kde  $\mathbb{I}$ je obraz ve formě jasových bodů, $w$ je váhové okénko (algoritmus používá čtvercové binární), $(u,v)$ je aktuální pozice v obrazu a $(x,y)$ je aktuální posun. Provede se tedy posun všech obrazových bodů danými směry (obrázek \ref{Moravec_posun}) a  původní varianta se vždy odečte od posunuté. Tím je získána informace o změně jasu při posunutí ve směrech  $\alpha \in \{0, 45, 90, 135\}$ stupňů. Poté je každé testované místo (každý pixel) překryto čtvercovým okénkem, hodnoty pod ním sečteny a výsledek umocněn na druhou. Pro každé testované místo tedy vzniknout 4 hodnoty čtverce změny v jednotlivých směrech. Ve zbytku algoritmu je pro každé místo vybráno $min\{\mathbb{E}_{x,y}\}$, v takto vzniklém obrazu se stanoví určitý práh a body s vyšší hodnotou, než je tento práh jsou označeny jako výsledné příznaky. Jedná se tedy o nalezení bodů, které mají diskrétní diferenci v daných směrech nejméně takovou, jaká je odmocnina
 hodnoty prahu.
 
 \subsection{Využití}
@@ -80,7 +80,7 @@ Pokud je místo čtvercového okna nyní zvoleno gaussovské:
 \begin{align}
 \mathbf{w}_{u,v} = e^{-(u^2 + v^2)/2\sigma^2},
 \end{align}
-je odstraněn první problém operátoru Moravec: zanášení šumu do výpočtu nevhodným ("ostrým") okénkem. Směr a velikost derivací je nyní popsán elipsou ve formě matice M, která respektuje celý kruhový prostor kolem bodu a velikost os této elipsy není závislá na rotaci obrazu. Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj. pro:
+je odstraněn první problém Moravcova operátoru: zanášení šumu do výpočtu nevhodným ("ostrým") okénkem. Směr a velikost derivací je nyní popsán elipsou ve formě matice $\mathbb{M}$, která respektuje celý kruhový prostor kolem bodu a velikost os této elipsy není závislá na rotaci obrazu. Velikosti os této elipsy jsou popsány velikostí vlastních čísel matice, tj. pro:
 
 \begin{itemize}
 	\item ${\lambda_1 \approx 0 \wedge \lambda_2 \approx 0}$ - se v tomto bodě příznak nenachází, pro
@@ -93,7 +93,7 @@ Protože výpočet vlastních čísel matice je relativně náročná operace, z
 \begin{align}
 \mathbb{R} = \text{det}(\mathbb{M}) - k * \text{stopa}(\mathbb{M})^2,
 \end{align}
-kde det$(\mathbb{M})$ je determinant matice $\mathbb{M}$, stopa$(\mathbb{M})$ je součet prvků na hlavní diagonále čtvercové matice a $k$ je nastavitelná konstanta, která určuje citlivost algoritmu na hrany. Kritérium $\mathbb{R}$ bude nabývat hodnot:
+kde det$(\mathbb{M})$ je determinant matice $\mathbb{M}$, stopa$(\mathbb{M})$ je součet prvků na hlavní diagonále čtvercové matice a $k$ je nastavitelná konstanta, která určuje citlivost algoritmu na hrany. Jak je zobrazeno na obrázku \ref{Harris_eigen}, kritérium $\mathbb{R}$ bude nabývat hodnot:
 \begin{itemize}
 	\item malých pro "plochou"\ oblast bez velkých změn
 	\item kladných pro roh nebo jiný bodový orientační bod
@@ -102,34 +102,60 @@ kde det$(\mathbb{M})$ je determinant matice $\mathbb{M}$, stopa$(\mathbb{M})$ je
 
 Body se tedy označí porovnáním kritéria $\mathbb{R}$ se zvoleným prahem.
 
-\begin{figure}[htp] 
+\begin{figure}[!ht] 
 	\label{Harris_eigen}
 	\centering{
-		\includegraphics[scale=0.3]{Harris_eigen.pdf}}
-	\caption{Vliv tvaru okolí bodu na rozložení vlastních čísel matice M}
+		\includegraphics[width=4.5in]{img/Harris_eigen.png}
+	\caption{Vliv tvaru okolí bodu na rozložení vlastních čísel matice $\mathbb{M}$. Vlastní čísla $\lambda_1$ a $\lambda_2$ jsou tu označena $\alpha$ a $\beta$. Zdroj: \cite{harris1988combined}}}
 \end{figure}
 
 
 \subsection{Využití}
-V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova. Zašumování výsledků nahrazením čtvercového okna gaussovským a anizotropické vlastnosti a přílišnou citlivost na nejnižší derivaci reprezentací derivací v bodě jako 2D elipsy jejíž osy jsou určeny vlastními čísly matice $\mathbb{M}$ (a aproximovány výše uvedeným vztahem pro kritérium $\mathbb{R}$). Jeho výhodou oproti dalším metodám je nenáročnost na výkon hardwaru.
+V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru. Zašumování výsledků je odstraněno nahrazením čtvercového okna gaussovským. Anizotropické vlastnosti a přílišná citlivost na nejnižší derivaci jsou opraveny reprezentováním derivací v bodě jako elipsy jejíž osy jsou určeny vlastními čísly matice $\mathbb{M}$ a aproximovány výše uvedeným vztahem pro kritérium $\mathbb{R}$. Jeho výhodou oproti dále uvedeným pokročilejším metodám je nenáročnost na výkon hardwaru.
 
 \section{Shi-Tomasi}
 
-	Protože detekování hran jako příznakových bodů není z hlediska jejich sledování vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu kritéria $\mathbb{R}$ přímo z vlastních čísel (vysvětlení viz \ref{harris_alg}). 
+	Protože body nacházející se na hranách nebo liniích v obraze nejsou jako příznaky vhodné (body na hranách jsou logicky nejednoznačné a navzájem velmi podobné), navrhli Shi a Tomasi \cite{shi1994good} vylepšení Harrisova algoritmu tak, aby detekoval pouze rohy. Toho lze dosáhnout pomocí výpočtu kritéria $\mathbb{R}$ přímo z vlastních čísel (vysvětlení viz \ref{harris_alg}). 
 	
 	\begin{align}
 	\mathbb{R} = min(\lambda_1, \lambda_2)
 	\end{align}
 	
-	Body se opět označí porovnáním kritéria $\mathbb{R}$ se zvoleným prahem. Výhodou tohoto řešení je zlepšení vlastností příznaků pro sledování za cenu mírného zvýšení výkonové náročnosti. Tento algoritmus bývá také nazýván Good Features to Track, zkráceně GFTT, podle názvu článku ve kterém byl původně popsán.
+	\begin{figure}
+	\begin{tikzpicture}
+	\centering{
+	% horizontal axis
+	\draw[->] (0,0) -- (12,0) node[anchor=north] {$\lambda_1$};
+	% vertical
+	\draw[->] (0,0) -- (0,8) node[anchor=east] {$\lambda_2$};
+	
+	% labels
+	\draw	(0,0) node[anchor=north] {0}
+	(2,0) node[anchor=north] {Práh}
+	(0,2) node[anchor=east] {Práh};
+
+	\draw	(4,4) node[anchor=west]{{\small Příznakový bod}}
+	(4,1) node[anchor=west]{{\small Hrana}}
+	(0.25,4) node[anchor=west]{{\small Hrana}}
+	(0.25,1) node[anchor=west]{{\small Plocha}};
+	
+	\draw[gray, thick] (2,0) -- (2,8);
+	\draw[gray, thick] (0,2) -- (12,2);
+%	\filldraw[black] (0,0) circle (2pt) node[anchor=west] {Intersection point};
+	}
+	\end{tikzpicture}
+	\caption{\protect Vliv velikosti vlastních čísel na nalezení příznakového bodu v metodě Shi-Tomasi}\label{ST_eigen}
+	\end{figure}
+	
+	Prostor určený vlastními čísly $lambda_1$ a $lambda_2$ se tím značně zjednoduší, viz obrázek \ref{ST_eigen}. Body se opět označí porovnáním kritéria $\mathbb{R}$ se zvoleným prahem. Výhodou tohoto řešení je zlepšení vlastností příznaků pro sledování za cenu mírného zvýšení výkonové náročnosti. Tento algoritmus bývá také nazýván Good Features to Track, zkráceně GFTT, podle názvu článku ve kterém byl původně popsán.
 
 \section{FAST}
 
-	Jak název algoritmu napovídá, jedná se o rychlou a jednoduchou metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (sekce \ref{sec:sift}) a dokonce větší, než Harris. Obě tato tvrzení byla potvrzena v kapitole \ref{chap:impl}. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. Z FAST \cite{rosten2010faster} ale vychází detektor systému ORB popsaný v sekci \ref{sec:orb}.
+	Jak název algoritmu napovídá, jedná se o rychlou a jednoduchou metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (sekce \ref{sec:sift}) a dokonce větší, než Harris. Obě tato tvrzení byla potvrzena v kapitole \ref{chap:impl}. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. FAST \cite{rosten2010faster} je ale využíván detektorem systému ORB popsaným v sekci \ref{sec:orb}.
 	
-	\begin{figure}[htp] 
+	\begin{figure}[!ht] 
 		\centering{
-			\includegraphics[scale=0.7]{text_img/fast_corner.pdf}}
+			\includegraphics[width=5in]{text_img/fast_corner.pdf}}
 		\caption{Extrakce FAST příznaku} 	\label{fast_corner}
 	\end{figure}
 	
@@ -169,9 +195,9 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova. Zašumov�
 			
 			Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		
 			
-		\begin{figure}[htp] 
+		\begin{figure}[!ht] 
 			\centering{
-				\includegraphics[scale=0.6]{text_img/sift_dog.pdf}}
+				\includegraphics[width=5in]{text_img/sift_dog.pdf}}
 			\caption{Tvorba DoG pyramidy} 	\label{sift_dog}
 		\end{figure} 
 			
@@ -207,22 +233,22 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova. Zašumov�
 			\end{bmatrix},\\
 			\frac{Tr(H)^2}{Det(H)} < \frac{(r+1))}{r},
 			\end{align}
-			$r$ je volitelná prahová konstanta. Její hodnotu  autoři \cite{lowe2004distinctive} doporučují 10.
+			$r$ je volitelný práh. Jeho hodnotu  autoři \cite{lowe2004distinctive} doporučují 10.
 			
 								
-		\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru a na těchto  vlastnostech
+		\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru na těchto  vlastnostech
 		
 			Pomocí lokálních diferencí se určí velikost a směr gradientů zvoleného počtu bodů okolo nalezeného příznaku podle os $x$ a $y$. Tyto gradienty se kvantizují do 36 kategorií po 10 stupních. Pak se stanoví maximum tohoto histogramu a pokud druhá nejvyšší hodnota histogramu dosahuje alespoň 80\% hodnoty té nejvyšší, stanoví se pro tento příznak dvě orientace. Přesné úhly orientací se nakonec stanoví pomocí proložení kvadratické křivky maximem histogramu a jeho dvěma sousedy a maximalizací této křivky.	
 					
-		\item Výroba deskriptoru oblasti: Na každé dané oblasti jsou vypočteny lokální gradienty. Ty jsou převedeny do tvaru invariantního k deformaci tvaru a změnám osvětlení.
+		\item Výroba deskriptoru oblasti: Na každé dané oblasti jsou vypočteny lokální gradienty. Ty jsou převedeny do formy invariantního k deformaci tvaru obrazu a změnám osvětlení.
 		
 			V tomto bodě se vypočtou gradienty čtvercového okolí 16x16 pixelů okolo zvoleného bodu. Jejich velikosti se přenásobí gaussovým oknem pro zvýraznění těch, které jsou blízko středu. Tato oblast se poté rozdělí na 16 oblastí se 4x4 pixely. V každé této oblasti se vypočte histogram gradientů a nakvantizuje se do 8 kategorií podobně jako v předchozím kroku.
 			
 			Výsledkem je SIFT deskriptor: 16 histogramů gradientů po 8 orientačních kategoriích (binech), tedy matice 4x4x8. Jako poslední krok se tento vektor normalizuje na jednotkovou délku aby se potlačily vlivy osvětlení. 
 			
-			\begin{figure}[htp] 
+			\begin{figure}[!ht] 
 				\centering{
-					\includegraphics[scale=0.8]{text_img/sift_kp.pdf}}
+					\includegraphics[width=5in]{text_img/sift_kp.pdf}}
 				\caption{Extrakce SIFT deskriptoru} 	\label{sift_kp}
 			\end{figure}
 			
@@ -238,7 +264,7 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova. Zašumov�
 	
 	\subsection{Využití}
 	
-	SIFT je stále jedním z nejspolehlivějších algoritmů hledání a identifikace příznaků, což dokazuje i jeho široká využívanost v aplikacích identifikace objektů podle známých příznaků i v mapovacích algoritmech (Monoslam, \cite{slam_monoslam} ). Ikdyž ho lze využít pro mapování v reálném čase, je v porovnání s ostatními metodami velmi výkonově náročný. Jeho převaha nad ostatními uvedenými metodami s výjimkou SURF se zřetelně projevila při testech v kapitole \ref{chap:impl}
+	SIFT je stále jedním z nejspolehlivějších algoritmů hledání a identifikace příznaků, což dokazuje i jeho široká využívanost v aplikacích identifikace objektů podle známých příznaků i v mapovacích algoritmech (Monoslam, \cite{slam_monoslam} ). I když ho lze využít pro mapování v reálném čase, je v porovnání s ostatními metodami velmi výkonově náročný. Jeho převaha nad ostatními uvedenými metodami s výjimkou SURF se zřetelně projevila při testech v kapitole \ref{chap:impl}.
 
 
 \section{SURF}
@@ -351,17 +377,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 		
 \section{MSER}
 
-	Metoda maximálně stabilních extremálních oblastí \cite{matas2004robust} je relativně novým přístupem k detekci obrazových příznaků spočívajícím v identifikaci nikoli výrazných bodů, ale celých obrazových struktur.
-	
-	Obraz $I$ je zobrazením $I: D \subset \mathbb{Z}^2 \rightarrow S$, kde $D$ vyjadřuje dvourozměrnou celočíselnou polohu pixelu a S jeho intenzitu. Je-li $S$ uspořádaná množina a existuje operátor $A$ sousednosti dvou prvků v $D$:  $A \subset D\times D$, lze v prostoru $D$ definovat extremální oblast.
-	
-	Oblast $Q$ je spojená, existuje mezi každými dvěma jejími prvky $p, q$ cesta po jejích prvcích pomocí operátoru sousednosti.
-	
-	Vnější hranice oblasti $Q$, $\delta Q$, je složená z bodů, které neleží v oblasti $Q$, ale sousedí s bodem, který ano.
-	
-	Extremální oblast je taková, pro všechny jejíž body $q: q \in Q$ a body její vnější hranice $p: p \in \delta Q$ platí: $I(p) > I(q)$ nebo naopak.
-	
-	Maximálně stabilní extremální oblast je taková extremální oblast, pro kterou má v posloupnosti extremálních oblastí $Q_i : Q_i \subset Q_i+1$ měřítko $q(i) = \frac{\lvert Q_{i+\delta} \setminus Q_{i-\delta} \rvert}{\lvert Q_i \rvert}$ minimum v bodě i, kde $\delta$ je volitelný parametr metody.
+	Metoda maximálně stabilních extremálních oblastí neboli MSER \cite{matas2004robust} je relativně novým přístupem k detekci obrazových příznaků spočívajícím v identifikaci nikoli výrazných bodů, ale celých obrazových struktur. Obraz $I$ je zobrazením $I: D \subset \mathbb{Z}^2 \rightarrow S$, kde $D$ vyjadřuje dvourozměrnou celočíselnou polohu pixelu a S jeho intenzitu. Je-li $S$ uspořádaná množina a existuje operátor $A$ sousednosti dvou prvků v $D$:  $A \subset D\times D$, lze v prostoru $D$ definovat extremální oblast. 	Oblast $Q$ je spojená, existuje mezi každými dvěma jejími prvky $p, q$ cesta po jejích prvcích pomocí operátoru sousednosti. Vnější hranice oblasti $Q$, $\delta Q$, je složená z bodů, které neleží v oblasti $Q$, ale sousedí s bodem, který ano. Extremální oblast je taková, pro všechny jejíž body $q: q \in Q$ a body její vnější hranice $p: p \in \delta Q$ platí: $I(p) > I(q)$ nebo naopak. Maximálně stabilní extremální oblast je taková extremální oblast, pro kterou má v posloupnosti extremálních oblastí $Q_i : Q_i \subset Q_i+1$ měřítko $q(i) = \frac{\lvert Q_{i+\delta} \setminus Q_{i-\delta} \rvert}{\lvert Q_i \rvert}$ minimum v bodě i, kde $\delta$ je volitelný parametr metody.
 	
 	Nalezení MSER je tedy algoritmus dynamického prahování v obrazu, kdy je pro každou oblast obrazu zvolen práh, který je maximálně robustní vůdči jeho změnám, tzn. při volbě prahu o něco většího nebo menšího než je, zvolený zůstane plocha a charakter nalezené oblasti maximálně podobný tomu, který je určen jako MSER.
 	
@@ -394,11 +410,11 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 \section{Haar}
 
 
-	Pojem Haar nebo Haar algoritmus v kontextu strojového vidění znamená algoritmus učení s učitelem a následné detekce, který se využívá k detekci objektů v digitalizovaném obrazu \cite{viola2001rapid} . Jeho principem je aplikace dvojrozměrných filtrů založených na Haarových bázových funkcích na zkoumaný obraz (resp. výseč obrazu na které se provádí detekce). Tím vznikne pro každý zkoumaný obraz velké množství příznaků (logicky násobně větší než je počet pixelů obrazu), které se liší svou diskriminační schopností. 
+	Pojem Haar nebo Haar algoritmus je v kontextu strojového vidění učící se algoritmus, který se využívá k detekci objektů v digitalizovaném obrazu \cite{viola2001rapid}. Jeho principem je aplikace dvojrozměrných filtrů založených na Haarových bázových funkcích na zkoumaný obraz (resp. výseč obrazu na které se provádí detekce). Tím vznikne pro každý zkoumaný obraz velké množství příznaků (logicky násobně větší než je počet pixelů obrazu), které se liší svou diskriminační schopností. 
 	
 	Obecně jde ale o příznaky, jejichž průměrná chyba je jenom o o málo menší než 0.5, čili jsou jenom o málo lepším ukazatelem než náhodný odhad. Z této počáteční množiny příznaků se však pomocí algoritmu AdaBoost (sekce \ref{subsec_adaboost}) vytvoří kaskáda detekčních vrstev se vzrůstajícím množstvím detektorů (detektor je zde klasifikátor založený na jednom z příznaků) a kvalitou dektekce tak, že nejdiskriminativnější příznaky jsou umístěny v prvních (nejdříve vyhodnocovaných) vrstvách. Pokud zkoumaný obraz neprojde jednou vrstvou detekční kaskády, další se již nevyhodnocují a celý obraz je zamítnut. 
 	
-	Tím je dosaženo vyloučení co největšího množství kandidátů v za cenu co nejmenšího výpočetního výkonu. Autoři původního článku například uvádějí, že z asi 160000 možných klasifikátorů pro obraz 24x24 bodů sestavili kaskádu z pouze 6000 z nich, ale průměrný počet vyhodnocovaných klasifikátorů na jednu zkoumanou výseč obrazu byl pouze 10. K efektivnímu výpočtu rekakcí obrazu na Haarovy filtry je využita metoda integrálního obrazu.
+	Tím je dosaženo vyloučení co největšího množství kandidátů za cenu co nejmenšího výpočetního výkonu. Autoři původního článku například uvádějí, že z asi 160000 možných klasifikátorů pro obraz 24x24 bodů sestavili kaskádu pouze 6000 z nich, ale průměrný počet vyhodnocovaných klasifikátorů na jednu zkoumanou výseč obrazu byl pouze 10. K efektivnímu výpočtu reakcí obrazu na Haarovy filtry je využita metoda integrálního obrazu.
 	
 \subsection{Integrální obraz}
 	Metoda integrálního obrazu reprezentuje každý bod obrazu jako součet odpovídajícího bodu zdrojového obrazu a všech bodů, které se ve směrech nacházejí nalevo a vzhůru od něj. Tato reprezentace se zde používá proto, že reakce na Haarovy filtry v bodě je dána sčítáním a odečítáním hodnot jasu obrazu v obdélníkových výsečích kolem bodu. Součet hodnot bodů v obdélníkové výseči obrazu je totiž dán součtem hodnot integrálního obrazu v pravém dolním a levém horním rohu obdélníku a odečtením hodnot integrálního obrazu v ostatních dvou rozích obdélníku. To pro počítání velkého množství součtů takových výsečí značně zrychlí výpočet, neboť integrální obraz se počítá pouze jednou.
@@ -406,7 +422,9 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 \subsection{AdaBoost}
 \label{subsec_adaboost}
 
-	AdaBoost je algoritmus, který z množství tzv. slabých klasifikátorů $f_t(x)$ zkonstruuje "silný" klasfikátor $F_T(x)$ jako $F_T(x) = \sum_{t=1}^{T} f_t(x)$. V každém kroku algoritmu je do silného klasifikátoru z množiny všech dostupných slabých klasifikátorů přidán jeden nový podle měřítka jeho kvality, jímž je celková chyba klasifikace na trénovacích datech. 
+	Příznak získaný reakcí na konkrétní haarův filtr na konkrétní pozici v obraze je označen $t$. Klasifikátor $F_t(x)$ založený na tomto příznaku se pro jeho obecně slabé diskriminační schopnosti nazývá slabý klasifikátor. $T$ označuje kaskádu takových příznaků a příslušný klasifikátor na ní založený je nazván $F_T(x)$. Protože jeho diskriminační schopnosti jsou v žádoucím případě řádově vyšší než schopnosti slabého klasifikátoru, označuje se jako silný klasifikátor.
+	
+	AdaBoost je algoritmus, který z množství slabých klasifikátorů $f_t(x)$ zkonstruuje silný klasfikátor $F_T(x)$ jako $F_T(x) = \sum_{t=1}^{T} f_t(x)$. V každém kroku algoritmu je do silného klasifikátoru z množiny všech dostupných slabých klasifikátorů přidán jeden nový podle měřítka jeho kvality, jímž je celková chyba klasifikace na trénovacích datech. 
 	
 	Mějme trénovací data $(x_1, y_1), ... ,(x_n, y_n)$, kde $x_i$ je obraz a 
 	\begin{align}
@@ -456,7 +474,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	
 	Pro hledaný objekt je pomocí AdaBoost natrénována klasifikační kaskáda z trénovacích dat, tzn. obrazů, ve kterých se nachází hledaný objekt a těch, ve kterých se nenachází spolu s touto informací. Jako příznaky se použijí reakce na obecně libovolné filtry, autoři článku používají obdélníkové filtry založené na haarových bázových funkcích aplikované na všechny dostupné velikosti a pozice těchto filtrů. K výpočtu těchto reakcí použijeme metodu integrálního obrazu popsanou výše. Strukturu kaskády (počet vrstev a počet klasifikátorů v nich) je třeba zvolit. Autoři doporučují 1, 10, 25, 25 a 50 klasifikátorů v prvních vrstvách a ''postupně vzrůstající''  počet klasifikátorů v dalších vrstvách s celkovým počtem klasifikátorů 6061.
 
-	Ve fázi detekce jsou zkoumaném obrazu vybírány výseče, a na každou z nich je aplikována kaskáda vytvořenoá v trénovací fázi. Reakce na filtry v kaskádě je pro úsporu výkonu opět vypočtena pomocí předem vytvořeného integrálního obrazu.	
+	Ve fázi detekce jsou zkoumaném obrazu vybírány výseče, a na každou z nich je aplikována kaskáda vytvořená v trénovací fázi. Reakce na filtry v kaskádě je pro úsporu výkonu opět vypočtena pomocí předem vytvořeného integrálního obrazu.	
 	
 	\subsection{Využití}
 	
@@ -494,7 +512,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 
 	K nejbližších sousedů neboli kNN je jedním z nejzákladnějších a nejjednoduších metod klasifikace dat. Namísto trénování diskriminačního modelu obvyklého u pokročilejších metod se ke klasifikaci testovaného vektoru používá přímo trénovací množina. Pro testovaný vektor se vypočte vzdálenost ke všem vektorům trénovacích dat a jeho příslušnost ke konkrétní třídě je určena na základě příslušnosti $k$ jeho nejbližších sousedů. Metriku vzdálenosti je obecně možné zvolit jakoukoli, obvykle se používá euklidovská.
 	
-	Primární výhodou metody je principiální i implementační jednoduchost. Protože výpočetní nároky se posouvají do fáze klasifikace (vzdálenosti je nutno počítat pro každý vektor znvou), je zároveň možné přidávat do klasifikátoru data za běhu.
+	Primární výhodou metody je principiální i implementační jednoduchost. Protože výpočetní nároky se posouvají do fáze klasifikace (vzdálenosti je nutno počítat pro každý vektor znovu), je zároveň možné přidávat do klasifikátoru data za běhu.
 	
 	Nevýhodami jsou náročnost na výpočet i na paměť (je potřeba si při klasifikaci pamatovat potenciálně velmi rozsáhlou trénovací množinu).
 	
@@ -504,7 +522,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	
 	Při trénování modelu jsou vzorová naklasifikovaná data rozdělena do stromu. Na každé úrovni stromu se vždy rodičovský uzel rozdělí na dvě poloviny podle mediánu rozměru, na kterém mají data největší rozptyl, čímž vzniknou dva nové uzly (biny s vektory) se stejným počtem vektorů v každém z nich. Kořenem tohoto stromu je pochopitelně celá oblast $\mathbb{R}^n$, jeho listy jsou biny, které obsahují po jednom vektoru.
 	
-	Při klasifikaci se tento strom prohledává tak, že se v každém nelistovém uzlu rozhodne o dalším postupu pomocí vzdálenosti zkoumaného vektoru a vektorů binů o kterých se rozhoduje nejblíže mediánu, podle kterého byla dotyčná úroveň stromu rozdělena. Protože se jedná o dobrou aproximaci binu, ve kterém se hledaný nejbližší soused (nebo nejbližší sousedé) skutečně nacházejí, lze omezit celkový počet listových binů které jsou během jednohé klasifikace vyhodnoceny a tím výrazně uspořit výkon a dosáhnout zrychlení o 1-2 řády.
+	Při klasifikaci se tento strom prohledává tak, že se v každém nelistovém uzlu rozhodne o dalším postupu pomocí vzdálenosti zkoumaného vektoru a vektorů binů o kterých se rozhoduje nejblíže mediánu, podle kterého byla dotyčná úroveň stromu rozdělena. Protože se jedná o dobrou aproximaci binu, ve kterém se hledaný nejbližší soused (nebo nejbližší sousedé) skutečně nacházejí, lze omezit celkový počet listových binů které jsou během jedné klasifikace vyhodnoceny a tím výrazně uspořit výkon a dosáhnout zrychlení o 1-2 řády.
 	
 	
 

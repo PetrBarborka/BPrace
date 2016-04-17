@@ -80,17 +80,17 @@ Data o souborech v datasetu jsou vytěžena pomocí skriptu \verb|create_configs
 %		deskriptor SIFT} \label{ex_MONET}
 %\end{figure}
 
-\input{tab_detperf}
+\input{tab_tex/tab_detperf}
 
-\input{tab_descperf}
+\input{tab_tex/tab_descperf}
 
-\include{tab_comboperf}
+\include{tab_tex/tab_comboperf}
 
 V tabulkách \ref{tab_detperf} a \ref{tab_descperf} je uveden přehled celkových průměrných výkonností jednotlivých deskriptorů
 a detektorů. Tento přehled je získán vždy testováním uvedeného subsetu uvedenou metodou a všemi
 metodami z druhé kategorie. Tedy například skóre deskriptoru SURF je průměrem kombinace
 deskriptoru SURF a všech testovaných detektorů na daném datasetu.
-Jak je vidět v \ref{det_perf}, v celkové výkonnosti vede detektor ORB. Při bližším pohledu vidíme, že exceluje
+Jak je vidět v \ref{tab_detperf}, v celkové výkonnosti vede detektor ORB. Při bližším pohledu vidíme, že exceluje
 zejména na subsetech blur (rozostření), light (změna světelných podmínek) a res (změna rozlišení).
 Z toho lze usoudit, že tento detektor založený na algoritmu FAST je vůdči těmto změnám parametrů obrazu
 velmi robustní. Za povšimnutí stojí, že jeho varianta - samostatná implementace algoritmu FAST 
@@ -98,20 +98,20 @@ v openCV má na všech subsetech asi poloviční hodnocení. Z toho je zřejmé,
 algoritmu může drasticky změnit drobnými úpravami parametrů a vylepšeními aniž by se změnil jeho princip.
 Detektor SURF ve všech disciplínách překonal SIFT, přestože vznikl jako jeho aproximace.
 
-Ve srovnání deskriptorů (tabulka \ref{desc_perf} ) naopak ORB, založený na algoritmu BRIEF zaostává nad svou samostatnou implementací.
+Ve srovnání deskriptorů (tabulka \ref{tab_descperf}) naopak ORB, založený na algoritmu BRIEF zaostává nad svou samostatnou implementací.
 Jako deskriptor má SIFT nad SURF převahu ve statických scénářích (subsety blur, light, res).
 
-Ze srovnání kombinací (tabulka \ref{det_desc_perf}) je zřejmé, že všechny detektory mají nejlepší výsledky v kombinaci s deskriptory SIFT a SURF.
+Ze srovnání kombinací (tabulka \ref{tab_comboperf}) je zřejmé, že všechny detektory mají nejlepší výsledky v kombinaci s deskriptory SIFT a SURF.
 
-Při aplikaci v reálném čase na frekvenci 20Hz je na jeden celý cyklus uvažovaného systému k dispozici 0.05 vteřiny. Uvažujeme-li, že systém musí v každém cyklu provádět i jiné operace než detekci a popis příznaků, můžeme počítat s 0.025 vteřiny pro obě operace dohromady. Časy v tabulkách \ref{det_times} a \ref{desc_times} představují dobu potřebnou pro nalezení příznaků v obou obrazech z testovaného páru, náročnost na jednom obraze bude tedy zhruba poloviční. Do této periody by se podle získaných dat žádná z kombinací zkoumaných metod nevešla. To je pravděpodobně způsobeno nedokonalým nastavením parametrů jednotlivých metod, vysokým rozlišením zpracovávaných obrazů a vysokým množstvím detekovaných příznaků (nebylo nijak omezeno), protože všechny porovnávané metody již byly nějakým způsobem v systémech pracujících v reálném čase nasazeny.
+Při aplikaci v reálném čase na frekvenci 20Hz je na jeden celý cyklus uvažovaného systému k dispozici 0.05 vteřiny. Uvažujeme-li, že systém musí v každém cyklu provádět i jiné operace než detekci a popis příznaků, můžeme počítat s 0.025 vteřiny pro obě operace dohromady. Časy v tabulkách \ref{tab_dettimes} a \ref{tab_desctimes} představují dobu potřebnou pro nalezení příznaků v obou obrazech z testovaného páru, náročnost na jednom obraze bude tedy zhruba poloviční. Do této periody by se podle získaných dat žádná z kombinací zkoumaných metod nevešla. To je pravděpodobně způsobeno nedokonalým nastavením parametrů jednotlivých metod, vysokým rozlišením zpracovávaných obrazů a vysokým množstvím detekovaných příznaků (nebylo nijak omezeno), protože všechny porovnávané metody již byly nějakým způsobem v systémech pracujících v reálném čase nasazeny.
 
-Z porovnání časů potřebných k detekci a popisu příznaků v tabulkách \ref{det_times} a \ref{desc_times} lze vidět, že SIFT a SURF platí za svoji
+Z porovnání časů potřebných k detekci a popisu příznaků v tabulkách \ref{tab_dettimes} a \ref{tab_desctimes} lze vidět, že SIFT a SURF platí za svoji
 výkonnost o řád delším časem detekce před ostatními s výjimkou MSER a dokonce o dva řády delším časem výpočtu deskriptorů.
 
-Dle tabulky \ref{match_count} produkuje při daném nastavení největší množství příznaků detektor ORB. Lze ale také vidět, že množství
+Dle tabulky \ref{tab_matchcount} produkuje při daném nastavení největší množství příznaků detektor ORB. Lze ale také vidět, že množství
 detekovaných příznaků nemá přímou souvislost s kvalitou aproximace matice homografie.
 
-Grafy \ref{graph_monet} a \ref{graph_asterix} zachycují vývoj kvality aproximace homografie při postupném zpracovávání subsetů Monet a Asterix.
+Grafy \ref{graph_zoom} a \ref{graph_rot} zachycují vývoj kvality aproximace homografie při postupném zpracovávání subsetů Monet a Asterix.
 Výsledky odpovídají situaci, kdy dataset Monet sestává z postupné rotace obrazu o 360 stupňů - nejhorší výsledky vykazují metody uprostřed, tedy
 v natočení blížícím se 180 stupňům. Dataset Asterix naopak sestává z postupného vzdálení se od zdrojového obrázku, tedy zkoumané páry jsou postupně
 náročnější.
@@ -121,21 +121,21 @@ náročnější.
 %		\includegraphics[scale=0.8]{text_img/Detection_times.pdf}}
 %	\caption{Přehled průměrné rychlosti detekce jednotlivými metodami ve vteřinách} \label{det_times}
 %\end{figure}
-\input{tab_dettimes}
+\input{tab_tex/tab_dettimes}
 
 %\begin{figure}[htp] 
 %	\centering{
 %		\includegraphics[scale=0.8]{text_img/Description_times.pdf}}
 %	\caption{Přehled průměrné rychlosti deskripce jednotlivými metodami ve vteřinách} \label{desc_times}
 %\end{figure}
-\input{tab_desctimes}
+\input{tab_tex/tab_desctimes}
 
 %\begin{figure}[htp] 
 %	\centering{
 %		\includegraphics[scale=0.8]{text_img/Match_count.pdf}}
 %	\caption{Průměrné počty detekovaných a přiřazených příznaků jednotlivými kombinacemi metod}	\label{match_count}
 %\end{figure}
-\input{tab_matchcount}
+\input{tab_tex/tab_matchcount}
 
 
 %\begin{figure}[htp] 
@@ -150,5 +150,5 @@ náročnější.
 %	\caption{Kvalita odhadu homografie na párech obrázků ze subsetu Asterix (zoom)}	\label{graph_asterix}
 %\end{figure}
 
-\include{graph_zoom}
-\include{graph_rot}
+\include{graph_tex/graph_zoom}
+\include{graph_tex/graph_rot}
