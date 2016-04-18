@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  17 APR 2016 23:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  19 APR 2016 00:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -334,6 +334,22 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2015/09/17 v3.3-111 Customizing captions (AR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2015/09/20 v1.7-115 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen106
+\captionmargin@=\dimen107
+\captionwidth=\dimen108
+\caption@tempdima=\dimen109
+\caption@indent=\dimen110
+\caption@parindent=\dimen111
+\caption@hangindent=\dimen112
+)
+\c@ContinuedFloat=\count91
+)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip52
@@ -345,46 +361,46 @@ Package: amstext 2000/06/29 v2.01
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks17
-\ex@=\dimen106
+\ex@=\dimen113
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen107
+\pmbraise@=\dimen114
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count91
+\inf@bad=\count92
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count92
-\leftroot@=\count93
+\uproot@=\count93
+\leftroot@=\count94
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count94
-\DOTSCASE@=\count95
+\classnum@=\count95
+\DOTSCASE@=\count96
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen108
+\big@size=\dimen115
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
 \tag@help=\toks18
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
 \andhelp@=\toks19
-\eqnshift@=\dimen109
-\alignsep@=\dimen110
-\tagshift@=\dimen111
-\tagwidth@=\dimen112
-\totwidth@=\dimen113
-\lineht@=\dimen114
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
 \@envbody=\toks20
 \multlinegap=\skip53
 \multlinetaggap=\skip54
@@ -410,15 +426,15 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count103
-\calc@Bcount=\count104
-\calc@Adimen=\dimen115
-\calc@Bdimen=\dimen116
+\calc@Acount=\count104
+\calc@Bcount=\count105
+\calc@Adimen=\dimen122
+\calc@Bdimen=\dimen123
 \calc@Askip=\skip55
 \calc@Bskip=\skip56
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count105
+\calc@Ccount=\count106
 \calc@Cskip=\skip57
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -448,35 +464,35 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 ))
-\AM@pagewidth=\dimen117
-\AM@pageheight=\dimen118
+\AM@pagewidth=\dimen124
+\AM@pageheight=\dimen125
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2015/09/18 v0.5d Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box28
 \AM@toc@title=\toks22
-\c@AM@survey=\count106
+\c@AM@survey=\count107
 \AM@templatesizebox=\box29
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count107
+\lst@mode=\count108
 \lst@gtempboxa=\box30
 \lst@token=\toks23
-\lst@length=\count108
-\lst@currlwidth=\dimen119
-\lst@column=\count109
-\lst@pos=\count110
-\lst@lostspace=\dimen120
-\lst@width=\dimen121
-\lst@newlines=\count111
-\lst@lineno=\count112
-\lst@maxwidth=\dimen122
+\lst@length=\count109
+\lst@currlwidth=\dimen126
+\lst@column=\count110
+\lst@pos=\count111
+\lst@lostspace=\dimen127
+\lst@width=\dimen128
+\lst@newlines=\count112
+\lst@lineno=\count113
+\lst@maxwidth=\dimen129
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count113
-\lst@skipnumbers=\count114
+\c@lstnumber=\count114
+\lst@skipnumbers=\count115
 \lst@framebox=\box31
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
@@ -493,8 +509,8 @@ Package: pgfplots 2015/05/02 v1.12.1 Data Visualization (1.12.1)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
 \pgfutil@everybye=\toks24
-\pgfutil@tempdima=\dimen123
-\pgfutil@tempdimb=\dimen124
+\pgfutil@tempdima=\dimen130
+\pgfutil@tempdimb=\dimen131
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
@@ -519,20 +535,20 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 ode.tex
 \pgfkeys@tmptoks=\toks27
 ))
-\pgf@x=\dimen125
-\pgf@y=\dimen126
-\pgf@xa=\dimen127
-\pgf@ya=\dimen128
-\pgf@xb=\dimen129
-\pgf@yb=\dimen130
-\pgf@xc=\dimen131
-\pgf@yc=\dimen132
+\pgf@x=\dimen132
+\pgf@y=\dimen133
+\pgf@xa=\dimen134
+\pgf@ya=\dimen135
+\pgf@xb=\dimen136
+\pgf@yb=\dimen137
+\pgf@xc=\dimen138
+\pgf@yc=\dimen139
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count115
-\c@pgf@countb=\count116
-\c@pgf@countc=\count117
-\c@pgf@countd=\count118
+\c@pgf@counta=\count116
+\c@pgf@countb=\count117
+\c@pgf@countc=\count118
+\c@pgf@countd=\count119
 \t@pgf@toka=\toks28
 \t@pgf@tokb=\toks29
 \t@pgf@tokc=\toks30
@@ -553,8 +569,8 @@ File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count119
-\pgfsyssoftpath@bigbuffer@items=\count120
+\pgfsyssoftpath@smallbuffer@items=\count120
+\pgfsyssoftpath@bigbuffer@items=\count121
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -566,8 +582,8 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen133
-\pgfmath@count=\count121
+\pgfmath@dimen=\dimen140
+\pgfmath@count=\count122
 \pgfmath@box=\box33
 \pgfmath@toks=\toks31
 \pgfmath@stack@operand=\toks32
@@ -592,37 +608,37 @@ code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
 erarithmetics.code.tex)))
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count122
+\c@pgfmathroundto@lastzeros=\count123
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen134
-\pgf@picmaxx=\dimen135
-\pgf@picminy=\dimen136
-\pgf@picmaxy=\dimen137
-\pgf@pathminx=\dimen138
-\pgf@pathmaxx=\dimen139
-\pgf@pathminy=\dimen140
-\pgf@pathmaxy=\dimen141
-\pgf@xx=\dimen142
-\pgf@xy=\dimen143
-\pgf@yx=\dimen144
-\pgf@yy=\dimen145
-\pgf@zx=\dimen146
-\pgf@zy=\dimen147
+\pgf@picminx=\dimen141
+\pgf@picmaxx=\dimen142
+\pgf@picminy=\dimen143
+\pgf@picmaxy=\dimen144
+\pgf@pathminx=\dimen145
+\pgf@pathmaxx=\dimen146
+\pgf@pathminy=\dimen147
+\pgf@pathmaxy=\dimen148
+\pgf@xx=\dimen149
+\pgf@xy=\dimen150
+\pgf@yx=\dimen151
+\pgf@yy=\dimen152
+\pgf@zx=\dimen153
+\pgf@zy=\dimen154
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
 ruct.code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen148
-\pgf@path@lasty=\dimen149
+\pgf@path@lastx=\dimen155
+\pgf@path@lasty=\dimen156
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
 .code.tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen150
-\pgf@shorten@start@additional=\dimen151
+\pgf@shorten@end@additional=\dimen157
+\pgf@shorten@start@additional=\dimen158
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
 de.tex
@@ -630,19 +646,19 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box34
 \pgf@hbox=\box35
 \pgf@layerbox@main=\box36
-\pgf@picture@serial@count=\count123
+\pgf@picture@serial@count=\count124
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen152
+\pgflinewidth=\dimen159
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
 ations.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen153
-\pgf@pt@y=\dimen154
-\pgf@pt@temp=\dimen155
+\pgf@pt@x=\dimen160
+\pgf@pt@y=\dimen161
+\pgf@pt@temp=\dimen162
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
 e.tex
@@ -659,13 +675,13 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
 de.tex
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen156
+\pgfarrowsep=\dimen163
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen157
-\pgf@sys@shading@range@num=\count124
+\pgf@max=\dimen164
+\pgf@sys@shading@range@num=\count125
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -700,8 +716,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen158
-\pgf@nodesepend=\dimen159
+\pgf@nodesepstart=\dimen165
+\pgf@nodesepend=\dimen166
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
 -1-18.sty
@@ -716,8 +732,8 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen160
-\pgffor@skip=\dimen161
+\pgffor@iter=\dimen167
+\pgffor@skip=\dimen168
 \pgffor@stack=\toks34
 \pgffor@toks=\toks35
 ))
@@ -728,32 +744,32 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count125
-\pgfplotmarksize=\dimen162
+\pgf@plot@mark@count=\count126
+\pgfplotmarksize=\dimen169
 )
-\tikz@lastx=\dimen163
-\tikz@lasty=\dimen164
-\tikz@lastxsaved=\dimen165
-\tikz@lastysaved=\dimen166
-\tikzleveldistance=\dimen167
-\tikzsiblingdistance=\dimen168
+\tikz@lastx=\dimen170
+\tikz@lasty=\dimen171
+\tikz@lastxsaved=\dimen172
+\tikz@lastysaved=\dimen173
+\tikzleveldistance=\dimen174
+\tikzsiblingdistance=\dimen175
 \tikz@figbox=\box39
 \tikz@figbox@bg=\box40
 \tikz@tempbox=\box41
 \tikz@tempbox@bg=\box42
-\tikztreelevel=\count126
-\tikznumberofchildren=\count127
-\tikznumberofcurrentchild=\count128
-\tikz@fig@count=\count129
+\tikztreelevel=\count127
+\tikznumberofchildren=\count128
+\tikznumberofcurrentchild=\count129
+\tikz@fig@count=\count130
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count130
-\pgfmatrixcurrentcolumn=\count131
-\pgf@matrix@numberofcolumns=\count132
+\pgfmatrixcurrentrow=\count131
+\pgfmatrixcurrentcolumn=\count132
+\pgf@matrix@numberofcolumns=\count133
 )
-\tikz@expandcount=\count133
+\tikz@expandcount=\count134
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -764,9 +780,9 @@ File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
 \t@pgfplots@toka=\toks36
 \t@pgfplots@tokb=\toks37
 \t@pgfplots@tokc=\toks38
-\pgfplots@tmpa=\dimen169
-\c@pgfplots@coordindex=\count134
-\c@pgfplots@scanlineindex=\count135
+\pgfplots@tmpa=\dimen176
+\c@pgfplots@coordindex=\count135
+\c@pgfplots@scanlineindex=\count136
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
 .code.tex))
@@ -784,13 +800,13 @@ liststructure.code.tex)
 liststructureext.code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 array.code.tex
-\c@pgfplotsarray@tmp=\count136
+\c@pgfplotsarray@tmp=\count137
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 matrix.code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
 shared.code.tex
-\c@pgfplotstable@counta=\count137
+\c@pgfplotstable@counta=\count138
 \t@pgfplotstable@a=\toks39
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
@@ -803,7 +819,7 @@ ta.code.tex))
 .code.tex)
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
 s.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count138
+\c@pgfplotslibrarysurf@no=\count139
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
 .surfshading.pgfsys-pdftex.def)))
@@ -833,14 +849,14 @@ x)
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen170
-\pgfdecoratedremainingdistance=\dimen171
-\pgfdecoratedinputsegmentcompleteddistance=\dimen172
-\pgfdecoratedinputsegmentremainingdistance=\dimen173
-\pgf@decorate@distancetomove=\dimen174
-\pgf@decorate@repeatstate=\count139
-\pgfdecorationsegmentamplitude=\dimen175
-\pgfdecorationsegmentlength=\dimen176
+\pgfdecoratedcompleteddistance=\dimen177
+\pgfdecoratedremainingdistance=\dimen178
+\pgfdecoratedinputsegmentcompleteddistance=\dimen179
+\pgfdecoratedinputsegmentremainingdistance=\dimen180
+\pgf@decorate@distancetomove=\dimen181
+\pgf@decorate@repeatstate=\count140
+\pgfdecorationsegmentamplitude=\dimen182
+\pgfdecorationsegmentlength=\dimen183
 )
 \tikz@lib@dec@box=\box43
 )
@@ -852,13 +868,13 @@ brarydecorations.pathmorphing.code.tex))
 s/tikzlibrarydecorations.pathreplacing.code.tex
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
 brarydecorations.pathreplacing.code.tex))
-\pgfplots@numplots=\count140
-\pgfplots@xmin@reg=\dimen177
-\pgfplots@xmax@reg=\dimen178
-\pgfplots@ymin@reg=\dimen179
-\pgfplots@ymax@reg=\dimen180
-\pgfplots@zmin@reg=\dimen181
-\pgfplots@zmax@reg=\dimen182
+\pgfplots@numplots=\count141
+\pgfplots@xmin@reg=\dimen184
+\pgfplots@xmax@reg=\dimen185
+\pgfplots@ymin@reg=\dimen186
+\pgfplots@ymax@reg=\dimen187
+\pgfplots@zmin@reg=\dimen188
+\pgfplots@zmax@reg=\dimen189
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibraryplotmarks.code.tex
@@ -869,45 +885,96 @@ ks.code.tex
 File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
 ))) (/usr/local/texlive/2015/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count141
+\c@float@type=\count142
 \float@exts=\toks40
 \float@box=\box44
 \@float@everytoks=\toks41
 \@floatcapt=\box45
 )
-\@float@every@figure=\toks42
+(/usr/local/texlive/2015/texmf-dist/tex/latex/cprotect/cprotect.sty
+Package: cprotect 2011/01/27 v1.0e (Bruno Le Floch)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/bigfoot/suffix.sty
+Package: suffix 2006/07/15 1.5a Variant command support
+)
+\CPT@WriteOut=\write4
+\c@CPT@WriteCount=\count143
+\c@CPT@numB=\count144
+\CPT@commandatend@toks=\toks42
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/verbatimbox/verbatimbox.sty
+Package: verbatimbox 2014/03/12 v3.13 Routines for placing verbatim text into b
+oxes, useful in places where the verbatim environment is inaccessible. Secondar
+ily, for adding vertical buffer around an object.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks43
+\verbatim@line=\toks44
+\verbatim@in@stream=\read2
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/readarray/readarray.sty
+Package: readarray 2013/05/09 v1.2 Routines for inputting array data and recall
+ing it on an element-by-element basis. Currently supports 2-D and 3-D array
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ifnextok/ifnextok.sty
+Package: ifnextok 2011/06/27 v0.3 test next token (UL)
+)
+\c@@index=\count145
+\c@@plane=\count146
+\c@@row=\count147
+\c@@col=\count148
+\c@use@args=\count149
+\c@@record=\count150
+\c@arg@index=\count151
+\c@break@count=\count152
+)
+\savedverbbox=\box46
+\c@VerbboxLineNo=\count153
+\boxtopsep=\dimen190
+\boxbottomsep=\dimen191
+\ps@tempdima=\dimen192
+\ps@tempboxa=\box47
+\boxtop@sep=\skip58
+\boxbottom@sep=\skip59
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\@float@every@figure=\toks45
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
 ts.statistics.code.tex) (./bakalarka.aux (./tab_tex/tab_comboperf.aux)
 (./graph_tex/graph_zoom.aux) (./graph_tex/graph_rot.aux))
 \openout1 = `bakalarka.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
-LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count142
-\scratchdimen=\dimen183
-\scratchbox=\box46
-\nofMPsegments=\count143
-\nofMParguments=\count144
-\everyMPshowfont=\toks43
-\MPscratchCnt=\count145
-\MPscratchDim=\dimen184
-\MPnumerator=\count146
-\makeMPintoPDFobject=\count147
-\everyMPtoPDFconversion=\toks44
+\scratchcounter=\count154
+\scratchdimen=\dimen193
+\scratchbox=\box48
+\nofMPsegments=\count155
+\nofMParguments=\count156
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count157
+\MPscratchDim=\dimen194
+\MPnumerator=\count158
+\makeMPintoPDFobject=\count159
+\everyMPtoPDFconversion=\toks47
 ) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -952,7 +1019,11 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box47
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box49
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
@@ -965,30 +1036,30 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
 (/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 ))
-\c@lstlisting=\count148
+\c@lstlisting=\count160
 
 ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.12} (current compat level: 1.8).
 
-LaTeX Font Info:    Calculating math sizes for size <16> on input line 35.
+LaTeX Font Info:    Calculating math sizes for size <16> on input line 39.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 35.
+(Font)              size <17.28> substituted on input line 39.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <16> not available
-(Font)              size <17.28> substituted on input line 35.
+(Font)              size <17.28> substituted on input line 39.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <16> not available
-(Font)              size <17.28> substituted on input line 35.
+(Font)              size <17.28> substituted on input line 39.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 35.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 35.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1004,8 +1075,8 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (./bakalarka.toc [4
 
 ])
-\tf@toc=\write4
-\openout4 = `bakalarka.toc'.
+\tf@toc=\write5
+\openout5 = `bakalarka.toc'.
 
 
 
@@ -1044,7 +1115,15 @@ File: img/moravec_posun.png Graphic file (type png)
 <use img/moravec_posun.png>
 Package pdftex.def Info: img/moravec_posun.png used on input line 22.
 (pdftex.def)             Requested size: 361.34999pt x 332.22552pt.
- [4
+
+
+Package caption Warning: \label without proper \caption on input line 23.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `Moravec_posun' on page 4 undefined on input line 26.
+
+[4
 
 ]
 
@@ -1064,8 +1143,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: img/Harris_eigen.png Graphic file (type png)
 
 <use img/Harris_eigen.png>
-Package pdftex.def Info: img/Harris_eigen.png used on input line 108.
-(pdftex.def)             Requested size: 325.215pt x 299.07846pt.
+Package pdftex.def Info: img/Harris_eigen.png used on input line 107.
+(pdftex.def)             Requested size: 289.07999pt x 265.84322pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1087,39 +1166,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9] <text_img/fast_corner.pdf, id=71, 614.295pt x 794.97pt>
-File: text_img/fast_corner.pdf Graphic file (type pdf)
+[9] <img/fast_corner.png, id=71, 515.0442pt x 268.8444pt>
+File: img/fast_corner.png Graphic file (type png)
 
-<use text_img/fast_corner.pdf>
-Package pdftex.def Info: text_img/fast_corner.pdf used on input line 158.
-(pdftex.def)             Requested size: 361.34999pt x 467.63326pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[10]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[11 <./text_img/fast_corner.pdf>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[12] <text_img/sift_dog.pdf, id=93, 794.97pt x 614.295pt>
-File: text_img/sift_dog.pdf Graphic file (type pdf)
-
-<use text_img/sift_dog.pdf>
-Package pdftex.def Info: text_img/sift_dog.pdf used on input line 200.
-(pdftex.def)             Requested size: 361.34999pt x 279.23282pt.
+<use img/fast_corner.png>
+Package pdftex.def Info: img/fast_corner.png used on input line 157.
+(pdftex.def)             Requested size: 361.34999pt x 188.62053pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1127,19 +1179,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13 <./text_img/sift_dog.pdf, page is rotated 90 degrees>]
+[10 <./img/fast_corner.png>] <img/DOG.png, id=76, 397.9668pt x 273.4215pt>
+File: img/DOG.png Graphic file (type png)
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[14] <text_img/sift_kp.pdf, id=112, 614.295pt x 794.97pt>
-File: text_img/sift_kp.pdf Graphic file (type pdf)
-
-<use text_img/sift_kp.pdf>
-Package pdftex.def Info: text_img/sift_kp.pdf used on input line 251.
-(pdftex.def)             Requested size: 361.34999pt x 467.63326pt.
+<use img/DOG.png>
+Package pdftex.def Info: img/DOG.png used on input line 192.
+(pdftex.def)             Requested size: 361.34999pt x 248.2799pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1147,14 +1192,61 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
+[11]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16 <./text_img/sift_kp.pdf>]
+[12 <./img/DOG.png>] <img/sift_feature.png, id=84, 172.4844pt x 141.8901pt>
+File: img/sift_feature.png Graphic file (type png)
+
+<use img/sift_feature.png>
+Package pdftex.def Info: img/sift_feature.png used on input line 208.
+(pdftex.def)             Requested size: 216.81pt x 178.36893pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13 <./img/sift_feature.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14] <img/sift_kp.png, id=94, 483.2454pt x 267.1581pt>
+File: img/sift_kp.png Graphic file (type png)
+ <use img/sift_kp.png>
+Package pdftex.def Info: img/sift_kp.png used on input line 258.
+(pdftex.def)             Requested size: 361.34999pt x 199.77698pt.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 259.
+
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/ae/t1aett.fd
+File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15 <./img/sift_kp.png>]
+
+LaTeX Warning: Reference `sec:haar' on page 16 undefined on input line 281.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1162,9 +1254,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [17]
-Overfull \hbox (0.39227pt too wide) in paragraph at lines 312--313
+Overfull \hbox (0.39227pt too wide) in paragraph at lines 319--320
 \T1/aer/m/n/12 Binary Ro-bust In-de-pen-dent Ele-men-tary Fe-a-tu-res ne-boli B
 RIEF [[]] je deskrip-
+ []
+
+
+Overfull \hbox (0.30922pt too wide) in paragraph at lines 323--324
+\T1/aer/m/n/12 Principem fun-go-vání al-go-ritmu je po-rov-ná-vání in-ten-zit p
+ár· ob-ra-zo-vých bod·
  []
 
 
@@ -1174,13 +1272,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [18]
-Overfull \hbox (0.30922pt too wide) in paragraph at lines 316--317
-\T1/aer/m/n/12 Principem fun-go-vání al-go-ritmu je po-rov-ná-vání in-ten-zit p
-ár· ob-ra-zo-vých bod·
- []
-
-
-Overfull \hbox (6.4521pt too wide) in paragraph at lines 334--335
+Overfull \hbox (6.4521pt too wide) in paragraph at lines 341--342
 []\T1/aer/m/n/12 Porovnání p°í-znak· se pro-vede po-mocí Ha-m-min-govy vzdá-le-
 nosti deskrip-
  []
@@ -1214,6 +1306,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22]
 
+LaTeX Warning: Reference `sec:haar' on page 23 undefined on input line 418.
+
+<img/haar_filters.png, id=124, 407.80928pt x 366.51215pt>
+File: img/haar_filters.png Graphic file (type png)
+
+<use img/haar_filters.png>
+Package pdftex.def Info: img/haar_filters.png used on input line 424.
+(pdftex.def)             Requested size: 216.81pt x 194.85449pt.
+
+<img/haar_faces.png, id=125, 335.2525pt x 203.76125pt>
+File: img/haar_faces.png Graphic file (type png)
+
+<use img/haar_faces.png>
+Package pdftex.def Info: img/haar_faces.png used on input line 432.
+(pdftex.def)             Requested size: 216.81pt x 131.77165pt.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -1226,15 +1335,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24]
+[24 <./img/haar_filters.png> <./img/haar_faces.png>]
+<img/haar_integral.png, id=133, 226.59656pt x 177.66376pt>
+File: img/haar_integral.png Graphic file (type png)
+
+<use img/haar_integral.png>
+Package pdftex.def Info: img/haar_integral.png used on input line 443.
+(pdftex.def)             Requested size: 216.81pt x 169.99138pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25]
-Overfull \hbox (1.68985pt too wide) in paragraph at lines 473--473
+[25 <./img/haar_integral.png>]
+Overfull \hbox (1.68985pt too wide) in paragraph at lines 498--498
 []\T1/aer/bx/n/14.4 Algoritmus tré-no-vání kaskády a de-tekce ob-jekt· 
  []
 
@@ -1244,14 +1360,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26]
+[26] <img/haar_detected.jpg, id=141, 506.89375pt x 443.6575pt>
+File: img/haar_detected.jpg Graphic file (type jpg)
+
+<use img/haar_detected.jpg>
+Package pdftex.def Info: img/haar_detected.jpg used on input line 508.
+(pdftex.def)             Requested size: 216.81pt x 189.76031pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[27 <./img/haar_detected.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1272,23 +1394,44 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30]) (./imp_test.tex
+[30]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31]
-Kapitola 4.
-[32
+[31]) (./imp_test.tex
 
-]
-LaTeX Font Info:    Try loading font information for T1+aett on input line 52.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/ae/t1aett.fd
-File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
-)
-Overfull \hbox (26.97018pt too wide) in paragraph at lines 52--53
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32]
+Kapitola 4.
+<img/belledonne.png, id=161, 1525.7pt x 1114.1625pt>
+File: img/belledonne.png Graphic file (type png)
+ <use img/belledonne.png>
+Package pdftex.def Info: img/belledonne.png used on input line 11.
+(pdftex.def)             Requested size: 361.34999pt x 263.86832pt.
+
+Overfull \hbox (0.13676pt too wide) in paragraph at lines 15--16
+\T1/aett/m/n/12 http : / / kahlan . eps . surrey . ac . uk / featurespace / web
+ / data . htm$\T1/aer/m/n/12 . Se-stává
+ []
+
+[33
+
+ <./img/belledonne.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34]
+Overfull \hbox (26.97018pt too wide) in paragraph at lines 64--65
 []\T1/aer/m/n/12 Data o sou-bo-rech v da-ta-setu jsou vy-t¥-ºena po-mocí skript
 u []\T1/aett/m/n/12 create_configs.py
  []
@@ -1298,7 +1441,13 @@ Overfull \hbox (28.7966pt too wide) in paragraph at lines 2--13
  [][] 
  []
 
-) (./tab_tex/tab_descperf.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35]) (./tab_tex/tab_descperf.tex
 Overfull \hbox (37.97653pt too wide) in paragraph at lines 2--10
  [][] 
  []
@@ -1310,7 +1459,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33]
+[36]
 \openout2 = `tab_tex/tab_comboperf.aux'.
 
  (./tab_tex/tab_comboperf.tex
@@ -1325,7 +1474,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[34
+[37
 
 ]
 
@@ -1334,7 +1483,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35
+[38
 
 ] (./tab_tex/tab_dettimes.tex) (./tab_tex/tab_desctimes.tex)
 (./tab_tex/tab_matchcount.tex
@@ -1349,14 +1498,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36]
+[39]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37]
+[40]
 \openout2 = `graph_tex/graph_zoom.aux'.
 
  (./graph_tex/graph_zoom.tex)
@@ -1366,7 +1515,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38]
+[41]
 \openout2 = `graph_tex/graph_rot.aux'.
 
  (./graph_tex/graph_rot.tex)
@@ -1376,21 +1525,34 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39]) (./zaver.tex
+[42]) (./zaver.tex
 Kapitola 5.
-) [40
+) [43
 
 
 
 
 
-] (./bakalarka.lof)
-\tf@lof=\write5
-\openout5 = `bakalarka.lof'.
+] (./bakalarka.lof
+Overfull \hbox (2.55905pt too wide) in paragraph at lines 11--11
+ [][] []\T1/aer/m/n/12 Extrakce SIFT deskrip-toru. Zdroj: $\T1/aett/m/n/12 http
+ : / / www . codeproject . 
+ []
 
- (./bakalarka.bbl [41
+[44
 
-] [42
+])
+\tf@lof=\write6
+\openout6 = `bakalarka.lof'.
+
+ (./bakalarka.bbl
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 15.71393pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[45] [46
 
 ])
 
@@ -1399,21 +1561,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[43] (./bakalarka.aux (./tab_tex/tab_comboperf.aux) (./graph_tex/graph_zoom.aux
+[47] (./bakalarka.aux (./tab_tex/tab_comboperf.aux) (./graph_tex/graph_zoom.aux
 ) (./graph_tex/graph_rot.aux))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 25485 strings out of 493054
- 613047 string characters out of 6134759
- 829953 words of memory out of 5000000
- 28417 multiletter control sequences out of 15000+600000
+ 26922 strings out of 493054
+ 638081 string characters out of 6134759
+ 847663 words of memory out of 5000000
+ 29817 multiletter control sequences out of 15000+600000
  58352 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,16n,105p,1484b,2328s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,16n,105p,1484b,2359s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1432,10 +1597,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (49 pages, 1217519 bytes).
+Output written on bakalarka.pdf (53 pages, 4187018 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
+ 271 PDF objects out of 1000 (max. 8388607)
+ 177 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 

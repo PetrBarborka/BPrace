@@ -2,13 +2,19 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Vizualizace posun\IeC {\r u} v jenotliv\IeC {\'y}ch sm\IeC {\v e}rech. Zdroj: \cite {moravec1980obstacle}}}{5}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Vliv tvaru okol\IeC {\'\i } bodu na rozlo\IeC {\v z}en\IeC {\'\i } vlastn\IeC {\'\i }ch \IeC {\v c}\IeC {\'\i }sel matice $\mathbb {M}$. Vlastn\IeC {\'\i } \IeC {\v c}\IeC {\'\i }sla $\lambda _1$ a $\lambda _2$ jsou tu ozna\IeC {\v c}ena $\alpha $ a $\beta $. Zdroj: \cite {harris1988combined}}}{8}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Vliv velikosti vlastn\IeC {\'\i }ch \IeC {\v c}\IeC {\'\i }sel na nalezen\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znakov\IeC {\'e}ho bodu v metod\IeC {\v e} Shi-Tomasi}}{9}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Extrakce FAST p\IeC {\v r}\IeC {\'\i }znaku}}{11}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Tvorba DoG pyramidy}}{13}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Extrakce SIFT deskriptoru}}{16}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Vizualizace posun\IeC {\r u} v jenotliv\IeC {\'y}ch sm\IeC {\v e}rech. Zdroj: \cite {moravec1980obstacle}\relax }}{5}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Vliv tvaru okol\IeC {\'\i } bodu na rozlo\IeC {\v z}en\IeC {\'\i } vlastn\IeC {\'\i }ch \IeC {\v c}\IeC {\'\i }sel matice $\mathbb {M}$. Vlastn\IeC {\'\i } \IeC {\v c}\IeC {\'\i }sla $\lambda _1$ a $\lambda _2$ jsou tu ozna\IeC {\v c}ena $\alpha $ a $\beta $. Zdroj: \cite {harris1988combined}\relax }}{8}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Vliv velikosti vlastn\IeC {\'\i }ch \IeC {\v c}\IeC {\'\i }sel na nalezen\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znakov\IeC {\'e}ho bodu v metod\IeC {\v e} Shi-Tomasi\relax }}{9}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Extrakce FAST p\IeC {\v r}\IeC {\'\i }znaku vyhodnocen\IeC {\'\i }m bod\IeC {\r u} v jeho okol\IeC {\'\i }. Zdroj: \cite {rosten2010faster} \relax }}{10}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Tvorba DoG pyramidy. Zdroj: \cite {lowe2004distinctive}\relax }}{12}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Testov\IeC {\'a}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }znaku v DOG pyramid\IeC {\v e}. Zdroj: \cite {lowe2004distinctive}\relax }}{13}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Extrakce SIFT deskriptoru. Zdroj: \url {http://www.codeproject.com/KB/recipes/619039/SIFT.JPG}\relax }}{15}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces B\IeC {\'a}zov\IeC {\'e} filtry pou\IeC {\v z}it\IeC {\'e} v Haar detektoru. Zdroj: \cite {viola2001rapid}\relax }}{24}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Aplikace Haarov\IeC {\'y}ch b\IeC {\'a}zov\IeC {\'y}ch filtr\IeC {\r u} na obraz p\IeC {\v r}i detekci Zdroj: \cite {viola2001rapid}\relax }}{24}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces V\IeC {\'y}po\IeC {\v c}et ploch v integr\IeC {\'a}ln\IeC {\'\i }m obrazu. Sou\IeC {\v c}et hodnot pod plochou A je hodnota integr\IeC {\'a}ln\IeC {\'\i }ho obrazu v bod\IeC {\v e} 1. Plocha B: hodnota v bod\IeC {\v e} 2 - hodnota v bod\IeC {\v e} 1. Plocha D: bod 4 + bod 1 - bod 2 - bod 3. Zdroj: \cite {viola2001rapid}\relax }}{25}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad v\IeC {\'y}sledku detekce pomoc\IeC {\'\i } Haar algoritmu. V tomto p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e} byly pou\IeC {\v z}ity dva nez\IeC {\'a}visl\IeC {\'e} detektory: jeden na detekci obli\IeC {\v c}ej\IeC {\r u}, druh\IeC {\'y} pro detekci o\IeC {\v c}\IeC {\'\i }. Zdroj: \url {http://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html} \relax }}{27}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Short Heading}}{38}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Short Heading}}{39}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Subset Belledonne z datasetu - stejn\IeC {\'a} sc\IeC {\'e}na s postupn\IeC {\v e} se zv\IeC {\v e}t\IeC {\v s}uj\IeC {\'\i }c\IeC {\'\i }m zoomem. Porovn\IeC {\'a}v\IeC {\'a} se v\IeC {\v z}dy prvn\IeC {\'\i } obr\IeC {\'a}zek vlevo naho\IeC {\v r}e s jedn\IeC {\'\i }m z ostatn\IeC {\'\i }ch \relax }}{33}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Short Heading}}{41}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Short Heading}}{42}
 \addvspace {10\p@ }

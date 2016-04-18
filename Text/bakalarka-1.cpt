@@ -1,0 +1,1 @@
+Příklad výsledku detekce pomocí Haar algoritmu. V tomto případě byly použity dva nezávislé detektory: jeden na detekci obličejů, druhý pro detekci očí. Zdroj: \theverbbox^^E^^L 

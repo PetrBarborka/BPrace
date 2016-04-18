@@ -103,10 +103,10 @@ kde det$(\mathbb{M})$ je determinant matice $\mathbb{M}$, stopa$(\mathbb{M})$ je
 Body se tedy označí porovnáním kritéria $\mathbb{R}$ se zvoleným prahem.
 
 \begin{figure}[!ht] 
+	\centering
+	\includegraphics[width=4in]{img/Harris_eigen.png}
+	\caption{Vliv tvaru okolí bodu na rozložení vlastních čísel matice $\mathbb{M}$. Vlastní čísla $\lambda_1$ a $\lambda_2$ jsou tu označena $\alpha$ a $\beta$. Zdroj: \cite{harris1988combined}}
 	\label{Harris_eigen}
-	\centering{
-		\includegraphics[width=4.5in]{img/Harris_eigen.png}
-	\caption{Vliv tvaru okolí bodu na rozložení vlastních čísel matice $\mathbb{M}$. Vlastní čísla $\lambda_1$ a $\lambda_2$ jsou tu označena $\alpha$ a $\beta$. Zdroj: \cite{harris1988combined}}}
 \end{figure}
 
 
@@ -123,7 +123,7 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 	
 	\begin{figure}
 	\begin{tikzpicture}
-	\centering{
+	\centering
 	% horizontal axis
 	\draw[->] (0,0) -- (12,0) node[anchor=north] {$\lambda_1$};
 	% vertical
@@ -141,8 +141,7 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 	
 	\draw[gray, thick] (2,0) -- (2,8);
 	\draw[gray, thick] (0,2) -- (12,2);
-%	\filldraw[black] (0,0) circle (2pt) node[anchor=west] {Intersection point};
-	}
+
 	\end{tikzpicture}
 	\caption{\protect Vliv velikosti vlastních čísel na nalezení příznakového bodu v metodě Shi-Tomasi}\label{ST_eigen}
 	\end{figure}
@@ -154,15 +153,16 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 	Jak název algoritmu napovídá, jedná se o rychlou a jednoduchou metodu nalezení bodových příznaků v obraze. Autoři uvádějí dvakrát větší rychlost, než vykazuje SIFT (sekce \ref{sec:sift}) a dokonce větší, než Harris. Obě tato tvrzení byla potvrzena v kapitole \ref{chap:impl}. Jedná se o čistou detekci příznaků, algoritmus neobsahuje deskriptor nebo metodu porovnávání příznaků. FAST \cite{rosten2010faster} je ale využíván detektorem systému ORB popsaným v sekci \ref{sec:orb}.
 	
 	\begin{figure}[!ht] 
-		\centering{
-			\includegraphics[width=5in]{text_img/fast_corner.pdf}}
-		\caption{Extrakce FAST příznaku} 	\label{fast_corner}
+		\centering
+			\includegraphics[width=5in]{img/fast_corner.png}
+		\caption{Extrakce FAST příznaku vyhodnocením bodů v jeho okolí. Zdroj: \cite{rosten2010faster} } 	
+		\label{fast_corner}
 	\end{figure}
 	
 	\subsection{Algoritmus}
 	
 		\begin{enumerate}
-			\item Okolo testovaného bodu $t$ se zkonstruuje kružnice sestávající z 16 bodů $t_{1-16}$. 
+			\item Okolo testovaného bodu $t$ se zkonstruuje kružnice sestávající z 16 bodů $t_{1-16}$ (obrázek \ref{fast_corner}). 
 			\item Je-li v kružnici $n$ (doporučuje se $n=12$) nebo více spojených bodů takových, že $\lvert I(p) - I(t_i) \rvert > T$, bod je označen za příznak. $I(.)$ je intenzita daného bodu, $T$ je definovaný práh rozdílu intenzit.
 			\item Protože algoritmus má tendenci označit jako příznaky mnoho sousedících bodů, je vhodné po nalezení všech příznaků provést potlačení nemaximálních hodnot (ang. Non-maximum supression). To zajistí, že se z každé spojené oblasti sousedících příznakových bodů vybere jen ten, který má největší nebo nejmenší intenzitu a ostatní se zahodí.
 		\end{enumerate}
@@ -186,8 +186,14 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 	
 	\begin{enumerate}
 		\item Hledání jasových extrémů v celém obrazu nezávisle na zvětšení, neboli měřítku: Provede se pomocí rozdílů gaussianů (Difference-of-Gaussians, DoG).
+		
+			\begin{figure}[!ht] 
+				\centering
+					\includegraphics[width=5in]{img/DOG.png}
+				\caption{Tvorba DoG pyramidy. Zdroj: \cite{lowe2004distinctive}} 	\label{sift_dog}
+			\end{figure} 
 			
-			Pracuje se s matematickou konstrukcí laplaciánu gaussiánů, což znamená rozdělení obrazu na pyramidu postupně více rozostřených verzí (rozostření se provede pomocí gaussovského jádra - masky se vzrůstajícím rozptylem $\sigma{}$). Laplacián poskytne spojitou alternativu rozdílů mezi jednotlivými úrovněmi tohoto postupného rozostření. Tento postup zajišťuje, že najdeme-li někde v těchto "rozdílech"\ příznakový bod, nalezneme ho stejně i v jiném obrazu, kde se bude nacházet v jiném měřítku. V takovém obraze se bude příznak nacházet jinde v tomto prostoru rozostření, ale bude vypadat stejně, což umožňuje porovnání nezávisle na měřítku.
+			Pracuje se s matematickou konstrukcí laplaciánu gaussiánů, což znamená rozdělení obrazu na pyramidu postupně více rozostřených verzí (rozostření se provede pomocí gaussovského jádra - masky se vzrůstajícím rozptylem $\sigma{}$ - obrázek \ref{sift_dog}). Laplacián poskytne spojitou alternativu rozdílů mezi jednotlivými úrovněmi tohoto postupného rozostření. Tento postup zajišťuje, že najdeme-li někde v těchto "rozdílech"\ příznakový bod, nalezneme ho stejně i v jiném obrazu, kde se bude nacházet v jiném měřítku. V takovém obraze se bude příznak nacházet jinde v tomto prostoru rozostření, ale bude vypadat stejně, což umožňuje porovnání nezávisle na měřítku.
 			
 			Protože výše popsaný postup platí pro spojitý prostor, při práci s diskrétním obrazem se aproximuje vytvořením pyramidy postupně více a více rozostřených vrstev, kdy tuto pyramidu ještě rozdělíme do oktáv (anglicky octaves). Nejvyšší rozostření oktávy v SIFTu by mělo mít oproti nejnižšímu dvojnásobný rozptyl $\sigma$. Jedná se o analogii hudebního názvosloví, kdy nejvyšší tón oktávy má oproti nejnižšímu dvojnásobnou frekvenci v hertzích. V další oktávě se též oproti předchozí pracuje s dvojnásobně redukovaným rozlišením obrazu (každý druhý řádek, každý druhý sloupec), protože se předpokládá, že dojde jenom k malé ztrátě informace při značném snížení výkonových nároků.
 			
@@ -195,15 +201,15 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 			
 			Z této pyramidy gaussiánů se vytvoří pyramida jejich rozdílů prostým odečtením následujících vrstev v pyramidě a vznikne v úvodu zmíněný DoG operátor.		
 			
-		\begin{figure}[!ht] 
-			\centering{
-				\includegraphics[width=5in]{text_img/sift_dog.pdf}}
-			\caption{Tvorba DoG pyramidy} 	\label{sift_dog}
-		\end{figure} 
-			
-		\item Lokalizace klíčových oblastí: Na každé kandidátské lokaci se provede rozhodnutí o umístění a relativní velikosti oblasti. Klíčové oblasti jsou vybrány na základě měřítek jejich stability
+		\item Lokalizace klíčových oblastí: Na každé kandidátské lokaci se provede rozhodnutí o umístění a relativní velikosti oblasti. Klíčové oblasti jsou vybrány na základě měřítek jejich stability.
 		
-			Každý bod výsledné pyramidy z předchozího kroku se porovná s celkem 26 svými sousedy: 8 bezprostředně příléhajícími ve své vrstvě a oknem 3x3, tedy 9 bodů na stejné lokaci ve vrstvě nad a pod. Za kandidáta se bod označí v případě, že má ze všech těchto sousedů největší nebo nejmenší intenzitu. (v krajních vrstvách oktáv se nehledá, neboť jim chybí sousední vrstva nad nebo pod).
+    		\begin{figure}[!ht] 
+    			\centering
+    				\includegraphics[width=3in]{img/sift_feature.png}
+    			\caption{Testování příznaku v DOG pyramidě. Zdroj: \cite{lowe2004distinctive}} 	\label{sift_feature}
+    		\end{figure} 
+		
+			Každý bod výsledné pyramidy z předchozího kroku se porovná s celkem 26 svými sousedy: 8 bezprostředně příléhajícími ve své vrstvě a oknem 3x3, tedy 9 bodů na stejné lokaci ve vrstvě nad a pod, jak je zobrazeno na obrázku \ref{sift_feature}. Za kandidáta se bod označí v případě, že má ze všech těchto sousedů největší nebo nejmenší intenzitu. (v krajních vrstvách oktáv se nehledá, neboť jim chybí sousední vrstva nad nebo pod).
 			
 			Kolem takového kandidátského bodu lze za účelem dosažení subpixelové přesnosti zkonstruovat trojrozměrnou plochu pomocí Taylorova rozvoje:
 			
@@ -233,7 +239,8 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 			\end{bmatrix},\\
 			\frac{Tr(H)^2}{Det(H)} < \frac{(r+1))}{r},
 			\end{align}
-			$r$ je volitelný práh. Jeho hodnotu  autoři \cite{lowe2004distinctive} doporučují 10.
+			$r$ je volitelný práh. Jeho hodnotu  autoři
+		    \cite{lowe2004distinctive} doporučují 10.
 			
 								
 		\item Určení orientace: Ke každé klíčové oblasti je přiřazena jedna nebo více orientací podle směrů lokálních gradientů. Další operace se provádějí na oblasti, která je transformovaná pomocí informací o relativní velikosti, umístění a orientaci aby bylo dosaženo nezávislosti deskriptoru na těchto  vlastnostech
@@ -247,16 +254,16 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 			Výsledkem je SIFT deskriptor: 16 histogramů gradientů po 8 orientačních kategoriích (binech), tedy matice 4x4x8. Jako poslední krok se tento vektor normalizuje na jednotkovou délku aby se potlačily vlivy osvětlení. 
 			
 			\begin{figure}[!ht] 
-				\centering{
-					\includegraphics[width=5in]{text_img/sift_kp.pdf}}
-				\caption{Extrakce SIFT deskriptoru} 	\label{sift_kp}
+				\centering
+					\includegraphics[width=5in]{img/sift_kp.png}
+				\caption{Extrakce SIFT deskriptoru. Zdroj: \protect\url{http://www.codeproject.com/KB/recipes/619039/SIFT.JPG}} 	\label{sift_kp}
 			\end{figure}
 			
 	\end{enumerate}
 	
 	Algoritmus vytváří velké množství příznaků, které hustě pokrývají celou plochu obrazu (cca 2000 příznaků na obraz 500x500px). Tyto příznaky je potřeba uchovávat v databázi a implementovat algoritmus pro její správu.
 	
-	Výsledný deskriptor je trojrozměrná matice 4x4x8, příznaky se porovnávají pomocí algoritmu nalezení nejbližšího souseda, resp. jeho aproximace.
+	Výsledný deskriptor je trojrozměrná matice 4x4x8, příznaky se porovnávají pomocí algoritmu nalezení nejbližšího souseda, resp. jeho aproximace. Celý proces je zachycen na obrázku \ref{sift_kp}.
 	
 	\subsection{Porovnávání příznaků}
 	
@@ -271,7 +278,7 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 
 	Speeded up robust features neboli SURF \cite{bay2006surf} je metoda, která ideově navazuje na SIFT - jedná se o jeho aproximaci. Namísto konstrukce aproximace laplaciánu postupným rozostřováním jako v u SIFTu se předpokládá, že výskyt příznaků závisí čístě na determinantech Hessovských matic, jejíž hodnota se velmi rychle odhadne pomocí filtrací obdélníkovými filtry.
 	
-	Při výrobě deskriptoru se namísto gradientů z lokálních diferencí použijí Haarovské waveletové filtry, z jejichž aplikací se odhadne orientace i přímo sestaví deskriptor. 
+	Při výrobě deskriptoru se namísto gradientů z lokálních diferencí použijí Haarovské waveletové filtry, z jejichž aplikací se odhadne orientace i přímo sestaví deskriptor. Podrobně se Haarovskými filtry a rychlým výpočtem odezvy na ně pomocí integrálního obrazu zabývá sekce \ref{sec:haar} pojednávající o Haarovském detektoru objektů.
 	
 \subsection{Algoritmus}
 
@@ -408,16 +415,34 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	
 
 \section{Haar}
+\ref{sec:haar}
 
-
-	Pojem Haar nebo Haar algoritmus je v kontextu strojového vidění učící se algoritmus, který se využívá k detekci objektů v digitalizovaném obrazu \cite{viola2001rapid}. Jeho principem je aplikace dvojrozměrných filtrů založených na Haarových bázových funkcích na zkoumaný obraz (resp. výseč obrazu na které se provádí detekce). Tím vznikne pro každý zkoumaný obraz velké množství příznaků (logicky násobně větší než je počet pixelů obrazu), které se liší svou diskriminační schopností. 
+	Pojem Haar nebo Haar algoritmus je v kontextu strojového vidění učící se algoritmus, který se využívá k detekci objektů v digitalizovaném obrazu \cite{viola2001rapid}. Jeho principem je aplikace dvojrozměrných filtrů založených na Haarových bázových funkcích \ref{haar_filters} na zkoumaný obraz (resp. výseč obrazu na které se provádí detekce - obrázek \ref{haar_faces}). Tím vznikne pro každý zkoumaný obraz velké množství příznaků (logicky násobně větší než je počet pixelů obrazu), které se liší svou diskriminační schopností. 
+	
+	\begin{figure}[!ht] 
+		\centering{
+			\includegraphics[width=3in]{img/haar_filters.png}}
+		\caption{Bázové filtry použité v Haar detektoru. Zdroj: \cite{viola2001rapid}}	\label{haar_filters}
+	\end{figure} 
 	
 	Obecně jde ale o příznaky, jejichž průměrná chyba je jenom o o málo menší než 0.5, čili jsou jenom o málo lepším ukazatelem než náhodný odhad. Z této počáteční množiny příznaků se však pomocí algoritmu AdaBoost (sekce \ref{subsec_adaboost}) vytvoří kaskáda detekčních vrstev se vzrůstajícím množstvím detektorů (detektor je zde klasifikátor založený na jednom z příznaků) a kvalitou dektekce tak, že nejdiskriminativnější příznaky jsou umístěny v prvních (nejdříve vyhodnocovaných) vrstvách. Pokud zkoumaný obraz neprojde jednou vrstvou detekční kaskády, další se již nevyhodnocují a celý obraz je zamítnut. 
+	
+	\begin{figure}[!ht] 
+		\centering{
+			\includegraphics[width=3in]{img/haar_faces.png}}
+		\caption{Aplikace Haarových bázových filtrů na obraz při detekci Zdroj: \cite{viola2001rapid}} 	\label{haar_faces}
+	\end{figure} 
 	
 	Tím je dosaženo vyloučení co největšího množství kandidátů za cenu co nejmenšího výpočetního výkonu. Autoři původního článku například uvádějí, že z asi 160000 možných klasifikátorů pro obraz 24x24 bodů sestavili kaskádu pouze 6000 z nich, ale průměrný počet vyhodnocovaných klasifikátorů na jednu zkoumanou výseč obrazu byl pouze 10. K efektivnímu výpočtu reakcí obrazu na Haarovy filtry je využita metoda integrálního obrazu.
 	
 \subsection{Integrální obraz}
-	Metoda integrálního obrazu reprezentuje každý bod obrazu jako součet odpovídajícího bodu zdrojového obrazu a všech bodů, které se ve směrech nacházejí nalevo a vzhůru od něj. Tato reprezentace se zde používá proto, že reakce na Haarovy filtry v bodě je dána sčítáním a odečítáním hodnot jasu obrazu v obdélníkových výsečích kolem bodu. Součet hodnot bodů v obdélníkové výseči obrazu je totiž dán součtem hodnot integrálního obrazu v pravém dolním a levém horním rohu obdélníku a odečtením hodnot integrálního obrazu v ostatních dvou rozích obdélníku. To pro počítání velkého množství součtů takových výsečí značně zrychlí výpočet, neboť integrální obraz se počítá pouze jednou.
+	Metoda integrálního obrazu reprezentuje každý bod obrazu jako součet odpovídajícího bodu zdrojového obrazu a všech bodů, které se ve směrech nacházejí nalevo a vzhůru od něj. Tato reprezentace se zde používá proto, že reakce na Haarovy filtry v bodě je dána sčítáním a odečítáním hodnot jasu obrazu v obdélníkových výsečích kolem bodu. Součet hodnot bodů v obdélníkové výseči obrazu je totiž dán součtem hodnot integrálního obrazu v pravém dolním a levém horním rohu obdélníku a odečtením hodnot integrálního obrazu v ostatních dvou rozích obdélníku viz obrázek \ref{haar_integral}. To pro počítání velkého množství součtů takových výsečí značně zrychlí výpočet, neboť integrální obraz se počítá pouze jednou.
+	
+	\begin{figure}[!ht] 
+		\centering{
+			\includegraphics[width=3in]{img/haar_integral.png}}
+		\caption{Výpočet ploch v integrálním obrazu. Součet hodnot pod plochou A je hodnota integrálního obrazu v bodě 1. Plocha B: hodnota v bodě 2 - hodnota v bodě 1. Plocha D: bod 4 + bod 1 - bod 2 - bod 3. Zdroj: \cite{viola2001rapid}} 	\label{haar_integral}
+	\end{figure} 
 	
 \subsection{AdaBoost}
 \label{subsec_adaboost}
@@ -474,7 +499,18 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	
 	Pro hledaný objekt je pomocí AdaBoost natrénována klasifikační kaskáda z trénovacích dat, tzn. obrazů, ve kterých se nachází hledaný objekt a těch, ve kterých se nenachází spolu s touto informací. Jako příznaky se použijí reakce na obecně libovolné filtry, autoři článku používají obdélníkové filtry založené na haarových bázových funkcích aplikované na všechny dostupné velikosti a pozice těchto filtrů. K výpočtu těchto reakcí použijeme metodu integrálního obrazu popsanou výše. Strukturu kaskády (počet vrstev a počet klasifikátorů v nich) je třeba zvolit. Autoři doporučují 1, 10, 25, 25 a 50 klasifikátorů v prvních vrstvách a ''postupně vzrůstající''  počet klasifikátorů v dalších vrstvách s celkovým počtem klasifikátorů 6061.
 
-	Ve fázi detekce jsou zkoumaném obrazu vybírány výseče, a na každou z nich je aplikována kaskáda vytvořená v trénovací fázi. Reakce na filtry v kaskádě je pro úsporu výkonu opět vypočtena pomocí předem vytvořeného integrálního obrazu.	
+	Ve fázi detekce jsou zkoumaném obrazu vybírány výseče, a na každou z nich je aplikována kaskáda vytvořená v trénovací fázi. Reakce na filtry v kaskádě je pro úsporu výkonu opět vypočtena pomocí předem vytvořeného integrálního obrazu.	Příklad výsledku je vidět na obrázku \ref{haar_detected}
+	
+
+	
+	\begin{figure}[!ht] 
+		\centering
+			\includegraphics[width=3in]{img/haar_detected.jpg}
+		\caption{Příklad výsledku detekce pomocí Haar algoritmu. V tomto případě byly použity dva nezávislé detektory: jeden na detekci obličejů, druhý pro detekci očí. 
+		Zdroj:		 \protect\url{http://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html}
+		}	
+		\label{haar_detected}
+	\end{figure} 
 	
 	\subsection{Využití}
 	
