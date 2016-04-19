@@ -1,14 +1,13 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: bakalarka.aux
-A level-1 auxiliary file: tab_tex/tab_comboperf.aux
 A level-1 auxiliary file: graph_tex/graph_zoom.aux
 A level-1 auxiliary file: graph_tex/graph_rot.aux
 The style file: abbrv.bst
 Database file #1: bakalarka.bib
 You've used 17 entries,
             2118 wiz_defined-function locations,
-            608 strings with 6818 characters,
+            607 strings with 6793 characters,
 and the built_in function-call counts, 6769 in all, are:
 = -- 714
 > -- 258

@@ -145,7 +145,7 @@ def createTexTable(values, form=None, header=None, r_header=None, label=None, ca
 
 	width = len(values[0])
 
-	outstr = "\\begin{table}[htbp]\\centering\n"
+	outstr = "\\begin{table}[!ht]\\centering\n"
 
 	if r_header is not None:
 		assert len(r_header) == len(values), "row header has to be same length as number of rows in values: len(values) == " \
@@ -206,7 +206,7 @@ def createTexTable(values, form=None, header=None, r_header=None, label=None, ca
 	outstr = outstr[:-4]
 	outstr += "\n\\end{tabular}\n"
 	if caption is not None:
-		outstr += "	\\caption[Short Heading]{\\protect " + caption + "}"
+		outstr += "	\\caption{\\protect " + caption + "}"
 		if label is not None:
 			outstr += "\\label{" + label + "}"
 		outstr += "\n"
@@ -331,11 +331,32 @@ if args.comboperf:
 
 	tab = createComboTable(datasets, "det", "desc", det_methods, desc_methods, ["score"])
 
+	# Detector, descriptor, total, zoom, blur, rot, angle, light, res
+	# print tab
+	# Detector, descriptor, total, zoom, rot, angle
+	sets1 = [0, 1, 2, 3, 5, 6]
+	header1 = [desr_header[h] for h in range(len(desr_header)) if h in sets1]
+	tab1 = tab[sets1]
+	# print tab1
+	# Detector, descriptor, total, blur, light, res
+	sets2 = [0, 1, 2, 4, 7, 8]
+	header2 = [desr_header[h] for h in range(len(desr_header)) if h in sets2]
+	tab2 = tab[sets2]
+	# print tab2
+
 	filename = "tab_comboperf"
 	filenames.append(filename)
 
 	if args.tex:
-		texs.append(createTexTable(tab.values, header=desr_header, label=filename, form=["l", "l|", "r", "r", "r", "r", "r", "r", "r"], caption=title))
+
+		form = ["l", "l|", "r", "r", "r", "r", "r", "r", "r"]
+		form1 = [form[h] for h in range(len(form)) if h in sets1]
+		form2 = [form[h] for h in range(len(form)) if h in sets2]
+
+		ttab1 = createTexTable(tab1.values, header=header1, label=filename + "_dynamic", form=form1, caption=title + " na dynamických datasetech")
+		ttab2 = createTexTable(tab2.values, header=header2, label=filename + "_static", form=form2, caption=title + " na statických datasetech")
+
+		texs.append(ttab1 + "\n" + ttab2)
 	else:
 		plotTable(tab, title, desr_header)
 
@@ -380,7 +401,7 @@ if args.desctimes:
 if args.matchcount:
 	det_methods = [" Harris", " GFTT", " SIFT", " SURF", " FAST", " MSER", " ORB"]
 	desc_methods = [" BRIEF", " SIFT", " SURF", " ORB"]
-	header = ["Detektor", "Deskriptor", "průměrně párů", "průměrně použitých párů", "průměrné skóre [%]"]
+	header = ["Detektor", "Deskriptor", "$\oslash$ párů", "$\oslash$ použitých párů", "$\oslash$ skóre [%]"]
 	title = "Počty nalezených párů bodů"
 
 	tab = createComboTable([df], "det", "desc", det_methods, desc_methods, ["matches", "inliers", "score"])
