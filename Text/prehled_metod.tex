@@ -415,7 +415,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	
 
 \section{Haar}
-\ref{sec:haar}
+\label{sec:haar}
 
 	Pojem Haar nebo Haar algoritmus je v kontextu strojového vidění učící se algoritmus, který se využívá k detekci objektů v digitalizovaném obrazu \cite{viola2001rapid}. Jeho principem je aplikace dvojrozměrných filtrů založených na Haarových bázových funkcích \ref{haar_filters} na zkoumaný obraz (resp. výseč obrazu na které se provádí detekce - obrázek \ref{haar_faces}). Tím vznikne pro každý zkoumaný obraz velké množství příznaků (logicky násobně větší než je počet pixelů obrazu), které se liší svou diskriminační schopností. 
 	
@@ -517,7 +517,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	Hlavním pozitivem algoritmu je jednoznačně jeho rychlost. Už v roce 2001, kdy byl uveřejněn původní článek \cite{viola2001rapid}, bylo možné na tehdy běžném desktopovém PC (Pentium III 700 MHz) dosáhnout detekce v 15 snímkcích za vteřinu. Jeho hlavním problémem je potřeba pečlivě volit parametry při konstrukci kaskády v závislosti na konkrétní aplikaci tak, aby byly minimalizovány falešně pozitivní reakce a nedetekování objektů. Dalším problémem je častá několikanásobná detekce stejného objektu v jednom obrazu. Ten ale řeší algoritmus potlačení nemaximálních hodnot (non-maximum supression).
  
 \section{Histogram orientovaných gradientů}
-
+\label{sec:hog}
 	Metoda histogramu orientovaných gradientů, též označovaná HoG \cite{dalal2005histograms} je metodou detekce objektů v digitalizovaném obrazu pomocí příznaků podobných SIFT deskriptorům. Klíčovým předpokladem metody je, že pro rozpoznání určitého tvaru v obrazu jsou klíčové hodnoty a směry gradientů obrazu, ale ne jejich přesné pozice. Stejně jako u Haar algoritmu se jedná o algoritmus trénovaný pomocí učení s učitelem.
 	
 	\subsection{SVM}
@@ -542,6 +542,40 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	\subsection{Využití}
 	
 	HoG je modernější alternativou k Haar algoritmu, která je též schopna fungování v reálném čase. Stejně jako Haar má také problémy s mnohonásobnou detekcí jednoho objektu, ale narozdíl od něj není citlivý na nastavení parametrů a tím pádem bez nutnosti zdlouhavého experimentáování dosahuje menšího množství falešných detekcí a nedetekovaných objektů.
+
+
+\section{Liniové příznaky}
+\label{sec:line}
+	Tradiční detektory bodových příznaků předpokládají, že hrany nebo linie v obrazu nepředstavují vhodné orientační body a snaží se je z detekce vyloučit. Existují nicméně i přístupy, které se orientují právě na vyhledávání a reprezentaci linií. Pro tento přístup mluví například fakt, že zatímco bod, jenž je v obraze nějakým způsobem skryt (změnou podmínek, zastíněním objektem) nemůže být nalezen, dobře fungující detekce hran tuto hranu zrekonstruuje i pokud je viditelná pouze její část.
+	
+	\begin{figure}[!ht] 
+		\centering
+		\includegraphics[width=3in]{img/line_slam.png}
+		\caption{Vizualizace běhu liniového slamu 
+			Zdroj: \cite{gee2006real}
+		}	
+		\label{line_slam}
+	\end{figure} 
+	
+	Liniové přiznaky jsou z důvodu větší míry nejistoty při hledání příznaku doménou především oblasti struktury z pohybu, neboli SFM, která řeší obecně problém 3D rekonstrukce a lokalizace, ale nelade si požadavky na fungování v reálném čase. Autoři \cite{gee2006real} už ale na liniových příznacích staví celý realtimový SLAM systém. Obraz je nejprve předzpracován algoritmem zvýrazňujícím kontury, který je založen na numerických diferencích. Výstupem tohoto předzpracování je binární obraz (1 pro pixely, na kterými prochází hrana, 0 jinak). Na tento obraz jsou potom mapovány přímky pomocí lineární regrese. Hloubka detekovaných čar je potom odhadnuta pomocí kalmanova filtru (každý liniový příznak má svůj vlastní nezávislý filtr) a z nich se potom staví 3D model, oproti kterému se nově detekované čáry porovnávají. Autoři uvádějí uspokojivou výkonnost na malých datasetech (obrázek \ref{line_slam}), jako všechny SLAM systémy se i tento potýká s problémem škálovatelnosti při omezených zdrojích výkonu a paměti.
+	
+	
+
+\section{Objektové příznaky}
+\label{sec:obj}
+	Detekci objektů v obraze lze snadno realizovat pomocí bodových příznaků (objekt je popsán body, které ho charakterizují), pomocí zmíněných metod Haar a HoG (sekce \ref{sec:haar} a \ref{sec:hog}). To jsou ale postupy, jež jsou nejdříve natrenovány a poté hledají, co byly naučeny hledat. To není přístup, který by se hodil pro realtimovou lokalizaci v neznámém prostředí. Tak jako liniové příznaky, i objekty jsou spíše doménou SFM (\cite{bao2011semantic}). 
+	
+	\begin{figure}[!ht] 
+		\centering
+		\includegraphics[width=3in]{img/SLAMpp.png}
+		\caption{Slam založený na detekci známých objektů: SLAM++ Zdroj: \cite{salas2013slam++}
+		}	
+		\label{slampp}
+	\end{figure} 
+	
+	Z využití v reálném čase stojí za zmínku LSD SLAM \cite{engel2014lsd}. Tato metoda odhaduje tvar 3D scény přímo z obrazových jasových dat, přičemž hloubku jednotlivých míst v obraze odhaduje. Obrazy a 3D scénu reprezentuje lieovou algebrou a optimalizuje pomocí podobnostních transformací v ní. Výsledem algoritmu je struktura, kterou si lze představit jako látku nataženou přes pozorované objekty. Jedná se vpodsatě o odhad tvaru povrchu z velkého množství bodových příznaků.
+	
+	SLAM++ \cite{salas2013slam++} je systém lokalizace a mapování založený na orientaci v prostředí osazeném známými objekty. Nejprve se stanoví databáze takových objektů a ty se potom v reálném čase hledají v hloubkové mapě získané pomocí senzoru jako je například Microsoft Kinect. V experimentech publikovaných autory článku vykazuje velmi přesnou a v čase stabilní schopnost lokalizace pozorovatele i tvorby mapy. Jeho nevýhodou je potřeba aproirní znalosti objektů, které v prostředí hledá. Metoda také v publikované fázi neuvažovala využití čistě obrazových dat.
 
 
 \section{K-Nearest Neighbours}

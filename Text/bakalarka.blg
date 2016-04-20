@@ -1,48 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2015)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: bakalarka.aux
-A level-1 auxiliary file: graph_tex/graph_zoom.aux
-A level-1 auxiliary file: graph_tex/graph_rot.aux
 The style file: abbrv.bst
 Database file #1: bakalarka.bib
-You've used 17 entries,
+You've used 21 entries,
             2118 wiz_defined-function locations,
-            607 strings with 6793 characters,
-and the built_in function-call counts, 6769 in all, are:
-= -- 714
-> -- 258
-< -- 12
-+ -- 102
-- -- 84
-* -- 435
-:= -- 1041
-add.period$ -- 59
-call.type$ -- 17
-change.case$ -- 93
+            626 strings with 7458 characters,
+and the built_in function-call counts, 8817 in all, are:
+= -- 935
+> -- 330
+< -- 16
++ -- 130
+- -- 108
+* -- 556
+:= -- 1326
+add.period$ -- 74
+call.type$ -- 21
+change.case$ -- 117
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 288
-empty$ -- 546
-format.name$ -- 84
-if$ -- 1500
+cite$ -- 21
+duplicate$ -- 386
+empty$ -- 716
+format.name$ -- 108
+if$ -- 1979
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 17
-newline$ -- 88
-num.names$ -- 34
-pop$ -- 108
+int.to.str$ -- 21
+missing$ -- 21
+newline$ -- 108
+num.names$ -- 42
+pop$ -- 144
 preamble$ -- 1
-purify$ -- 76
+purify$ -- 96
 quote$ -- 0
-skip$ -- 221
+skip$ -- 303
 stack$ -- 0
-substring$ -- 488
-swap$ -- 105
-text.length$ -- 12
+substring$ -- 652
+swap$ -- 151
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 66
+type$ -- 82
 warning$ -- 0
-while$ -- 69
-width$ -- 19
-write$ -- 198
+while$ -- 89
+width$ -- 23
+write$ -- 245

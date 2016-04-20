@@ -13,13 +13,15 @@
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Aplikace Haarov\IeC {\'y}ch b\IeC {\'a}zov\IeC {\'y}ch filtr\IeC {\r u} na obraz p\IeC {\v r}i detekci Zdroj: \cite {viola2001rapid}\relax }}{24}
 \contentsline {figure}{\numberline {3.10}{\ignorespaces V\IeC {\'y}po\IeC {\v c}et ploch v integr\IeC {\'a}ln\IeC {\'\i }m obrazu. Sou\IeC {\v c}et hodnot pod plochou A je hodnota integr\IeC {\'a}ln\IeC {\'\i }ho obrazu v bod\IeC {\v e} 1. Plocha B: hodnota v bod\IeC {\v e} 2 - hodnota v bod\IeC {\v e} 1. Plocha D: bod 4 + bod 1 - bod 2 - bod 3. Zdroj: \cite {viola2001rapid}\relax }}{25}
 \contentsline {figure}{\numberline {3.11}{\ignorespaces P\IeC {\v r}\IeC {\'\i }klad v\IeC {\'y}sledku detekce pomoc\IeC {\'\i } Haar algoritmu. V tomto p\IeC {\v r}\IeC {\'\i }pad\IeC {\v e} byly pou\IeC {\v z}ity dva nez\IeC {\'a}visl\IeC {\'e} detektory: jeden na detekci obli\IeC {\v c}ej\IeC {\r u}, druh\IeC {\'y} pro detekci o\IeC {\v c}\IeC {\'\i }. Zdroj: \url {http://docs.opencv.org/3.1.0/d7/d8b/tutorial_py_face_detection.html} \relax }}{27}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Vizualizace b\IeC {\v e}hu liniov\IeC {\'e}ho slamu Zdroj: \cite {gee2006real} \relax }}{30}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Slam zalo\IeC {\v z}en\IeC {\'y} na detekci zn\IeC {\'a}m\IeC {\'y}ch objekt\IeC {\r u}: SLAM++ Zdroj: \cite {salas2013slam++} \relax }}{31}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Subset Belledonne z datasetu - stejn\IeC {\'a} sc\IeC {\'e}na s postupn\IeC {\v e} se zv\IeC {\v e}t\IeC {\v s}uj\IeC {\'\i }c\IeC {\'\i }m zoomem. Porovn\IeC {\'a}v\IeC {\'a} se v\IeC {\v z}dy prvn\IeC {\'\i } obr\IeC {\'a}zek vlevo naho\IeC {\v r}e s jedn\IeC {\'\i }m z ostatn\IeC {\'\i }ch \relax }}{33}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema implementace program\IeC {\r u} prov\IeC {\'a}d\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i }ch experimenty a jejich vyhodnocen\IeC {\'\i }\relax }}{36}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Transformace zoom ze subsetu Asterix, detektor MSER, deskriptor SIFT\relax }}{37}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Uk\IeC {\'a}zka transformace zoom ze subsetu Belledonne, detektor FAST, deskriptor ORB\relax }}{37}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Uk\IeC {\'a}zka transformace zoom ze subsetu Ensimag, detektor i deskriptor SIFT\relax }}{38}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Uk\IeC {\'a}zka transformace rotace ze subsetu Monet, detektor GFTT, deskriptor SIFT\relax }}{38}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces St\IeC {\v r}edn\IeC {\'\i } hodnota a standartn\IeC {\'\i } odchylka v\IeC {\'y}konnosti kombinac\IeC {\'\i } metod na datasetu Asterix (zoom)\relax }}{42}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces St\IeC {\v r}edn\IeC {\'\i } hodnota a standartn\IeC {\'\i } odchylka v\IeC {\'y}konnosti kombinac\IeC {\'\i } metod na datasetu Monet (rotace)\relax }}{43}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Subset Belledonne z datasetu - stejn\IeC {\'a} sc\IeC {\'e}na s postupn\IeC {\v e} se zv\IeC {\v e}t\IeC {\v s}uj\IeC {\'\i }c\IeC {\'\i }m zoomem. Porovn\IeC {\'a}v\IeC {\'a} se v\IeC {\v z}dy prvn\IeC {\'\i } obr\IeC {\'a}zek vlevo naho\IeC {\v r}e s jedn\IeC {\'\i }m z ostatn\IeC {\'\i }ch \relax }}{35}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Schema implementace program\IeC {\r u} prov\IeC {\'a}d\IeC {\v e}j\IeC {\'\i }c\IeC {\'\i }ch experimenty a jejich vyhodnocen\IeC {\'\i }\relax }}{38}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Transformace zoom ze subsetu Asterix, detektor MSER, deskriptor SIFT\relax }}{39}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Uk\IeC {\'a}zka transformace zoom ze subsetu Belledonne, detektor FAST, deskriptor ORB\relax }}{39}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Uk\IeC {\'a}zka transformace zoom ze subsetu Ensimag, detektor i deskriptor SIFT\relax }}{40}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Uk\IeC {\'a}zka transformace rotace ze subsetu Monet, detektor GFTT, deskriptor SIFT\relax }}{40}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces St\IeC {\v r}edn\IeC {\'\i } hodnota a standartn\IeC {\'\i } odchylka v\IeC {\'y}konnosti kombinac\IeC {\'\i } metod na datasetu Asterix (zoom)\relax }}{44}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces St\IeC {\v r}edn\IeC {\'\i } hodnota a standartn\IeC {\'\i } odchylka v\IeC {\'y}konnosti kombinac\IeC {\'\i } metod na datasetu Monet (rotace)\relax }}{45}
 \addvspace {10\p@ }

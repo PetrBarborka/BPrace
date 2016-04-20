@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{bao2011semantic}
+S.~Y. Bao and S.~Savarese.
+\newblock Semantic structure from motion.
+\newblock In {\em Computer Vision and Pattern Recognition (CVPR), 2011 IEEE
+  Conference on}, pages 2025--2032. IEEE, 2011.
+
 \bibitem{bay2006surf}
 H.~Bay, T.~Tuytelaars, and L.~Van~Gool.
 \newblock Surf: Speeded up robust features.
@@ -35,11 +41,22 @@ A.~J. Davison, I.~D. Reid, N.~D. Molton, and O.~Stasse.
 \newblock {\em Pattern Analysis and Machine Intelligence, IEEE Transactions
   on}, 29(6):1052--1067, 2007.
 
+\bibitem{engel2014lsd}
+J.~Engel, T.~Sch{\"o}ps, and D.~Cremers.
+\newblock Lsd-slam: Large-scale direct monocular slam.
+\newblock In {\em Computer Vision--ECCV 2014}, pages 834--849. Springer, 2014.
+
 \bibitem{fischler1981random}
 M.~A. Fischler and R.~C. Bolles.
 \newblock Random sample consensus: a paradigm for model fitting with
   applications to image analysis and automated cartography.
 \newblock {\em Communications of the ACM}, 24(6):381--395, 1981.
+
+\bibitem{gee2006real}
+A.~P. Gee and W.~Mayol-Cuevas.
+\newblock Real-time model-based slam using line segments.
+\newblock In {\em Advances in Visual Computing}, pages 354--363. Springer,
+  2006.
 
 \bibitem{harris1988combined}
 C.~Harris and M.~Stephens.
@@ -79,6 +96,13 @@ E.~Rublee, V.~Rabaud, K.~Konolige, and G.~Bradski.
 \newblock Orb: an efficient alternative to sift or surf.
 \newblock In {\em Computer Vision (ICCV), 2011 IEEE International Conference
   on}, pages 2564--2571. IEEE, 2011.
+
+\bibitem{salas2013slam++}
+R.~Salas-Moreno, R.~Newcombe, H.~Strasdat, P.~Kelly, and A.~Davison.
+\newblock Slam++: Simultaneous localisation and mapping at the level of
+  objects.
+\newblock In {\em Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 1352--1359, 2013.
 
 \bibitem{shi1994good}
 J.~Shi and C.~Tomasi.
