@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  25 APR 2016 00:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  25 APR 2016 00:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1587,13 +1587,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 Kapitola 5.
 ) [48
 
-] (./bakalarka.lof
+]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[49] (./bakalarka.lof
 Overfull \hbox (2.55905pt too wide) in paragraph at lines 11--11
  [][] []\T1/aer/m/n/12 Extrakce SIFT deskrip-toru. Zdroj: $\T1/aett/m/n/12 http
  : / / www . codeproject . 
  []
 
-[49
+[50
 
 ]
 Overfull \hbox (9.33035pt too wide) in paragraph at lines 21--21
@@ -1618,7 +1625,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50] [51
+[51] [52
 
 ]
 
@@ -1627,14 +1634,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[52])
+[53])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53] (./bakalarka.aux)
+[54] (./bakalarka.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.28pt have occurred.
@@ -1646,7 +1653,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  26959 strings out of 493054
  638819 string characters out of 6134759
- 886579 words of memory out of 5000000
+ 886580 words of memory out of 5000000
  29857 multiletter control sequences out of 15000+600000
  59004 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1669,10 +1676,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (59 pages, 7022686 bytes).
+Output written on bakalarka.pdf (60 pages, 7023994 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 201 compressed objects within 3 object streams
+ 319 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
