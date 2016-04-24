@@ -9,10 +9,10 @@ Praktická část práce se zabývá porovnáním výkonnosti metod nalezení a 
 \begin{figure}[!ht] 
 	\centering
 	\includegraphics[width=5in]{img/belledonne.png}
-	\caption{Subset Belledonne z datasetu - stejná scéna s postupně se zvětšujícím zoomem. Porovnává se vždy první obrázek vlevo nahoře s jedním z ostatních } 	\label{dataset_belledonne}
+	\caption{Subset Belledonne z datasetu - stejná scéna s postupně se zmenšujícím zoomem. Porovnává se vždy první obrázek vlevo nahoře s jedním z ostatních } 	\label{dataset_belledonne}
 \end{figure}
 
-Pro experimenty v této práci byl použit dataset volně dostupný na webu \url{http://kahlan.eps.surrey.ac.uk/featurespace/web/data.htm}. Sestává z jednotlivých subsetů obsahujících vždy několik obrázků zobrazujících jednu scénu pod různými prostorovými transformacemi. Některé subsety obsahují skutečnou prostorovou transformaci, tj. rotaci podle osy procházející středem fotoaparátu (subset rot), změnu úhlu pozorování (angle), nebo zoom, jiné jsou téměř nebo zcela statické a testují robustnost detektorů a deskriptorů vůdči jiným transformacím: rozostření(blur), změnám světelných podmínek (light) nebo změně rozlišení obrazu(res). Porovnává se vždy jeden z obrázků s postupně všemi ostatními (obr. \ref{dataset_belledonne}). Tyto transformace lze popsat maticí homografie (viz sekce \ref{sec:homo}) a dataset ke každému zkoumanému páru nabízí vzorovou matici homografie.
+Pro experimenty v této práci byl použit dataset volně dostupný na webu \url{http://kahlan.eps.surrey.ac.uk/featurespace/web/data.htm}. Sestává z jednotlivých subsetů obsahujících vždy několik obrázků zobrazujících jednu scénu pod různými prostorovými transformacemi. Některé subsety obsahují skutečnou prostorovou transformaci, tj. rotaci podle osy procházející středem fotoaparátu (subset rot), změnu úhlu pozorování (angle), nebo zoom, jiné jsou téměř nebo zcela statické a testují robustnost detektorů a deskriptorů vůči jiným transformacím: rozostření(blur), změnám světelných podmínek (light) nebo změně rozlišení obrazu(res). Porovnává se vždy jeden z obrázků s postupně všemi ostatními (obr. \ref{dataset_belledonne}). Tyto transformace lze popsat maticí homografie (viz sekce \ref{sec:homo}) a dataset ke každému zkoumanému páru nabízí vzorovou matici homografie.
 
 \section{Homografie}
 \label{sec:homo}
@@ -53,13 +53,13 @@ programem, $eig(H)$ jsou vlastní čísla matice $H$.
 
 \section{Implementace}
 
-Porovnání jednotlivých metod bylo implementováno v hlavním programu v C++ s využitím frameworku openCV. Zpracování datasetu, dávkové spouštění porovnání a statistické vyhodnocení výsledků bylo implementováno v jazyku Python s využitím knihovny Pandas. Schema implementace lze vidět na obrázku \ref{impl_uml}.
-
-\begin{figure}[!ht] 
+\begin{figure}[!htp] 
 	\centering
 	\includegraphics[width=6in]{img/impl_uml.pdf}
 	\caption{Schema implementace programů provádějících experimenty a jejich vyhodnocení} \label{impl_uml}
 \end{figure}
+
+Porovnání jednotlivých metod bylo implementováno v hlavním programu v C++ s využitím frameworku openCV. Zpracování datasetu, dávkové spouštění porovnání a statistické vyhodnocení výsledků bylo implementováno v jazyku Python s využitím knihovny Pandas. Schema implementace lze vidět na obrázku \ref{impl_uml}.
 
 Data o souborech v datasetu jsou vytěžena skriptem \verb|create_configs.py| v Pythonu a zkompilována do konfiguračních souborů pro hlavní program \verb|BP|. Skript \verb|run_batch.py| poté tyto konfigurační soubory načte a postupně s nimi spustí hlavní program. Ten pro každou vybranou složku datasetu vytvoří výstupní složku s obrázky, které zobrazují nalezené a spojené body mezi jedním a druhým obrázkem z vyhodnocovaného páru a soubor \verb|data.csv|, který obsahuje informace o jednotlivých párech, rychlostech vyhodnocení a kvalitě odhadu homografie. Skript \verb|get_data.py| ze souborů \verb|data.csv| vytvoří jeden globální soubor a několik souborů se subsety podle transformace, kterou reprezentují: Úhel (ve smyslu změna polohy pozorovatele směrem do stran), rotace (okolo osy procházející středem fotoaparátu), zoom, nasvětlení, rozostření a změna rozlišení. Tyto soubory jsou zpracovány skriptem \verb|pandas_stats.py| do obrázků a tabulek v této kapitole.
 

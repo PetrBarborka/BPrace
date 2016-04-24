@@ -32,7 +32,7 @@ Moravcův operátor se stal základem dalších algoritmů. Přímo z něj vych�
 
 \begin{itemize}
 	\item Je anizotropní: uvažuje pouze změny v diskrétních úhlech, které jsou násobky 45 stupňů. Změnám v ostatních úhlech bude logicky přiřazen nižší význam
-	\item Binární čtevrcové okénko výsledek výpočtu zašumuje
+	\item Binární čtvercové okénko výsledek výpočtu zašumuje
 	\item Příliš citlivý: protože reaguje pouze na nejmenší změnu intenzity.
 \end{itemize}
 
@@ -306,7 +306,7 @@ V Harrisově operátoru jsou odstraněny hlavní nedostatky Moravcova operátoru
 		v = [\sum d_x, \sum d_y, \sum\lvert d_x \rvert, \sum\lvert d_y \rvert ],
 		\end{align}
 		
-		což je finální dekskriptor.
+		což je finální deskriptor.
 		
 	\end{enumerate}
 	
@@ -386,7 +386,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 
 	Metoda maximálně stabilních extremálních oblastí neboli MSER \cite{matas2004robust} je relativně novým přístupem k detekci obrazových příznaků spočívajícím v identifikaci nikoli výrazných bodů, ale celých obrazových struktur. Obraz $I$ je zobrazením $I: D \subset \mathbb{Z}^2 \rightarrow S$, kde $D$ vyjadřuje dvourozměrnou celočíselnou polohu pixelu a S jeho intenzitu. Je-li $S$ uspořádaná množina a existuje operátor $A$ sousednosti dvou prvků v $D$:  $A \subset D\times D$, lze v prostoru $D$ definovat extremální oblast. 	Oblast $Q$ je spojená, existuje mezi každými dvěma jejími prvky $p, q$ cesta po jejích prvcích pomocí operátoru sousednosti. Vnější hranice oblasti $Q$, $\delta Q$, je složená z bodů, které neleží v oblasti $Q$, ale sousedí s bodem, který ano. Extremální oblast je taková, pro všechny jejíž body $q: q \in Q$ a body její vnější hranice $p: p \in \delta Q$ platí: $I(p) > I(q)$ nebo naopak. Maximálně stabilní extremální oblast je taková extremální oblast, pro kterou má v posloupnosti extremálních oblastí $Q_i : Q_i \subset Q_i+1$ měřítko $q(i) = \frac{\lvert Q_{i+\delta} \setminus Q_{i-\delta} \rvert}{\lvert Q_i \rvert}$ minimum v bodě i, kde $\delta$ je volitelný parametr metody.
 	
-	Nalezení MSER je tedy algoritmus dynamického prahování v obrazu, kdy je pro každou oblast obrazu zvolen práh, který je maximálně robustní vůdči jeho změnám, tzn. při volbě prahu o něco většího nebo menšího než je, zvolený zůstane plocha a charakter nalezené oblasti maximálně podobný tomu, který je určen jako MSER.
+	Nalezení MSER je tedy algoritmus dynamického prahování v obrazu, kdy je pro každou oblast obrazu zvolen práh, který je maximálně robustní vůči jeho změnám, tzn. při volbě prahu o něco většího nebo menšího než je, zvolený zůstane plocha a charakter nalezené oblasti maximálně podobný tomu, který je určen jako MSER.
 	
 	\subsection{Algoritmus}
 	
@@ -395,7 +395,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	\begin{enumerate}
 		\item Nejprve je potřeba nalézt MSER oblasti. Ve zdrojovém obraze se seřadí všechny pixely podle hodnoty jejich intenzity. Ty se potom sestupně vkládají do obrazu. V každém kroku se updatuje datová struktura, ve které jsou zaneseny jednotlivé spojené komponenty a jejich plochy. Výsledkem tohoto postupu je množina komponent jako funkcí prahu. Pro každou komponentu je podle výše popsaného kritéria maximální stability nalezen práh. Ve výsledku je komponenta reprezentována hodnotou lokálního maxima intenzity a hodnotou ideálního prahu. Celý postup se provede na zdrojovém obraze i inverzi jeho intenzit (v článku označeno jako MSER+ a MSER-).
 		
-		\item Pro každý extremální	region definovány oblasti jeho popisu. Jedná se o elipsy opsané konvexnímu obalu (anglicky convex hull) oblasti. První ho přímo obepíná, další mají 1.5x, 2x, a 3x takovou velikost.
+		\item Pro každý extremální region jsou definovány oblasti jeho popisu. Jedná se o elipsy opsané konvexnímu obalu (anglicky convex hull) oblasti. První ho přímo obepíná, další mají 1.5x, 2x, a 3x takovou velikost.
 		
 		\item Každá elipsa z předchozího bodu je zpracována jako deskriptor: diagonalizuje se kovarianční matice (z elipsy se stane kruh). A otočí se podle dominantního úhlu z matice momentů (ta samá matice jako v Harrisově operátoru). Vznikne invariantní popis pomocí kruhu, který má stále stejnou orientaci bez ohledu na to, jak je původní elipsa nalezena.	
 	\end{enumerate}
@@ -468,7 +468,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 	\end{align}
 	kde $m$ je počet negativních příkladů v trénovacích datech (obraz na kterém se objekt nenachází) a $l$ je počet pozitivních příkladů.
 	
-	Pro každé t = 1, ..., T se:
+	Pro každé $t$ = 1, ..., $t_\text{max}$ se:
 	
 	\begin{enumerate}
 		\item znormalizují váhy:
@@ -476,8 +476,8 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 			w_{t,i} \leftarrow \frac{w_{t,i}}{\sum_{j=1}^{n}w_{t,j}},
 		\end{align}
 		takže představují diskrétní pravděpodobnostní rozložení,
-		\item pro každý dosud nepoužitý příznak $j$ (filtr s konkrétní velikostí na konkrétní pozici ve zkoumaném obraze) se vytvoří slabý klasifikátor $h_j(x)$. Ke každému takovému klasifikátoru náleží jeho chyba na trénovacích datech $\epsilon_j = \sum_{i} w_i \lvert h_j(x_i)-y_i \rvert$.
-		\item vybere se klasifikátor $h_t(x)$ s nejmenší chybou $\epsilon_t$
+		\item pro každý dosud nepoužitý příznak $j$ (filtr s konkrétní velikostí na konkrétní pozici ve zkoumaném obraze) se vytvoří slabý klasifikátor $f_j(x)$. Ke každému takovému klasifikátoru náleží jeho chyba na trénovacích datech $\epsilon_j = \sum_{i} w_i \lvert f_j(x_i)-y_i \rvert$.
+		\item vybere se klasifikátor $f_t(x)$ s nejmenší chybou $\epsilon_t$
 		\item aktualizují se váhy $w_{t+1,i} = w_{t,i}\beta_t^{1-e_i}$, kde $\beta_t = \frac{\epsilon_t}{1 - \epsilon_t}$ a 
 		\begin{align}
 		e_i = \begin{cases}
@@ -487,8 +487,8 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 		\end{align} 
 		\item finální silný klasifikátor je součtem všech dosud vybraných slabých klasifikátorů:
 		\begin{align}
-		h(x) = \begin{cases}
-				1 & \text{pro } \sum_{t=1}^{T} \alpha_t h_t(x) \geq \frac{1}{2} \sum_{t=1}^{T} \alpha_t \\
+		F_T(x) = \begin{cases}
+				1 & \text{pro } \sum_{t=1}^{T} \alpha_t f_t(x) \geq \frac{1}{2} \sum_{t=1}^{T} \alpha_t \\
 				0 & \text{jinak}
 			   \end{cases},
 		\end{align}
@@ -557,7 +557,7 @@ Algoritmus ORB je alternativou k SIFT nebo SURF, která je při srovnatelné efe
 		\label{line_slam}
 	\end{figure} 
 	
-	Liniové přiznaky jsou z důvodu větší míry nejistoty při hledání příznaku doménou především oblasti struktury z pohybu, neboli SFM, která řeší obecně problém 3D rekonstrukce a lokalizace, ale nelade si požadavky na fungování v reálném čase. Autoři \cite{gee2006real} už ale na liniových příznacích staví celý realtimový SLAM systém. Obraz je nejprve předzpracován algoritmem zvýrazňujícím kontury, který je založen na numerických diferencích. Výstupem tohoto předzpracování je binární obraz (1 pro pixely, na kterými prochází hrana, 0 jinak). Na tento obraz jsou potom mapovány přímky pomocí lineární regrese. Hloubka detekovaných čar je potom odhadnuta pomocí kalmanova filtru (každý liniový příznak má svůj vlastní nezávislý filtr) a z nich se potom staví 3D model, oproti kterému se nově detekované čáry porovnávají. Autoři uvádějí uspokojivou výkonnost na malých datasetech (obrázek \ref{line_slam}), jako všechny SLAM systémy se i tento potýká s problémem škálovatelnosti při omezených zdrojích výkonu a paměti.
+	Liniové přiznaky jsou z důvodu větší míry nejistoty při hledání příznaku doménou především oblasti struktury z pohybu, neboli SFM, která řeší obecně problém 3D rekonstrukce a lokalizace, ale neklade si požadavky na fungování v reálném čase. Autoři \cite{gee2006real} už ale na liniových příznacích staví celý realtimový SLAM systém. Obraz je nejprve předzpracován algoritmem zvýrazňujícím kontury, který je založen na numerických diferencích. Výstupem tohoto předzpracování je binární obraz (1 pro pixely, na kterými prochází hrana, 0 jinak). Na tento obraz jsou potom mapovány přímky pomocí lineární regrese. Hloubka detekovaných čar je potom odhadnuta pomocí kalmanova filtru (každý liniový příznak má svůj vlastní nezávislý filtr) a z nich se potom staví 3D model, oproti kterému se nově detekované čáry porovnávají. Autoři uvádějí uspokojivou výkonnost na malých datasetech (obrázek \ref{line_slam}), jako všechny SLAM systémy se i tento potýká s problémem škálovatelnosti při omezených zdrojích výkonu a paměti.
 	
 	
 
