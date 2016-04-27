@@ -7,3 +7,4 @@ script:
   - cmake
   - pwd
   - ls -la
+  - ./Code/BP_framework/bin/Debug/runTests
