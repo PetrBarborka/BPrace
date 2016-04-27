@@ -5,4 +5,4 @@ compiler:
 
 script:
   - cmake
-  - bash (cd $TRAVIS_BUILD_DIR/Code/BP_framework/Framework_test/data && $TRAVIS_BUILD_DIR/Code/BP_framework/bin/Debug/runTests)
+  - bash "(cd $TRAVIS_BUILD_DIR/Code/BP_framework/Framework_test/data && $TRAVIS_BUILD_DIR/Code/BP_framework/bin/Debug/runTests)"
