@@ -7,5 +7,4 @@ script:
   - cmake
   - pwd
   - ls -la
-  - chmod 777 Code/BP_framework/bin/Debug/runTests
-  - ./Code/BP_framework/bin/Debug/runTests
+  - ls -la $TRAVIS_BUILD_DIR
