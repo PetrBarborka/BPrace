@@ -5,5 +5,5 @@ compiler:
 
 script:
   - cmake
-  - bash pwd 
-  - bash la
+  - bash "pwd"
+  - bash "la"
