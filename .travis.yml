@@ -27,9 +27,9 @@ install:
 
   - mkdir opencv_lib && cd opencv_lib
 
-  - git clone --branch 3.1 --depth 1 https://github.com/Itseez/opencv.git
+  - git clone https://github.com/Itseez/opencv.git
 
-  - git clone --branch 3.1 --depth 1 https://github.com/itseez/opencv_contrib
+  - git clone https://github.com/itseez/opencv_contrib
 
   - cd opencv
 
