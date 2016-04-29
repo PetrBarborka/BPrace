@@ -60,5 +60,9 @@ install:
 script:
   - pwd
   - mkdir testBuild && cd testBuild
+  - cmake ../Code/BP_Framework
+  - make
+  - cd ../Code/BP_Framework/Framework_test/data
+  - ./../../../testBuild/Framework_test/runTests
   - pwd
   - ls -la
