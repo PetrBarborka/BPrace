@@ -68,6 +68,13 @@ install:
   # We need to return to the repo "root" folder, so we can then 'cd' into the C++ project folder.
   - cd ../../../
 
+  # Clone json and googletest
+  - cd Code/BP_framework/Framework/lib/
+  - git clone https://github.com/nlohmann/json.git
+  - cd ../../Framework_test/lib/
+  - git clone https://github.com/google/googletest.git
+  - cd ../../../../
+
 script:
   - pwd
   - mkdir testBuild && cd testBuild
