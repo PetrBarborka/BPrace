@@ -77,9 +77,9 @@ install:
   - cd Code/BP_framework/Framework/lib/
   - git clone https://github.com/nlohmann/json.git
   - cd json
-  - cmake .
-  - make
-  - ./json_unit
+#  - cmake .
+#  - make
+#  - ./json_unit
   - cd ../../../Framework_test/lib/
   - git clone https://github.com/google/googletest.git
   - cd ../../../../
