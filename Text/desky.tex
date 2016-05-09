@@ -1,0 +1,44 @@
+\documentclass{bakalarka}
+\usepackage[utf8]{inputenc} 
+\usepackage[czech]{babel}
+\usepackage{ae}
+\usepackage{fancyhdr}
+\usepackage[pdftex]{graphicx}
+\usepackage[justification=centering]{caption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{listings}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{cprotect}
+\usepackage{verbatimbox}
+\usepackage{url}
+\usepackage{etoolbox}
+%\makeatletter
+%\patchcmd{\chapter*{}}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+%\makeatother
+%\floatstyle{boxed} 
+\restylefloat{figure}
+\pgfplotsset{width=13cm, compat=1.8}
+\usepgfplotslibrary{statistics}
+
+\author{PETR BARBORKA}
+\title{BAKALÁŘSKÁ PRÁCE}
+\titlet{}
+\titlett{}
+\university{Západočeská univerzita v Plzni}
+\faculty{Fakulta aplikovaných věd}
+\department{Katedra kybernetiky}
+\subject{}
+\town{PLZEŇ}
+\begin{document}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\textit{#1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textit{#1}}{}}
+\cfoot{\thepage}
+\lhead{\leftmark}
+\rhead{\rightmark}
+\maketitle
+
+\end{document}
