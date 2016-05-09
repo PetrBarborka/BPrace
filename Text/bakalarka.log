@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  25 APR 2016 00:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.15)  9 MAY 2016 02:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1653,7 +1653,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  26959 strings out of 493054
  638819 string characters out of 6134759
- 886580 words of memory out of 5000000
+ 887949 words of memory out of 5000000
  29857 multiletter control sequences out of 15000+600000
  59004 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1676,7 +1676,7 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bakalarka.pdf (60 pages, 7023994 bytes).
+Output written on bakalarka.pdf (60 pages, 7024073 bytes).
 PDF statistics:
  319 PDF objects out of 1000 (max. 8388607)
  203 compressed objects within 3 object streams

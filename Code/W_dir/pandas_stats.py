@@ -224,8 +224,10 @@ def createTexBoxplot(values, span, header=None, label=None, caption=None):
 	for i in range(len(values)):
 		# [mean - std, mean, mean std]
 		m = np.nanmean(values[i])
+		mn = np.nanmin(values[i])
+		mx = np.nanmax(values[i])
 		v = np.nanstd(values[i])
-		tv.append([np.clip(m-v, 0, 100), np.clip(m, 0, 100), np.clip(m+v, 0, 100)])
+		tv.append([np.clip(mn, 0, 100), np.clip(m, 0, 100), np.clip(mx, 0, 100)])
 	values = np.array(tv)
 	outstr = "% Preamble: \pgfplotsset{width=7cm,compat=1.13}\usepgfplotslibrary{statistics}\n" + \
 			"\\begin{figure} \n " + \
@@ -259,7 +261,7 @@ def createTexBoxplot(values, span, header=None, label=None, caption=None):
 
 	outstr += "\t\\end{axis} \n  \\end{tikzpicture}\n"
 	if caption is not None:
-		outstr += "	\\caption[Short Heading]{\\protect " + caption + "}"
+		outstr += "	\\caption{\\protect " + caption + "}"
 		if label is not None:
 			outstr += "\\label{" + label + "}"
 		outstr += "\n"
