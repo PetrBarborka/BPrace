@@ -14,6 +14,10 @@
 \usepackage{cprotect}
 \usepackage{verbatimbox}
 \usepackage{url}
+\usepackage{etoolbox}
+%\makeatletter
+%\patchcmd{\chapter*{}}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+%\makeatother
 %\floatstyle{boxed} 
 \restylefloat{figure}
 \pgfplotsset{width=13cm, compat=1.8}
@@ -37,21 +41,36 @@
 \lhead{\leftmark}
 \rhead{\rightmark}
 \maketitle
+
 \chapter*{Prohlášení}
 \thispagestyle{empty}
-Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně s~použitím citovaných pramenů.
+Předkládám tímto k posouzení a obhajobě bakalářskou práci zpracovanou na závěr studia na Fakultě aplikovaných věd Západočeské univerzity v Plzni.
+\\\\
+Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a výhradně  s použitím odborné literatury a pramenů, jejichž úplný seznam je její součástí.
+
+ 
 \vskip 1.5em
 V Plzni dne \today
 \vskip 0.7em
 \hskip 9cm Petr Barborka
 
+{\let\clearpage\relax\chapter*{Poděkování}}
+Chtěl bych poděkovat Ing. Petru Neduchalovi za vedení práce.
+
+
 \chapter*{Abstract}
 \thispagestyle{empty}
 This thesis contains a theoretical overview and a practical comparison of the main methods of detection and description of features in a digitalized image. It thoroughly describes principles of operation of point feature detection methods Moravec operator, Harris operator, Shi-Tomasi, SIFT, SURF, FAST, ORB a MSER and their corresponding descriptor algorithms along with BRIEF algorithm. Object detection methods Haar and Histogram of Oriented Gradients are also described. Descriptor comparison methods k-nearest neighbors and its approximation Best bin first are also noticed. Theoretical part concludes with description of the RANSAC method used here to approximate space transformation between two pictures from detected, described and matched points. The last part contains a comparison of detection and description methods and their combinations on the basis of distance between approximated homography method and its ground truth given as a part of the dataset used. The comparison is implemented in C++ using the openCV framework.
 
+{\let\clearpage\relax\chapter*{Keywords}}
+Machine Vision, Point Features, SIFT, SURF, ORB, MSER
+
 \chapter*{Abstrakt}
 \thispagestyle{empty}
 Tato práce se zabývá popisem a srovnáním metod detekce a popisu příznaků v digitalizovaném obraze. Jsou v ní podrobně vysvětleny principy fungování metod detekce bodových příznaků Moravcův operátor, Harrisův operátor, Shi-Tomasi, SIFT, SURF, FAST, ORB a MSER a jejich příslušné deskriptorové algoritmy spolu s algoritmem BRIEF. Dále jsou popsány metody detekce objeků Haar a Histogram orientovaných gradientů. Zmíněny jsou i metody pro porovnávání deskriptorů pomocí algoritmu nejbližšího souseda a jeho aproximace Best bin first. Nakonec je uvedena metoda RANSAC sloužící zde k odhadu prostorové transformace mezi dvěma obrazy s nalezenými, popsanými a přiřazenými body. V poslední části jsou porovnány metody nalezení a popisu bodových obrazových příznaků na základě srovnání zadané matice homografie a její získané aproximace. Porovnání je implementováno v C++ s využitím frameworku openCV.
+
+{\let\clearpage\relax\chapter*{Klíčová slova}}
+Strojové vidění, bodové příznaky, SIFT, SURF, ORB, MSER
 
 
 \tableofcontents
