@@ -30,8 +30,8 @@ namespace BP {
     {
 
         std::clock_t begin = std::clock();
-        Detection det1(hg.src1, hg.det_methods[detIdx], hg.maxPts);
-        Detection det2(hg.src2, hg.det_methods[detIdx], hg.maxPts);
+        Detection det1(hg.src1, detection_method(hg.det_methods[detIdx]), hg.maxPts);
+        Detection det2(hg.src2, detection_method(hg.det_methods[detIdx]), hg.maxPts);
         hg.kpoints1 = det1.getKeypoints();
         hg.kpoints2 = det2.getKeypoints();
 
@@ -50,8 +50,8 @@ namespace BP {
 //    PrintKPVector(hg.kpoints2, 5);
 
         begin = std::clock();
-        Description desc1( hg.src1, hg.kpoints1, hg.desc_methods[descIdx] );
-        Description desc2( hg.src2, hg.kpoints2, hg.desc_methods[descIdx] );
+        Description desc1( hg.src1, hg.kpoints1, description_method(hg.desc_methods[descIdx]) );
+        Description desc2( hg.src2, hg.kpoints2, description_method(hg.desc_methods[descIdx]) );
         hg.descriptors1 = desc1.getDescriptors();
         hg.descriptors2 = desc2.getDescriptors();
         end = std::clock();
@@ -72,7 +72,8 @@ namespace BP {
 
         begin = std::clock();
         Homography hmg(hg.descriptors1, hg.descriptors2,
-                       hg.kpoints1, hg.kpoints2, hg.matchingThreshold,
+                       hg.kpoints1, hg.kpoints2,
+//                       hg.matchingThreshold,
                        0, hg.desc_methods[descIdx]);
 
         end = std::clock();
@@ -87,6 +88,9 @@ namespace BP {
 
     }
     void computeAllHGs( std::vector<homography_t> & hgs, json pictures, json config, json output )
+    /* Compute all homographies provided json data. Output them to files
+     */
+    //TODO: outosource saving and showing
     {
         std::string pics_output_path;
         pics_output_path = *(output.find("picspath"));
@@ -106,7 +110,7 @@ namespace BP {
                 std::cout << e;
             }
         }
-
+//      Iterate through pictures from pictures json
         for(json::iterator it = pictures.begin(); it != pictures.end(); it++)
         {
 //            std::cout << "=========================\n";
@@ -143,12 +147,14 @@ namespace BP {
             }
 
             parseConfig(config, hg);
+//          For all detection methods:
             for (int detIdx = 0; detIdx < hg.det_methods.size(); detIdx++)
             {
+//              For all description methods:
                 for (int descIdx = 0; descIdx < hg.desc_methods.size(); descIdx++)
                 {
 
-                    computeHg(hg, detIdx, descIdx);
+                    computeHg(hg, hg.det_methods[detIdx], hg.desc_methods[descIdx]);
 
                     double hmg_distance;
 
@@ -185,6 +191,9 @@ namespace BP {
                                                              "SURF",
                                                              "ORB"};
 
+                    // ------------------------------------------------
+                    // Result drawing
+                    // TODO: outsource
                     std::stringstream label;
                     cv::Mat img_matches;
                     std::string lpic1 = it.value()[0];
@@ -196,7 +205,6 @@ namespace BP {
                     lpic2 = *(words.end()-2);
                     label << lpic1 << "_" << lpic2 << "_det_" << detLegend[hg.det_methods[detIdx]]
                     << "_desc_" << descLegend[hg.desc_methods[descIdx]];
-
 
                     cv::Scalar good_color = cv::Scalar(35, 180, 40);
                     cv::Scalar bad_color = cv::Scalar(35, 40, 180);
@@ -212,6 +220,13 @@ namespace BP {
                         //-- Show detected matches
                         cv::imshow(label.str(), img_matches);
                     }
+                    // Result drawing
+                    // ------------------------------------------------
+
+
+                    // ------------------------------------------------
+                    // Result pics saving
+                    // TODO: outsource - needs pic&label generated in previous step
                     std::string filename;
 //                    std::cout << "Printing hmg: \n";
 //                    saveMatToTextFile(label.str() + "_h", hg.homography);
@@ -233,6 +248,12 @@ namespace BP {
                     {
 //                        std::cout << "Pics path empty, not writing png file.\n";
                     }
+                    // Result pics saving
+                    // ------------------------------------------------
+
+                    // ------------------------------------------------
+                    // Csv data saving
+                    // TODO: outsource
                     if (!csv_output_path.empty()) {
                         try {
                             csv_out << pics_output_path << ", " // folder
@@ -259,6 +280,8 @@ namespace BP {
                     {
 //                        std::cout << "Csv path empty, not writing csv file.\n";
                     }
+                    // Csv data saving
+                    // ------------------------------------------------
                 }
             }
         }
@@ -270,10 +293,9 @@ namespace BP {
                             cv::Mat desc2_in,
                             std::vector<cv::KeyPoint> kpts1_in,
                             std::vector<cv::KeyPoint> kpts2_in,
-                            float threshold_in,
                             bool flann_in,  // bruteforce matcher = 0, flann matcher = 1
                             int descType_in )  // 0 = BRIEF, 1 = SIFT, 2 = SURF, 3 = ORB
-    : desc1(desc1_in), desc2(desc2_in), threshold(threshold_in),
+    : desc1(desc1_in), desc2(desc2_in),
       kpts1(kpts1_in), kpts2(kpts2_in), flann(flann_in), descType(descType_in)
     {
         compute();
@@ -409,9 +431,6 @@ namespace BP {
 
     }
 
-    float Homography::getThreshold(){
-        return this->threshold;
-    }
     std::vector<cv::KeyPoint> Homography::getDesc1(){
         return this->desc1;
     }

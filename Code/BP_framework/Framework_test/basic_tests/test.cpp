@@ -139,6 +139,9 @@ namespace {
     }
 
     TEST_F(FrameworkTest, computeHGS){
+        /* Test Homography computation on minimal examples
+         *
+         */
         int argc = 7;
         char *argv[100] = {"dummypath", "--pjsn", "pics_minimal.json",
                                         "--cjsn", "config.json",
@@ -165,7 +168,6 @@ namespace {
             ASSERT_FALSE(h.matches.empty());
             ASSERT_FALSE(h.good_matches.empty());
             ASSERT_FALSE(h.homography_gt.empty());
-            ASSERT_EQ(h.matchingThreshold, 5);
             ASSERT_EQ(h.maxPts, 10000);
             ASSERT_EQ(h.show, 0);
             ASSERT_GT(h.time_homography, 0);
@@ -174,6 +176,12 @@ namespace {
 
 //            for (int j = 0; j < )
         }
+    }
+
+    TEST_F(FrameworkTest, ptrtst) {
+        float ff = 20.2;
+        cv::Ptr<float> f = cv::makePtr<float>(ff);
+        ASSERT_FLOAT_EQ(*f,20.2);
     }
 
 

@@ -20,6 +20,8 @@ namespace BP {
 
     jsons_t parseArgs(int argc, char *argv[]);
 
+    json parseJson(std::string path);
+
     void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec);
     void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount);
     void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname);

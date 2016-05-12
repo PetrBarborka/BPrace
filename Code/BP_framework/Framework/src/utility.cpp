@@ -32,8 +32,7 @@ namespace fs = boost::filesystem;
 
 namespace BP
 {
-    jsons_t parseArgs(int argc, char *argv[])
-    {
+    jsons_t parseArgs(int argc, char *argv[]) {
         fs::path pwd = fs::system_complete(fs::current_path());
 
         // Declare the supported options.
@@ -67,53 +66,15 @@ namespace BP
 //    --picture pairs in json
         if ( vm.count("pjsn")  )
         {
-            std::string pjsn_path;
-            try
-            {
-                pjsn_path = pwd.string() + "/" + vm["pjsn"].as<std::string>();
-                std::ifstream f(pjsn_path);
-                if (!f)
-                {
-                    std::cout << "pjsn file doesn't exist!\n";
-                    throw std::invalid_argument("file does not exist");
-                }
-                std::string str((std::istreambuf_iterator<char>(f)),
-                                std::istreambuf_iterator<char>());
-                out.pictures = json::parse(str);
-            }
-            catch (std::exception e)
-            {
-                std::cout << "picture " << pjsn_path << " loading failed with exception: " <<  e.what() << "\n"
-                          << "in folder" << pwd << "\n";
-            }
-        }
-        else
-        {
-//            out.pictures = {{"graf1.png", "graf3.png"}};
+            std::string pjsn_path = pwd.string() + "/" + vm["pjsn"].as<std::string>();
+            out.pictures = parseJson(pjsn_path);
         }
 
 //    --config in json
         if ( vm.count("cjsn")  )
         {
-            std::string  config_path;
-            try
-            {
-                config_path = pwd.string() + "/" + vm["cjsn"].as<std::string>();
-                std::ifstream f(config_path);
-                if (!f)
-                {
-                    std::cout << "cjsn file doesn't exist!\n";
-                    throw std::invalid_argument("file does not exist");
-                }
-                std::string str((std::istreambuf_iterator<char>(f)),
-                                std::istreambuf_iterator<char>());
-                out.config = json::parse(str);
-            }
-            catch (std::exception e)
-            {
-                std::cout   << "config " << config_path << " loading failed with exception: " << e.what() << "\n"
-                            << "in folder" << pwd << "\n";
-            }
+            std::string config_path = pwd.string() + "/" + vm["cjsn"].as<std::string>();
+            out.config = parseJson(config_path);
         }
         else
         {
@@ -127,25 +88,8 @@ namespace BP
 //    --out in json
         if ( vm.count("out")  )
         {
-            std::string  output_path;
-            try
-            {
-                output_path = pwd.string() + "/" + vm["out"].as<std::string>();
-                std::ifstream f(output_path);
-                if (!f)
-                {
-                    std::cout << "out file doesn't exist!\n";
-                    throw std::invalid_argument("file does not exist");
-                }
-                std::string str((std::istreambuf_iterator<char>(f)),
-                                std::istreambuf_iterator<char>());
-                out.output = json::parse(str);
-            }
-            catch (std::exception e)
-            {
-                std::cout   << "output " << output_path << " loading failed with exception: " << e.what() << "\n"
-                            << "in folder" << pwd << "\n";
-            }
+            std::string  output_path = pwd.string() + "/" + vm["out"].as<std::string>();
+            out.output = parseJson(output_path);
         }
         else
         {
@@ -155,9 +99,28 @@ namespace BP
         return out;
     }
 
+    json parseJson(std::string path) {
+        try
+        {
+            std::ifstream f(path);
+            if (!f)
+            {
+                std::cout << "parseJson(): file doesn't exist!\n";
+                throw std::invalid_argument("file does not exist");
+            }
+            std::string str((std::istreambuf_iterator<char>(f)),
+                            std::istreambuf_iterator<char>());
+            return json::parse(str);
+        }
+        catch (std::exception e)
+        {
+            std::cout << "json " << path << " loading failed with exception: " <<  e.what() << "\n";
+            return nullptr;
+        }
+    }
+
     //VISUAL - DRAWING ============================================================
-    void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname)
-    {
+    void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname) {
     cv::Mat out_mat;
     in_mat.copyTo(out_mat);
     cv::drawKeypoints(in_mat, kpts, out_mat, cv::Scalar::all(-1), cv::DrawMatchesFlags::DRAW_OVER_OUTIMG );
@@ -165,7 +128,7 @@ namespace BP
     }
 
     //MISC - UTILITIES ============================================================
-    void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec){
+    void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec) {
     std::vector<cv::Point2f>::const_iterator itb = in_vec.begin();
     std::vector<cv::Point2f>::const_iterator ite = in_vec.end();
     for (; itb < ite; itb++) {
@@ -173,19 +136,19 @@ namespace BP
         out_vec.push_back(cv::KeyPoint(*itb, 30., 180., 1000., 0, -1));
     }
 }
-    void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount){
+    void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount) {
  int remove = pts.size() - ammount;
  for (; remove > 0; remove --){
     pts.pop_back();
  }
 }
-    void unpackSIFTOctave(const cv::KeyPoint& kpt, int& octave, int& layer, float& scale){
+    void unpackSIFTOctave(const cv::KeyPoint& kpt, int& octave, int& layer, float& scale) {
         octave = kpt.octave & 255;
         layer = (kpt.octave >> 8) & 255;
         octave = octave < 128 ? octave : (-128 | octave);
         scale = octave >= 0 ? 1.f/(1 << octave) : (float)(1 << -octave);
     }
-    void patchSIFTOctaves(std::vector<cv::KeyPoint> &kpv){
+    void patchSIFTOctaves(std::vector<cv::KeyPoint> &kpv) {
         std::vector<cv::KeyPoint>::iterator it = kpv.begin();
         std::vector<cv::KeyPoint>::const_iterator ite = kpv.end();
         for(; it < ite; it++){
@@ -195,8 +158,7 @@ namespace BP
         }
     }
 
-    void PrintKeyPoint(const cv::KeyPoint &kp)
-    {
+    void PrintKeyPoint(const cv::KeyPoint &kp) {
         std::cout << "--\nKeypoint: " << kp.pt <<
             " size: " << kp.size <<
             " angle: " << kp.angle <<
@@ -204,8 +166,7 @@ namespace BP
             " octave: " << kp.octave <<
             " class_id: " << kp.class_id << std::endl;
     }
-    void PrintKPVector(const std::vector<cv::KeyPoint> &kpv, int max)
-    {
+    void PrintKPVector(const std::vector<cv::KeyPoint> &kpv, int max) {
         if (kpv.empty())
         {
             std::cout << "PrintKPV error: input vector empty!\n";
@@ -223,16 +184,14 @@ namespace BP
             ctr++;
         }
     }
-    void PrintMatch(const cv::DMatch &match)
-    {
+    void PrintMatch(const cv::DMatch &match) {
         std::cout << "--\nDMatch: " <<
                 " distance: " << match.distance <<
                 " imgIdx: " << match.imgIdx <<
                 " queryIdx: " << match.queryIdx <<
                 " trainIdx: " << match.trainIdx << "\n";
     }
-    void PrintMatchVector(const std::vector<cv::DMatch> &mv, int max)
-    {
+    void PrintMatchVector(const std::vector<cv::DMatch> &mv, int max) {
         if (mv.empty()){
             std::cout << "PrintMatchVector error: input vector empty!\n";
         }
@@ -247,17 +206,14 @@ namespace BP
             ctr++;
         }
     }
-    bool compareKeypointsByResponse (const cv::KeyPoint &k1, const cv::KeyPoint &k2)
-    {
+    bool compareKeypointsByResponse (const cv::KeyPoint &k1, const cv::KeyPoint &k2) {
         return k1.response > k2.response;
     }
-    bool compareMatchesByDistance(const cv::DMatch &m1, const cv::DMatch &m2)
-    {
+    bool compareMatchesByDistance(const cv::DMatch &m1, const cv::DMatch &m2)  {
         return m1.distance < m2.distance;
     }
 
-    cv::Mat readMatFromTextFile(const std::string & path)
-    {
+    cv::Mat readMatFromTextFile(const std::string & path) {
         cv::Mat out;
         std::ifstream f(path);
         std::string mtrx((std::istreambuf_iterator<char>(f)),
@@ -303,7 +259,7 @@ namespace BP
         return out;
     }
 
-    void saveMatToTextFile(const std::string & path, const cv::Mat & mtrx){
+    void saveMatToTextFile(const std::string & path, const cv::Mat & mtrx) {
         cv::MatConstIterator_<double> mitr = mtrx.begin<double>();
         cv::MatConstIterator_<double> mend = mtrx.end<double>();
 
@@ -326,45 +282,34 @@ namespace BP
 
     }
 
-    void parseConfig(const json & config, homography_t &hg){
-        std::string tmp;
-        tmp = *(config.find("matchingThreshold"));
-        hg.matchingThreshold = std::stof(tmp);
-        tmp = *(config.find("maxPts"));
-        hg.maxPts = std::stoi(tmp);
-        tmp = *(config.find("show"));
-        hg.show = (std::stoi(tmp) != 0);
-        std::vector<detection_method> detection_methods;
-        std::vector<description_method> description_methods;
-        std::vector<std::string> tmp2 = *(config.find("detection_methods"));
-        for (int i = 0; i < tmp2.size(); i++){
-            detection_methods.push_back(detection_method(std::stoi(tmp2[i])));
+    template<typename rT>
+    rT jsonGetValue(json j, std::string key){
+        rT out = *(j.find(key));
+        return out;
+    }
+    template<>
+    int jsonGetValue<int>(json j, std::string key){
+        std::string s = *(j.find(key));
+        return std::stoi( s );
+    }
+    template<>
+    std::vector<int> jsonGetValue<std::vector<int>>(json j, std::string key){
+        std::vector<int> out;
+        std::vector<std::string> tmp = *(j.find(key));
+        for (int i = 0; i < tmp.size(); i++){
+            out.push_back(detection_method(std::stoi(tmp[i])));
         }
-        std::vector<std::string> tmp3 = *(config.find("description_methods"));
-        for (int i = 0; i < tmp3.size(); i++){
-            description_methods.push_back(description_method(std::stoi(tmp3[i])));
-        }
-        hg.det_methods = detection_methods;
-        hg.desc_methods = description_methods;
-
-//    std::cout <<    "-------------------------\n" <<
-//                    "Parsed config: " <<
-//                    "matchingThreshold: " <<  hg.matchingThreshold << "\n"
-//                <<  "Detection methods: [ ";
-//    for (std::vector<detection_method>::iterator i = detection_methods.begin(); i != detection_methods.end(); i++){
-//        std::cout << *i << ", ";
-//    }
-//    std::cout << "]\n Description methods: [ ";
-//    for (std::vector<description_method>::iterator i = description_methods.begin(); i != description_methods.end(); i++){
-//        std::cout << *i << ", ";
-//    }
-//    std::cout << "]\n";
-//    std::cout <<    "maxPts: " << hg.maxPts << "\n" <<
-//                    "show: " << hg.show <<
-//                "\n-------------------------\n";
+        return out;
     }
 
-    double getHomographyDistance(const cv::Mat & hmg1, const cv::Mat & hmg2){
+    void parseConfig(const json & config, homography_t &hg) {
+        hg.maxPts = jsonGetValue<int>(config, "maxPts");
+        hg.show = jsonGetValue<int>(config, "show") != 0;
+        hg.det_methods = jsonGetValue<std::vector<int>>(config, "detection_methods");
+        hg.desc_methods = jsonGetValue<std::vector<int>>(config, "description_methods");
+    }
+
+    double getHomographyDistance(const cv::Mat & hmg1, const cv::Mat & hmg2) {
         cv::Mat eigen1, eigen2;
         cv::eigen(hmg1, eigen1);
         cv::eigen(hmg2, eigen2);

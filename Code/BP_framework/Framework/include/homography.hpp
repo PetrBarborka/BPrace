@@ -27,13 +27,10 @@ namespace BP {
         std::vector<cv::DMatch> matches, good_matches;
         //  Homography matrix
         cv::Mat homography, homography_gt;
-        //  Multiple of minimal descriptor distance still
-        //  considered a good match
-        float matchingThreshold;
         //  Maximum number of keypoints returned
         int maxPts;
-        std::vector<detection_method> det_methods;
-        std::vector<description_method> desc_methods;
+        std::vector<int> det_methods;
+        std::vector<int> desc_methods;
         // draw results?
         bool show;
         // inlier matches indicator
@@ -63,11 +60,8 @@ namespace BP {
                         cv::Mat desc2_in,
                         std::vector<cv::KeyPoint> kpts1_in,
                         std::vector<cv::KeyPoint> kpts2_in,
-                        float threshold_in,
                         bool flann_in=1,  // bruteforce matcher = 0, flann matcher = 1
                         int descType_in=0 );  // 0 = BRIEF, 1 = SIFT, 2 = SURF, 3 = ORB;
-
-            float getThreshold();
             std::vector<cv::KeyPoint> getDesc1();
             std::vector<cv::KeyPoint> getDesc2();
             std::vector<cv::DMatch> getMatches();

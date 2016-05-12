@@ -21,64 +21,42 @@ namespace BP {
     void Description::describe() {
 
         cv::Mat desc;
+        cv::Ptr<cv::Feature2D> extractor;
 
-//        std::cout << "describe() method runs. Describing with ";
         if (getMethod() == DESCRIPTION_BRIEF){
-
-            //  BRIEF parameters
-//            std::cout << "BRIEF\n";
 
             int bytes = 32;
             bool use_orientation = true;
 
-            cv::Ptr<cv::xfeatures2d::BriefDescriptorExtractor> extractor =
-                    cv::xfeatures2d::BriefDescriptorExtractor::create(bytes, use_orientation);
-
-            std::vector<cv::KeyPoint> kpts = getKeypoints();
-            extractor->compute(getSrc(), kpts, desc);
-
+            extractor = cv::xfeatures2d::BriefDescriptorExtractor::create(bytes, use_orientation);
 
         }else if (getMethod() == DESCRIPTION_SIFT){
 
-            //SIFT parameters
-//            std::cout << "SIFT\n";
             int nfeatures = 0;
             int nOctaveLayers = 3;
             double contrastThreshold = 0.04;
             double edgeThreshold = 10;
             double sigma = 1.6;
 
-            cv::Ptr<cv::xfeatures2d::SIFT> extractor = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold,
-                                                                                    edgeThreshold, sigma);
-
-            std::vector<cv::KeyPoint> kpts = getKeypoints();
-            extractor->compute(getSrc(), kpts, desc);
-
+            extractor = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold,
+                                                      edgeThreshold, sigma);
 
         } else if (getMethod() == DESCRIPTION_SURF){
 
-            //  SURF parameters
-//            std::cout << "SURF\n";
             double hessianThreshold = 100;
             int nOctaves = 4;
             int nOctaveLayers = 3;
             bool extended = true;
             bool upright = false;
 
-            cv::Ptr<cv::xfeatures2d::SURF> extractor = cv::xfeatures2d::SURF::create(hessianThreshold,
-                                                                                     nOctaves,
-                                                                                     nOctaveLayers,
-                                                                                     extended,
-                                                                                     upright);
-
-            std::vector<cv::KeyPoint> kpts = getKeypoints();
-            extractor->compute(getSrc(), kpts, desc);
+            extractor = cv::xfeatures2d::SURF::create(hessianThreshold,
+                                                      nOctaves,
+                                                      nOctaveLayers,
+                                                      extended,
+                                                      upright);
 
         } else if (getMethod() == DESCRIPTION_ORB){
 
-            //ORB parameters
-//            std::cout << "ORB\n";
-//            int nfeatures=10000;
             int nfeatures = getKeypoints().size();
             float scaleFactor=1.2f;
             int nlevels=8;
@@ -89,16 +67,14 @@ namespace BP {
             int patchSize=31;
             int fastThreshold=20;
 
-            cv::Ptr<cv::ORB> extractor = cv::ORB::create(nfeatures, scaleFactor, nlevels, edgeThreshold, firstLevel,
+            extractor = cv::ORB::create(nfeatures, scaleFactor, nlevels, edgeThreshold, firstLevel,
                                                          WTA_K, scoreType, patchSize, fastThreshold);
-
-            std::vector<cv::KeyPoint> kpts = getKeypoints();
-            extractor->compute(getSrc(), kpts, desc);
-
-
         } else {
             std::cout << "error: unknown description method";
         }
+
+        std::vector<cv::KeyPoint> kpts = getKeypoints();
+        extractor->compute(getSrc(), kpts, desc);
 
         this->descriptors = desc;
     }

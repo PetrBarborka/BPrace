@@ -14,6 +14,70 @@
 
 namespace BP {
 
+
+//  FAST Detector implementation --------------------------------------------------------------------------------
+
+    FastDetector::FastDetector(int threshold_in, bool nonmaxSupression_in, int neighbourhood_in)
+                : threshold(threshold_in), nonmaxSupression(nonmaxSupression_in),
+                  neighbourhood(neighbourhood_in)
+                { }
+
+    cv::Ptr<FastDetector> FastDetector::create(int threshold, bool nonmaxSupression, int neighbourhood)
+    {
+        FastDetector d = FastDetector(threshold, nonmaxSupression, neighbourhood);
+        return cv::makePtr<FastDetector>(d);
+    }
+
+    void FastDetector::detect(const cv::_InputArray &image, std::vector<cv::KeyPoint> &keypoints,
+                              const cv::_InputArray &mask)
+    {
+        cv::FAST(image, keypoints, threshold, nonmaxSupression, neighbourhood);
+    }
+
+//  Harris and GFTT Detector implementation ----------------------------------------------------------------------
+
+    HarrisDetector::HarrisDetector( int maxPts_in,
+                                    double qualityLevel_in,
+                                    double minDistance_in,
+                                    int blockSize_in,
+                                    bool useHarrisDetector_in,
+                                    double k_in)
+            : maxPts(maxPts_in), qualityLevel(qualityLevel_in), minDistance(minDistance_in), blockSize(blockSize_in),
+              useHarrisDetector(useHarrisDetector_in), k(k_in) {}
+
+    cv::Ptr<HarrisDetector> HarrisDetector::create(int maxPts, double qualityLevel,
+                                                   double minDistance, int blockSize,
+                                                   bool useHarrisDetector, double k)
+    {
+        HarrisDetector d = HarrisDetector(maxPts, qualityLevel, minDistance, blockSize,
+                                          useHarrisDetector, k);
+        return cv::makePtr<HarrisDetector>(d);
+    }
+
+
+
+    void HarrisDetector::detect(const cv::_InputArray &image, std::vector<cv::KeyPoint> &keypoints,
+                                const cv::_InputArray &mask) {
+
+        std::vector<cv::Point2f> corners;
+
+        cv::goodFeaturesToTrack( image,
+                                 corners,
+                                 maxPts,
+                                 qualityLevel,
+                                 minDistance,
+                                 mask,
+                                 blockSize,
+                                 useHarrisDetector,
+                                 k );
+        // convert vector of Points2f to a vector of KeyPoints
+        pointsToKeypoints(corners, keypoints);
+    }
+
+    typedef HarrisDetector GFTTDetector;
+
+//  Detection class implementation ----------------------------------------------------------------------
+
 //  Constructor ------------------
 
     Detection::Detection(const cv::Mat &src_in,
@@ -28,8 +92,8 @@ namespace BP {
     void Detection::detect()  {
 
         std::vector<cv::KeyPoint> kpts;
-
-
+        cv::Ptr<cv::Feature2D> detector;
+        cv::Mat mask = cv::Mat();
 
 //        std::cout << "detect() method runs. Detecting with ";
         if (getMethod() == DETECTION_HARRIS){
@@ -43,17 +107,8 @@ namespace BP {
             bool useHarrisDetector = true;
             double k = 0.04;
 
-            cv::goodFeaturesToTrack( getSrc(),
-                                     corners,
-                                     getMaxPts(),
-                                     qualityLevel,
-                                     minDistance,
-                                     cv::Mat(),
-                                     blockSize,
-                                     useHarrisDetector,
-                                     k );
-            // convert vector of Points2f to a vector of KeyPoints
-            pointsToKeypoints(corners, kpts);
+            detector = HarrisDetector::create(getMaxPts(), qualityLevel, minDistance,
+                                              blockSize, useHarrisDetector, k);
 
         } else if (getMethod() == DETECTION_GFTT){
 //            std::cout << "GFTT\n";
@@ -65,17 +120,8 @@ namespace BP {
             bool useHarrisDetector = false;
             double k = 0.04;
 
-            cv::goodFeaturesToTrack( getSrc(),
-                                     corners,
-                                     getMaxPts(),
-                                     qualityLevel,
-                                     minDistance,
-                                     cv::Mat(),
-                                     blockSize,
-                                     useHarrisDetector,
-                                     k );
-            // convert vector of Points2f to a vector of KeyPoints
-            pointsToKeypoints(corners, kpts);
+            detector = GFTTDetector::create(getMaxPts(), qualityLevel, minDistance,
+                                            blockSize, useHarrisDetector, k);
 
         } else if (getMethod() == DETECTION_SIFT) {
 //            std::cout << "SIFT\n";
@@ -86,17 +132,8 @@ namespace BP {
             double edgeThreshold = 10;
             double sigma = 1.6;
 
-            cv::Ptr<cv::xfeatures2d::SIFT> detector = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold,
-                                                                                    edgeThreshold, sigma);
-            detector->detect(getSrc(), kpts);
-
-//            patchSIFTOctaves(kpts);
-
-//            std::vector<cv::KeyPoint>::iterator it = kpts.begin();
-//            std::vector<cv::KeyPoint>::const_iterator ite = kpts.end();
-//            for(; it < ite; it++){
-//                (*it).octave = (*it).octave & 255;
-//            }
+            detector = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold,
+                                                     edgeThreshold, sigma);
 
         } else if (getMethod() == DETECTION_SURF) {
 //            std::cout << "SURF\n";
@@ -108,8 +145,7 @@ namespace BP {
             bool extended = false;
             bool upright = false;
 
-            cv::Ptr<cv::xfeatures2d::SURF> detector = cv::xfeatures2d::SURF::create(hessianThreshold, nOctaves, nOctaveLayers, extended, upright);
-            detector->detect(getSrc(), kpts );
+            detector = cv::xfeatures2d::SURF::create(hessianThreshold, nOctaves, nOctaveLayers, extended, upright);
 
         } else if (getMethod() == DETECTION_FAST) {
 //            std::cout << "FAST\n";
@@ -119,8 +155,7 @@ namespace BP {
             bool nonmaxSupression = true;
             int neighbourhood = cv::FastFeatureDetector::TYPE_9_16;
 
-            cv::FAST(getSrc(), kpts, threshold, nonmaxSupression, neighbourhood);
-//            std::cout << "FAST got " << kpts.size() << "kpts\n";
+            detector = FastDetector::create(threshold, nonmaxSupression, neighbourhood);
 
         } else if (getMethod() == DETECTION_MSER) {
 //            std::cout << "MSER\n";
@@ -136,12 +171,10 @@ namespace BP {
             double _min_margin=0.003;
             int _edge_blur_size=5;
 
-            cv::Ptr<cv::MSER> detector = cv::MSER::create( _delta, _min_area, _max_area,
-                                                           _max_variation, _min_diversity,
-                                                           _max_evolution, _area_threshold,
-                                                           _min_margin, _edge_blur_size);
-
-            detector->detect(getSrc(), kpts, cv::noArray());
+            detector = cv::MSER::create( _delta, _min_area, _max_area,
+                                         _max_variation, _min_diversity,
+                                         _max_evolution, _area_threshold,
+                                         _min_margin, _edge_blur_size);
 
         } else if (getMethod() == DETECTION_ORB) {
 //            std::cout << "ORB\n";
@@ -157,17 +190,22 @@ namespace BP {
             int patchSize=31;
             int fastThreshold=20;
 
-            cv::Ptr<cv::ORB> detector = cv::ORB::create( nfeatures, scaleFactor, nlevels, edgeThreshold,
+            detector = cv::ORB::create( nfeatures, scaleFactor, nlevels, edgeThreshold,
                                                          firstLevel, WTA_K, scoreType,
                                                          patchSize, fastThreshold);
-
-            detector->detect(getSrc(), kpts, cv::noArray());
 
         } else {
             std::cout << "Detection error: unknown detection method";
         }
+
+        detector->detect(getSrc(), kpts, mask);
+
         std::sort(kpts.begin(), kpts.end(), compareKeypointsByResponse);
         topKeypoints(kpts, getMaxPts());
+
+        if (getMethod() == DETECTION_SIFT){
+            patchSIFTOctaves(kpts);
+        }
 
         this->keypoints = kpts;
     }
@@ -180,9 +218,11 @@ namespace BP {
     cv::Mat Detection::getSrc(){
         return this->src;
     }
+
     detection_method Detection::getMethod(){
         return this->method;
     }
+
     int Detection::getMaxPts(){
         return this->maxPts;
     }
