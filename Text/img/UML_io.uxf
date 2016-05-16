@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>80</y>
+      <w>70</w>
+      <h>820</h>
+    </coordinates>
+    <panel_attributes>BP
+
+fontsize=40</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>80</x>
+      <y>130</y>
+      <w>80</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>{
+style=wordwrap
+fontsize=100</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>140</y>
+      <w>280</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>*PICS*
+Json with pic pairs &amp; homography ground truths
+
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>250</y>
+      <w>290</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>*CONFIG*
+Json with hg computation parameters:
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>90</y>
+      <w>280</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>PROGRAM ARGS
+style=wordwrap
+fontsize=20
+fg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>90</x>
+      <y>0</y>
+      <w>470</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Bachelor APP - I/O analysis
+style=wordwrap
+fontsize=30
+fg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>20</x>
+      <y>180</y>
+      <w>70</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Input
+
+style=wordwrap
+fontsize=20</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>50</y>
+      <w>690</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;20.0;670.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>570</y>
+      <w>380</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>460</y>
+      <w>320</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*OUTCONF*
+Json output config for picture saving and csv saving. No argument means not to save.
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>900</x>
+      <y>400</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.
+Collaboration
+fg=red
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>80</x>
+      <y>660</y>
+      <w>80</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>{
+style=wordwrap
+fontsize=100</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>660</y>
+      <w>310</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*HOMOGRAPHY*
+
+Matcher type: 
+curently Hamming Bruteforce for binary, L2 Bruteforce for others
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>590</y>
+      <w>310</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>HARDCODED PARAMETERS
+
+style=wordwrap
+fontsize=20
+fg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>890</y>
+      <w>380</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;360.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>10</x>
+      <y>700</y>
+      <w>80</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Hard
+coded
+
+style=wordwrap
+fontsize=20</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>610</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>At the moment, the system contains
+various hardcoded parameters.
+style=wordwrap
+fontsize=12
+fg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>110</y>
+      <w>310</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>--pics &amp; --config &amp; --outconf
+style=wordwrap
+fontsize=12
+fg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>180</y>
+      <w>350</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>{
+"pair1" :["pic1", "pic2", "H11to12"]
+}
+style=wordwrap
+fontsize=12
+fg=#AA6600</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>280</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>{         
+  \\maximum detected pts to use
+  \\per picture
+"maxPts": "10000", 
+  \\ 0: "Harris", 1: "GFTT", 2: "SIFT", 3: "SURF", 
+  \\ 4: "FAST", 5: "MSER", 6: "ORB"
+"detection_methods": ["0", "1", "2", "3", "4", "5", "6"] ,
+  \\ 0: "BRIEF", 1: "SIFT", 2: "SURF", 3: "ORB"
+"description_methods": ["0", "1", "2", "3"] ,
+  \\ show results as pictures?
+"show": "0" 
+}
+fg=#AA6600
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>500</y>
+      <w>310</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>{
+"picspath" : "tstout/", "csvpath": "tstout/data.csv" 
+}
+fg=#AA6600
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>750</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*DETECTION*
+
+Detector constructor parameters
+
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>140</x>
+      <y>820</y>
+      <w>280</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>*DESCRIPTION*
+
+Descriptor constructor parameters
+
+style=wordwrap
+fontsize=12</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

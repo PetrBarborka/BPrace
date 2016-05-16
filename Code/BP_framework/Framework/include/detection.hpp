@@ -12,14 +12,6 @@
 
 namespace BP {
 
-    enum detection_method { DETECTION_HARRIS = 0,
-        DETECTION_GFTT = 1,
-        DETECTION_SIFT = 2,
-        DETECTION_SURF = 3,
-        DETECTION_FAST = 4,
-        DETECTION_MSER = 5,
-        DETECTION_ORB = 6  };
-
     class CV_EXPORTS_W HarrisDetector: public cv::Feature2D {
     public:
         CV_WRAP static cv::Ptr<HarrisDetector> create(  int maxPts = 1000,
@@ -69,18 +61,18 @@ namespace BP {
 
     private:
         const cv::Mat &src;
-        const detection_method method;
+        const std::string method;
         const int maxPts;
         std::vector<cv::KeyPoint> keypoints;
 
         void detect();
 
     public:
-        Detection(const cv::Mat &src, const detection_method method,
+        Detection(const cv::Mat &src, const std::string method,
                   const int maxPts);
         std::vector<cv::KeyPoint> getKeypoints();
         cv::Mat getSrc();
-        detection_method getMethod();
+        std::string getMethod();
         int getMaxPts();
     };
 

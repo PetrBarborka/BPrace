@@ -24,7 +24,7 @@ set ( contrib_LIBS  -L/usr/local/lib
 
 #set ( HEADERS lib/json/src/json.hpp include/utility.hpp include/detection.hpp include/description.hpp include/homography.hpp )
 
-set ( SOURCES src/utility.cpp src/detection.cpp src/description.cpp src/homography.cpp)
+set ( SOURCES src/utility.cpp src/detection.cpp src/description.cpp src/homography.cpp src/process.cpp include/process.hpp)
 
 include_directories( ${Boost_INCLUDE_DIR} )
 include_directories( include )

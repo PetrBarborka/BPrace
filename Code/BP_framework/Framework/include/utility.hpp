@@ -19,8 +19,20 @@ namespace BP {
     };
 
     jsons_t parseArgs(int argc, char *argv[]);
-
     json parseJson(std::string path);
+
+    template<typename rT>
+    rT jsonGetValue(json j, std::string key);
+    template<>
+    std::string jsonGetValue<std::string>(json j, std::string key);
+    template<>
+    int jsonGetValue<int>(json j, std::string key);
+    template<>
+    bool jsonGetValue<bool>(json j, std::string key);
+    template<>
+    std::vector<int> jsonGetValue<std::vector<int>>(json j, std::string key);
+
+
 
     void pointsToKeypoints(const std::vector<cv::Point2f> &in_vec, std::vector<cv::KeyPoint> &out_vec);
     void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount);
@@ -40,8 +52,16 @@ namespace BP {
     cv::Mat readMatFromTextFile(const std::string & path);
     void saveMatToTextFile(const std::string & path, const cv::Mat & mtrx);
 
-    void parseConfig(const json & config, homography_t &hg);
+    void parseConfig(homography_t &hg, const json &config,
+                     std::vector<std::string> &det_methods,
+                     std::vector<std::string> &desc_methods);
     double getHomographyDistance(const cv::Mat & hmg1, const cv::Mat & hmg2);
+
+    cv::Mat getMatchesImg(homography_t hg);
+    std::string getLabel(std::string p1, std::string p2,
+                         homography_t hg);
+    void savePic(cv::Mat pic, std::string filename);
+    std::string getCsvRow(homography_t &hg, std::string p1, std::string p2);
 }
 
 #endif //BP_UTILITY_H

@@ -13,7 +13,8 @@
 
 namespace BP {
 
-    Description::Description(cv::Mat src_in, std::vector<cv::KeyPoint> kpoints_in, description_method method_in)
+
+    Description::Description(cv::Mat src_in, std::vector<cv::KeyPoint> kpoints_in, std::string method_in)
             : src(src_in), keypoints(kpoints_in), method(method_in){
         this->describe();
     }
@@ -23,14 +24,14 @@ namespace BP {
         cv::Mat desc;
         cv::Ptr<cv::Feature2D> extractor;
 
-        if (getMethod() == DESCRIPTION_BRIEF){
+        if (getMethod() == "BRIEF"){
 
             int bytes = 32;
             bool use_orientation = true;
 
             extractor = cv::xfeatures2d::BriefDescriptorExtractor::create(bytes, use_orientation);
 
-        }else if (getMethod() == DESCRIPTION_SIFT){
+        }else if (getMethod() == "SIFT"){
 
             int nfeatures = 0;
             int nOctaveLayers = 3;
@@ -41,7 +42,7 @@ namespace BP {
             extractor = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold,
                                                       edgeThreshold, sigma);
 
-        } else if (getMethod() == DESCRIPTION_SURF){
+        } else if (getMethod() == "SURF"){
 
             double hessianThreshold = 100;
             int nOctaves = 4;
@@ -55,7 +56,7 @@ namespace BP {
                                                       extended,
                                                       upright);
 
-        } else if (getMethod() == DESCRIPTION_ORB){
+        } else if (getMethod() == "ORB"){
 
             int nfeatures = getKeypoints().size();
             float scaleFactor=1.2f;
@@ -70,7 +71,7 @@ namespace BP {
             extractor = cv::ORB::create(nfeatures, scaleFactor, nlevels, edgeThreshold, firstLevel,
                                                          WTA_K, scoreType, patchSize, fastThreshold);
         } else {
-            std::cout << "error: unknown description method";
+            std::cout << "error: unknown description method: " << getMethod() << "\n";
         }
 
         std::vector<cv::KeyPoint> kpts = getKeypoints();
@@ -84,7 +85,7 @@ namespace BP {
     cv::Mat Description::getDescriptors(){
         return this->descriptors;
     }
-    description_method Description::getMethod(){
+    std::string Description::getMethod(){
         return this->method;
     }
     cv::Mat Description::getSrc(){

@@ -32,6 +32,9 @@ namespace fs = boost::filesystem;
 
 namespace BP
 {
+
+    //JSON ============================================================
+
     jsons_t parseArgs(int argc, char *argv[]) {
         fs::path pwd = fs::system_complete(fs::current_path());
 
@@ -80,8 +83,8 @@ namespace BP
         {
             out.config = R"( {"matchingThreshold": "3",
                     "maxPts": "10000",
-                    "detection_methods": ["2"] ,
-                    "description_methods": ["1"] ,
+                    "detection_methods": ["SURF"] ,
+                    "description_methods": ["SURF"] ,
                     "show": "1"} )"_json;
         }
 
@@ -99,13 +102,22 @@ namespace BP
         return out;
     }
 
+    void parseConfig(homography_t &hg, const json &config,
+                     std::vector<std::string> &det_methods,
+                     std::vector<std::string> &desc_methods) {
+        hg.maxPts = jsonGetValue<int>(config, "maxPts");
+        hg.show_pic = jsonGetValue<bool>(config, "show") != 0;
+        det_methods = jsonGetValue<std::vector<std::string>>(config, "detection_methods");
+        desc_methods = jsonGetValue<std::vector<std::string>>(config, "description_methods");
+    }
+
     json parseJson(std::string path) {
         try
         {
             std::ifstream f(path);
             if (!f)
             {
-                std::cout << "parseJson(): file doesn't exist!\n";
+                std::cout << "parseJson(): file " << path << " doesn't exist!\n";
                 throw std::invalid_argument("file does not exist");
             }
             std::string str((std::istreambuf_iterator<char>(f)),
@@ -118,6 +130,37 @@ namespace BP
             return nullptr;
         }
     }
+
+    template<typename rT>
+    rT jsonGetValue(json j, std::string key){
+        rT out = *(j.find(key));
+        return out;
+    }
+    template<>
+    std::string jsonGetValue<std::string>(json j, std::string key){
+        std::string out = *(j.find(key));
+        return out;
+    }
+    template<>
+    int jsonGetValue<int>(json j, std::string key){
+        std::string s = *(j.find(key));
+        return std::stoi( s );
+    }
+    template<>
+    bool jsonGetValue<bool>(json j, std::string key){
+        std::string s = *(j.find(key));
+        return std::stoi( s ) != 0;
+    }
+    template<>
+    std::vector<int> jsonGetValue<std::vector<int>>(json j, std::string key){
+        std::vector<int> out;
+        std::vector<std::string> tmp = *(j.find(key));
+        for (int i = 0; i < tmp.size(); i++){
+            out.push_back(std::stoi(tmp[i]));
+        }
+        return out;
+    }
+
 
     //VISUAL - DRAWING ============================================================
     void showKeypoints(cv::InputArray &in_mat, std::vector<cv::KeyPoint> &kpts, std::string winname) {
@@ -137,10 +180,10 @@ namespace BP
     }
 }
     void topKeypoints(std::vector<cv::KeyPoint> &pts, int ammount) {
- int remove = pts.size() - ammount;
- for (; remove > 0; remove --){
-    pts.pop_back();
- }
+        int remove = pts.size() - ammount;
+        for (; remove > 0; remove --){
+            pts.pop_back();
+        }
 }
     void unpackSIFTOctave(const cv::KeyPoint& kpt, int& octave, int& layer, float& scale) {
         octave = kpt.octave & 255;
@@ -282,33 +325,6 @@ namespace BP
 
     }
 
-    template<typename rT>
-    rT jsonGetValue(json j, std::string key){
-        rT out = *(j.find(key));
-        return out;
-    }
-    template<>
-    int jsonGetValue<int>(json j, std::string key){
-        std::string s = *(j.find(key));
-        return std::stoi( s );
-    }
-    template<>
-    std::vector<int> jsonGetValue<std::vector<int>>(json j, std::string key){
-        std::vector<int> out;
-        std::vector<std::string> tmp = *(j.find(key));
-        for (int i = 0; i < tmp.size(); i++){
-            out.push_back(detection_method(std::stoi(tmp[i])));
-        }
-        return out;
-    }
-
-    void parseConfig(const json & config, homography_t &hg) {
-        hg.maxPts = jsonGetValue<int>(config, "maxPts");
-        hg.show = jsonGetValue<int>(config, "show") != 0;
-        hg.det_methods = jsonGetValue<std::vector<int>>(config, "detection_methods");
-        hg.desc_methods = jsonGetValue<std::vector<int>>(config, "description_methods");
-    }
-
     double getHomographyDistance(const cv::Mat & hmg1, const cv::Mat & hmg2) {
         cv::Mat eigen1, eigen2;
         cv::eigen(hmg1, eigen1);
@@ -323,5 +339,52 @@ namespace BP
 //    std::cout << "norm= " << cv::norm(dif) << "\n";
 
         return cv::norm(dif);
+    }
+
+    cv::Mat getMatchesImg(homography_t hg) {
+        cv::Scalar good_color = cv::Scalar(35, 180, 40);
+        cv::Scalar bad_color = cv::Scalar(35, 40, 180);
+
+        cv::Mat img_matches;
+        cv::drawMatches(hg.src1, hg.kpoints1, hg.src2,
+                        hg.kpoints2, hg.matches, img_matches,
+                        good_color, bad_color, hg.mask,
+                        cv::DrawMatchesFlags::DEFAULT);
+        return img_matches;
+    }
+    std::string getLabel(std::string p1, std::string p2,
+                         homography_t hg){
+
+        std::stringstream label;
+        std::string lpic1 = p1;
+        std::string lpic2 = p2;
+        std::vector<std::string> words;
+        boost::split(words, p1, boost::is_any_of(" \\/\"."));
+        lpic1 = *max(words.begin(), words.end()-2);
+        boost::split(words, p2, boost::is_any_of(" \\/\"."));
+        lpic2 = *max(words.begin(), words.end()-2);
+        label << lpic1 << "_" << lpic2 <<
+        "_det_" << hg.det_method
+        << "_desc_" << hg.desc_method;
+        return label.str();
+
+    }
+    void savePic(cv::Mat pic, std::string filename);
+    std::string getCsvRow(homography_t &hg, std::string p1, std::string p2){
+        std::stringstream csv_out;
+        csv_out
+            << hg.out_pic_path << ", " // folder
+            << p1 << ", " // pic1
+            << p2 << ", " // pic2
+            << hg.det_method << ", " // detection method
+            << hg.desc_method << ", " // detection method
+            << hg.matches.size() << ", " // matches
+            << hg.good_matches.size() << ", " // inliers
+            << hg.hmg_distance << ", " // hmg_distance
+            << hg.time_det << ", " // detection time
+            << hg.time_desc << ", " // description time
+            << hg.time_homography << ", " // homography & matching time
+            << hg.filename << "\n"; // saved as
+        return csv_out.str();
     }
 } // namespace BP

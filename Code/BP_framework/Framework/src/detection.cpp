@@ -14,7 +14,6 @@
 
 namespace BP {
 
-
 //  FAST Detector implementation --------------------------------------------------------------------------------
 
     FastDetector::FastDetector(int threshold_in, bool nonmaxSupression_in, int neighbourhood_in)
@@ -81,7 +80,7 @@ namespace BP {
 //  Constructor ------------------
 
     Detection::Detection(const cv::Mat &src_in,
-                         const detection_method method_in,
+                         const std::string method_in,
                          const int maxPts_in)
         : src(src_in), method(method_in), maxPts(maxPts_in)
     {
@@ -96,11 +95,10 @@ namespace BP {
         cv::Mat mask = cv::Mat();
 
 //        std::cout << "detect() method runs. Detecting with ";
-        if (getMethod() == DETECTION_HARRIS){
+        if (getMethod() == "Harris"){
 //            std::cout << "Harris\n";
 
             /// Parameters for Harris algorithm
-            std::vector<cv::Point2f> corners;
             double qualityLevel = 0.01;
             double minDistance = 3;
             int blockSize = 3;
@@ -110,10 +108,9 @@ namespace BP {
             detector = HarrisDetector::create(getMaxPts(), qualityLevel, minDistance,
                                               blockSize, useHarrisDetector, k);
 
-        } else if (getMethod() == DETECTION_GFTT){
+        } else if (getMethod() == "GFTT"){
 //            std::cout << "GFTT\n";
             /// Parameters for GFTT algorithm
-            std::vector<cv::Point2f> corners;
             double qualityLevel = 0.01;
             double minDistance = 10;
             int blockSize = 3;
@@ -123,7 +120,7 @@ namespace BP {
             detector = GFTTDetector::create(getMaxPts(), qualityLevel, minDistance,
                                             blockSize, useHarrisDetector, k);
 
-        } else if (getMethod() == DETECTION_SIFT) {
+        } else if (getMethod() == "SIFT") {
 //            std::cout << "SIFT\n";
 
             int nfeatures = 0;
@@ -135,7 +132,7 @@ namespace BP {
             detector = cv::xfeatures2d::SIFT::create(nfeatures, nOctaveLayers, contrastThreshold,
                                                      edgeThreshold, sigma);
 
-        } else if (getMethod() == DETECTION_SURF) {
+        } else if (getMethod() == "SURF") {
 //            std::cout << "SURF\n";
 
 //      //  SURF parameters
@@ -147,7 +144,7 @@ namespace BP {
 
             detector = cv::xfeatures2d::SURF::create(hessianThreshold, nOctaves, nOctaveLayers, extended, upright);
 
-        } else if (getMethod() == DETECTION_FAST) {
+        } else if (getMethod() == "FAST") {
 //            std::cout << "FAST\n";
 
 //      //  FAST
@@ -157,7 +154,7 @@ namespace BP {
 
             detector = FastDetector::create(threshold, nonmaxSupression, neighbourhood);
 
-        } else if (getMethod() == DETECTION_MSER) {
+        } else if (getMethod() == "MSER") {
 //            std::cout << "MSER\n";
 
 //      //  MSER
@@ -176,7 +173,7 @@ namespace BP {
                                          _max_evolution, _area_threshold,
                                          _min_margin, _edge_blur_size);
 
-        } else if (getMethod() == DETECTION_ORB) {
+        } else if (getMethod() == "ORB") {
 //            std::cout << "ORB\n";
 
 //      //  ORB
@@ -195,17 +192,13 @@ namespace BP {
                                                          patchSize, fastThreshold);
 
         } else {
-            std::cout << "Detection error: unknown detection method";
+            std::cout << "Detection error: unknown detection method: " << getMethod() << "\n";
         }
 
         detector->detect(getSrc(), kpts, mask);
 
         std::sort(kpts.begin(), kpts.end(), compareKeypointsByResponse);
         topKeypoints(kpts, getMaxPts());
-
-        if (getMethod() == DETECTION_SIFT){
-            patchSIFTOctaves(kpts);
-        }
 
         this->keypoints = kpts;
     }
@@ -219,7 +212,7 @@ namespace BP {
         return this->src;
     }
 
-    detection_method Detection::getMethod(){
+    std::string Detection::getMethod(){
         return this->method;
     }
 

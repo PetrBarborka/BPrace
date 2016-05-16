@@ -14,11 +14,13 @@
       <sourceFolder url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework/Framework_automoc.cpp" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Framework/src/utility.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Framework/src/process.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Framework/src/homography.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Framework/src/description.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Framework/src/detection.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Framework/src/utility.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Framework/src/description.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Framework/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Framework/include/process.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Framework_test/basic_tests/CMakeLists.txt" isTestSource="false" />
@@ -206,9 +208,9 @@
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
-          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework" />
-          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Debug/Framework" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/MinSizeRel/Framework" />
+          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Debug/Framework" />
+          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/RelWithDebInfo/Framework" />
           <root url="file://$MODULE_DIR$/Framework/include" />
           <root url="file://$MODULE_DIR$/Framework/lib/json/src" />
@@ -449,9 +451,9 @@
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
-          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework" />
-          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Debug/Framework" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/MinSizeRel/Framework" />
+          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Debug/Framework" />
+          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/RelWithDebInfo/Framework" />
           <root url="file://$MODULE_DIR$/Framework/include" />
           <root url="file://$MODULE_DIR$/Framework/lib/json/src" />
@@ -520,10 +522,11 @@
           <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.0.2/include" />
         </SOURCES>
         <excluded>
-          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework/Framework_automoc.cpp" />
-          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Debug/Framework/Framework_automoc.cpp" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/MinSizeRel/Framework/Framework_automoc.cpp" />
+          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Debug/Framework/Framework_automoc.cpp" />
+          <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/Release/Framework/Framework_automoc.cpp" />
           <root url="file://$USER_HOME$/Library/Caches/CLion12/cmake/generated/f21d1859/f21d1859/RelWithDebInfo/Framework/Framework_automoc.cpp" />
+          <root url="file://$MODULE_DIR$/Framework/include/process.hpp" />
         </excluded>
       </library>
     </orderEntry>

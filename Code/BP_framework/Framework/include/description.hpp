@@ -7,26 +7,21 @@
 
 namespace BP {
 
-    enum description_method { DESCRIPTION_BRIEF = 0,
-                              DESCRIPTION_SIFT = 1,
-                              DESCRIPTION_SURF = 2,
-                              DESCRIPTION_ORB = 3};
-
     class Description {
 
     private:
         const cv::Mat &src;
         std::vector<cv::KeyPoint> keypoints;
-        description_method method;
+        std::string method;
         cv::Mat descriptors;
 
         void describe();
 
     public:
-        Description(cv::Mat src_in, std::vector<cv::KeyPoint> kpoints_in, description_method method_in);
+        Description(cv::Mat src_in, std::vector<cv::KeyPoint> kpoints_in, std::string method_in);
         std::vector<cv::KeyPoint> getKeypoints();
         cv::Mat getDescriptors();
-        description_method getMethod();
+        std::string getMethod();
         cv::Mat getSrc();
     };
 
